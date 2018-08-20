@@ -1,5 +1,6 @@
 #!/bin/sh
-echo "hello"
+echo "hello..."
+echo "get ready for jazz!"
 
 is_not_symlink()
 {
@@ -36,4 +37,16 @@ if [ -L $HOME/.zshrc ]; then
   rm $HOME/.zshrc
   echo "linking .zshrc"
   ln -s .dotfiles/zsh/.zshrc $HOME/.zshrc
+fi
+
+THEMES="$HOME.dotfiles/zsh/themes"
+SITE_FUNCTIONS=/usr/local/share/zsh/site-functions
+if [ ! -L $SITE_FUNCTIONS/prompt_pure_setup ]; then
+  echo "linking prompt_pure_setup for pure theme"
+  ln -s "$THEMES/pure/pure.zsh" $SITE_FUNCTIONS/prompt_pure_setup
+fi
+
+if [ ! -L $SITE_FUNCTIONS/async ]; then
+  echo "linking async for pure theme"
+  ln -s "$THEMES/pure/async.zsh" $SITE_FUNCTIONS/async
 fi

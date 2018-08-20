@@ -9,7 +9,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
 Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
 Plug 'w0rp/ale'                         " linting
-Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+" Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
@@ -25,8 +25,8 @@ colorscheme stellarized
 set background=dark
 
 " colours for the line at the bottom of viewports
-hi StatusLine    ctermfg=253  ctermbg=024  cterm=NONE
-hi StatusLineNC  ctermfg=024  ctermbg=253  cterm=NONE
+hi StatusLine    ctermfg=253  ctermbg=126  cterm=NONE
+hi StatusLineNC  ctermfg=089  ctermbg=253  cterm=NONE
 
 set clipboard+=unnamed    " yanking goes straigth clipboard buffer
 set mouse=a               " setting up the mouse
@@ -42,6 +42,8 @@ set notagrelative         " tags not followed relative to tag file
 
 " Enables cursor line position tracking:
 set cursorline
+set colorcolumn=80        " colour column 80
+" highlight ColorColumn ctermbg=007
 " Removes the underline causes by enabling cursorline:
 " highlight clear CursorLine
 " Sets the line numbering to red background:
@@ -52,15 +54,15 @@ let g:netrw_liststyle = 3
 let g:netrw_banner = 0
 let g:netrw_winsize = 50
 let g:netrw_altv=1 | let g:netrw_alto=1
-let g:netrw_browse_split=4
 
-" Prettier Settings
-let g:prettier#exec_cmd_path = "/usr/local/bin/prettier"
-let g:prettier#quickfix_auto_focus = 0
-let g:prettier#autoformat = 0
-augroup prettiersettings
-  autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.vue Prettier
-augroup END
+" Prettier
+nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+
+" ALE seettings
+let g:ale_fix_on_save = 1
+let g:ale_javascript_prettier_use_local_config = 1
+let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+"let b:ale_fixers = {'javascript': ['prettier']}
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
