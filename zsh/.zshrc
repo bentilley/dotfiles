@@ -74,6 +74,9 @@ source $ZSH/oh-my-zsh.sh
 autoload -U promptinit; promptinit
 prompt pure
 
+# variables
+export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
+
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/jammy/Code/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jammy/Code/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
