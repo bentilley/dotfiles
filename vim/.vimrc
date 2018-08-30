@@ -17,8 +17,9 @@ call plug#end()
 
 set rtp+=/usr/local/opt/fzf
 
-nnoremap confe :e $MYVIMRC<CR>        " Edit vimr configuration file
-nnoremap confr :source $MYVIMRC<CR>   " Reload vims configuration file
+nnoremap confe :e $MYVIMRC<CR>                  " Edit vimr configuration file
+nnoremap confr :source $MYVIMRC<CR>             " Reload vims configuration file
+nnoremap confz :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
 
 " set up colour scheme
 colorscheme stellarized
@@ -39,6 +40,12 @@ set hlsearch | nohl       " highlight all search matches when search completed
 set number                " add line numbers
 set relativenumber        " do line numbering relative to current cursor row
 set notagrelative         " tags not followed relative to tag file
+set ignorecase            " search case insensitive - use \C for sensitive
+set smartcase             " search case sensitive if contains capital letters
+
+" fold commands
+nnoremap sfld :set foldmethod=syntax<CR>
+nnoremap mfld :set foldmethod=manual<CR>
 
 " Enables cursor line position tracking:
 set cursorline

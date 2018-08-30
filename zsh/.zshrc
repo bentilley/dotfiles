@@ -74,6 +74,9 @@ source $ZSH/oh-my-zsh.sh
 autoload -U promptinit; promptinit
 prompt pure
 
+# iTerm2 shell integration
+source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh
+
 # variables
 export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
 
@@ -102,3 +105,5 @@ if [ -f '/Users/jammy/Code/google-cloud-sdk/completion.zsh.inc' ]; then source '
 
 # source aliases
 source $HOME/.dotfiles/zsh/aliases.zsh
+# source functions
+source $HOME/.dotfiles/zsh/functions.zsh
