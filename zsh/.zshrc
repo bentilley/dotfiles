@@ -74,8 +74,9 @@ source $ZSH/oh-my-zsh.sh
 autoload -U promptinit; promptinit
 prompt pure
 
-# iTerm2 shell integration
-source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh
+# ADD-ONS
+source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh # iTerm2 shell integration
+source ~/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # variables
 export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
