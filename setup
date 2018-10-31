@@ -1,0 +1,6 @@
+brew install tmux
+brew install the_silver_searcher
+brew install plantuml
+brew install fzf
+brew install tig
+brwe install universal-ctags
