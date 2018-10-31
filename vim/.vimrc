@@ -13,6 +13,7 @@ Plug 'w0rp/ale'                         " linting
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
+Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
 call plug#end()
 
 set rtp+=/usr/local/opt/fzf
@@ -24,6 +25,18 @@ nnoremap confz :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
 " set up colour scheme
 colorscheme stellarized
 set background=dark
+
+" Limelight config
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_default_coefficient = 0.4
+let g:limelight_paragraph_span = 0
+nmap <Leader>i :Limelight!!<CR>
+function! SetLimelightSpan(span)
+  let g:limelight_paragraph_span = a:span
+endfunction
+nmap dl :<C-U>call SetLimelightSpan(v:count)<CR>jk
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)
 
 " colours for the line at the bottom of viewports
 hi StatusLine    ctermfg=253  ctermbg=126  cterm=NONE
