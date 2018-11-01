@@ -14,6 +14,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
+" Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
 call plug#end()
 
 set rtp+=/usr/local/opt/fzf
