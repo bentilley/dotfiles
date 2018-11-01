@@ -83,7 +83,7 @@ nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quot
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-"let b:ale_fixers = {'javascript': ['prettier']}
+let g:ale_completion_enabled = 1
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
@@ -104,6 +104,9 @@ nmap cag :Ag<CR>
 " tab settings
 nnoremap <S-Left> :tabprevious<CR>
 nnoremap <S-Right> :tabnext<CR>
+
+nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
+nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.

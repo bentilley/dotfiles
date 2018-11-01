@@ -12,19 +12,19 @@ generateDiagram() {
   #files=$(findFiles)
  
   dan |
-  replaceImport |
+  #replaceImport |
   #findFiles |
   #findImports |
   #stripLeadingDirectories |
   #generatePlantuml |
   removeDuplicates |
-  addPlantumlTags | tee "./plantuml.txt" |
-  filterModules |
+  addPlantumlTags | tee "./plantuml.txt" | cat |
+  filterModules | cat |
   createDiagram > $OUTPUT
 }
 
 dan() {
-  find . -type f -name '*.js' | while read F; do
+  find $DIR -type f -name '*.js' | while read F; do
     cat "$F" | grep -E '^import' \
         | sed -E -e 's/[^"]*"//' \
         -e "s/[^']*'//" \
@@ -70,7 +70,7 @@ removeDuplicates() {
 }
 
 filterModules() {
-  grep -e $FILTER
+  grep -v -E $FILTER
 }
 
 addPlantumlTags() {
