@@ -4,16 +4,18 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'nightsense/stellarized'
+" Plug 'szorfein/fantasy.vim'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
-Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
+" Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
 Plug 'w0rp/ale'                         " linting
 " Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
+Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
 call plug#end()
 
 set rtp+=/usr/local/opt/fzf
@@ -25,6 +27,8 @@ nnoremap confz :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
 " set up colour scheme
 colorscheme stellarized
 set background=dark
+" syntax on
+" colorscheme fantasy
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
@@ -81,7 +85,7 @@ nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quot
 " ALE seettings
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
+let g:ale_fixers = {'javascript': ['prettier']}
 let g:ale_completion_enabled = 1
 
 " Tagbar settings
@@ -103,6 +107,9 @@ nmap cag :Ag<CR>
 " tab settings
 nnoremap <S-Left> :tabprevious<CR>
 nnoremap <S-Right> :tabnext<CR>
+
+" template literal highlighting
+nnoremap <Leader>t :JsPreTmpl html<CR>
 
 nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>

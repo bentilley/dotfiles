@@ -1,0 +1,8 @@
+set folder = "~/Maildir/work"
+set spoolfile = "+INBOX"
+set record = "+Sent Items"
+set postponed = "+Drafts"
+set trash = '/Users/jammy/Maildir/work/Deleted Items'
+
+#unmailboxes *
+#source ~/.mutt/mailboxes.work

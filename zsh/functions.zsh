@@ -1,5 +1,8 @@
-wlconf() {
-  cp docker-ben.yaml docker-compose.yaml
-  cp helm-ben.conf nginx/conf.d/fragments/helm.conf
-  cp ben-vhost.conf nginx/conf.d/vhost.conf
+# Testing with Karma
+function kstart() {
+  npx karma start --no-single-run
+}
+
+function ktest() {
+  npx karma run -- --grep=$1
 }

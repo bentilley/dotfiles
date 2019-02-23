@@ -108,3 +108,5 @@ if [ -f '/Users/jammy/Code/google-cloud-sdk/completion.zsh.inc' ]; then source '
 source $HOME/.dotfiles/zsh/aliases.zsh
 # source functions
 source $HOME/.dotfiles/zsh/functions.zsh
+# setup direnv - directory level variables
+eval "$(direnv hook zsh)"
