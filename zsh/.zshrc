@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# path additions for macports
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -85,6 +88,9 @@ export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
 if [ -f '/Users/jammy/Code/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jammy/Code/google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/jammy/Code/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jammy/Code/google-cloud-sdk/completion.zsh.inc'; fi
+
+# MACPORTS
+export MP_EDITOR_VISUAL=/usr/local/bin/vim
 
 # export MANPATH="/usr/local/man:$MANPATH"
 

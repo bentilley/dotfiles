@@ -12,6 +12,7 @@ alias jf="jest \`fzf\` --watch"
 
 # git aliases
 alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
+alias gls="git --no-pager branch --list"
 
 # generate a import diagram for a directory
 alias impdiag="bash ~/.dotfiles/zsh/commands/plantuml_diagram.sh"
