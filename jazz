@@ -12,6 +12,7 @@ is_not_symlink()
   fi
 }
 
+# clean out old dotfiles folder if it exists
 if is_not_symlink $HOME/.vimrc || is_not_symlink $HOME/.zshrc; then
   if [ ! -d $HOME/.olddotfiles ]; then
     echo "We need a place for old dot files - creating .olddotfils in $HOME"
@@ -27,6 +28,7 @@ if is_not_symlink $HOME/.vimrc || is_not_symlink $HOME/.zshrc; then
   fi
 fi
 
+# link vim and zsh rc files
 if [ -L $HOME/.vimrc ]; then
   rm $HOME/.vimrc
   echo "linking .vimrc"
@@ -39,6 +41,7 @@ if [ -L $HOME/.zshrc ]; then
   ln -s .dotfiles/zsh/.zshrc $HOME/.zshrc
 fi
 
+## pure prompt setup
 THEMES="$HOME/.dotfiles/zsh/themes"
 SITE_FUNCTIONS=/usr/local/share/zsh/site-functions
 if [ ! -L $SITE_FUNCTIONS/prompt_pure_setup ]; then
@@ -50,3 +53,9 @@ if [ ! -L $SITE_FUNCTIONS/async ]; then
   echo "linking async for pure theme"
   ln -s "$THEMES/pure/async.zsh" $SITE_FUNCTIONS/async
 fi
+
+## iTerm2 setup
+# Specify the preferences directory
+defaults write com.googlecode.iterm2.plist PrefsCustomFolder -string "~/dotfiles/iterm2/profile"
+# Tell iTerm2 to use the custom preferences in the directory
+defaults write com.googlecode.iterm2.plist LoadPrefsFromCustomFolder -bool true
