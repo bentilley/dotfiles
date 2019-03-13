@@ -3,12 +3,13 @@
 " let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 
 call plug#begin('~/.vim/plugged')
-Plug 'nightsense/stellarized'
+"Plug 'nightsense/stellarized'           " stellarized colour scheme
+Plug 'connorholyday/vim-snazzy'         " snazzy colour scheme
 " Plug 'szorfein/fantasy.vim'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
-" Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
+" Plug 'mxw/vim-jsx'                     " jsx syntax highlighting
 Plug 'w0rp/ale'                         " linting
 " Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
@@ -25,10 +26,11 @@ nnoremap confr :source $MYVIMRC<CR>             " Reload vims configuration file
 nnoremap confz :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
 
 " set up colour scheme
-colorscheme stellarized
-set background=dark
-" syntax on
-" colorscheme fantasy
+"colorscheme fantasy
+colorscheme snazzy
+"colorscheme stellarized
+"set background=dark
+echo ">^.^<"
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
@@ -46,19 +48,18 @@ xmap <Leader>l <Plug>(Limelight)
 hi StatusLine    ctermfg=253  ctermbg=126  cterm=NONE
 hi StatusLineNC  ctermfg=089  ctermbg=253  cterm=NONE
 
-set clipboard+=unnamed    " yanking goes straigth clipboard buffer
-set mouse=a               " setting up the mouse
-set noea                  " stopping windows from automatic resize on close
-" spaces instead of tabs, and set indent width
-set softtabstop=2 shiftwidth=2 expandtab
-set backspace=2           " make backspace work like most other programs
-set incsearch             " highlight first search match while typing
-set hlsearch | nohl       " highlight all search matches when search completed
-set number                " add line numbers
-set relativenumber        " do line numbering relative to current cursor row
-set notagrelative         " tags not followed relative to tag file
-set ignorecase            " search case insensitive - use \C for sensitive
-set smartcase             " search case sensitive if contains capital letters
+set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
+set mouse=a                              " setting up the mouse
+set noea                                 " stopping windows from automatic resize on close
+set softtabstop=2 shiftwidth=2 expandtab " spaces instead of tabs, and set indent width
+set backspace=2                          " make backspace work like most other programs
+set incsearch                            " highlight first search match while typing
+set hlsearch | nohl                      " highlight all search matches when search completed
+set number                               " add line numbers
+set relativenumber                       " do line numbering relative to current cursor row
+set notagrelative                        " tags not followed relative to tag file
+set ignorecase                           " search case insensitive - use \C for sensitive
+set smartcase                            " search case sensitive if contains capital letters
 
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
@@ -121,3 +122,8 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" for showing you the syntax highlighting group of the word the you are hovering over
+map <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
