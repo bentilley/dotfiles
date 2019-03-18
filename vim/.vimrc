@@ -3,7 +3,8 @@
 " let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 
 call plug#begin('~/.vim/plugged')
-Plug 'nightsense/stellarized'
+Plug 'connorholyday/vim-snazzy'
+" Plug 'nightsense/stellarized'
 " Plug 'szorfein/fantasy.vim'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Valloric/YouCompleteMe'
@@ -25,10 +26,11 @@ nnoremap confr :source $MYVIMRC<CR>             " Reload vims configuration file
 nnoremap confz :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
 
 " set up colour scheme
-colorscheme stellarized
-set background=dark
-" syntax on
+colorscheme snazzy
+" colorscheme stellarized
 " colorscheme fantasy
+" set background=dark
+" syntax on
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240

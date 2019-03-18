@@ -92,6 +92,9 @@ if [ -f '/Users/jammy/Code/google-cloud-sdk/completion.zsh.inc' ]; then source '
 # MACPORTS
 export MP_EDITOR_VISUAL=/usr/local/bin/vim
 
+# AUTH FOR F13
+export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment

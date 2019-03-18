@@ -10,24 +10,46 @@ alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \
 alias vf="vim \`fzf\`"
 alias jf="jest \`fzf\` --watch"
 
+# applications chrome
+alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
+
 # git aliases
 alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
 alias gls="git --no-pager branch --list"
+alias showbranches="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
 # generate a import diagram for a directory
 alias impdiag="bash ~/.dotfiles/zsh/commands/plantuml_diagram.sh"
 
+# kubectl aliases
+alias k='kubectl'
+alias kg='kubectl get'
+alias kgw='kubectl get --watch'
+alias kd='kubectl describe'
+alias krm='kubectl delete'
+
+# cloud_sql_proxy aliases
+alias csp="cloud_sql_proxy"
+alias cspas="cloud_sql_proxy --projects tsw-asgard -dir /tmp"
+alias cspdev="cloud_sql_proxy --projects tsw-develop -dir /tmp"
+
 # Ingresso aliases
-alias wlres="git checkout docker-compose.yaml nginx/conf.d/fragments/helm.conf nginx/conf.d/vhost.conf"
-alias wlpy="python manage.py runserver --settings=whitelabel.settings.local"
+alias wlpy="python manage.py runserver"
 alias wlng="ngrok http --subdomain localtest1 --region=eu 8000"
-alias wlconf="vim whitelabel/settings/local.py"
+alias wlconf="vim .env"
 alias ghash="git rev-parse --short=10 HEAD"
 alias ghash^="git rev-parse --short=10 HEAD^"
 alias qame="./scripts/deploy.sh wl-qa \`ghash\`"
 alias qa="./scripts/deploy.sh wl-qa 85cc36d6f4"
 alias badpods='kubectl get po --all-namespaces -owide | grep -vE "Running|Completed" '
-alias cspas="cloud_sql_proxy --projects tsw-asgard -dir /tmp"
+alias inotes='pandoc ~/Documents/ingresso/notes.md -s \
+              -o ~/Documents/ingresso/notes.html \
+              --metadata pagetitle="Ingresso Notes" \
+              && chrome --new-window ~/Documents/ingresso/notes.html \
+              && vim ~/Documents/ingresso/notes.md'
+
+# Ingresso - Groupon
+alias grouponbehave="env GROUPON_REMOTE_URL='https://groupon-dev.ticketswitch.io/' behave --no-capture --stop"
 
 function fzfd() {
   dirname $(fzf $1)
