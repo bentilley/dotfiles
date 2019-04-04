@@ -1,6 +1,13 @@
-brew install tmux
+# install brew packages
 brew install the_silver_searcher
-brew install plantuml
 brew install fzf
 brew install tig
-brwe install universal-ctags
+brew install bat
+brew install tmux
+brew install universal-ctags
+brew install plantuml
+
+# set up OS settings
+defaults write -g InitialKeyRepeat -int 10    # 150 ms
+defaults write -g KeyRepeat -int 1            # 15 ms
+defaults write -g ApplePressAndHoldEnabled -bool false

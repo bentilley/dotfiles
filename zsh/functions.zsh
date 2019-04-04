@@ -14,7 +14,7 @@ function ktest() {
 
 # Kubernetes
 function swap() {
-  kctx $1 && helm ls
+  kubectx $1 && helm ls
 }
 
 # function for calling f13 on given end point and user
@@ -25,4 +25,17 @@ function get_event_ids() {
     | jq . \
     | ag event_id \
     | sed -E 's/^.*: "(.+)",$/\1/g'
+}
+
+# update the change log and commit
+function ucl() {
+  vim CHANGELOG.md
+  ./scripts/bump_version
+  git add -u
+  git commit -m "updated changelog and version number"
+}
+
+function tag() {
+  git tag `cat VERSION`
+  git push --tags
 }
