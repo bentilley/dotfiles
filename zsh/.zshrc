@@ -2,9 +2,13 @@
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
 # path additions for macports
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# path for adding LaTeX commands to the command line
-export PATH=/Library/TeX/texbin:$PATH
+export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+
+# path for ruby - added because brew told me
+export PATH="/usr/local/opt/ruby/bin:$PATH"
+export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
+export LDFLAGS="-L/usr/local/opt/ruby/lib"
+export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

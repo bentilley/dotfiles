@@ -19,7 +19,7 @@ alias gls="git --no-pager branch --list"
 alias showbranches="git for-each-ref --sort=committerdate refs/heads/ --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
 
 # generate a import diagram for a directory
-alias impdiag="bash ~/.dotfiles/zsh/commands/plantuml_diagram.sh"
+alias impdiag="bash ~/.dotfiles/scripts/plantuml_diagram.sh"
 
 # kubectl aliases
 alias k='kubectl'

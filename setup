@@ -6,6 +6,7 @@ brew install bat
 brew install tmux
 brew install universal-ctags
 brew install plantuml
+brew install pandoc
 
 # set up OS settings
 defaults write -g InitialKeyRepeat -int 10    # 150 ms
