@@ -3,8 +3,6 @@
 
 # path additions for macports
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# path for adding LaTeX commands to the command line
-export PATH=/Library/TeX/texbin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"

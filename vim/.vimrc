@@ -84,7 +84,10 @@ nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quot
 " ALE seettings
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_fixers = {
+      \ 'javascript': ['prettier'],
+      \ 'html': ['prettier']
+      \ }
 let g:ale_completion_enabled = 1
 
 " Tagbar settings
