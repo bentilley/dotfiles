@@ -5,6 +5,7 @@ brew install tig
 brew install bat
 brew install tmux
 brew install universal-ctags
+brew install gnupg
 brew install plantuml
 brew install pandoc
 
