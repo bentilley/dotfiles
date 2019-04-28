@@ -119,9 +119,15 @@ export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
+# History configuration
+export HISTSIZE=50000
+export SAVEHIST=100000
+setopt HIST_FIND_NO_DUPS
+
 # source aliases
 source $HOME/.dotfiles/zsh/aliases.zsh
 # source functions
 source $HOME/.dotfiles/zsh/functions.zsh
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
+export HOMEBREW_GITHUB_API_TOKEN=f1f95e47db14d0f3e0d35d200241784472fac444

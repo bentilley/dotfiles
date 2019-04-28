@@ -9,7 +9,8 @@ Plug 'connorholyday/vim-snazzy'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
-" Plug 'mxw/vim-jsx'                     " jsx syntax highlighting
+" Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
+Plug 'posva/vim-vue'                  " vue syntax highlighting
 Plug 'w0rp/ale'                         " linting
 " Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
@@ -59,6 +60,10 @@ set notagrelative                        " tags not followed relative to tag fil
 set ignorecase                           " search case insensitive - use \C for sensitive
 set smartcase                            " search case sensitive if contains capital letters
 
+" file name to clipboard
+nmap ,cs o<Esc>:let @+=expand("%")<CR>"+p
+nmap ,cl o<Esc>:let @+=expand("%:p")<CR>"+p
+
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
 nnoremap mfld :set foldmethod=manual<CR>
@@ -79,12 +84,17 @@ let g:netrw_winsize = 50
 let g:netrw_altv=1 | let g:netrw_alto=1
 
 " Prettier
-nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quote<CR>
+"nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quote %f<CR>
+nnoremap <Leader>p :silent %!prettier 
+      \--stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
 
 " ALE seettings
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fixers = {'javascript': ['prettier']}
+let g:ale_fixers = {
+      \   'javascript': ['prettier'],
+      \   'css': ['prettier'],
+      \}
 let g:ale_completion_enabled = 1
 
 " Tagbar settings
