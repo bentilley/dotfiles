@@ -14,6 +14,8 @@ Plug 'posva/vim-vue'                  " vue syntax highlighting
 Plug 'w0rp/ale'                         " linting
 " Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-projectionist'
+Plug 'tpope/vim-unimpaired'
 Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
