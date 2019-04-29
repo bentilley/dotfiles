@@ -5,10 +5,15 @@ alias omz="vim ~/.oh-my-zsh"
 alias zalias="vim ~/.dotfiles/zsh/aliases.zsh"
 alias zfunc="vim ~/.dotfiles/zsh/functions.zsh"
 alias vconf="vim ~/.vimrc"
+alias tconf="vim ~/.dotfiles/tmux/.tmux.conf"
 alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \"(^#.*|^$|myali)\" | sort"
 
+# VIM
 alias vf="vim \`fzf\`"
 alias jf="jest \`fzf\` --watch"
+
+# Taskwarrior
+alias todo="task burndown && task summary && task calendar && task next"
 
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
