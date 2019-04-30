@@ -24,9 +24,15 @@ call plug#end()
 
 set rtp+=/usr/local/opt/fzf
 
-nnoremap confe :e $MYVIMRC<CR>                  " Edit vimr configuration file
-nnoremap confr :source $MYVIMRC<CR>             " Reload vims configuration file
-nnoremap confz :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+let mapleader=","                                     " change the mapleader from \ to ,
+" handly quick file and directory edit mappings
+nnoremap <silent> \v :e $MYVIMRC<CR>                  " Edit vimrc configuration file
+nnoremap <silent> <Leader>v :so $MYVIMRC<CR>          " Reload vimrc configuration file
+nnoremap <silent> \\v :e ~/.vim<CR>                   " Edit vim files
+nnoremap <silent> \z :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
 
 " set up colour scheme
 colorscheme snazzy
