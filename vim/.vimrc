@@ -4,15 +4,12 @@
 
 call plug#begin('~/.vim/plugged')
 Plug 'connorholyday/vim-snazzy'
-" Plug 'nightsense/stellarized'
-" Plug 'szorfein/fantasy.vim'
 Plug 'jiangmiao/auto-pairs'
 " Plug 'Valloric/YouCompleteMe'
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
 " Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
-Plug 'posva/vim-vue'                  " vue syntax highlighting
+Plug 'posva/vim-vue'                    " vue syntax highlighting
 Plug 'w0rp/ale'                         " linting
-" Plug 'prettier/vim-prettier'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-unimpaired'
@@ -24,9 +21,16 @@ call plug#end()
 
 set rtp+=/usr/local/opt/fzf
 
-nnoremap confe :e $MYVIMRC<CR>                  " Edit vimr configuration file
-nnoremap confr :source $MYVIMRC<CR>             " Reload vims configuration file
-nnoremap confz :e ~/.dotfiles/zsh/.zshrc<CR>    " Edit zsh configuration file
+nmap <silent> <leader>ev :e $MYVIMRC<CR>
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+let mapleader=","                                     " change the mapleader from \ to ,
+" handly quick file and directory edit mappings
+nnoremap <silent> \v :e $MYVIMRC<CR>                  " Edit vimrc configuration file
+nnoremap <silent> <Leader>v :so $MYVIMRC<CR>          " Reload vimrc configuration file
+nnoremap <silent> \\v :e ~/.vim<CR>                   " Edit vim files
+nnoremap <silent> \z :e ~/.zshrc<CR>                  " Edit zsh configuration file
+nnoremap <silent> \t :e ~/.tmux.conf<CR>              " Edit tmux configuration file
 
 " set up colour scheme
 colorscheme snazzy
