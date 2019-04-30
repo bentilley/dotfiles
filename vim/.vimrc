@@ -116,9 +116,9 @@ command! -nargs=* -bang Ag call ack#Ack('grep<bang>',<q-args>)
 nmap ag :Ag<Space>
 nmap cag :Ag<CR>
 
-" tab settings
-nnoremap <S-Left> :tabprevious<CR>
-nnoremap <S-Right> :tabnext<CR>
+" tab settings - a la unimpaired
+nnoremap [w :tabprevious<CR>
+nnoremap ]w :tabnext<CR>
 
 " template literal highlighting
 nnoremap <Leader>t :JsPreTmpl html<CR>
