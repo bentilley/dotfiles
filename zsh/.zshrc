@@ -131,3 +131,8 @@ source $HOME/.dotfiles/zsh/functions.zsh
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
 export HOMEBREW_GITHUB_API_TOKEN=f1f95e47db14d0f3e0d35d200241784472fac444
+
+# for installing python better with homebrew
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# some homebrew formulae put executables in local/sbin
+export PATH="/usr/local/sbin:$PATH"
