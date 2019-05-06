@@ -1,15 +1,24 @@
 # install brew packages
-brew install the_silver_searcher
-brew install fzf
-brew install tig
 brew install bat
+brew install fzf
+brew install gnupg
+brew install htop
+brew install hub
+brew install pandoc
+brew install plantuml
+brew install the_silver_searcher
+brew install tig
 brew install tmux
 brew install universal-ctags
-brew install gnupg
-brew install plantuml
-brew install pandoc
+brew install vim --HEAD
 
 # set up OS settings
 defaults write -g InitialKeyRepeat -int 10    # 150 ms
 defaults write -g KeyRepeat -int 1            # 15 ms
 defaults write -g ApplePressAndHoldEnabled -bool false
+
+# setup Google Calendar commandline tool
+git clone https://github.com/insanum/gcalcli.git
+cd gcalcli
+python setup.py install
+# ln -s ~/.dotfiles/gcalcli/.gcalclirc ~/.gcalclirc
