@@ -78,10 +78,9 @@ set cursorline
 set colorcolumn=80                      " colour column 80
 hi ColorColumn ctermbg=237              " colour of colourcolumn
 hi clear CursorLine                     " removes underline from cursorline
-hi CursorLineNR ctermbg=124             " colour of cursorline number
-"hi CursorLineNR ctermbg=240               " Sets the line numbering to red background:
-hi clear SignColumn                       " make ALE gutter neutral colour
-hi MatchParen ctermbg=243                 " colour of bracket matching
+hi CursorLineNR ctermbg=240             " colour of cursorline number
+hi clear SignColumn                     " make ALE gutter neutral colour
+hi MatchParen ctermbg=243               " colour of bracket matching
 
 " netrw - vims own file system explorer configuration
 let g:netrw_liststyle = 3
