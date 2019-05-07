@@ -26,11 +26,12 @@ nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " handly quick file and directory edit mappings
-nnoremap <silent> \v :e $MYVIMRC<CR>                  " Edit vimrc configuration file
-nnoremap <silent> <Leader>v :so $MYVIMRC<CR>          " Reload vimrc configuration file
-nnoremap <silent> \\v :e ~/.vim<CR>                   " Edit vim files
-nnoremap <silent> \z :e ~/.zshrc<CR>                  " Edit zsh configuration file
-nnoremap <silent> \t :e ~/.tmux.conf<CR>              " Edit tmux configuration file
+nnoremap <silent> \v :e $MYVIMRC<CR>                                            " Edit vimrc configuration file
+nnoremap <silent> <Leader>v :so $MYVIMRC<CR>                                    " Reload vimrc configuration file
+nnoremap <silent> \\v :e ~/.vim<CR>                                             " Edit vim files
+nnoremap <silent> \z :e ~/.zshrc<CR>                                            " Edit zsh configuration file
+nnoremap <silent> \t :e ~/.tmux.conf<CR>                                        " Edit tmux configuration file
+nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>                      " Reload tmux configuration file
 
 " set up colour scheme
 "colorscheme snazzy
@@ -78,6 +79,9 @@ set colorcolumn=80                      " colour column 80
 hi ColorColumn ctermbg=237              " colour of colourcolumn
 hi clear CursorLine                     " removes underline from cursorline
 hi CursorLineNR ctermbg=124             " colour of cursorline number
+"hi CursorLineNR ctermbg=240               " Sets the line numbering to red background:
+hi clear SignColumn                       " make ALE gutter neutral colour
+hi MatchParen ctermbg=243                 " colour of bracket matching
 
 " netrw - vims own file system explorer configuration
 let g:netrw_liststyle = 3
@@ -121,7 +125,7 @@ nnoremap [w :tabprevious<CR>
 nnoremap ]w :tabnext<CR>
 
 " template literal highlighting
-nnoremap <Leader>t :JsPreTmpl html<CR>
+nnoremap <Leader>h :JsPreTmpl html<CR>
 
 nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
 nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>

@@ -1,0 +1,5 @@
+neww
+splitw -v -p 30 -t 0
+splitw -h -p 50 -t 1
+#send -t 0 "echo Send some command" Enter
+selectp -t 0

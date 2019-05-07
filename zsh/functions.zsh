@@ -39,3 +39,31 @@ function tag() {
   git tag `cat VERSION`
   git push --tags
 }
+
+# Managing tmux sessions
+function workon() {
+  SESSION_NAME=$1
+  tmux a -t $SESSION_NAME || start_session $SESSION_NAME
+}
+
+function start_session() {
+  CONFIG_DIR=~/.dotfiles/tmux/session
+  SESSION_CONFIG=$CONFIG_DIR/$SESSION_NAME
+
+  if [[ -f $SESSION_CONFIG ]]; then
+    tmux new -s $SESSION_NAME "tmux source $SESSION_CONFIG"
+  else
+    create_session
+  fi
+}
+
+create_session() {
+  read NEW_SESSION"?No session with the name \"$SESSION_NAME\" exists. Would you like to create one (y/n)?"
+  if [[ -z $NEW_SESSION ]]; then; echo "No session created"; return 1
+  elif [[ $NEW_SESSION = 'y' ]]; then
+    cp $CONFIG_DIR/template $SESSION_CONFIG
+    vim "$SESSION_CONFIG"
+    echo "Session $SESSION_NAME create at $CONFIG_DIR"
+    tmux new -s $SESSION_NAME "tmux source $SESSION_CONFIG"
+  fi
+}
