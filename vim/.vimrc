@@ -21,11 +21,11 @@ call plug#end()
 
 set rtp+=/usr/local/opt/fzf
 set path=$PWD/**
+let mapleader=","                                     " change the mapleader from \ to ,
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-let mapleader=","                                                               " change the mapleader from \ to ,
 " handly quick file and directory edit mappings
 nnoremap <silent> \v :e $MYVIMRC<CR>                                            " Edit vimrc configuration file
 nnoremap <silent> <Leader>v :so $MYVIMRC<CR>                                    " Reload vimrc configuration file
@@ -35,9 +35,7 @@ nnoremap <silent> \t :e ~/.tmux.conf<CR>                                        
 nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>                      " Reload tmux configuration file
 
 " set up colour scheme
-" colorscheme snazzy
-" set background=dark
-" syntax on
+"colorscheme snazzy
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
@@ -69,8 +67,8 @@ set ignorecase                           " search case insensitive - use \C for 
 set smartcase                            " search case sensitive if contains capital letters
 
 " file name to clipboard
-nmap ,cs o<Esc>:let @+=expand("%")<CR>"+p
-nmap ,cl o<Esc>:let @+=expand("%:p")<CR>"+p
+nmap \cs o<Esc>:let @+=expand("%")<CR>"+p
+nmap \cl o<Esc>:let @+=expand("%:p")<CR>"+p
 
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
@@ -78,12 +76,12 @@ nnoremap mfld :set foldmethod=manual<CR>
 
 " Enables cursor line position tracking:
 set cursorline
-set colorcolumn=80                        " colour column 80
-hi ColorColumn ctermbg=237                " colorcolumn colour
-hi CursorLineNR ctermbg=240               " Sets the line numbering to red background:
-hi clear CursorLine                       " Removes the underline from cursorline
-hi clear SignColumn                       " make ALE gutter neutral colour
-hi MatchParen ctermbg=243                 " colour of bracket matching
+set colorcolumn=80                      " colour column 80
+hi ColorColumn ctermbg=237              " colour of colourcolumn
+hi clear CursorLine                     " removes underline from cursorline
+hi CursorLineNR ctermbg=240             " colour of cursorline number
+hi clear SignColumn                     " make ALE gutter neutral colour
+hi MatchParen ctermbg=243               " colour of bracket matching
 
 " netrw - vims own file system explorer configuration
 let g:netrw_liststyle = 3

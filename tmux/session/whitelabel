@@ -1,0 +1,8 @@
+neww
+splitw -v -p 30 -t 0
+splitw -h -p 50 -t 1
+send -t 0 "vim ~/Projects/white-label/" Enter
+send -t 1 "cd ~/Projects/white-label/" Enter
+send -t 1 "wlpy" Enter
+send -t 2 "cd ~/Projects/white-label/ && npm run watch_ba" Enter
+selectp -t 0
