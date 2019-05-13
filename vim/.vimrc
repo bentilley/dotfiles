@@ -20,6 +20,7 @@ Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
 call plug#end()
 
 set rtp+=/usr/local/opt/fzf
+set path=$PWD/**
 let mapleader=","                                     " change the mapleader from \ to ,
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
