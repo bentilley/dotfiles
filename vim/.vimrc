@@ -49,8 +49,9 @@ nmap <Leader>l <Plug>(Limelight)
 xmap <Leader>l <Plug>(Limelight)
 
 " colours for the line at the bottom of viewports
-hi StatusLine    ctermfg=253  ctermbg=126  cterm=NONE
-hi StatusLineNC  ctermfg=089  ctermbg=253  cterm=NONE
+hi StatusLine     ctermfg=253   ctermbg=126   cterm=NONE
+hi StatusLineNC   ctermfg=089   ctermbg=253   cterm=NONE
+hi VertSplit      ctermfg=000   ctermbg=013
 
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
 set mouse=a                              " setting up the mouse
