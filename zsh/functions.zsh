@@ -40,6 +40,17 @@ function tag() {
   git push --tags
 }
 
+# working on different things
+function work_list() {
+  ls -1 ~/.dotfiles/scripts/automator/automation \
+    | sed -E -e "s/\.workflow//g"
+}
+
+function work_auto() {
+  echo "~/.dotfiles/scripts/automator/automation/$1.workflow"
+  automator ~/.dotfiles/scripts/automator/automation/$1.workflow
+}
+
 # Managing tmux sessions
 function workon() {
   SESSION_NAME=$1
