@@ -21,7 +21,8 @@ call plug#end()
 
 set rtp+=/usr/local/opt/fzf
 set path=$PWD/**
-let mapleader=","                                     " change the mapleader from \ to ,
+let mapleader=","                       " change the mapleader from \ to ,
+set complete-=i                         " removes indluded files from search
 
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
@@ -50,9 +51,15 @@ nmap <Leader>l <Plug>(Limelight)
 xmap <Leader>l <Plug>(Limelight)
 
 " colours for the line at the bottom of viewports
-hi StatusLine     ctermfg=253   ctermbg=126   cterm=NONE
-hi StatusLineNC   ctermfg=089   ctermbg=253   cterm=NONE
+hi StatusLine     ctermfg=253   ctermbg=126     cterm=NONE
+hi StatusLineNC   ctermfg=089   ctermbg=253     cterm=NONE
 hi VertSplit      ctermfg=000   ctermbg=013
+
+" diff tool colours
+hi DiffAdd        ctermfg=NONE  ctermbg=022     cterm=none      
+hi DiffChange     ctermfg=NONE  ctermbg=094     cterm=none      
+hi DiffDelete     ctermfg=203   ctermbg=052     cterm=bold      
+hi DiffText       ctermfg=NONE  ctermbg=017     cterm=none      
 
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
 set mouse=a                              " setting up the mouse

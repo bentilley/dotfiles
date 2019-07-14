@@ -10,6 +10,19 @@ export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
 export LDFLAGS="-L/usr/local/opt/ruby/lib"
 export CPPFLAGS="-I/usr/local/opt/ruby/include"
 
+# paths for zlib
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
+export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
+
+# for installing python better with homebrew
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+# some homebrew formulae put executables in local/sbin
+export PATH="/usr/local/sbin:$PATH"
+
+# mysql version 5.7
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -87,6 +100,10 @@ prompt pure
 source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh # iTerm2 shell integration
 source ~/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # variables
 export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
 
@@ -131,8 +148,3 @@ source $HOME/.dotfiles/zsh/functions.zsh
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
 export HOMEBREW_GITHUB_API_TOKEN=f1f95e47db14d0f3e0d35d200241784472fac444
-
-# for installing python better with homebrew
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-# some homebrew formulae put executables in local/sbin
-export PATH="/usr/local/sbin:$PATH"
