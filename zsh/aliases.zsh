@@ -13,7 +13,7 @@ alias vf="vim \`fzf\`"
 alias jf="jest \`fzf\` --watch"
 
 # Taskwarrior
-alias todo="task burndown && task summary && task calendar && task next"
+alias todo="task summary && task calendar && task next"
 
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
