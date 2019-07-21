@@ -104,7 +104,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsListSnippets="<c-v>"
+imap <C-M> <C-R>=UltiSnips#ListSnippets()<CR>
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
