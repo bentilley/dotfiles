@@ -3,13 +3,11 @@
 " let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 
 call plug#begin('~/.vim/plugged')
-Plug 'connorholyday/vim-snazzy'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'                 " provides 'snippet' functionality
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
-" Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
 Plug 'posva/vim-vue'                    " vue syntax highlighting
-Plug 'w0rp/ale'                         " linting
+Plug 'w0rp/ale'                         " linting and fixing
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-unimpaired'
@@ -17,26 +15,20 @@ Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
 Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
+Plug 'mattn/emmet-vim'                  " html tag completion
+" Plug 'Valloric/YouCompleteMe'         " autocomplete for vim
+" Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
 call plug#end()
 
 set rtp+=/usr/local/opt/fzf
 set path=$PWD/**
-let mapleader=","                       " change the mapleader from \ to ,
 set complete-=i                         " removes indluded files from search
 
+" handly quick file and directory edit mappings
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" handly quick file and directory edit mappings
-nnoremap <silent> \v :e $MYVIMRC<CR>                                            " Edit vimrc configuration file
-nnoremap <silent> <Leader>v :so $MYVIMRC<CR>                                    " Reload vimrc configuration file
-nnoremap <silent> \\v :e ~/.vim<CR>                                             " Edit vim files
-nnoremap <silent> \z :e ~/.zshrc<CR>                                            " Edit zsh configuration file
-nnoremap <silent> \t :e ~/.tmux.conf<CR>                                        " Edit tmux configuration file
+nmap <silent> ,,v :e ~/.dotfiles/vim/.vim<CR>
 nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>                      " Reload tmux configuration file
-
-" set up colour scheme
-"colorscheme snazzy
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
