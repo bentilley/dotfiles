@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/usr/share/vim/vim80/syntax'
+let g:netrw_dirhist_2='/Users/MrSquee/.dotfiles/vim/.vim/plugged/ultisnips'
+let g:netrw_dirhist_3='/Users/MrSquee/.dotfiles/vim/.vim/plugged/ultisnips/after'
+let g:netrw_dirhist_4='/Users/MrSquee/.dotfiles/vim/.vim/plugged/ultisnips/after/plugin'
+let g:netrw_dirhist_5='/Users/MrSquee/.dotfiles/vim/.vim/plugged/ultisnips/autoload'
+let g:netrw_dirhist_6='/Users/MrSquee/.dotfiles/vim/.vim/plugged/ultisnips/autoload/UltiSnips'
+let g:netrw_dirhist_7='/Users/MrSquee/.dotfiles/vim/.vim/plugged/ultisnips/autoload/neocomplete'
+let g:netrw_dirhist_8='/Users/MrSquee/.dotfiles/vim/.vim/plugged/ultisnips/autoload/neocomplete/sources'
