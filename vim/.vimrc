@@ -67,8 +67,8 @@ set ignorecase                           " search case insensitive - use \C for 
 set smartcase                            " search case sensitive if contains capital letters
 
 " file name to clipboard
-nmap \cs o<Esc>:let @+=expand("%")<CR>"+p
-nmap \cl o<Esc>:let @+=expand("%:p")<CR>"+p
+nmap <Leader>cs o<Esc>:let @+=expand("%")<CR>"+p
+nmap <Leader>cl o<Esc>:let @+=expand("%:p")<CR>"+p
 
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
@@ -91,24 +91,29 @@ let g:netrw_altv=1 | let g:netrw_alto=1
 
 " Prettier
 "nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quote %f<CR>
-nnoremap <Leader>p :silent %!prettier 
-      \--stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
+nnoremap <Leader>p :silent %!prettier
+      \ --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
 
-" ALE seettings
+" ALE settings
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'html': ['prettier'],
-      \ 'css': ['prettier']
-      \ }
 let g:ale_completion_enabled = 1
+
+" Ultisnips settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsListSnippets="<c-v>"
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
 nnoremap <silent> tt :TagbarToggle<CR>          " as in 'tag! tag!'
 nnoremap <silent> tg :TagbarOpenAutoClose<CR>   " as in 'tag go!'
 nnoremap <silent> tp :TagbarTogglePause<CR>     " as in 'tag pause!'
+
+" Emmet settings
+let g:user_emmet_leader_key=','                 " trigger emmet expansion with ,,
 
 " ack.vim settings
 if executable('ag')
