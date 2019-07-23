@@ -3,13 +3,11 @@
 " let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 
 call plug#begin('~/.vim/plugged')
-Plug 'connorholyday/vim-snazzy'
 Plug 'jiangmiao/auto-pairs'
-" Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'                 " provides 'snippet' functionality
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
-" Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
 Plug 'posva/vim-vue'                    " vue syntax highlighting
-Plug 'w0rp/ale'                         " linting
+Plug 'w0rp/ale'                         " linting and fixing
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-unimpaired'
@@ -17,26 +15,20 @@ Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
 Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
+Plug 'mattn/emmet-vim'                  " html tag completion
+" Plug 'Valloric/YouCompleteMe'         " autocomplete for vim
+" Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
 call plug#end()
 
 set rtp+=/usr/local/opt/fzf
 set path=$PWD/**
-let mapleader=","                       " change the mapleader from \ to ,
 set complete-=i                         " removes indluded files from search
 
+" handly quick file and directory edit mappings
 nmap <silent> <leader>ev :e $MYVIMRC<CR>
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
-
-" handly quick file and directory edit mappings
-nnoremap <silent> \v :e $MYVIMRC<CR>                                            " Edit vimrc configuration file
-nnoremap <silent> <Leader>v :so $MYVIMRC<CR>                                    " Reload vimrc configuration file
-nnoremap <silent> \\v :e ~/.vim<CR>                                             " Edit vim files
-nnoremap <silent> \z :e ~/.zshrc<CR>                                            " Edit zsh configuration file
-nnoremap <silent> \t :e ~/.tmux.conf<CR>                                        " Edit tmux configuration file
+nmap <silent> ,,v :e ~/.dotfiles/vim/.vim<CR>
 nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>                      " Reload tmux configuration file
-
-" set up colour scheme
-"colorscheme snazzy
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
@@ -75,8 +67,8 @@ set ignorecase                           " search case insensitive - use \C for 
 set smartcase                            " search case sensitive if contains capital letters
 
 " file name to clipboard
-nmap \cs o<Esc>:let @+=expand("%")<CR>"+p
-nmap \cl o<Esc>:let @+=expand("%:p")<CR>"+p
+nmap <Leader>cs o<Esc>:let @+=expand("%")<CR>"+p
+nmap <Leader>cl o<Esc>:let @+=expand("%:p")<CR>"+p
 
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
@@ -99,24 +91,29 @@ let g:netrw_altv=1 | let g:netrw_alto=1
 
 " Prettier
 "nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quote %f<CR>
-nnoremap <Leader>p :silent %!prettier 
-      \--stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
+nnoremap <Leader>p :silent %!prettier
+      \ --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
 
-" ALE seettings
+" ALE settings
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
-let g:ale_fixers = {
-      \ 'javascript': ['prettier'],
-      \ 'html': ['prettier'],
-      \ 'css': ['prettier']
-      \ }
 let g:ale_completion_enabled = 1
+
+" Ultisnips settings
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+imap <C-M> <C-R>=UltiSnips#ListSnippets()<CR>
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
 nnoremap <silent> tt :TagbarToggle<CR>          " as in 'tag! tag!'
 nnoremap <silent> tg :TagbarOpenAutoClose<CR>   " as in 'tag go!'
 nnoremap <silent> tp :TagbarTogglePause<CR>     " as in 'tag pause!'
+
+" Emmet settings
+let g:user_emmet_leader_key=','                 " trigger emmet expansion with ,,
 
 " ack.vim settings
 if executable('ag')

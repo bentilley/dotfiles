@@ -51,6 +51,20 @@ function work_auto() {
   automator ~/.dotfiles/scripts/automator/automation/$1.workflow
 }
 
+function gobackto() {
+  if [ $1 = "ls" ]; then
+    echo "what do you want to go back to?"
+    for file in $(ls ~/.dotfiles/scripts/gobackto); do
+      echo "* $file"
+    done
+  elif [ $1 = "edit" ]; then
+    vim ~/.dotfiles/scripts/gobackto/$2
+  else
+    echo "lets start working on $1"
+    zsh "~/.dotfiles/scripts/gobackto/$1"
+  fi
+}
+
 # Managing tmux sessions
 function workon() {
   SESSION_NAME=$1
