@@ -537,12 +537,16 @@
 	<string>-98 933 445 77 -1208 900 1920 1080 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>-573 1416 620 392 -1223 900 1920 1080 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>-947 1026 606 469 -1216 900 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>1448 1400 796 486 701 900 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-629 956 585 377 -1210 900 1920 1057 </string>
+	<string>-1052 1100 570 377 -1216 900 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>-434 1292 585 377 -1175 900 1920 1080 </string>
+	<string>447 500 585 377 0 0 1440 900 </string>
+	<key>NSWindow Frame iTerm Window 2</key>
+	<string>145 96 570 377 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -2016,7 +2020,7 @@
 		<string>0071</string>
 	</array>
 	<key>PasteTabToStringTabStopSize</key>
-	<integer>4</integer>
+	<integer>1</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -2061,7 +2065,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-05-16T12:20:30Z</date>
+	<date>2019-07-15T15:28:51Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowBookmarkName</key>
