@@ -25,22 +25,21 @@ set path=$PWD/**
 set complete-=i                         " removes indluded files from search
 
 " handly quick file and directory edit mappings
-nmap <silent> <leader>ev :e $MYVIMRC<CR>
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
-nmap <silent> ,,v :e ~/.dotfiles/vim/.vim<CR>
-nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>                      " Reload tmux configuration file
+nnoremap <silent> <Leader>ev :vs $MYVIMRC<CR>
+nnoremap <silent> <Leader>sv :so $MYVIMRC<CR>
+nnoremap <silent> <Leader>evd :vs ~/.dotfiles/vim/.vim<CR>
+nnoremap <silent> <Leader>st :!tmux source ~/.tmux.conf<CR>
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
 let g:limelight_default_coefficient = 0.4
 let g:limelight_paragraph_span = 0
-nmap <Leader>i :Limelight!!<CR>
+nnoremap <Leader>i :Limelight!!<CR>
 function! SetLimelightSpan(span)
   let g:limelight_paragraph_span = a:span
 endfunction
-nmap dl :<C-U>call SetLimelightSpan(v:count)<CR>jk
-nmap <Leader>l <Plug>(Limelight)
-xmap <Leader>l <Plug>(Limelight)
+nnoremap dl :<C-U>call SetLimelightSpan(v:count)<CR>jk
+nnoremap <Leader>l <Plug>(Limelight)
 
 " colours for the line at the bottom of viewports
 hi StatusLine     ctermfg=253   ctermbg=126     cterm=NONE
@@ -67,8 +66,8 @@ set ignorecase                           " search case insensitive - use \C for 
 set smartcase                            " search case sensitive if contains capital letters
 
 " file name to clipboard
-nmap <Leader>cs o<Esc>:let @+=expand("%")<CR>"+p
-nmap <Leader>cl o<Esc>:let @+=expand("%:p")<CR>"+p
+nnoremap <Leader>cs o<Esc>:let @+=expand("%")<CR>"+p
+nnoremap <Leader>cl o<Esc>:let @+=expand("%:p")<CR>"+p
 
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
@@ -104,7 +103,7 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-imap <C-M> <C-R>=UltiSnips#ListSnippets()<CR>
+"inoremap <C-M> <C-R>=UltiSnips#ListSnippets()<CR>
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
@@ -122,8 +121,8 @@ endif
 let g:ackhighlight = 1
 let g:ack_autoclose = 1
 command! -nargs=* -bang Ag call ack#Ack('grep<bang>',<q-args>)
-nmap ag :Ag<Space>
-nmap cag :Ag<CR>
+nnoremap ag :Ag<Space>
+nnoremap cag :Ag<CR>
 
 " tab settings - a la unimpaired
 nnoremap [w :tabprevious<CR>
@@ -144,6 +143,6 @@ if !exists(":DiffOrig")
 endif
 
 " for showing you the syntax highlighting group of the word the you are hovering over
-map <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+noremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
