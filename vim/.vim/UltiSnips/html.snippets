@@ -1,0 +1,24 @@
+# html file snippets
+
+# these functions are imported from the /pythonx dir in /.vim
+#global !p
+#from snippets.html import generate_constructor
+#endglobal
+
+snippet html5 "HTML5 boilerplate" b
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>$1</title>
+    <link rel="stylesheet" href="$2" />
+    <!--[if IE]>
+      <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+    $0
+  </body>
+</html>
+endsnippet

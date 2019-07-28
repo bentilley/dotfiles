@@ -1,0 +1,25 @@
+# javascript file snippets
+
+# these functions are imported from the /pythonx dir in /.vim
+global !p
+from snippets.javascript import generate_constructor
+endglobal
+
+snippet nf "Named function definition" b
+function $1($2) {
+  $0
+}
+endsnippet
+
+snippet lg "Console logging" b
+console.log('$1: ', {$1});
+endsnippet
+
+snippet cls "ES6 class definition with constructor" b
+class $1`!p snip.rv = " extends " if t[2] else ""`$2 {
+  constructor($3) {
+    `!p snip.rv = generate_constructor(t[2], t[3])`
+  }
+  $0
+}
+endsnippet
