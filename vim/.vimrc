@@ -20,42 +20,26 @@ Plug 'mattn/emmet-vim'                  " html tag completion
 " Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
 call plug#end()
 
-set rtp+=/usr/local/opt/fzf
-set path=$PWD/**
-set complete-=i                         " removes indluded files from search
+" automatically source vimrc after session load
+augroup sessions
+  autocmd!
+  autocmd SessionLoadPost * :source $MYVIMRC
+augroup END
 
 " handly quick file and directory edit mappings
 nnoremap <silent> <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <silent> <Leader>sv :so $MYVIMRC<CR>
-nnoremap <silent> <Leader>evd :vs ~/.dotfiles/vim/.vim<CR>
-nnoremap <silent> <Leader>st :!tmux source ~/.tmux.conf<CR>
+nnoremap <silent> <Leader>vd :vs ~/.dotfiles/vim/.vim<CR>
+nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
-" Limelight config
-let g:limelight_conceal_ctermfg = 240
-let g:limelight_default_coefficient = 0.4
-let g:limelight_paragraph_span = 0
-nnoremap <Leader>i :Limelight!!<CR>
-function! SetLimelightSpan(span)
-  let g:limelight_paragraph_span = a:span
-endfunction
-nnoremap dl :<C-U>call SetLimelightSpan(v:count)<CR>jk
-nnoremap <Leader>l <Plug>(Limelight)
-
-" colours for the line at the bottom of viewports
-hi StatusLine     ctermfg=253   ctermbg=126     cterm=NONE
-hi StatusLineNC   ctermfg=089   ctermbg=253     cterm=NONE
-hi VertSplit      ctermfg=000   ctermbg=013
-
-" diff tool colours
-hi DiffAdd        ctermfg=NONE  ctermbg=022     cterm=none      
-hi DiffChange     ctermfg=NONE  ctermbg=094     cterm=none      
-hi DiffDelete     ctermfg=203   ctermbg=052     cterm=bold      
-hi DiffText       ctermfg=NONE  ctermbg=017     cterm=none      
-
+" editor settings
+let mapleader = "\\"
+let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
 set mouse=a                              " setting up the mouse
 set noea                                 " stopping windows from automatic resize on close
 set softtabstop=2 shiftwidth=2 expandtab " spaces instead of tabs, and set indent width
+set shiftround
 set backspace=2                          " make backspace work like most other programs
 set incsearch                            " highlight first search match while typing
 set hlsearch | nohl                      " highlight all search matches when search completed
@@ -64,6 +48,41 @@ set relativenumber                       " do line numbering relative to current
 set notagrelative                        " tags not followed relative to tag file
 set ignorecase                           " search case insensitive - use \C for sensitive
 set smartcase                            " search case sensitive if contains capital letters
+set listchars=eol:$,space:.,tab:<->,trail:%,precedes:<,extends:>
+set sidescroll=5
+set timeoutlen=1000 ttimeoutlen=0        " exit visual faster
+set rtp+=/usr/local/opt/fzf
+set path=$PWD/**
+set complete-=i                         " removes indluded files from search
+
+" insert mode helpers:
+" exit insert mode
+inoremap jk <esc>
+"inoremap <esc> <nop>
+" toggle word cases
+inoremap <c-u> <esc>lviwUea
+inoremap <c-i> <esc>lviwuea
+" undo
+inoremap <c-z> <esc>ua
+
+" operator-pending mappings e.g iw or i(
+" next and last brakets
+onoremap in( :<c-u>normal! f(vi(<cr>
+onoremap an( :<c-u>normal! f(va(<cr>
+onoremap il( :<c-u>normal! F)vi(<cr>
+onoremap al( :<c-u>normal! F)va(<cr>
+
+" enclosing things using '"([{
+nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
+nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
+nnoremap <leader>( viw<esc>a)<esc>bi(<esc>lel
+nnoremap <leader>[ viw<esc>a]<esc>bi[<esc>lel
+nnoremap <leader>{ viw<esc>a}<esc>bi{<esc>lel
+vnoremap <leader>" <esc>`<i"<esc>`>la"<esc>
+vnoremap <leader>' <esc>`<i'<esc>`>la'<esc>
+vnoremap <leader>( <esc>`<i(<esc>`>la)<esc>
+vnoremap <leader>[ <esc>`<i[<esc>`>la]<esc>
+vnoremap <leader>{ <esc>`<i{<esc>`>la}<esc>
 
 " file name to clipboard
 nnoremap <Leader>cs o<Esc>:let @+=expand("%")<CR>"+p
@@ -77,11 +96,24 @@ nnoremap <space> za
 " Enables cursor line position tracking:
 set cursorline
 set colorcolumn=80                      " colour column 80
-hi ColorColumn ctermbg=237              " colour of colourcolumn
 hi clear CursorLine                     " removes underline from cursorline
-hi CursorLineNR ctermbg=240             " colour of cursorline number
 hi clear SignColumn                     " make ALE gutter neutral colour
+hi ColorColumn ctermbg=237              " colour of colourcolumn
+hi CursorLineNR ctermbg=240             " colour of cursorline number
 hi MatchParen ctermbg=243               " colour of bracket matching
+
+" colours for the line at the bottom of viewports
+hi StatusLine     ctermfg=253   ctermbg=126     cterm=NONE
+hi StatusLineNC   ctermfg=089   ctermbg=253     cterm=NONE
+hi VertSplit      ctermfg=126   ctermbg=234     cterm=NONE
+hi NonText        ctermfg=126   ctermbg=NONE    cterm=NONE
+hi SpecialKey     ctermfg=160   ctermbg=NONE    cterm=NONE
+
+" diff tool colours
+hi DiffAdd        ctermfg=NONE  ctermbg=022     cterm=NONE
+hi DiffChange     ctermfg=NONE  ctermbg=094     cterm=NONE
+hi DiffDelete     ctermfg=203   ctermbg=052     cterm=BOLD
+hi DiffText       ctermfg=NONE  ctermbg=017     cterm=NONE
 
 " netrw - vims own file system explorer configuration
 let g:netrw_liststyle = 3
@@ -90,7 +122,6 @@ let g:netrw_winsize = 50
 let g:netrw_altv=1 | let g:netrw_alto=1
 
 " Prettier
-"nnoremap <Leader>p :silent %!prettier --stdin --trailing-comma all --single-quote %f<CR>
 nnoremap <Leader>p :silent %!prettier
       \ --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
 
@@ -105,6 +136,17 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 "inoremap <C-M> <C-R>=UltiSnips#ListSnippets()<CR>
+
+" Limelight config
+let g:limelight_conceal_ctermfg = 240
+let g:limelight_default_coefficient = 0.4
+let g:limelight_paragraph_span = 0
+nnoremap <Leader>i :Limelight!!<CR>
+function! SetLimelightSpan(span)
+  let g:limelight_paragraph_span = a:span
+endfunction
+nnoremap dl :<C-U>call SetLimelightSpan(v:count)<CR>jk
+nnoremap <Leader>l <Plug>(Limelight)
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
