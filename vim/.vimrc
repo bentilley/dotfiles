@@ -72,6 +72,7 @@ nnoremap <Leader>cl o<Esc>:let @+=expand("%:p")<CR>"+p
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
 nnoremap mfld :set foldmethod=manual<CR>
+nnoremap <space> za
 
 " Enables cursor line position tracking:
 set cursorline
