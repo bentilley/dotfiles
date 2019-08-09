@@ -5,14 +5,26 @@ global !p
 from snippets.javascript import generate_constructor
 endglobal
 
+# UTILS
+
+snippet lg "Console logging" b
+console.log($1);
+endsnippet
+
+snippet vlg "Console logging a variable" b
+console.log('$1: ', {$1});
+endsnippet
+
+# LANGUAGE
+
 snippet nf "Named function definition" b
 function $1($2) {
   $0
 }
 endsnippet
 
-snippet lg "Console logging" b
-console.log('$1: ', {$1});
+snippet mf "Class Method Function" b
+$1($2) {$0}
 endsnippet
 
 snippet cls "ES6 class definition with constructor" b
@@ -22,4 +34,31 @@ class $1`!p snip.rv = " extends " if t[2] else ""`$2 {
   }
   $0
 }
+endsnippet
+
+snippet swt "Switch statement" b
+switch ($1) {
+case $2:
+  break;
+default:
+  $0
+}
+endsnippet
+
+snippet npr "New promise" w
+new Promise((resolve, reject) => {$0});
+endsnippet
+
+snippet thn ".then a promise" i
+then(res => {$1}, err => {${2:console.log(err);}})$0
+endsnippet
+
+# TESTING
+
+snippet jdes "jest describe block" b
+describe("$1", () => {$2});
+endsnippet
+
+snippet jit "jest it block" b
+it("$1", () => {$2});
 endsnippet
