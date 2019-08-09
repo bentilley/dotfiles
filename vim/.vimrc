@@ -95,7 +95,7 @@ nnoremap <space> za
 
 " Enables cursor line position tracking:
 set cursorline
-set colorcolumn=80                      " colour column 80
+set colorcolumn=80
 hi clear CursorLine                     " removes underline from cursorline
 hi clear SignColumn                     " make ALE gutter neutral colour
 hi ColorColumn ctermbg=237              " colour of colourcolumn
