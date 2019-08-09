@@ -16,8 +16,8 @@ Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
 Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
 Plug 'mattn/emmet-vim'                  " html tag completion
+Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
 " Plug 'Valloric/YouCompleteMe'         " autocomplete for vim
-" Plug 'mxw/vim-jsx'                    " jsx syntax highlighting
 call plug#end()
 
 " automatically source vimrc after session load
@@ -61,9 +61,11 @@ inoremap jk <esc>
 "inoremap <esc> <nop>
 " toggle word cases
 inoremap <c-u> <esc>lviwUea
-inoremap <c-i> <esc>lviwuea
+inoremap <c-y> <esc>lviwuea
 " undo
 inoremap <c-z> <esc>ua
+" useful inserts
+inoremap <Leader>3 #
 
 " operator-pending mappings e.g iw or i(
 " next and last brakets
@@ -84,6 +86,9 @@ vnoremap <leader>( <esc>`<i(<esc>`>la)<esc>
 vnoremap <leader>[ <esc>`<i[<esc>`>la]<esc>
 vnoremap <leader>{ <esc>`<i{<esc>`>la}<esc>
 
+" linting helpers
+nnoremap <leader>g gggqG<c-o><c-o>zz
+
 " file name to clipboard
 nnoremap <Leader>cs o<Esc>:let @+=expand("%")<CR>"+p
 nnoremap <Leader>cl o<Esc>:let @+=expand("%:p")<CR>"+p
@@ -103,17 +108,22 @@ hi CursorLineNR ctermbg=240             " colour of cursorline number
 hi MatchParen ctermbg=243               " colour of bracket matching
 
 " colours for the line at the bottom of viewports
-hi StatusLine     ctermfg=253   ctermbg=126     cterm=NONE
-hi StatusLineNC   ctermfg=089   ctermbg=253     cterm=NONE
-hi VertSplit      ctermfg=126   ctermbg=234     cterm=NONE
-hi NonText        ctermfg=126   ctermbg=NONE    cterm=NONE
-hi SpecialKey     ctermfg=160   ctermbg=NONE    cterm=NONE
+hi StatusLine     ctermfg=253   ctermbg=126   cterm=NONE
+hi StatusLineNC   ctermfg=089   ctermbg=253   cterm=NONE
+hi VertSplit      ctermfg=126   ctermbg=234   cterm=NONE
+hi NonText        ctermfg=126   ctermbg=NONE  cterm=NONE
+hi SpecialKey     ctermfg=160   ctermbg=NONE  cterm=NONE
+
+" tab line colours
+hi TabLine        ctermfg=015   ctermbg=242   cterm=NONE
+hi TabLineFill    ctermfg=007   ctermbg=234   cterm=NONE
+hi TabLineSel     ctermfg=007   ctermbg=234   cterm=BOLD
 
 " diff tool colours
-hi DiffAdd        ctermfg=NONE  ctermbg=022     cterm=NONE
-hi DiffChange     ctermfg=NONE  ctermbg=094     cterm=NONE
-hi DiffDelete     ctermfg=203   ctermbg=052     cterm=BOLD
-hi DiffText       ctermfg=NONE  ctermbg=017     cterm=NONE
+hi DiffAdd        ctermfg=NONE  ctermbg=022   cterm=NONE
+hi DiffChange     ctermfg=NONE  ctermbg=094   cterm=NONE
+hi DiffDelete     ctermfg=203   ctermbg=052   cterm=BOLD
+hi DiffText       ctermfg=NONE  ctermbg=017   cterm=NONE
 
 " netrw - vims own file system explorer configuration
 let g:netrw_liststyle = 3
@@ -129,13 +139,18 @@ nnoremap <Leader>p :silent %!prettier
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled = 1
+nnoremap [j :ALENext<cr>
+nnoremap ]j :ALEPrevious<cr>
+nnoremap ]J :ALEFirst<cr>
+nnoremap ]J :ALELast<cr>
 
 " Ultisnips settings
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-"inoremap <C-M> <C-R>=UltiSnips#ListSnippets()<CR>
+let g:UltiSnipsListSnippets="<c-g>"
+"inoremap <localleader>u <C-R>=UltiSnips#ListSnippets()<CR>
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
