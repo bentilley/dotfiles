@@ -139,13 +139,18 @@ nnoremap <Leader>p :silent %!prettier
 let g:ale_fix_on_save = 1
 let g:ale_javascript_prettier_use_local_config = 1
 let g:ale_completion_enabled = 1
+nnoremap [j :ALENext<cr>
+nnoremap ]j :ALEPrevious<cr>
+nnoremap ]J :ALEFirst<cr>
+nnoremap ]J :ALELast<cr>
 
 " Ultisnips settings
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-"inoremap <C-M> <C-R>=UltiSnips#ListSnippets()<CR>
+let g:UltiSnipsListSnippets="<c-g>"
+"inoremap <localleader>u <C-R>=UltiSnips#ListSnippets()<CR>
 
 " Limelight config
 let g:limelight_conceal_ctermfg = 240
