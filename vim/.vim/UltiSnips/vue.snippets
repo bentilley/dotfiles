@@ -1,0 +1,28 @@
+# vue file snippets
+
+# these functions are imported from the /pythonx dir in /.vim
+#global !p
+#from snippets.vue import generate_constructor
+#endglobal
+
+snippet nc "New component file" b
+<template>
+<div id="$1"></div>
+</template>
+
+<script>
+export default {
+  name: $1,
+  components: {},
+  data() {
+    return {};
+  },
+};
+</script>
+
+<style>
+#$1 {
+
+}
+</style>
+endsnippet
