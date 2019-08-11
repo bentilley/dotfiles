@@ -6,6 +6,7 @@ alias zalias="vim ~/.dotfiles/zsh/aliases.zsh"
 alias zfunc="vim ~/.dotfiles/zsh/functions.zsh"
 alias vconf="vim ~/.vimrc"
 alias tconf="vim ~/.dotfiles/tmux/.tmux.conf"
+alias kconf="vim ~/.config/karabiner/assets/complex_modifications"
 alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \"(^#.*|^$|myali)\" | sort"
 
 # VIM
