@@ -36,7 +36,6 @@ nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 let mapleader = "\\"
 let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
-set mouse=a                              " setting up the mouse
 set noea                                 " stopping windows from automatic resize on close
 set softtabstop=2 shiftwidth=2 expandtab " spaces instead of tabs, and set indent width
 set shiftround
