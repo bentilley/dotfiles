@@ -70,3 +70,19 @@ endsnippet
 snippet jit "jest it block" b
 it("$1", () => {$2});
 endsnippet
+
+snippet jbe "jest before each" b
+beforeEach(() => {
+  $0
+});
+endsnippet
+
+snippet jba "jest before all" b
+beforeAll(() => {
+  $0
+});
+endsnippet
+
+snippet jex "jest expect" b
+expect($1)$0;
+endsnippet

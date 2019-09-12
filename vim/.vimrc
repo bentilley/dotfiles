@@ -160,7 +160,7 @@ function! SetLimelightSpan(span)
   let g:limelight_paragraph_span = a:span
 endfunction
 nnoremap dl :<C-U>call SetLimelightSpan(v:count)<CR>jk
-nnoremap <Leader>l <Plug>(Limelight)
+xnoremap <Leader>l :Limelight<CR>
 
 " Tagbar settings
 let g:tagbar_ctags_bin="/usr/local/bin/ctags"
