@@ -40,6 +40,12 @@ function tag() {
   git push --tags
 }
 
+# seeing all TODO comments in a directory
+function todos() {
+  ag '// TODO ' $1 | sed -E -e 's/.*\/\/ TODO/TODO/'
+  echo "Number of TODOs: $(ag '// TODO ' $1 | wc -l)"
+}
+
 # working on different things
 function work_list() {
   ls -1 ~/.dotfiles/scripts/automator/automation \
@@ -90,5 +96,17 @@ create_session() {
     vim "$SESSION_CONFIG"
     echo "Session $SESSION_NAME create at $CONFIG_DIR"
     tmux new -s $SESSION_NAME "tmux source $SESSION_CONFIG"
+  fi
+}
+
+# Note taking
+NOTE_DIR='/Users/jammy/notes'
+function note() {
+  if [ -z "$1" ]; then
+    echo "Run 'note ls' to see notes, or 'note <note-name>' to get started!"
+  elif [ "$1" = "ls" ]; then
+    ls "$NOTE_DIR" | sed -E -e "s/\.md//g"
+  else
+    $EDITOR "$NOTE_DIR/$1.md"
   fi
 }

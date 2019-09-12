@@ -4,6 +4,8 @@
 # path additions for macports
 #export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
+export EDITOR="vim"
+
 # path for ruby - added because brew told me
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
@@ -107,13 +109,13 @@ fi
 # variables
 export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
 
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/jammy/Code/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/jammy/Code/google-cloud-sdk/path.zsh.inc'; fi
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/jammy/Code/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/jammy/Code/google-cloud-sdk/completion.zsh.inc'; fi
-
 # MACPORTS
 export MP_EDITOR_VISUAL=/usr/local/bin/vim
+
+# gcloud Settings
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
+source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
+export CLOUDSDK_PYTHON='/usr/local/bin/python2'
 
 # AUTH FOR F13
 export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
