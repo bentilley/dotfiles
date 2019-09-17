@@ -117,6 +117,9 @@ source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.in
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
 export CLOUDSDK_PYTHON='/usr/local/bin/python2'
 
+# autojump settings
+[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+
 # AUTH FOR F13
 export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
 

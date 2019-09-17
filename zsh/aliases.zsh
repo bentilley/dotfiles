@@ -16,6 +16,9 @@ alias jf="jest \`fzf\` --watch"
 # Taskwarrior
 alias todo="task summary && task calendar && task next"
 
+# Exa (colourful ls)
+alias lk="exa -lagh -t=modified"
+
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
@@ -40,7 +43,6 @@ alias cspas="cloud_sql_proxy --projects tsw-asgard -dir /tmp"
 alias cspdev="cloud_sql_proxy --projects tsw-develop -dir /tmp"
 
 # Ingresso aliases
-alias wlpy="python manage.py runserver"
 alias wlpys="python manage.py runserver_plus --cert-file /Users/jammy/cert/wl-self-signed/_wildcard.bendev.ingresso.co.uk+3.crt --key-file /Users/jammy/cert/wl-self-signed/_wildcard.bendev.ingresso.co.uk+3.key --reloader-interval 5"
 alias wlng="ngrok http --subdomain localtest1 --region=eu 8000"
 alias wlconf="vim .env"
