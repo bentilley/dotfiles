@@ -110,3 +110,15 @@ function note() {
     $EDITOR "$NOTE_DIR/$1.md"
   fi
 }
+
+# smart git clone that also does npm install
+clone() {
+  git clone $1
+  cd $(basename ${1%.*})
+  if test -f "./package.json"; then
+    echo "..."
+    echo "Found package.json... installing dependencies"
+    echo "..."
+    npm install
+  fi
+}

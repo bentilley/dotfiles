@@ -11,6 +11,8 @@ brew install tig
 brew install tmux
 brew install universal-ctags
 brew install vim --HEAD
+brew install exa
+brew install autojump
 
 # set up OS settings
 defaults write -g InitialKeyRepeat -int 10    # 150 ms
