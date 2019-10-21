@@ -13,6 +13,8 @@ Plug 'w0rp/ale'                         " linting and fixing
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 Plug 'majutsushi/tagbar'                " show tag window
 Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
@@ -55,6 +57,9 @@ nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 " Basic Editor Settings {{{
 
+colorscheme squeedom
+set undofile
+set undodir^=~/.vim/undo//               " set a directory for undo files
 let mapleader = "\\"
 let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
@@ -78,15 +83,6 @@ set complete-=i                         " removes indluded files from search
 " TODO read status line docs
 " TODO autocommands and setlocal to define diff status lines for diff filetype
 set statusline=%f%=[%4l/%4L]
-
-" Enables cursor line position tracking:
-set cursorline
-set colorcolumn=80
-hi clear CursorLine                     " removes underline from cursorline
-hi clear SignColumn                     " make ALE gutter neutral colour
-hi ColorColumn ctermbg=237              " colour of colourcolumn
-hi CursorLineNR ctermbg=240             " colour of cursorline number
-hi MatchParen ctermbg=243               " colour of bracket matching
 
 " }}}
 
@@ -125,6 +121,15 @@ inoremap <Leader>3 #
 
 " }}}
 
+" Vimdiff helpers {{{
+
+" shortcuts for 3-way merge
+map <Leader>1 :diffget LOCAL<CR>
+map <Leader>2 :diffget BASE<CR>
+map <Leader>3 :diffget REMOTE<CR>
+
+" }}}
+
 " Operator Pending Mappings {{{
 
 " next and last brakets
@@ -139,6 +144,8 @@ onoremap il@ :<c-u>normal! F@viW<cr>
 
 " Enclosing Things "'`([{ {{{
 
+" TODO earmarked for removal as now using surround plugin
+
 nnoremap <leader>" viw<esc>a"<esc>bi"<esc>lel
 nnoremap <leader>' viw<esc>a'<esc>bi'<esc>lel
 nnoremap <leader>` viw<esc>a`<esc>bi`<esc>lel
@@ -151,28 +158,6 @@ vnoremap <leader>` <esc>`<i`<esc>`>la`<esc>
 vnoremap <leader>( <esc>`<i(<esc>`>la)<esc>
 vnoremap <leader>[ <esc>`<i[<esc>`>la]<esc>
 vnoremap <leader>{ <esc>`<i{<esc>`>la}<esc>
-
-" }}}
-
-" COLOURS {{{
-
-" colours for the line at the bottom of viewports
-hi StatusLine     ctermfg=253   ctermbg=126   cterm=NONE
-hi StatusLineNC   ctermfg=089   ctermbg=253   cterm=NONE
-hi VertSplit      ctermfg=126   ctermbg=234   cterm=NONE
-hi NonText        ctermfg=126   ctermbg=NONE  cterm=NONE
-hi SpecialKey     ctermfg=160   ctermbg=NONE  cterm=NONE
-
-" tab line colours
-hi TabLine        ctermfg=015   ctermbg=242   cterm=NONE
-hi TabLineFill    ctermfg=007   ctermbg=234   cterm=NONE
-hi TabLineSel     ctermfg=007   ctermbg=234   cterm=BOLD
-
-" diff tool colours
-hi DiffAdd        ctermfg=NONE  ctermbg=022   cterm=NONE
-hi DiffChange     ctermfg=NONE  ctermbg=094   cterm=NONE
-hi DiffDelete     ctermfg=203   ctermbg=052   cterm=BOLD
-hi DiffText       ctermfg=NONE  ctermbg=017   cterm=NONE
 
 " }}}
 

@@ -13,6 +13,7 @@ brew install universal-ctags
 brew install vim --HEAD
 brew install exa
 brew install autojump
+brew install fswatch
 
 # set up OS settings
 defaults write -g InitialKeyRepeat -int 10    # 150 ms
