@@ -27,6 +27,8 @@ function get_event_ids() {
     | sed -E 's/^.*: "(.+)",$/\1/g'
 }
 
+# Working with git
+#
 # update the change log and commit
 function ucl() {
   vim CHANGELOG.md
@@ -38,6 +40,11 @@ function ucl() {
 function tag() {
   git tag `cat VERSION`
   git push --tags
+}
+
+# view an issue in github in web browser
+function ish() {
+  chrome "$(hub browse -u -- issues)/$1"
 }
 
 # seeing all TODO comments in a directory

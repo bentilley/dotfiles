@@ -487,6 +487,8 @@
 			<string></string>
 		</dict>
 	</dict>
+	<key>HapticFeedbackForEsc</key>
+	<false/>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
 	<key>LoadPrefsFromCustomFolder</key>
@@ -505,6 +507,11 @@
 	<false/>
 	<key>NSScrollViewShouldScrollUnderTitlebar</key>
 	<false/>
+	<key>NSSplitView Subview Frames NSColorPanelSplitView</key>
+	<array>
+		<string>0.000000, 0.000000, 224.000000, 258.000000, NO, NO</string>
+		<string>0.000000, 259.000000, 224.000000, 48.000000, NO, NO</string>
+	</array>
 	<key>NSTableView Columns v2 KeyBingingTable</key>
 	<data>
 	YnBsaXN0MDDUAQIDBAUGNjdYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3AS
@@ -536,7 +543,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>-103 933 445 77 -1213 900 1920 1080 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-522 1398 620 392 -1172 900 1920 1057 </string>
+	<string>1353 1416 620 392 703 900 1920 1080 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-903 1026 606 469 -1172 900 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -544,11 +551,11 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-984 1108 570 392 -1172 900 1920 1080 </string>
+	<string>-1217 1085 570 392 -1217 900 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>447 500 585 377 0 0 1440 900 </string>
+	<string>1304 1238 570 392 703 900 1920 1080 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>145 96 570 377 0 0 1440 877 </string>
+	<string>-992 1006 570 392 -1217 900 1920 1057 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1931,9 +1938,17 @@
 		<string>3.2.9</string>
 		<string>3.3.1</string>
 		<string>3.3.0</string>
+		<string>3.3.3</string>
 	</array>
 	<key>NoSyncCommandHistoryHasEverBeenUsed</key>
 	<true/>
+	<key>NoSyncFrame_SharedPreferences</key>
+	<dict>
+		<key>screenFrame</key>
+		<string>{{-1217, 900}, {1920, 1080}}</string>
+		<key>topLeft</key>
+		<string>{-579, 1762}</string>
+	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
 	<key>NoSyncHaveUsedCopyMode</key>
@@ -1943,9 +1958,9 @@
 	<key>NoSyncInstallationId</key>
 	<string>6E6FD89A-D316-4BD2-9D5D-0953DED5A408</string>
 	<key>NoSyncLastTipTime</key>
-	<real>587655310.25588405</real>
+	<real>589392730.66280603</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>4</integer>
+	<integer>7</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2753,6 +2768,7 @@
 		<string>0075</string>
 		<string>0076</string>
 		<string>0077</string>
+		<string>0078</string>
 	</array>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
@@ -2800,27 +2816,33 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-08-29T16:17:09Z</date>
+	<date>2019-09-25T16:17:02Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>ShowBookmarkName</key>
 	<true/>
+	<key>SoundForEsc</key>
+	<false/>
 	<key>SplitPaneDimmingAmount</key>
 	<real>0.23005308493589746</real>
+	<key>StatusBarPosition</key>
+	<integer>1</integer>
 	<key>TabStyle</key>
 	<integer>1</integer>
 	<key>TabStyleWithAutomaticOption</key>
 	<integer>5</integer>
 	<key>UKCrashReporterLastCrashReportDate</key>
 	<real>1565334272</real>
+	<key>VisualIndicatorForEsc</key>
+	<false/>
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.2</string>
+	<string>3.3.3</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

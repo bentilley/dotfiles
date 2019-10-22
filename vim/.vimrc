@@ -108,6 +108,9 @@ nnoremap sfld :set foldmethod=syntax<CR>
 nnoremap mfld :set foldmethod=manual<CR>
 nnoremap <space> za
 
+" renaming things
+nnoremap <Leader>rn yiw:%s/<c-r>+/
+
 " }}}
 
 " Insert Mode Helpers {{{
