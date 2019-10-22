@@ -17,7 +17,7 @@ alias jf="jest \`fzf\` --watch"
 alias todo="task summary && task calendar && task next"
 
 # Exa (colourful ls)
-alias lk="exa -lagh -t=modified"
+alias lk="exa -lag -t=modified"
 
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"

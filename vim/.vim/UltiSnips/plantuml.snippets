@@ -3,3 +3,23 @@ snippet uml "Start a UML block" b
 $0
 @enduml
 endsnippet
+
+snippet up "Participant declaration" b
+participant "$1"`!p snip.rv = " as " if t[2] else ""`$2
+endsnippet
+
+snippet > "Sequence diagram arrow (right short)" b
+$1 -> $2`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+snippet < "Sequence diagram arrow (left short)" b
+$1 <- $2`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+snippet )> "Use case arrow (right)" b
+($1) --> ($2)`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+snippet )< "Use case arrow (left)" b
+($1) <-- ($2)`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet

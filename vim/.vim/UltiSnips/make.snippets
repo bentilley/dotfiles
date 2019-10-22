@@ -1,0 +1,16 @@
+snippet newmake "Makefile template" b
+# Usage:
+# make		# ${1:<effect>}
+
+.PHONY: all${2: <other_targets>}
+
+all: ${3:<default-targets>}
+endsnippet
+
+snippet tar "target definition" b
+$1:${2:<prerequisites>}
+endsnippet
+
+snippet var "variable definition" b
+$1 = $0
+endsnippet

@@ -1,0 +1,19 @@
+*my-notes.txt*	A Place for my own VIM notes    *my-notes*
+
+REMEMBER to run :helptags ALL when you've finished editing this file to detect
+any changes
+
+Run :help vimfiles to learn about the different files in the .vim directory
+                                                                       
+This stuff is junk                              *mynotes-junk*
+
+Mappings:
+<Leader>a   or   <Plug>TypecorrAdd
+	Add a correction for the word under the cursor.
+                                                                       
+Commands:
+:Correct {word}
+	Add a correction for {word}.
+                                                                       
+						*mynotes-hotkeys*
+There are no notes about hotkeys yet...

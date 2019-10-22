@@ -17,7 +17,7 @@ let b:ale_fixers = ['black', 'remove_trailing_lines', 'trim_whitespace']
 
 
 " Commenting
-nnoremap <buffer> <localleader>c 0i#<esc>
+nnoremap <buffer> <localleader>c ^i#<esc>
 nnoremap <buffer> <localleader>x ^x
-vnoremap <buffer> <localleader>c <esc>`<0<c-v>`>I#<esc>
-vnoremap <buffer> <localleader>x `<0<c-v>`>0x
+vnoremap <buffer> <localleader>c <esc>`<^<c-v>`>I#<esc>
+vnoremap <buffer> <localleader>x <esc>`<^<c-v>`>^x
