@@ -59,7 +59,7 @@ nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 colorscheme squeedom
 set undofile
-set undodir^=~/.vim/undo//               " set a directory for undo files
+set undodir^=~/.vimextra/undo//               " set a directory for undo files
 let mapleader = "\\"
 let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
