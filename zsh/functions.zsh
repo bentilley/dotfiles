@@ -47,6 +47,11 @@ function ish() {
   chrome "$(hub browse -u -- issues)/$1"
 }
 
+# view a pull request in github in web browser
+function pull() {
+  chrome "$(hub browse -u | sed -E -e 's/(.*white-label).*/\1/g')/pull/$1"
+}
+
 # seeing all TODO comments in a directory
 function todos() {
   ag '// TODO ' $1 | sed -E -e 's/.*\/\/ TODO/TODO/'
@@ -119,7 +124,7 @@ function note() {
 }
 
 # smart git clone that also does npm install
-clone() {
+function clone() {
   git clone $1
   cd $(basename ${1%.*})
   if test -f "./package.json"; then
