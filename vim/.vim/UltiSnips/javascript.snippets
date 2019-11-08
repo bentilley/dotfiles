@@ -23,6 +23,10 @@ snippet elg "Console error" b
 console.error($0);
 endsnippet
 
+snippet pl "Log response and error of promise" w
+then(res => console.log, err => console.error);
+endsnippet
+
 # LANGUAGE
 
 snippet nf "Named function definition" b

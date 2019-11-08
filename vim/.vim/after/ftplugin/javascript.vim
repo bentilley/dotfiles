@@ -10,6 +10,7 @@ let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
 
 " Abbreviations
 
+abbreviate /T // TODO
 
 " Commenting
 nnoremap <buffer> <localleader>c 0i//<esc>

@@ -7,7 +7,12 @@ endglobal
 
 snippet uml "Start a UML block" b
 @startuml
+
+header $1
+title $1
+
 $0
+
 @enduml
 endsnippet
 
@@ -53,6 +58,36 @@ end
 endsnippet
 
 
+# State Diagrams
+
+snippet hed "State - hide empty description" b
+hide empty description
+endsnippet
+
+snippet *s "State - source" b
+[*] --> $0
+endsnippet
+
+snippet s* "State - sink" b
+$0 --> [*]
+endsnippet
+
+snippet st "State - state" b
+state $1 {
+  $0
+}
+endsnippet
+
+snippet >> "State - arrow (right)" b
+$1 --> $2`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+snippet << "State - arrow (left)" b
+$1 <-- $2`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+
+
 # Use Case Diagrams
 
 snippet )> "Use case arrow (right)" b
@@ -61,4 +96,31 @@ endsnippet
 
 snippet )< "Use case arrow (left)" b
 ($1) <-- ($2)`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+
+# Activity Diagrams
+
+snippet if "Activity - if/then/else" b
+if "$1" then
+  $0
+else
+  
+endif
+endsnippet
+
+snippet a "Activity - arrow" b
+--> "$0"
+endsnippet
+
+snippet al "Activity - arow with label" b
+-->[$1] "$0"
+endsnippet
+
+snippet *a "Activity - source" b
+(*) --> "$0"
+endsnippet
+
+snippet a* "Activity - sink" b
+-->(*)
 endsnippet
