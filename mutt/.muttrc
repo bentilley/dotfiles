@@ -1,130 +1,43 @@
-#folder-hook 'account.work' source '~/.mutt/account.work'
-#folder-hook 'account.liveerrors' source '~/.mutt/account.liveerrors'
-source ~/.mutt/account.work
-#macro index <f1> '<enter-command>source ~/.mutt/account.work<enter><change-folder>!<enter><sync-mailbox>'
-#macro index <f2> '<enter-command>source ~/.mutt/account.liveerrors<enter><change-folder>!<enter><sync-mailbox>'
+# Change the following six lines to your Gmail account details
+# set imap_user = "ben.tilley@accesso.com"
+# set imap_pass = "PASSWORD"
+# set smtp_url = "smtp://ben.tilley@accesso.com@smtp.office365.com:587/"
+# set smtp_pass = "PASSWORD"
+# set from = "bentilley@ingresso.co.uk"
+# set realname = "Ben Tilley"
 
-# Sendmail  ------------------------------------------------------------------------------------------------------------
-set sendmail = "/usr/local/bin/msmtp"
-set from     = "bentilley@ingresso.co.uk" # send from accesso email
-set realname = "Ben Tilley"
-set signature = "~/.mutt/signature.txt"
+# Basic config, you can leave this as is
+set folder = "imaps://Ben.Tilley@accesso.com@outlook.office365.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+set ssl_starttls = yes
+# set imap_check_subscribed
+# set hostname = gmail.com
+# set mail_check = 120
+# set timeout = 300
+# set imap_keepalive = 300
+# set postponed = "+[Google Mail]/Drafts"
+# set record = "+[Google Mail]/Sent Mail"
+# set header_cache=~/.mutt/cache/headers
+# set message_cachedir=~/.mutt/cache/bodies
+# set certificate_file=~/.mutt/certificates
+# set move = no
+# set include
+# set sort = 'threads'
+# set sort_aux = 'reverse-last-date-received'
+# set auto_tag = yes
+# ignore "Authentication-Results:"
+# ignore "DomainKey-Signature:"
+# ignore "DKIM-Signature:"
+# hdr_order Date From To Cc
+# alternative_order text/plain text/html *
+# auto_view text/html
+# bind editor <space> noop
 
-# General Settings  ----------------------------------------------------------------------------------------------------
-set quit
-set mail_check = 10
-set editor = "vim -u ~/.mutt/vimrc"
-set copy                                 # Keep copies of outgoing mail...
-set delete
-set delete_untag                         # Untag msgs when marking them for deletion
-
-set tilde                               # pad bottom blank lines when in page view
-set pager_index_lines   = 10            # Show 2 messages on either side of the message I'm reading.
-set pager_context       = 5             # Paging down a message leaves 5 lines of overlap, so you don't get lost.
-set pager_stop                          # don't go to next message automatically
-set menu_scroll                         # scroll in menus
-set indent_str          = "> "
-unset markers                           # no ugly plus signs
-set quote_regexp        = "^( {0,4}[>|:#%]| {0,4}[a-z0-9]+[>|]+)+"
-auto_view text/html
-alternative_order       text/enriched text/plain text/html        #In which order to show the body parts (I leave HTML for last)
-
-set resolve
-set envelope_from                        # which from?
-set edit_headers    = no                # show headers when composing
-set fast_reply                           # skip to compose when replying
-unset reply_self
-set reply_to                             # reply to Reply to: field
-set askcc                                # ask for CC:
-set fcc_attach                           # save attachments with the body
-set mime_forward    = ask-no             # ask to forward attachments as part of body
-set mime_forward_rest                    # forwarding multiple attachments of a MIME message from the recvattach menu
-set forward_format  = "Fwd: %s"          # format of subject when forwarding
-set forward_decode                       # decode when forwarding
-set attribution     = "On %d, %n wrote:" # format of quoting header
-set reverse_name                         # reply as whomever it was to
-set include                              # include message in replies
-set forward_quote                        # include message in forwards
-set postpone        = ask-yes            # controls whether or not messages are saved in the 'postponed'
-unset sig_dashes                         # dashes before sig
-
-set date_format         = "%T %d/%m/%y"
-set index_format        = "[%Z]  %D  %-20.20F  %s"
-set sort_re
-set reply_regexp        = "^(([Rr][Ee]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
-set narrow_tree
-set implicit_autoview
-
-# Email threads --------------------------------------------------------------------------------------------------------
-set sort                =  threads                           # As in GMail
-set strict_threads      = "yes"
-set sort_browser        = "date"
-set sort_aux            = "reverse-last-date-received"      # As in GMail
-unset collapse_unread
-# Start with closed threads
-folder-hook . "exec collapse-all"
-
-
-# Sidebar setup --------------------------------------------------------------------------------------------------------
-set mail_check_stats
-# set status_format       = "───[ Folder: %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?($"
-set sidebar_format      = "%B%?F? [%F]?%* %?N?(%N)?"
-set sidebar_width       = 30
-set sidebar_visible     = yes
-set status_chars        = " *%A"
-set sidebar_short_path                  # Shorten mailbox names
-set sidebar_delim_chars = "/"             # Delete everything up to the last / character
-
-# Sidebar navigation
-bind index <down> "sidebar-next"
-bind index <up> "sidebar-prev"
-bind index <right> "sidebar-open"
-# B toggles sidebar visibility
-macro index \CB '<enter-command>toggle sidebar_visible<enter><refresh>'
-macro pager \CB '<enter-command>toggle sidebar_visible<enter><redraw-screen>'
-
-# Mailbox navigation ---------------------------------------------------------------------------------------------------
-# scroll up and down in emails
-bind pager k previous-line
-bind pager j next-line
-
-# move up and down messages
-bind index k previous-entry
-bind index j next-entry
-
-# search in opposite direction
-bind index h search-opposite
-
-# page up and down among emails
-bind index K previous-page
-bind index J next-page
-bind pager K previous-page
-bind pager J next-page
-
-# g and G to move to top and bottom
-bind index g first-entry
-bind index G last-entry
-bind pager g top
-bind pager G bottom
-
-# reply
-bind index r group-reply
-bind pager r group-reply
-bind index R reply
-bind pager R reply
-
-# Search with mutt-notmuch-py
-#macro index \CS "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch-py -G ~/Mail/temporary/search<enter><change-folder-readonly>~/Mail/temporary/search<enter>" \
-#            "search mail (using notmuch)"
-
-# Sync email
-macro index O "<shell-escape>offlineimap -o<enter>"           "run offlineimap to sync all mail"
-
- # Saner copy/move dialogs
-macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
-macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
-
-
-set alias_file          = ~/.mutt/aliases     # Go there for aliases
-#source ~/.mutt/aliases
-source ~/.mutt/colours.muttrc
+# Gmail-style keyboard shortcuts
+# macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"
+# macro index,pager d "<enter-command>set trash=\"imaps://imap.googlemail.com/[Google Mail]/Bin\"\n <delete-message>" "Gmail delete message"
+# macro index gi "<change-folder>=INBOX<enter>" "Go to inbox"
+# macro index ga "<change-folder>=[<tab>/All<tab><enter>" "Go to all mail"
+# macro index gs "<change-folder>=[<tab>Starred<enter>" "Go to starred messages"
+# macro index gd "<change-folder>=[<tab>Drafts<enter>" "Go to drafts"
