@@ -134,3 +134,76 @@ function clone() {
     npm install
   fi
 }
+
+
+# Ingresso Helper functions
+# TODO create a separate file for these
+
+# connecting to core databases
+function dbconnect() {
+  case $1 in
+    "leaf")
+      mysql \
+        --host=leafdb.ingresso.co.uk \
+        --user=bentilley \
+        --password=$(security find-generic-password -a "bentilley@leafdb.ingresso.co.uk/mw_live" -w) \
+        mw_live
+      ;;
+    "core")
+      mysql \
+        --host=hkdb.ingresso.co.uk \
+        --user=bentilley \
+        --password=$(security find-generic-password -a "bentilley@hkdb.ingresso.co.uk/mw_live" -w) \
+        mw_live
+      ;;
+    "dev")
+      mysql \
+        --host=dogbert.ingresso.co.uk \
+        --user=bentilley \
+        --password=$(security find-generic-password -a "bentilley@dogbert.ingresso.co.uk/mw_dev" -w) \
+        mw_dev
+      ;;
+    "ls")
+      echo "leaf, core, dev"
+      ;;
+  esac
+}
+
+function dbquery() {
+  mysql -A\
+    --host=leafdb.ingresso.co.uk \
+    --user=bentilley \
+    --password=$(security find-generic-password -a "bentilley@leafdb.ingresso.co.uk/mw_live" -w) \
+    --execute=$1 \
+    mw_live
+}
+
+# getting bad payment intents
+function pierrors() {
+  echo "running query:"
+  echo "SELECT stripe_id, account_name, description, created_time, amount \
+    FROM stripe_charges \
+    WHERE stripe_charges.description \
+    IN $(get_pi_ids);"
+  dbquery "SELECT stripe_id, account_name, description, created_time, amount \
+    FROM stripe_charges \
+    WHERE stripe_charges.stripe_id \
+    IN $(get_pi_ids);"
+}
+
+function get_pi_ids() {
+  pbpaste |\
+    prettier --stdin --parser html |\
+    gsed -E \
+    -e "1i(" \
+    -e "/pi_/!d ; /pi_/s/.*(pi_[a-zA-Z0-9]+).*/'\1',/g" |\
+    gsed -e "\${ s/',/'/ ; a)
+      }"
+}
+
+# print out the functions defined in a file
+function get_funcs_js() {
+  cat $1 | \
+    sed -n -E \
+    -e '/(export)? function/s/.*function ([a-zA-Z]+)\(.*/\1/p'
+}
