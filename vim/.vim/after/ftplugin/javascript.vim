@@ -17,3 +17,10 @@ nnoremap <buffer> <localleader>c 0i//<esc>
 nnoremap <buffer> <localleader>x ^2x
 vnoremap <buffer> <localleader>c <esc>`<^<c-v>`>I//<esc>
 vnoremap <buffer> <localleader>x <esc>`<^<c-v>`>^lx
+
+" Operator Pending Mappings
+
+xnoremap if :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rf{vi{"<CR>
+xnoremap af :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rvf{%"<CR>
+onoremap if :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rf{vi{"<CR>
+onoremap af :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rvf{%"<CR>
