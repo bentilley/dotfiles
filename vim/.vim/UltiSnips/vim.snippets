@@ -3,3 +3,26 @@
 snippet col "Adding a colour row" b
 hi ${1:<hilight-group>}   ctermfg=${2:colour}   ctermbg=${3:colour}   cterm=${4:NONE}
 endsnippet
+
+
+# Vimscript Snippets
+
+snippet fn "Function definition" b
+function $1($2)
+  $0
+endfunction
+endsnippet
+
+snippet if "If statement" b
+if $1
+  $0
+endif
+endsnippet
+
+snippet ife "If statement - with else" b
+if $1
+  $0
+else
+  
+endif
+endsnippet
