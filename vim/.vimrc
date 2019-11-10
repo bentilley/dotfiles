@@ -2,6 +2,8 @@
 " which lets YouCompleteMe run 
 " let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 
+source ~/.dotfiles/vim/learning.vim
+
 " Plugins {{{
 
 call plug#begin('~/.vim/plugged')
@@ -59,7 +61,7 @@ nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 colorscheme squeedom
 set undofile
-set undodir^=~/.vim/undo//               " set a directory for undo files
+set undodir^=~/.vimextra/undo//               " set a directory for undo files
 let mapleader = "\\"
 let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
@@ -124,9 +126,9 @@ inoremap <Leader>3 #
 " Vimdiff helpers {{{
 
 " shortcuts for 3-way merge
-map <Leader>1 :diffget LOCAL<CR>
-map <Leader>2 :diffget BASE<CR>
-map <Leader>3 :diffget REMOTE<CR>
+nnoremap <Leader>1 :diffget LOCAL<CR>
+nnoremap <Leader>2 :diffget BASE<CR>
+nnoremap <Leader>3 :diffget REMOTE<CR>
 
 " }}}
 
