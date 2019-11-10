@@ -1,6 +1,18 @@
+# plantuml file snippets
+
+# these functions are imported from the /pythonx dir in /.vim
+global !p
+from snippets.plantuml import note
+endglobal
+
 snippet uml "Start a UML block" b
 @startuml
+
+header $1
+title $1
+
 $0
+
 @enduml
 endsnippet
 
@@ -8,13 +20,75 @@ snippet up "Participant declaration" b
 participant "$1"`!p snip.rv = " as " if t[2] else ""`$2
 endsnippet
 
-snippet > "Sequence diagram arrow (right short)" b
+
+# Sequence Diagrams
+
+snippet > "Seq Diag - arrow (right short)" b
 $1 -> $2`!p snip.rv = " : " if t[3] else ""`$3 
 endsnippet
 
-snippet < "Sequence diagram arrow (left short)" b
+snippet < "Seq Diag - arrow (left short)" b
 $1 <- $2`!p snip.rv = " : " if t[3] else ""`$3 
 endsnippet
+
+snippet gp "Seq Diag - group" b
+group ${1:group name}
+  $0
+end
+endsnippet
+
+snippet "n([orl])(b?)" "Seq Diag - note" br
+note `!p snip.rv = note.get_type(match)` ${1:A, B}`!p snip.rv = note.get_oneline(match)`$2
+`!p snip.rv = note.get_note_indent(match)`$0
+`!p snip.rv = note.get_block_close(match)`
+endsnippet
+# TODO try and rewrite this using expand_anon and post_jump
+#   https://github.com/SirVer/ultisnips/blob/master/doc/examples/tabstop-generation/README.md
+
+snippet div "Seq Diag - divider" b
+== $1 ==
+endsnippet
+
+snippet alt "Seq Diag - alt" b
+alt ${1:case 1}
+  $0
+else ${2:case 2}
+  
+end
+endsnippet
+
+
+# State Diagrams
+
+snippet hed "State - hide empty description" b
+hide empty description
+endsnippet
+
+snippet *s "State - source" b
+[*] --> $0
+endsnippet
+
+snippet s* "State - sink" b
+$0 --> [*]
+endsnippet
+
+snippet st "State - state" b
+state $1 {
+  $0
+}
+endsnippet
+
+snippet >> "State - arrow (right)" b
+$1 --> $2`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+snippet << "State - arrow (left)" b
+$1 <-- $2`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+
+
+# Use Case Diagrams
 
 snippet )> "Use case arrow (right)" b
 ($1) --> ($2)`!p snip.rv = " : " if t[3] else ""`$3 
@@ -22,4 +96,31 @@ endsnippet
 
 snippet )< "Use case arrow (left)" b
 ($1) <-- ($2)`!p snip.rv = " : " if t[3] else ""`$3 
+endsnippet
+
+
+# Activity Diagrams
+
+snippet if "Activity - if/then/else" b
+if "$1" then
+  $0
+else
+  
+endif
+endsnippet
+
+snippet a "Activity - arrow" b
+--> "$0"
+endsnippet
+
+snippet al "Activity - arow with label" b
+-->[$1] "$0"
+endsnippet
+
+snippet *a "Activity - source" b
+(*) --> "$0"
+endsnippet
+
+snippet a* "Activity - sink" b
+-->(*)
 endsnippet

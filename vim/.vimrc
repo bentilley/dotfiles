@@ -3,6 +3,7 @@
 " let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 
 source ~/.dotfiles/vim/learning.vim
+let g:AutoPairsMapCh = 0
 
 " Plugins {{{
 
@@ -85,6 +86,7 @@ set complete-=i                         " removes indluded files from search
 " TODO read status line docs
 " TODO autocommands and setlocal to define diff status lines for diff filetype
 set statusline=%f%=[%4l/%4L]
+set omnifunc=syntaxcomplete#Complete
 
 " }}}
 
@@ -106,13 +108,19 @@ nnoremap sfld :set foldmethod=syntax<CR>
 nnoremap mfld :set foldmethod=manual<CR>
 nnoremap <space> za
 
+" renaming things
+nnoremap <Leader>rn yiw:%s/<c-r>+/
+
+nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
+
 " }}}
 
 " Insert Mode Helpers {{{
 
 " exit insert mode
-inoremap jk <esc>
+" inoremap jk <esc>
 "inoremap <esc> <nop>
+
 " toggle word cases
 inoremap <c-u> <esc>lviwUea
 inoremap <c-y> <esc>lviwuea
@@ -120,6 +128,27 @@ inoremap <c-y> <esc>lviwuea
 inoremap <c-z> <esc>ua
 " useful inserts
 inoremap <Leader>3 #
+
+" movement in insert mode
+inoremap <C-h> <Left>
+inoremap <C-j> <Down>
+inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+" }}}
+
+" Command-line Mode Helpers {{{
+
+cnoremap <C-h> <Left>
+cnoremap <C-j> <Down>
+cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
+
+" }}}
+
+" Abbreviations {{{
+
+
 
 " }}}
 
@@ -245,11 +274,7 @@ nnoremap cag :Ag<CR>
 
 " }}}
 
-" template literal highlighting
-nnoremap <Leader>h :JsPreTmpl html<CR>
-
-nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
-nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
+" Custom Commands {{{
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.
@@ -258,6 +283,19 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" Command for searching all open buffers for a word
+if !exists(":BufSearch")
+  command -nargs=1 BufSearch :cexpr [] | :bufdo vimgrepadd <args> %
+endif
+
+" }}}
+
+" template literal highlighting
+nnoremap <Leader>h :JsPreTmpl html<CR>
+
+nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
+nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
 
 " for showing you the syntax highlighting group of the word the you are hovering over
 noremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'

@@ -146,6 +146,11 @@ export HISTSIZE=50000
 export SAVEHIST=100000
 setopt HIST_FIND_NO_DUPS
 
+# key bindings
+# bindkey -v
+bindkey "^K" history-search-backward
+bindkey "^J" history-search-forward
+
 # source aliases
 source $HOME/.dotfiles/zsh/aliases.zsh
 # source functions
