@@ -2,6 +2,41 @@
   "title": "Ben's custom key shizz",
   "rules": [
     {
+      "description": "Change some special characters (# <=> £)",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": ["shift"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": ["option"]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "3",
+            "modifiers": {
+              "mandatory": ["option"]
+            }
+          },
+          "to": [
+            {
+              "key_code": "3",
+              "modifiers": ["shift"]
+            }
+          ]
+        }
+      ]
+    },
+    {
       "description": "Change caps_lock to control if pressed with other keys, to escape if pressed alone.",
       "manipulators": [
         {
