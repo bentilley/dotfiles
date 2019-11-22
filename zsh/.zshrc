@@ -17,6 +17,9 @@ export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
 
+# path for helm 2.16.1 (old helm)
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
 # for installing python better with homebrew
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 # some homebrew formulae put executables in local/sbin
@@ -140,6 +143,9 @@ export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
 
 # ssh
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
+
+# Ingresso
+export FLUX_FORWARD_NAMESPACE=weave
 
 # History configuration
 export HISTSIZE=50000

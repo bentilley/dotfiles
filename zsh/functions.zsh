@@ -139,6 +139,18 @@ function clone() {
 # Ingresso Helper functions
 # TODO create a separate file for these
 
+# seeing what's deployed to different environments
+function whatson() {
+  kubectl get pods \
+    -n whitelabel-dev \
+    -l release=whitelabel-$1 \
+    --context dev-cluster \
+    -o jsonpath="{..image}" \
+    | tr -s '[[:space:]]' '\n' \
+    | grep eu.gcr \
+    | uniq
+}
+
 # connecting to core databases
 function dbconnect() {
   case $1 in
@@ -147,6 +159,8 @@ function dbconnect() {
         --host=leafdb.ingresso.co.uk \
         --user=bentilley \
         --password=$(security find-generic-password -a "bentilley@leafdb.ingresso.co.uk/mw_live" -w) \
+        --port=9084 \
+        --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
         mw_live
       ;;
     "core")
@@ -154,6 +168,8 @@ function dbconnect() {
         --host=hkdb.ingresso.co.uk \
         --user=bentilley \
         --password=$(security find-generic-password -a "bentilley@hkdb.ingresso.co.uk/mw_live" -w) \
+        --port=9084 \
+        --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
         mw_live
       ;;
     "dev")
@@ -161,6 +177,7 @@ function dbconnect() {
         --host=dogbert.ingresso.co.uk \
         --user=bentilley \
         --password=$(security find-generic-password -a "bentilley@dogbert.ingresso.co.uk/mw_dev" -w) \
+        --port=9084 \
         mw_dev
       ;;
     "ls")
@@ -175,6 +192,8 @@ function dbquery() {
     --user=bentilley \
     --password=$(security find-generic-password -a "bentilley@leafdb.ingresso.co.uk/mw_live" -w) \
     --execute=$1 \
+    --port=9084 \
+    --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
     mw_live
 }
 

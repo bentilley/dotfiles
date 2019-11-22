@@ -44,6 +44,7 @@ alias cspas="cloud_sql_proxy --projects tsw-asgard -dir /tmp"
 alias cspdev="cloud_sql_proxy --projects tsw-develop -dir /tmp"
 
 # Ingresso aliases
+alias whatio="kubectl get pods -n whitelabel-dev -l release=whitelabel-ben --context dev-cluster -o jsonpath="{..image}" | tr -s '[[:space:]]' '\n' | grep eu.gcr | uniq"
 alias wlpys="python manage.py runserver_plus --cert-file /Users/jammy/cert/wl-self-signed/_wildcard.bendev.ingresso.co.uk+3.crt --key-file /Users/jammy/cert/wl-self-signed/_wildcard.bendev.ingresso.co.uk+3.key --reloader-interval 5"
 alias wlng="ngrok http --subdomain localtest1 --region=eu 8000"
 alias wlconf="vim .env"
