@@ -100,6 +100,10 @@ source $ZSH/oh-my-zsh.sh
 # set up 'pure' theme
 autoload -U promptinit; promptinit
 prompt pure
+# set up kubectl prompt
+source ~/.dotfiles/zsh/prompt/kube-ps1.sh
+PROMPT='$(kube_ps1) '$PROMPT
+KUBE_PS1_SEPARATOR='| '
 
 # ADD-ONS
 source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh # iTerm2 shell integration
