@@ -3,6 +3,14 @@ function vag() {
   vim -p `ag $1 $2 | sed -E -e 's/(.*):[[:digit:]]+:.+/\1/' | uniq`
 }
 
+function efail() {
+  vim $(\
+    jest $1 \
+    --reporters="<rootDir>/bens-stuff/jest-reporters/failing-files-only.js" \
+    2>/dev/null\
+  )
+}
+
 # Testing with Karma
 function kstart() {
   npx karma start --no-single-run

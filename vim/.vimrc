@@ -126,8 +126,6 @@ inoremap <c-u> <esc>lviwUea
 inoremap <c-y> <esc>lviwuea
 " undo
 inoremap <c-z> <esc>ua
-" useful inserts
-inoremap <Leader>3 #
 
 " movement in insert mode
 inoremap <C-h> <Left>
