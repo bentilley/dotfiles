@@ -27,16 +27,26 @@ snippet pl "Log response and error of promise" w
 then(res => console.log, err => console.error);
 endsnippet
 
+snippet db "Debugger" b
+debugger;
+endsnippet
+
 # LANGUAGE
 
-snippet nf "Named function definition" b
+snippet fn "Named function definition" b
 function $1($2) {
   $0
 }
 endsnippet
 
-snippet mf "Class Method Function" b
+snippet fm "Class Method Function" b
 $1($2) {$0}
+endsnippet
+
+snippet ef "Exported function definition" b
+export function $1($2) {
+$0
+}
 endsnippet
 
 snippet imp "Import statement" b
@@ -61,12 +71,22 @@ default:
 }
 endsnippet
 
+snippet cs "Case statement (in switch)" b
+case $1:
+  $0
+break;
+endsnippet
+
 snippet npr "New promise" w
 new Promise((resolve, reject) => {$0});
 endsnippet
 
 snippet thn ".then a promise" i
 then(res => {$1}, err => {${2:console.log(err);}})$0
+endsnippet
+
+snippet > "Arrow function" i
+($1) => {$0}
 endsnippet
 
 # TESTING

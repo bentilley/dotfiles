@@ -20,7 +20,7 @@ vnoremap <buffer> <localleader>x <esc>`<^<c-v>`>^lx
 
 " Operator Pending Mappings
 
-xnoremap if :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rf{vi{"<CR>
-xnoremap af :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rvf{%"<CR>
-onoremap if :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rf{vi{"<CR>
-onoremap af :<C-U>execute "normal! ?^\\s*function\r:nohlsearch\rvf{%"<CR>
+xnoremap if :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rf{vi{"<CR>
+xnoremap af :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rvf{%"<CR>
+onoremap if :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rf{vi{"<CR>
+onoremap af :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rvf{%"<CR>

@@ -1,0 +1,21 @@
+# javascript/redux file snippets
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.redux import some_function
+# endglobal
+
+# Actions
+
+snippet a "Action Type" b
+export const $1 = "$1";
+endsnippet
+
+snippet ac "Action Creator" b
+export function $1() {
+  return {
+    type: $2,
+    payload: $0,
+  };
+}
+endsnippet
