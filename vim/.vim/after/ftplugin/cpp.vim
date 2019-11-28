@@ -22,3 +22,6 @@ let b:ale_fixers = ['clang-format', 'remove_trailing_lines', 'trim_whitespace']
 "vnoremap <buffer> <localleader>c <esc>`<^<c-v>`>I#<esc>
 "vnoremap <buffer> <localleader>x <esc>`<^<c-v>`>^x
 
+" Extra Commands
+
+command! -nargs=0 Docs !open https://devdocs.io/cpp/
