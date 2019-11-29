@@ -4,7 +4,7 @@
 # path additions for macports
 #export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
-export EDITOR="vim"
+export EDITOR='vim -u NONE'
 
 # path for ruby - added because brew told me
 export PATH="/usr/local/opt/ruby/bin:$PATH"
@@ -104,6 +104,7 @@ prompt pure
 source ~/.dotfiles/zsh/prompt/kube-ps1.sh
 PROMPT='$(kube_ps1) '$PROMPT
 KUBE_PS1_SEPARATOR='| '
+kubeoff -g
 
 # ADD-ONS
 source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh # iTerm2 shell integration
@@ -157,9 +158,12 @@ export SAVEHIST=100000
 setopt HIST_FIND_NO_DUPS
 
 # key bindings
-# bindkey -v
-bindkey "^K" history-search-backward
-bindkey "^J" history-search-forward
+bindkey -v
+bindkey -M vicmd "^V" edit-command-line
+bindkey -M viins "^K" history-search-backward
+bindkey -M viins "^J" history-search-forward
+bindkey -M viins "^E" end-of-line
+export KEYTIMEOUT=1
 
 # source aliases
 source $HOME/.dotfiles/zsh/aliases.zsh

@@ -100,8 +100,8 @@ nnoremap ]w :tabnext<CR>
 nnoremap <leader>g gggqG<c-o><c-o>zz
 
 " file name to clipboard
-nnoremap <Leader>cs o<Esc>:let @+=expand("%")<CR>"+p
-nnoremap <Leader>cl o<Esc>:let @+=expand("%:p")<CR>"+p
+nnoremap <Leader>cf :let @+=expand("%")<CR>
+nnoremap <Leader>cd :let @+=expand("%:p")<CR>
 
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
