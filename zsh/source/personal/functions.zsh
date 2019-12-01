@@ -25,18 +25,8 @@ function swap() {
   kubectx $1 && helm ls
 }
 
-# function for calling f13 on given end point and user
-function get_event_ids() {
-  AUTH=$(echo $HASH_AUTH_OVERRIDE | base64 -D)
-  curl -u $1"/#"$AUTH \
-    --compressed https://$2/f13/events.v1 \
-    | jq . \
-    | ag event_id \
-    | sed -E 's/^.*: "(.+)",$/\1/g'
-}
-
 # Working with git
-#
+
 # update the change log and commit
 function ucl() {
   vim CHANGELOG.md
@@ -143,94 +133,19 @@ function clone() {
   fi
 }
 
-
-# Ingresso Helper functions
-# TODO create a separate file for these
-
-# seeing what's deployed to different environments
-function whatson() {
-  kubectl get pods \
-    -n whitelabel-dev \
-    -l release=whitelabel-$1 \
-    --context dev-cluster \
-    -o jsonpath="{..image}" \
-    | tr -s '[[:space:]]' '\n' \
-    | grep eu.gcr \
-    | uniq
-}
-
-# connecting to core databases
-function dbconnect() {
-  case $1 in
-    "leaf")
-      mysql \
-        --host=leafdb.ingresso.co.uk \
-        --user=bentilley \
-        --password=$(security find-generic-password -a "bentilley@leafdb.ingresso.co.uk/mw_live" -w) \
-        --port=9084 \
-        --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
-        mw_live
-      ;;
-    "core")
-      mysql \
-        --host=hkdb.ingresso.co.uk \
-        --user=bentilley \
-        --password=$(security find-generic-password -a "bentilley@hkdb.ingresso.co.uk/mw_live" -w) \
-        --port=9084 \
-        --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
-        mw_live
-      ;;
-    "dev")
-      mysql \
-        --host=dogbert.ingresso.co.uk \
-        --user=bentilley \
-        --password=$(security find-generic-password -a "bentilley@dogbert.ingresso.co.uk/mw_dev" -w) \
-        --port=9084 \
-        mw_dev
-      ;;
-    "ls")
-      echo "leaf, core, dev"
-      ;;
-  esac
-}
-
-function dbquery() {
-  mysql -A\
-    --host=leafdb.ingresso.co.uk \
-    --user=bentilley \
-    --password=$(security find-generic-password -a "bentilley@leafdb.ingresso.co.uk/mw_live" -w) \
-    --execute=$1 \
-    --port=9084 \
-    --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
-    mw_live
-}
-
-# getting bad payment intents
-function pierrors() {
-  echo "running query:"
-  echo "SELECT stripe_id, account_name, description, created_time, amount \
-    FROM stripe_charges \
-    WHERE stripe_charges.description \
-    IN $(get_pi_ids);"
-  dbquery "SELECT stripe_id, account_name, description, created_time, amount \
-    FROM stripe_charges \
-    WHERE stripe_charges.stripe_id \
-    IN $(get_pi_ids);"
-}
-
-function get_pi_ids() {
-  pbpaste |\
-    prettier --stdin --parser html |\
-    gsed -E \
-    -e "1i(" \
-    -e "/pi_/!d ; /pi_/s/.*(pi_[a-zA-Z0-9]+).*/'\1',/g" |\
-    gsed -e "\${ s/',/'/ ; a)
-      }"
-}
-
 # print out the functions defined in a file
 function get_funcs_js() {
   cat $1 | \
     sed -n -E \
     -e '/(export)? function/s/.*function ([a-zA-Z]+)\(.*/\1/p'
 }
+
+function fzfd() {
+  dirname $(fzf $1)
+}
+
+# function for printing topten most used commands
+function commands() {
+  awk '{a[$2]++}END{for(i in a){print a[i] " " i}}'
+}
+alias topten="history | commands | sort -rn | head"

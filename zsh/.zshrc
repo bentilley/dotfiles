@@ -165,10 +165,11 @@ bindkey -M viins "^J" history-search-forward
 bindkey -M viins "^E" end-of-line
 export KEYTIMEOUT=1
 
-# source aliases
-source $HOME/.dotfiles/zsh/aliases.zsh
-# source functions
-source $HOME/.dotfiles/zsh/functions.zsh
+# source additional files
+for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
+  source $additional_file
+done
+
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
 export HOMEBREW_GITHUB_API_TOKEN=f1f95e47db14d0f3e0d35d200241784472fac444
