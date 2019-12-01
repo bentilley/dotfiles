@@ -4,7 +4,7 @@
 # path additions for macports
 #export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
 
-export EDITOR='vim -u NONE'
+export EDITOR='vim'
 
 # path for ruby - added because brew told me
 export PATH="/usr/local/opt/ruby/bin:$PATH"
