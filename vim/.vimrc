@@ -221,8 +221,6 @@ nnoremap ]J :ALELast<cr>
 " Ultisnips Settings {{{
 
 let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsListSnippets="<c-g>"
 "inoremap <localleader>u <C-R>=UltiSnips#ListSnippets()<CR>
