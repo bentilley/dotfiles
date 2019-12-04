@@ -11,10 +11,11 @@ snippet a "Action Type" b
 export const $1 = "$1";
 endsnippet
 
+# TODO make $3 upper snake case of $1
 snippet ac "Action Creator" b
-export function $1() {
+export function $1($2) {
   return {
-    type: $2,
+    type: $3,
     payload: $0,
   };
 }
@@ -22,4 +23,11 @@ endsnippet
 
 snippet d "Dispatch" b
 dispatch(${1:${VISUAL:action}});
+endsnippet
+
+snippet mw "Middleware" b
+export const ${1:some}Middleware = ({ dispatch }) => next => action => {
+  next(action);
+  $0
+}
 endsnippet
