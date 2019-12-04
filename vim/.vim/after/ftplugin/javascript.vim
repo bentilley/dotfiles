@@ -32,3 +32,12 @@ xnoremap it :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rf(vib"<CR>
 xnoremap at :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rvf(%$"<CR>
 onoremap it :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rf(vib"<CR>
 onoremap at :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rvf(%$"<CR>
+
+" Additional Filetypes
+" if !exists('b:ran_detect_redux')
+"   if filetypedetection#redux()
+"     let &filetype="redux.".&filetype
+"   endif
+"   let b:ran_detect_redux = 1
+" endif
+
