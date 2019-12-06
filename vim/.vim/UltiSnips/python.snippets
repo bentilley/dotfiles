@@ -5,19 +5,41 @@ global !p
 from snippets.python import generate_constructor_body, comma_if_args
 endglobal
 
-snippet df "Function definition" b
+# Imports
+
+snippet i "import" b
+import ${0:something}
+endsnippet
+
+snippet imp "import from" b
+from $1 import ${0:$1}
+endsnippet
+
+# Functions
+
+snippet fn "function definition" b
 def ${1:name}(${2:args}):
     ${0:pass}
 endsnippet
 
-snippet cls "Python class" b
+snippet cls "python class" b
 class $1:
     def __init__(self`!p snip.rv = comma_if_args(t[2])`$2):
 	`!p generate_constructor_body(snip, t[2])`
     $0
 endsnippet
 
-snippet mf "Method function definition" b
+snippet mf "method function definition" b
 def ${1:name}(self`!p snip.rv = comma_if_args(t[2])`$2):
     ${0:pass}
+endsnippet
+
+# Printing and Logging
+
+snippet p "print statement" b
+print(${0:variable})
+endsnippet
+
+snippet pdir "print with dir()" b
+print(dir(${0:variable}))
 endsnippet
