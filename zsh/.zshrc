@@ -31,6 +31,9 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
+# Add ingresso scripts to PATH
+export PATH="$PATH:/Users/jammy/Code/ingresso-scripts/bin"
+
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
