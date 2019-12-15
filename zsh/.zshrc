@@ -1,36 +1,3 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# path additions for macports
-#export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
-
-export EDITOR='vim'
-
-# path for ruby - added because brew told me
-export PATH="/usr/local/opt/ruby/bin:$PATH"
-export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"
-export LDFLAGS="-L/usr/local/opt/ruby/lib"
-export CPPFLAGS="-I/usr/local/opt/ruby/include"
-
-# paths for zlib
-export LDFLAGS="-L/usr/local/opt/zlib/lib"
-export CPPFLAGS="-I/usr/local/opt/zlib/include"
-export PKG_CONFIG_PATH="/usr/local/opt/zlib/lib/pkgconfig"
-
-# path for helm 2.16.1 (old helm)
-export PATH="/usr/local/opt/helm@2/bin:$PATH"
-
-# for installing python better with homebrew
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"
-# some homebrew formulae put executables in local/sbin
-export PATH="/usr/local/sbin:$PATH"
-
-# mysql version 5.7
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
-
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
@@ -106,19 +73,30 @@ PROMPT='$(kube_ps1) '$PROMPT
 KUBE_PS1_SEPARATOR='| '
 kubeoff -g
 
+# I think this is enabled in OMZ
+# # Basic auto/tab complete:
+# autoload -U compinit
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit
+# _comp_options+=(globdots)		# Include hidden files.
+
 # ADD-ONS
 source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh # iTerm2 shell integration
 source ~/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
+# syntax highlighting
+# if [[ -f ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+#   source ~/.config/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# else
+#   printf "No syntax highlighting add on!\n"
+#   printf "run 'cd ~/.config/zsh && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git'"
+# fi
+
+# pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
-
-# variables
-export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
-
-# MACPORTS
-export MP_EDITOR_VISUAL=/usr/local/bin/vim
 
 # gcloud Settings
 source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
@@ -127,30 +105,6 @@ export CLOUDSDK_PYTHON='/usr/local/bin/python2'
 
 # autojump settings
 [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
-
-# AUTH FOR F13
-export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Ingresso
-export FLUX_FORWARD_NAMESPACE=weave
 
 # History configuration
 export HISTSIZE=50000
