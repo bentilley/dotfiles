@@ -41,3 +41,7 @@ alias krm='kubectl delete'
 
 # cloud_sql_proxy aliases
 alias csp="cloud_sql_proxy"
+
+# python virtual environments
+alias va="source venv/bin/activate"
+alias vd="deactivate"

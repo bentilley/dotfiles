@@ -43,3 +43,10 @@ endsnippet
 snippet pdir "print with dir()" b
 print(dir(${0:variable}))
 endsnippet
+
+# File IO
+
+snippet of "open file" b
+with open("${1:filename}") as ${2:file}:
+    ${0:pass}
+endsnippet
