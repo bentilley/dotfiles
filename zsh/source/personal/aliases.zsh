@@ -1,9 +1,7 @@
 # quick confing access
-alias zconf="vim ~/.zshrc"
-alias zres="source ~/.dotfiles/zsh/.zshrc"        # restart zshrc
-alias omz="vim ~/.oh-my-zsh"
-alias zalias="vim ~/.dotfiles/zsh/source/aliases.zsh"
-alias zfunc="vim ~/.dotfiles/zsh/source/functions.zsh"
+alias zconf="vim $ZDOTDIR/.zshrc"
+alias zres="source $ZDOTDIR/.zshrc"
+alias zalias="vim ~/.dotfiles/zsh/source/personal/aliases.zsh"
 alias zc="vim ~/.dotfiles/zsh/source"
 alias vconf="vim ~/.vimrc"
 alias tconf="vim ~/.dotfiles/tmux/.tmux.conf"
