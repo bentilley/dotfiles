@@ -31,3 +31,23 @@ export const ${1:some}Middleware = ({ dispatch }) => next => action => {
   $0
 }
 endsnippet
+
+# redux testing
+
+snippet test "setup redux react testing" b
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+
+${0:const mockStore = configureStore([]);
+store = mockStore(\{\});}
+endsnippet
+
+snippet gc "getComponent" b
+function get${1:Component}(store, props) {
+  return ${2:renderComponent};
+}
+endsnippet
+
+snippet ga "getActions" b
+const actions = store.getActions();
+endsnippet

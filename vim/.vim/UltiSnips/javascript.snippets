@@ -33,6 +33,12 @@ endsnippet
 
 # LANGUAGE
 
+snippet if "if statement" b
+if (${1:condition}) {
+  $0
+}
+endsnippet
+
 snippet fn "Named function definition" b
 function $1($2) {
   $0
@@ -75,6 +81,14 @@ switch ($1) {
 }
 endsnippet
 
+snippet tc "try / catch block" b
+try {
+  $1
+} catch (${2:error}) {
+  ${0:console.error(error);}
+}
+endsnippet
+
 snippet cs "Case statement (in switch)" b
 case $1:
   $0
@@ -91,7 +105,7 @@ endsnippet
 
 # TESTING
 
-snippet jdes "jest describe block" b
+snippet jd "jest describe block" b
 describe("$1", () => {$2});
 endsnippet
 
@@ -111,6 +125,10 @@ beforeAll(() => {
 });
 endsnippet
 
-snippet jex "jest expect" b
-expect($1)$0;
+snippet je "jest expect" b
+expect($1)${2:.toBe($0)};
+endsnippet
+
+snippet jee "jest expect to equal" b
+expect(${1:value})${2:.toEqual($0)};
 endsnippet
