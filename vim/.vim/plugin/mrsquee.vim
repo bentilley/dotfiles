@@ -40,3 +40,13 @@ endfunction
 :command! RemoveQFItem :call RemoveQFItem()
 " Use map <buffer> to only map dd in the quickfix window. Requires +localmap
 autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
+
+
+" Redirecting vim commands
+" i.e. i^R=Exec('ls')
+function! Exec(command)
+    redir =>output
+    silent exec a:command
+    redir END
+    return output
+endfunction
