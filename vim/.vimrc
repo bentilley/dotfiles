@@ -113,6 +113,9 @@ nnoremap <Leader>rn yiw:%s/<c-r>+/
 
 nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
 
+" generate ctags
+nnoremap <Leader>c :terminal ++hidden ctags -R -f ./.git/tags .<CR>
+
 " }}}
 
 " Insert Mode Helpers {{{
