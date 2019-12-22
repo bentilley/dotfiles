@@ -1,0 +1,5 @@
+--kinddef-html=d,id,ids
+--kinddef-html=c,class,classes
+
+--regex-html=/id="([A-Za-z0-9_-]+)"/\1/d,id,ids/
+--regex-html=/class="([A-Za-z0-9_-]+)"/\1/c,class,classes/
