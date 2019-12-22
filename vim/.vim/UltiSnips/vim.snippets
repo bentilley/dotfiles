@@ -4,6 +4,14 @@ snippet hi "highlight with cterm args" b
 highlight ${1:<hilight-group>}   ctermfg=${2:colour}   ctermbg=${3:colour}   cterm=${4:NONE}
 endsnippet
 
+snippet syk "syntax keyword definition" b
+syntax keyword ${1:GroupName} ${0:words...}
+endsnippet
+
+snippet sym "syntax match definition" b
+syntax match ${1:GroupName} "\v$0"
+endsnippet
+
 # Vimscript Snippets
 
 snippet fn "Function definition" b
