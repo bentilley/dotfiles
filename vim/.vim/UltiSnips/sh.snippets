@@ -1,0 +1,11 @@
+# sh snippets
+
+snippet fn "function" b
+${1:name}() {$0}
+endsnippet
+
+snippet if "if statement" b
+if ${1:[ ${2:some test} ]}; then
+  $0
+fi
+endsnippet

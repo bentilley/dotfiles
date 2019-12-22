@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+source setup_lib.bash
+
+CONFIG_DIR="$HOME/.config"
+
+main() {
+  dotfile_link "lf/lfrc" "$CONFIG_DIR/lf/lfrc"
+}
+
+main

@@ -1,0 +1,12 @@
+# LF configuration
+
+#settings
+
+set hidden
+
+# mappings
+
+map D delete
+map <c-e> $$EDITOR ~/.config/lf/lfrc
+map <c-s> source ~/.config/lf/lfrc
+map Y $echo $f | pbcopy
