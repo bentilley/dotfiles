@@ -144,6 +144,13 @@ cnoremap <C-l> <Right>
 
 " }}}
 
+" Custom Commands {{{
+
+command! VF vsplit | FZF
+command! SF split | FZF
+
+" }}}
+
 " Abbreviations {{{
 
 
@@ -259,14 +266,14 @@ let g:user_emmet_leader_key=','     " trigger emmet expansion with ,,
 " Ack Settings {{{
 
 " TODO Read the Ack docs
-if executable('ag')
-  let g:ackprg = 'ag --vimgrep'
+if executable('rg')
+  let g:ackprg = 'rg --vimgrep'
 endif
 let g:ackhighlight = 1
 let g:ack_autoclose = 1
 command! -nargs=* -bang Ag call ack#Ack('grep<bang>',<q-args>)
-nnoremap ag :Ag<Space>
-nnoremap cag :Ag<CR>
+nnoremap ag :Ag!<Space>
+nnoremap sg :Ag<Space>
 
 " }}}
 
