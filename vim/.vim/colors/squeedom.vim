@@ -46,6 +46,9 @@ highlight DiffChange         ctermfg=NONE  ctermbg=094   cterm=NONE
 highlight DiffDelete         ctermfg=203   ctermbg=052   cterm=BOLD
 highlight DiffText           ctermfg=NONE  ctermbg=017   cterm=NONE
 
+" search
+highlight Search             ctermfg=000   ctermbg=159   cterm=NONE
+
 
 " ALE
 
@@ -63,10 +66,11 @@ highlight jsModuleAs         ctermfg=208   ctermbg=NONE  cterm=NONE
 highlight jsExport           ctermfg=208   ctermbg=NONE  cterm=NONE
 
 " red
-highlight jsString           ctermfg=196   ctermbg=NONE  cterm=NONE
+highlight jsString           ctermfg=160   ctermbg=NONE  cterm=NONE
+highlight jsTemplateString   ctermfg=160   ctermbg=NONE  cterm=NONE
 
 " cyan
-highlight jsClassDefinition  ctermfg=014   ctermbg=NONE  cterm=bold
+highlight jsClassDefinition  ctermfg=014   ctermbg=NONE  cterm=BOLD
 
 " bright blue
 highlight jsModuleKeyword    ctermfg=081   ctermbg=NONE  cterm=NONE
@@ -78,6 +82,8 @@ highlight jsClassKeyword     ctermfg=162   ctermbg=NONE  cterm=NONE
 highlight jsOperatorKeyword  ctermfg=162   ctermbg=NONE  cterm=NONE
 highlight jsConditional      ctermfg=162   ctermbg=NONE  cterm=NONE
 highlight jsReturn           ctermfg=162   ctermbg=NONE  cterm=NONE
+highlight jsExtendsKeyword   ctermfg=162   ctermbg=NONE  cterm=NONE
+highlight jsFunction         ctermfg=162   ctermbg=NONE  cterm=NONE
 
 " light green
 highlight jsGlobalObjects    ctermfg=011   ctermbg=NONE  cterm=NONE
@@ -89,6 +95,10 @@ highlight jsThis             ctermfg=189   ctermbg=NONE  cterm=NONE
 
 " hot green
 highlight jsStorageClass     ctermfg=048   ctermbg=NONE  cterm=NONE
+highlight jsTemplateBraces   ctermfg=048   ctermbg=NONE  cterm=NONE
+
+" natural green
+highlight jsComment          ctermfg=113   ctermbg=NONE  cterm=NONE
 
 " highlight jsNoise                         ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsObjectProp                    ctermfg=   ctermbg=NONE  cterm=NONE
@@ -113,10 +123,8 @@ highlight jsStorageClass     ctermfg=048   ctermbg=NONE  cterm=NONE
 " highlight jsFlowTypeKeyword               ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsSpecial                       ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsTemplateExpression            ctermfg=   ctermbg=NONE  cterm=NONE
-" highlight jsTemplateString                ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsNumber                        ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFloat                         ctermfg=   ctermbg=NONE  cterm=NONE
-" highlight jsTemplateBraces                ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsRegexpCharClass               ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsRegexpBoundary                ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsRegexpBackRef                 ctermfg=   ctermbg=NONE  cterm=NONE
@@ -187,7 +195,6 @@ highlight jsStorageClass     ctermfg=048   ctermbg=NONE  cterm=NONE
 " highlight jsParensCatch                   ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFuncParens                    ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFuncArgCommas                 ctermfg=   ctermbg=NONE  cterm=NONE
-" highlight jsComment                       ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFuncArgExpression             ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsRestExpression                ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFlowArgumentDef               ctermfg=   ctermbg=NONE  cterm=NONE
@@ -228,9 +235,7 @@ highlight jsStorageClass     ctermfg=048   ctermbg=NONE  cterm=NONE
 " highlight jsFlowFunctionGroup             ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFuncArgOperator               ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsArguments                     ctermfg=   ctermbg=NONE  cterm=NONE
-" highlight jsFunction                      ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsClassKeyword                  ctermfg=   ctermbg=NONE  cterm=NONE
-" highlight jsExtendsKeyword                ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsClassNoise                    ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFlowClassFunctionGroup        ctermfg=   ctermbg=NONE  cterm=NONE
 " highlight jsFlowClassGroup                ctermfg=   ctermbg=NONE  cterm=NONE
