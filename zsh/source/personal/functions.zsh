@@ -149,3 +149,12 @@ function commands() {
   awk '{a[$2]++}END{for(i in a){print a[i] " " i}}'
 }
 alias topten="history | commands | sort -rn | head"
+
+function print256colours() {
+  for i in {0..255} ; do
+      printf "\x1b[48;5;%sm%3d\e[0m " "$i" "$i"
+      if (( i == 15 )) || (( i > 15 )) && (( (i-15) % 6 == 0 )); then
+          printf "\n";
+      fi
+  done
+}
