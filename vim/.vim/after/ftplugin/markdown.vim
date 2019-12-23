@@ -3,7 +3,7 @@
 
 " General Settings (make editing Markdown easier)
 let maplocalleader = ";"
-set formatoptions+=a
+setlocal formatoptions+=a
 
 " ALE (linting and fixing) Settings
 let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']

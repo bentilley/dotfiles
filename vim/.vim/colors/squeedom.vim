@@ -61,12 +61,14 @@ highlight Keyword            ctermfg=162   ctermbg=NONE   cterm=NONE
 highlight Conditional        ctermfg=162   ctermbg=NONE   cterm=NONE
 highlight Include            ctermfg=208   ctermbg=NONE   cterm=NONE
 highlight Function           ctermfg=081   ctermbg=NONE   cterm=NONE
+highlight FunctionSpecial    ctermfg=014   ctermbg=NONE   cterm=NONE
 highlight Structure          ctermfg=014   ctermbg=NONE   cterm=BOLD
-highlight String             ctermfg=160   ctermbg=NONE   cterm=NONE
 highlight StorageClass       ctermfg=047   ctermbg=NONE   cterm=NONE
 highlight Constant           ctermfg=098   ctermbg=NONE   cterm=NONE
+highlight String             ctermfg=160   ctermbg=NONE   cterm=NONE
 highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
-highlight Statement          ctermfg=178   ctermbg=NONE   cterm=NONE
+highlight Statement          ctermfg=220   ctermbg=NONE   cterm=NONE
+highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
 
 
 " --- "
@@ -106,6 +108,7 @@ highlight link jsModuleKeyword Function
 highlight link jsClassFuncName Function
 highlight link jsFuncCall Function
 highlight link jsSuper Function
+highlight link jsThis FunctionSpecial
 
 highlight link jsString String
 highlight link jsTemplateString String
@@ -117,7 +120,8 @@ highlight link jsGlobalObjects Constant
 
 " Specific JS
 
-highlight jsThis             ctermfg=178   ctermbg=NONE  cterm=NONE
+highlight link jsNull VariableSpecial
+highlight link jsUndefined VariableSpecial
 
 
 " --- "
