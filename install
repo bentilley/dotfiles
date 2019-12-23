@@ -10,10 +10,11 @@ main() {
   check_third_party_tools
 }
 
-# TODO create something that makes sure that all the right directories exist
-
 symlinking_config_files() {
   printf "symlinking config files...\n"
+
+  # VIM
+  dotfile_link "vim/.vim" "$HOME/.vim"
 
   # ZSH
   dotfile_link "zsh/.zshenv_wrapper" "$HOME/.zshenv"
