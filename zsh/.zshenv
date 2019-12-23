@@ -48,6 +48,7 @@ export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
 
 # Ingresso
 export FLUX_FORWARD_NAMESPACE=weave
+export PATH="$PATH:$HOME/Code/ingresso-scripts/bin"
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
