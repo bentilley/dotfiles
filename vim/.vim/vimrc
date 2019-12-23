@@ -2,6 +2,7 @@
 " which lets YouCompleteMe run 
 " let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
 
+set viminfo='100,<50,s10,h,n~/.config/vim/viminfo
 source ~/.dotfiles/vim/learning.vim
 let g:AutoPairsMapCh = 0
 
@@ -62,7 +63,7 @@ nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 colorscheme squeedom
 set undofile
-set undodir^=~/.vimextra/undo//               " set a directory for undo files
+set undodir^=~/.config/vim/extra/undo//               " set a directory for undo files
 let mapleader = "\\"
 let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer

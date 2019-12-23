@@ -4,7 +4,7 @@ dotfile_link() {
   SOURCE_FILE=$DOTFILE_DIR/"$1"
   TARGET_FILE="$2"
 
-  if [ -f $SOURCE_FILE ]; then
+  if [ -f $SOURCE_FILE -o -d $SOURCE_FILE ]; then
     if [ ! -h $TARGET_FILE ]; then
       ln -s $SOURCE_FILE $TARGET_FILE
     else
@@ -16,5 +16,5 @@ dotfile_link() {
 }
 
 symlink_error() {
-  printf "Could not link file $1. $2."
+  printf "Did not link file $1. $2.\n"
 }

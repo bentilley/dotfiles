@@ -3,11 +3,11 @@ alias zconf="vim $ZDOTDIR/.zshrc"
 alias zres="source $ZDOTDIR/.zshrc"
 alias zalias="vim ~/.dotfiles/zsh/source/personal/aliases.zsh"
 alias zc="vim ~/.dotfiles/zsh/source"
-alias vconf="vim ~/.vimrc"
+alias vconf="vim ~/.vim/vimrc"
 alias tconf="vim ~/.dotfiles/tmux/.tmux.conf"
 alias kconf="vim ~/.config/karabiner/assets/complex_modifications"
 alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \"(^#.*|^$|myali)\" | sort"
-alias mconf="vim ~/.muttrc"
+alias mconf="vim ~/.mutt/muttrc"
 
 # VIM
 alias vf="vim \`fzf\`"
