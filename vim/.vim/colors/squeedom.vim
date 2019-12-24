@@ -130,3 +130,15 @@ highlight link jsUndefined VariableSpecial
 
 highlight vimHighlight       ctermfg=082   ctermbg=NONE   cterm=NONE
 highlight link vimHiGroup Normal
+
+
+" ------ "
+" Python "
+" ------ "
+
+highlight link pythonStatement Keyword
+highlight link pythonRepeat Keyword
+highlight link pythonOperator Keyword
+
+highlight link pythonDecorator PreProc
+highlight link pythonDecoratorName PreProc
