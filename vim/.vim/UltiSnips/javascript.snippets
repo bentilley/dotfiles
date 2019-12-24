@@ -117,30 +117,34 @@ endsnippet
 
 # TESTING
 
-snippet jd "jest describe block" b
+snippet d "jest describe block" b
 describe("$1", () => {$2});
 endsnippet
 
-snippet jit "jest it block" b
+snippet it "jest it block" b
 it("$1", () => {$2});
 endsnippet
 
-snippet jbe "jest before each" b
+snippet be "jest before each" b
 beforeEach(() => {
   $0
 });
 endsnippet
 
-snippet jba "jest before all" b
+snippet ba "jest before all" b
 beforeAll(() => {
   $0
 });
 endsnippet
 
-snippet je "jest expect" b
+snippet ex "jest expect" b
 expect($1)${2:.toBe($0)};
 endsnippet
 
-snippet jee "jest expect to equal" b
+snippet exe "jest expect to equal" b
 expect(${1:value})${2:.toEqual($0)};
+endsnippet
+
+snippet exc "jest expect to have been called" b
+expect(${1:value})${2:.toHaveBeenCalled($0)};
 endsnippet
