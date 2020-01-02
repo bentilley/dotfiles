@@ -1,7 +1,7 @@
 " Vim filetype plugin file
 " Language:     JavaScript
 
-" General Settings (make editing HTML easier)
+" General Settings (make editing Javascript easier)
 let maplocalleader = ";"
 
 " ALE (linting and fixing) Settings
@@ -9,6 +9,9 @@ let b:ale_linters = ['eslint']
 let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
 
 " Abbreviations
+nnoremap <LocalLeader>j :ImportJSWord<CR>
+nnoremap <LocalLeader>i :ImportJSFix<CR>
+nnoremap <LocalLeader>g :ImportJSGoto<CR>
 
 abbreviate /T // TODO
 

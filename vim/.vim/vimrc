@@ -9,22 +9,23 @@ let g:AutoPairsMapCh = 0
 " Plugins {{{
 
 call plug#begin('~/.vim/plugged')
-Plug 'jiangmiao/auto-pairs'
-Plug 'SirVer/ultisnips'                 " provides 'snippet' functionality
-Plug 'pangloss/vim-javascript'          " js syntax highlighting
-Plug 'posva/vim-vue'                    " vue syntax highlighting
 Plug 'w0rp/ale'                         " linting and fixing
+Plug 'mileszs/ack.vim'                  " greping in vim
+Plug 'SirVer/ultisnips'                 " provides 'snippet' functionality
+Plug 'mattn/emmet-vim'                  " html tag completion
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-projectionist'
 Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
+Plug 'jiangmiao/auto-pairs'
+Plug 'Galooshi/vim-import-js'           " auto import for javascript
+Plug 'pangloss/vim-javascript'          " js syntax highlighting
+Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
+Plug 'posva/vim-vue'                    " vue syntax highlighting
 Plug 'majutsushi/tagbar'                " show tag window
-Plug 'mileszs/ack.vim'                  " greping in vim
 Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
 Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
-Plug 'mattn/emmet-vim'                  " html tag completion
-Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
 Plug 'aklt/plantuml-syntax'             " plantuml syntax highlighting
 Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
 Plug 'tyru/open-browser.vim'            " open URI in browser
