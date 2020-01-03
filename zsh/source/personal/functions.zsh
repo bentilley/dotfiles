@@ -3,6 +3,30 @@ function vag() {
   vim -p `ag $1 $2 | sed -E -e 's/(.*):[[:digit:]]+:.+/\1/' | uniq`
 }
 
+
+
+function vf() { 
+  if [ ! -z $1 ]; then
+    FILE=$(find $1/* -type f | fzf)
+  else
+    FILE=$(fzf)
+  fi
+  if [ $? -eq 0 ]; then
+    vim $FILE
+  fi
+}
+
+function jf() {
+  if [ ! -z $1 ]; then
+    FILE=$(find $1/* -type f | fzf)
+  else
+    FILE=$(fzf)
+  fi
+  if [ $? -eq 0 ]; then
+    jest $FILE --watch
+  fi
+}
+
 function efail() {
   vim $(\
     jest $1 \
