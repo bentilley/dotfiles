@@ -32,6 +32,21 @@ export const ${1:some}Middleware = ({ dispatch }) => next => action => {
 }
 endsnippet
 
+snippet ms "mapStateToProps" b
+const mapStateToProps = state => ({
+  ${1:${2:prop}: state.${0:data}}
+});
+endsnippet
+
+snippet md "mapDispatchToProps" b
+const mapDispatchToProps = dispatch => {
+  return {
+    ${1:action,}
+    ${2:...bindActionCreators( {$0}, dispatch),}
+  };
+};
+endsnippet
+
 # redux testing
 
 snippet test "setup redux react testing" b
