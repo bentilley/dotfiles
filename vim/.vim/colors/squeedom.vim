@@ -125,6 +125,13 @@ highlight link jsUndefined VariableSpecial
 
 
 " --- "
+" XML "
+" --- "
+
+highlight link xmlTagName Statement
+
+
+" --- "
 " Vim "
 " --- "
 
