@@ -89,6 +89,7 @@ highlight ALEWarning         ctermfg=000   ctermbg=011   cterm=NONE
 highlight link jsComment Comment
 
 highlight link jsClassKeyword Keyword
+highlight link jsClassMethodType Keyword
 highlight link jsOperatorKeyword Keyword
 highlight link jsReturn Keyword
 highlight link jsExtendsKeyword Keyword
