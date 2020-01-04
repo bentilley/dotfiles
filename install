@@ -20,6 +20,14 @@ symlinking_config_files() {
   dotfile_link "zsh/.zshenv_wrapper" "$HOME/.zshenv"
   dotfile_link "zsh/.zshenv" "$CONFIG_DIR/zsh/.zshenv"
   dotfile_link "zsh/.zshrc" "$CONFIG_DIR/zsh/.zshrc"
+  dotfile_link "zsh/.zprofile" "$CONFIG_DIR/zsh/.zprofile"
+
+  # MUTT
+  dotfile_link "mutt/.mutt" "$HOME/.mutt"
+
+  # TMUX
+  dotfile_link "tmux/.tmux.conf" "$HOME/.tmux.conf"
+  git_install "tmux-plugins/tpm" "$CONFIG_DIR/tmux/plugins/tpm" "tmux plugin manager"
 
   # LF
   dotfile_link "lf/lfrc" "$CONFIG_DIR/lf/lfrc"
@@ -30,11 +38,29 @@ symlinking_config_files() {
   printf "symlinking complete!\n\n"
 }
 
-# TODO create a function for installing things from git
 # TODO create a function for installing missing things from brew
 
 check_third_party_tools() {
   printf "checking third party tools...\n"
+
+  brew_install lf lf
+  brew_install bat bat
+  brew_install fzf fzf
+  brew_install gpg gnupg
+  brew_install htop htop
+  brew_install hub hub
+  brew_install pandoc pandoc
+  brew_install plantuml plantuml
+  brew_install ag the_silver_searcher
+  brew_install tig tig
+  brew_install tmux tmux
+  brew_install ctags universal-ctags
+  brew_install vim "vim --HEAD"
+  brew_install exa exa
+  brew_install autojump autojump
+  brew_install fswatch fswatch
+  brew_install rg ripgrep
+
   printf "third party tool check complete!\n\n"
 }
 
