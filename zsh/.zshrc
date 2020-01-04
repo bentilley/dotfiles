@@ -93,6 +93,9 @@ source ~/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 #   printf "run 'cd ~/.config/zsh && git clone https://github.com/zsh-users/zsh-syntax-highlighting.git'"
 # fi
 
+# Haskell
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"

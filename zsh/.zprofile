@@ -21,3 +21,6 @@ export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
 # Ingresso scripts
 export PATH="$PATH:$HOME/Code/ingresso-scripts/bin"
+
+# Haskell stack packages
+export PATH="$PATH:$HOME/.local/bin"
