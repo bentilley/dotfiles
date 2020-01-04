@@ -7,10 +7,9 @@
 # set realname = "Ben Tilley"
 
 # Basic config, you can leave this as is
-set folder = "imaps://Ben.Tilley@accesso.com@outlook.office365.com:993"
-set spoolfile = "+INBOX"
-set ssl_force_tls = yes
-set ssl_starttls = yes
+source "~/.mutt/accounts/account.com.hotmail.tilleyben"
+
+source "./colours.muttrc"
 # set imap_check_subscribed
 # set hostname = gmail.com
 # set mail_check = 120

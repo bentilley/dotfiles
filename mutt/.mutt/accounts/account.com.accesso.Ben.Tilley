@@ -1,0 +1,5 @@
+set folder = "imaps://Ben.Tilley@accesso.com@outlook.office365.com:993"
+set spoolfile = "+INBOX"
+set ssl_force_tls = yes
+set ssl_starttls = yes
+
