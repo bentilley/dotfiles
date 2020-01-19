@@ -10,8 +10,11 @@ setlocal softtabstop=2
 setlocal shiftwidth=2
 
 " ALE (linting and fixing) Settings
-let b:ale_linters = ['gcc']
+" let b:ale_linters = ['clang', 'gcc']
+let b:ale_linters = ['clang']
 let b:ale_fixers = ['clang-format', 'remove_trailing_lines', 'trim_whitespace']
+let b:ale_cpp_clang_options = '-std=c++14 -Wall -I/Users/MrSquee/Projects/fractal-flow/JUCE/modules -DDEBUG=1'
+
 
 " Abbreviations
 

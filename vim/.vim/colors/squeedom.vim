@@ -69,6 +69,7 @@ highlight String             ctermfg=160   ctermbg=NONE   cterm=NONE
 highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
 highlight Statement          ctermfg=220   ctermbg=NONE   cterm=NONE
 highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
+highlight ClassSpecial       ctermfg=078   ctermbg=NONE   cterm=NONE
 
 
 " --- "
@@ -124,6 +125,20 @@ highlight link jsGlobalObjects Constant
 highlight link jsNull VariableSpecial
 highlight link jsUndefined VariableSpecial
 
+
+" --- "
+" CPP "
+" --- "
+
+highlight link cType Keyword
+highlight link cppType Keyword
+highlight link cStorageClass Keyword
+highlight link cStatement Keyword
+highlight link cRepeat Keyword
+highlight link cCustomAccessKey Keyword
+highlight link cppModifier Keyword
+
+highlight link cCustomClass ClassSpecial
 
 " --- "
 " XML "
