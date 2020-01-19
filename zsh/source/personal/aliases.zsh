@@ -1,4 +1,5 @@
 # quick confing access
+alias conf="lf $HOME/.config"
 alias zconf="vim $ZDOTDIR/.zshrc"
 alias zres="source $ZDOTDIR/.zshrc"
 alias zalias="vim ~/.dotfiles/zsh/source/personal/aliases.zsh"
@@ -40,3 +41,4 @@ alias csp="cloud_sql_proxy"
 # python virtual environments
 alias va="source venv/bin/activate"
 alias vd="deactivate"
+# TODO make this a function which search recursively up through directories for venv
