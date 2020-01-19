@@ -35,6 +35,9 @@ symlinking_config_files() {
   # CTAGS
   dotfile_link "ctags" "$HOME/.ctags.d"
 
+  # WTFUTIL
+  dotfile_link "wtfutil/config.yml" "$CONFIG_DIR/wtf/config.yml"
+
   printf "symlinking complete!\n\n"
 }
 
