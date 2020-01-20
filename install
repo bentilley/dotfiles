@@ -35,6 +35,9 @@ symlinking_config_files() {
   # CTAGS
   dotfile_link "ctags" "$HOME/.ctags.d"
 
+  # WTFUTIL
+  dotfile_link "wtfutil/config.yml" "$CONFIG_DIR/wtf/config.yml"
+
   printf "symlinking complete!\n\n"
 }
 
@@ -43,23 +46,25 @@ symlinking_config_files() {
 check_third_party_tools() {
   printf "checking third party tools...\n"
 
-  brew_install lf lf
+  brew_install ag the_silver_searcher
+  brew_install autojump autojump
   brew_install bat bat
+  brew_install ctags universal-ctags
+  brew_install exa exa
+  brew_install fswatch fswatch
   brew_install fzf fzf
   brew_install gpg gnupg
   brew_install htop htop
   brew_install hub hub
+  brew_install lf lf
+  brew_install octave octave
   brew_install pandoc pandoc
   brew_install plantuml plantuml
-  brew_install ag the_silver_searcher
+  brew_install rg ripgrep
   brew_install tig tig
   brew_install tmux tmux
-  brew_install ctags universal-ctags
   brew_install vim "vim --HEAD"
-  brew_install exa exa
-  brew_install autojump autojump
-  brew_install fswatch fswatch
-  brew_install rg ripgrep
+  brew_install wtfutil wtfutil
 
   printf "third party tool check complete!\n\n"
 }

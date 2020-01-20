@@ -24,3 +24,6 @@ export PATH="$PATH:$HOME/Code/ingresso-scripts/bin"
 
 # Haskell stack packages
 export PATH="$PATH:$HOME/.local/bin"
+
+# Ruby gems
+export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
