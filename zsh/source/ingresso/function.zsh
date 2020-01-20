@@ -28,6 +28,12 @@ function whatson() {
     | uniq
 }
 
+function hash_from_pod() {
+  kubectl describe pods $1 -n whitelabel-dev \
+    | grep Image: \
+    | grep eu.gcr
+}
+
 # connecting to core databases
 function dbconnect() {
   case $1 in
