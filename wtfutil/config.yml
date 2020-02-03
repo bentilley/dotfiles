@@ -13,8 +13,8 @@ wtf:
       even: yellow
       odd: white
   grid:
-    columns: [40, 40, 40, 40, 40]
-    rows: [10, 10, 10, 14, 14, 4, 6]
+    columns: [45, 45, 45, 45, 45]
+    rows: [16, 10, 10, 14, 14, 4, 2]
   refreshInterval: 1
   openFileUtil: "open"
   mods:
@@ -23,8 +23,8 @@ wtf:
       title: "⚡️"
       enabled: true
       position:
-        top: 2
-        left: 1
+        top: 4
+        left: 2
         height: 1
         width: 1
       refreshInterval: 15
@@ -59,9 +59,9 @@ wtf:
       format: true
       formatStyle: "monokai"
       position:
-        top: 2
+        top: 3
         left: 0
-        height: 3
+        height: 2
         width: 1
       refreshInterval: 15
     news:
@@ -76,15 +76,6 @@ wtf:
         width: 3
       storyType: top
       refreshInterval: 900
-    resources:
-      type: resourceusage
-      enabled: true
-      position:
-        top: 4
-        left: 2
-        height: 1
-        width: 1
-      refreshInterval: 1
     uptime:
       type: cmdrunner
       args: [""]
@@ -105,24 +96,36 @@ wtf:
       position:
         top: 0
         left: 0
-        height: 2
+        height: 3
         width: 2
       refreshInterval: 3600
     github:
       apiKey: "055ca6956f4ad26fd35ee48eb1977b13b85a8139"
       customQueries:
-        openIssues:
+        openIssuesThisSprint:
+          perPage: 10
+          title: "🐉 Issues - this sprint"
+          filter: "is:issue is:open label::dragon: label:0124"
+        # otherOpenIssues:
+        #   perPage: 10
+        #   title: "🐉 Issues - not this sprint"
+        #   filter: "is:issue is:open label::dragon: -label:0109"
+        dragonPRs:
           perPage: 5
-          title: "My Issues"
-          filter: "is:issue state:open assignee:bentilley"
-        otherIssues:
+          title: "🐉 Pull Requests"
+          filter: "is:pr is:open sort:updated-desc label::dragon:"
+        assignedToMeNoDragon:
           perPage: 5
-          title: "Others Issues"
-          filter: "is:issue state:open -assignee:bentilley sort:updated-desc"
-        othersPRs:
-          perPage: 5
-          title: "Others Pull Requests"
-          filter: "is:open is:pr -assignee:bentilley"
+          title: "Assigned Issues"
+          filter: "is:pr is:open sort:updated-desc assigned:bentilley -label::dragon:"
+        # otherIssues:
+        #   perPage: 5
+        #   title: "Others Issues"
+        #   filter: "is:issue is:open -assignee:bentilley sort:updated-desc label:0109"
+        # othersPRs:
+        #   perPage: 5
+        #   title: "Others Pull Requests"
+        #   filter: "is:open is:pr -assignee:bentilley sort:updated-desc"
       enabled: true
       enableStatus: true
       position:
