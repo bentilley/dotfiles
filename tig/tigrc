@@ -1,0 +1,14 @@
+# tigrc
+
+# Generic bindings
+bind main C !git commit --verbose
+
+# Git bindings
+bind diff <Ctrl-c> !?git checkout %(commit) %(file)
+bind main <Ctrl-c> !?git checkout %(commit)
+
+# copy the highlighted commit hash
+bind main Y !@sh -c "echo %(commit) | pbcopy"
+
+# delete the file under the cursor
+bind status <Ctrl-d> !rm -i %(file)

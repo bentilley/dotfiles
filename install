@@ -38,6 +38,9 @@ symlinking_config_files() {
   # WTFUTIL
   dotfile_link "wtfutil/config.yml" "$CONFIG_DIR/wtf/config.yml"
 
+  # TIG
+  dotfile_link "tig/tigrc" "$HOME/.tigrc"
+
   printf "symlinking complete!\n\n"
 }
 
