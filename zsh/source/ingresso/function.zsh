@@ -61,6 +61,7 @@ function dbconnect() {
         --user=bentilley \
         --password=$(security find-generic-password -a "bentilley@dogbert.ingresso.co.uk/mw_dev" -w) \
         --port=9084 \
+        --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
         mw_dev
       ;;
     "ls")
