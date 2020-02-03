@@ -7,9 +7,9 @@
 # set realname = "Ben Tilley"
 
 # Basic config, you can leave this as is
-source "~/.mutt/accounts/account.com.hotmail.tilleyben"
+source "~/.mutt/accounts/account.uk.co.ingresso.liveerrors"
 
-source "./colours.muttrc"
+source "~/.mutt/colours.muttrc"
 # set imap_check_subscribed
 # set hostname = gmail.com
 # set mail_check = 120
