@@ -71,6 +71,10 @@ highlight Statement          ctermfg=220   ctermbg=NONE   cterm=NONE
 highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
 highlight ClassSpecial       ctermfg=078   ctermbg=NONE   cterm=NONE
 
+" Layout
+
+highlight Title              ctermfg=218   ctermbg=NONE   cterm=NONE
+
 
 " --- "
 " ALE "
@@ -95,6 +99,8 @@ highlight link jsOperatorKeyword Keyword
 highlight link jsReturn Keyword
 highlight link jsExtendsKeyword Keyword
 highlight link jsFunction Keyword
+highlight link jsLabel Keyword
+" highlight link jsStatement Keyword
 
 highlight link jsConditional Conditional
 
@@ -140,6 +146,13 @@ highlight link cppModifier Keyword
 
 highlight link cCustomClass ClassSpecial
 
+" ---- "
+" HTML "
+" ---- "
+
+highlight htmlItalic         ctermfg=016   ctermbg=246   cterm=NONE
+
+
 " --- "
 " XML "
 " --- "
@@ -165,3 +178,11 @@ highlight link pythonOperator Keyword
 
 highlight link pythonDecorator PreProc
 highlight link pythonDecoratorName PreProc
+
+" -------- "
+" Markdown "
+" -------- "
+
+highlight link mkdHeading Title
+
+

@@ -19,6 +19,7 @@ Plug 'tpope/vim-unimpaired'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
 Plug 'jiangmiao/auto-pairs'
+" Plug 'sheerun/vim-polyglot'             " bundle of language packs
 Plug 'Galooshi/vim-import-js'           " auto import for javascript
 Plug 'pangloss/vim-javascript'          " js syntax highlighting
 Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
@@ -78,7 +79,7 @@ set incsearch                            " highlight first search match while ty
 set hlsearch | nohl                      " highlight all search matches when search completed
 set number                               " add line numbers
 set relativenumber                       " do line numbering relative to current cursor row
-set notagrelative                        " tags not followed relative to tag file
+" set notagrelative                        " tags not followed relative to tag file
 set ignorecase                           " search case insensitive - use \C for sensitive
 set smartcase                            " search case sensitive if contains capital letters
 set listchars=eol:$,space:.,tab:<->,trail:%,precedes:<,extends:>
@@ -135,10 +136,10 @@ inoremap <c-y> <esc>lviwuea
 inoremap <c-z> <esc>ua
 
 " movement in insert mode
-inoremap <C-h> <Left>
-inoremap <C-j> <Down>
-inoremap <C-k> <Up>
-inoremap <C-l> <Right>
+inoremap <C-h> <C-o>h
+inoremap <C-j> <C-o>j
+inoremap <C-k> <C-o>k
+inoremap <C-l> <C-o>l
 
 " }}}
 
