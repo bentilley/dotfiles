@@ -25,6 +25,9 @@ symlinking_config_files() {
   # MUTT
   dotfile_link "mutt/.mutt" "$HOME/.mutt"
 
+  # IMAPFILTER
+  dotfile_link "imapfilter/.imapfilter" "$HOME/.imapfilter"
+
   # TMUX
   dotfile_link "tmux/.tmux.conf" "$HOME/.tmux.conf"
   git_install "tmux-plugins/tpm" "$CONFIG_DIR/tmux/plugins/tpm" "tmux plugin manager"
@@ -59,6 +62,7 @@ check_third_party_tools() {
   brew_install gpg gnupg
   brew_install htop htop
   brew_install hub hub
+  brew_install imapfilter imapfilter
   brew_install lf lf
   brew_install octave octave
   brew_install pandoc pandoc
