@@ -16,10 +16,57 @@ $0
 @enduml
 endsnippet
 
-snippet up "Participant declaration" b
+# Element Declarations
+
+snippet par "Participant declaration" b
 participant "$1"`!p snip.rv = " as " if t[2] else ""`$2
 endsnippet
 
+snippet com "Component declaration" b
+component "$1"`!p snip.rv = " as " if t[2] else ""`$2
+endsnippet
+
+snippet int "Interface declaration" b
+interface "$1"`!p snip.rv = " as " if t[2] else ""`$2
+endsnippet
+
+# Grouping Components
+
+snippet dB "Database declaration" b
+database "${1:name}"`!p snip.rv = " as " if t[2] else ""`$2 {
+  $0
+}
+endsnippet
+
+snippet nB "Node declaration" b
+node "${1:name}"`!p snip.rv = " as " if t[2] else ""`$2 {
+  $0
+}
+endsnippet
+
+snippet pB "Package declaration" b
+package "${1:name}"`!p snip.rv = " as " if t[2] else ""`$2 {
+  $0
+}
+endsnippet
+
+# Linking
+
+snippet - "Link A -- B (line)" b
+${1:A} -- ${2:B}`!p snip.rv = " : " if t[3] else ""`$3
+endsnippet
+
+snippet . "Link A .. B (dashed)" b
+${1:A} .. ${2:B}`!p snip.rv = " : " if t[3] else ""`$3
+endsnippet
+
+snippet ~ "Link A ~~ B (dotted)" b
+${1:A} ~~ ${2:B}`!p snip.rv = " : " if t[3] else ""`$3
+endsnippet
+
+snippet = "Link A == B (thick)" b
+${1:A} == ${2:B}`!p snip.rv = " : " if t[3] else ""`$3
+endsnippet
 
 # Sequence Diagrams
 

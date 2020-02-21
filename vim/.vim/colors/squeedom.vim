@@ -179,6 +179,8 @@ highlight link pythonOperator Keyword
 highlight link pythonDecorator PreProc
 highlight link pythonDecoratorName PreProc
 
+highlight link pythonMultilineComment Comment
+
 " -------- "
 " Markdown "
 " -------- "

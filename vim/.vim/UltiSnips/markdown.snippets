@@ -1,0 +1,17 @@
+# markdown file snippets
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.markdown import note
+# endglobal
+
+snippet img "image" b
+![${1:alt text}](${2:src}${3: "${0:title text}"})
+endsnippet
+
+snippet "code(.*)" "codeblock" r
+\`\`\``!p snip.rv = match.group(1)`
+$0
+\`\`\`
+endsnippet
+
