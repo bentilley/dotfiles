@@ -1,8 +1,8 @@
 # Functions for helping to use pytest
 
 pywatch() {
-  fswatch -o tests service | \
+  fswatch -o $2 $3 | \
     (while read; do \
-    pytest -v $1; \
+    pytest --disable-pytest-warnings -v $1; \
   done)
 }

@@ -7,9 +7,6 @@
 # ruby path (brew told me)
 export PATH="/usr/local/opt/ruby/bin:$PATH"
 
-# path for helm 2.16.1 (old helm)
-export PATH="/usr/local/opt/helm@2/bin:$PATH"
-
 # some homebrew formulae put executables in local/sbin
 export PATH="/usr/local/sbin:$PATH"
 
@@ -27,3 +24,8 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # Ruby gems
 export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
+
+# Go
+export GOPATH="$HOME/.go"
+export GOROOT="/usr/local/opt/go/libexec"
+export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"

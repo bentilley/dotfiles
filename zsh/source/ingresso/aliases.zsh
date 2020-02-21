@@ -12,6 +12,7 @@ alias inotes='pandoc ~/Documents/ingresso/notes.md -s \
               --metadata pagetitle="Ingresso Notes" \
               && chrome --new-window ~/Documents/ingresso/notes.html \
               && vim ~/Documents/ingresso/notes.md'
+alias helm2="/usr/local/opt/helm@2/bin/helm" # delete me when you don't need helm 2 anymore
 
 # Groupon
 alias grouponbehave="env GROUPON_REMOTE_URL='https://groupon-dev.ticketswitch.io/' behave --no-capture --stop"
