@@ -6,6 +6,8 @@
 	<true/>
 	<key>AppleAntiAliasingThreshold</key>
 	<integer>1</integer>
+	<key>ApplePressAndHoldEnabled</key>
+	<false/>
 	<key>AppleScrollAnimationEnabled</key>
 	<integer>0</integer>
 	<key>AppleSmoothFixedFontsSizeThreshold</key>
@@ -549,7 +551,7 @@
 	<key>NSWindow Frame NSNavPanelAutosaveName</key>
 	<string>-422 1557 347 181 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>-497 1398 620 392 -1147 900 1920 1057 </string>
+	<string>-554 1416 620 392 -1204 900 1920 1080 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>-903 1026 606 469 -1172 900 1920 1080 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -557,7 +559,7 @@
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>-811 1565 570 392 -1221 900 1920 1057 </string>
+	<string>-314 1385 570 392 -1204 900 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>369 126 570 392 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1941,6 +1943,7 @@
 	<key>NoSyncAllAppVersions</key>
 	<array>
 		<string>3.3.6</string>
+		<string>3.3.8</string>
 		<string>3.3.1</string>
 		<string>3.3.3</string>
 		<string>3.3.7</string>
@@ -1978,7 +1981,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>589392730.66280603</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>27</integer>
+	<integer>29</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -2855,7 +2858,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-01-24T17:09:22Z</date>
+	<date>2020-02-10T07:19:03Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -2879,7 +2882,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.3.7</string>
+	<string>3.3.8</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>

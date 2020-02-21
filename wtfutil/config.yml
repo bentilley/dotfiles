@@ -104,20 +104,20 @@ wtf:
       customQueries:
         openIssuesThisSprint:
           perPage: 10
-          title: "🐉 Issues - this sprint"
-          filter: "is:issue is:open label::dragon: label:0124"
+          title: "🦄 Issues - this sprint"
+          filter: "is:issue is:open label::unicorn: label:0124"
         # otherOpenIssues:
         #   perPage: 10
-        #   title: "🐉 Issues - not this sprint"
-        #   filter: "is:issue is:open label::dragon: -label:0109"
-        dragonPRs:
+        #   title: "🦄 Issues - not this sprint"
+        #   filter: "is:issue is:open label::unicorn: -label:0109"
+        unicornPRs:
           perPage: 5
-          title: "🐉 Pull Requests"
-          filter: "is:pr is:open sort:updated-desc label::dragon:"
-        assignedToMeNoDragon:
+          title: "🦄 Pull Requests"
+          filter: "is:pr is:open sort:updated-desc label::unicorn:"
+        assignedToMeNoUnicorn:
           perPage: 5
           title: "Assigned Issues"
-          filter: "is:pr is:open sort:updated-desc assigned:bentilley -label::dragon:"
+          filter: "is:pr is:open sort:updated-desc assigned:bentilley -label::unicorn:"
         # otherIssues:
         #   perPage: 5
         #   title: "Others Issues"
