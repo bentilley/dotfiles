@@ -1,15 +1,22 @@
-# Change the following six lines to your Gmail account details
-# set imap_user = "ben.tilley@accesso.com"
-# set imap_pass = "PASSWORD"
-# set smtp_url = "smtp://ben.tilley@accesso.com@smtp.office365.com:587/"
-# set smtp_pass = "PASSWORD"
-# set from = "bentilley@ingresso.co.uk"
-# set realname = "Ben Tilley"
+###################
+# mrquee's muttrc #
+###################
 
-# Basic config, you can leave this as is
-source "~/.mutt/accounts/account.uk.co.ingresso.liveerrors"
+# Default Account
+source '~/.mutt/accounts/account.com.hotmail.tilleyben'
 
-source "~/.mutt/colours.muttrc"
+set sort = reverse-date-received
+
+# Accounts Switching
+macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.hotmail.tilleyben<enter><change-folder>!<enter>'
+macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.gmail.targansaikhan<enter><change-folder>!<enter>'
+
+# Folder hooks
+account-hook 'tilleyben@hotmail.com' 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
+account-hook 'targansaikhan@gmail.com' 'source ~/.mutt/accounts/account.com.gmail.targansaikhan'
+
+# Colours
+source '~/.mutt/colours.muttrc'
 # set imap_check_subscribed
 # set hostname = gmail.com
 # set mail_check = 120
