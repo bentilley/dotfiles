@@ -63,6 +63,7 @@ check_third_party_tools() {
   brew_install htop htop
   brew_install hub hub
   brew_install imapfilter imapfilter
+  brew_install jq jq
   brew_install lf lf
   brew_install octave octave
   brew_install pandoc pandoc
