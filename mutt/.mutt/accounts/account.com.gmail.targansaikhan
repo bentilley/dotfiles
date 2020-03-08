@@ -2,8 +2,8 @@
 # targansaikhan@gmail.com settings #
 ####################################
 
-set from = "Ben Tilley"
-set realname = "Ben"
+set from = "targansaikhan@gmail.com"
+set realname = "Ben Tilley"
 set imap_user = "targansaikhan@gmail.com"
 set imap_pass = `security find-generic-password -a $USER -s targansaikhan@gmail.com -w`
 set folder = "imaps://imap.gmail.com:993"

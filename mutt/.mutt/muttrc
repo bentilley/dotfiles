@@ -2,6 +2,9 @@
 # mrquee's muttrc #
 ###################
 
+# General Settings
+set mailcap_path = ~/.mutt/mailcap
+
 # Default Account
 source '~/.mutt/accounts/account.com.hotmail.tilleyben'
 
