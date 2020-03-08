@@ -1,0 +1,61 @@
+# Tex (as in LaTeX) file snippets
+
+# these functions are imported from the /pythonx dir in /.vim
+global !p
+from snippets.tex import get_section, get_matching_paren
+endglobal
+
+snippet tex "blank document" b
+\documentclass${1:[${2:options}]}{${3:article}}
+
+${4:\usepackage${5:[${6:options}]}{amsmath}}
+\begin{document}
+  $0
+\end{document}
+endsnippet
+
+snippet \dc "document class" b
+\documentclass${1:[${2:options}]}{${3:article}}$0
+endsnippet
+
+snippet \np "new page" b
+\newpage
+$0
+endsnippet
+
+snippet \toc "table of contents" b
+\tableofcontents
+\newpage
+$0
+endsnippet
+
+snippet "\\lo(f|t)" "list of... figures / tables" br
+\listof`!p snip.rv = {"f": "figures", "t": "tables"}[match[1]]`
+endsnippet
+
+snippet \up "use package" b
+\usepackage${1:[${2:options}]}{${3:amsmath}}$0
+endsnippet
+
+snippet "\\env(.*)" "begin/end block" br
+\begin{${1:`!p snip.rv = match[1] if match[1] else "document"`}}
+  $0
+\end{$1}
+endsnippet
+
+snippet \title "maketitle and variables" b
+\title{${1:Great Document}}
+\date{${2:2013-09-01}}
+\author{${3:Ben Tilley}}
+
+$0% Insert this line in the document environment
+%\maketitle
+endsnippet
+
+snippet "\\([s]*)?(sec|par)" "Description" r
+`!p snip.rv = get_section(match[1], match[2])`{${1:Title}}$0
+endsnippet
+
+snippet "\\(\(|\[|\{)" "left/right brackets" r
+\left`!p snip.rv = match[1]`$0\right`!p snip.rv = get_matching_paren(match[1])`
+endsnippet

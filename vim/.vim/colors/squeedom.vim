@@ -187,4 +187,8 @@ highlight link pythonMultilineComment Comment
 
 highlight link mkdHeading Title
 
+" --- "
+" Tex "
+" --- "
 
+highlight texItalStyle       ctermfg=016   ctermbg=246   cterm=NONE
