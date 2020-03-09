@@ -96,9 +96,21 @@ wtf:
       position:
         top: 0
         left: 0
-        height: 3
+        height: 2
         width: 2
-      refreshInterval: 3600
+      refreshInterval: 600
+    taskwarriorNext:
+      title: "Next"
+      type: cmdrunner
+      cmd: "task"
+      args: ["+next"]
+      enabled: true
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 60
     github:
       apiKey: "055ca6956f4ad26fd35ee48eb1977b13b85a8139"
       customQueries:
