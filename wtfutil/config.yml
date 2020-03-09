@@ -112,7 +112,6 @@ wtf:
         width: 2
       refreshInterval: 60
     github:
-      apiKey: "055ca6956f4ad26fd35ee48eb1977b13b85a8139"
       customQueries:
         openIssuesThisSprint:
           perPage: 10

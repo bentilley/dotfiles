@@ -127,6 +127,8 @@ for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
   source $additional_file
 done
 
+# source any secrets / api keys etc.
+source ~/.dotfiles/zsh/zsh_secrets
+
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
-export HOMEBREW_GITHUB_API_TOKEN=f1f95e47db14d0f3e0d35d200241784472fac444

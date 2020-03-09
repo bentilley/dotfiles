@@ -44,10 +44,10 @@ symlinking_config_files() {
   # TIG
   dotfile_link "tig/tigrc" "$HOME/.tigrc"
 
+  # TODO set up symlinking for useful scripts to ~/.local/bin
+
   printf "symlinking complete!\n\n"
 }
-
-# TODO create a function for installing missing things from brew
 
 check_third_party_tools() {
   printf "checking third party tools...\n"
@@ -63,6 +63,7 @@ check_third_party_tools() {
   brew_install htop htop
   brew_install hub hub
   brew_install imapfilter imapfilter
+  brew_install jq jq
   brew_install lf lf
   brew_install octave octave
   brew_install pandoc pandoc

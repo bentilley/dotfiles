@@ -1,0 +1,107 @@
+#!/usr/bin/env bash
+npm init -y
+npm install --save-dev @babel/core @babel/cli @babel/preset-env @babel/preset-react
+npm install --save react react-dom
+npm install --save-dev @babel/plugin-transform-react-jsx
+npm install --save-dev webpack webpack-cli
+npm install --save-dev style-loader css-loader babel-loader
+npm install --save-dev webpack-dev-server
+npm install --save react-hot-loader
+npm install --save-dev sass-loader node-sass
+
+mkdir src dist public
+
+echo '{
+  "presets": ["@babel/env", "@babel/preset-react"]
+}' > .babelrc
+
+echo 'const path = require("path");
+const webpack = require("webpack");
+
+module.exports = {
+  entry: "./src/index.js",
+  mode: "development",
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /(node_modules|bower_components)/,
+        loader: "babel-loader",
+        options: { presets: ["@babel/env"]  }
+      },
+      {
+        test: /\.css$/,
+        use: ["style-loader", "css-loader"]
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: ["style-loader", "css-loader", "sass-loader"]
+      }
+    ]
+  },
+  resolve: { extensions: ["*", ".js", ".jsx"]  },
+  output: {
+    path: path.resolve(__dirname, "dist/"),
+    publicPath: "/dist/",
+    filename: "bundle.js"
+  },
+  devServer: {
+    contentBase: path.join(__dirname, "public/"),
+    port: 3000,
+    publicPath: "http://localhost:3000/dist/",
+    hotOnly: true
+  },
+  plugins: [new webpack.HotModuleReplacementPlugin()]
+};' > webpack.config.js
+
+echo '<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>React Starter</title>
+  </head>
+      
+  <body>
+    <div id="root"></div>
+    <noscript>
+      You need to enable JavaScript to run this app.
+    </noscript>
+    <script src="../dist/bundle.js"></script>
+  </body>
+
+</html>' > public/index.html
+
+echo 'import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App.js";
+ReactDOM.render(<App />, document.getElementById("root"));' > src/index.js
+
+echo '
+import React, { Component} from "react";
+import { hot } from "react-hot-loader";
+import "./App.css";
+
+class App extends Component{
+  render(){
+    return(
+      <div className="App">
+        <h1> Hello, Ben! </h1>
+      </div>
+    );
+  }
+}
+
+export default hot(module)(App);' > src/App.js
+
+echo '.App {
+  margin: 1rem;
+  font-family: Arial, Helvetica, sans-serif;
+}' > src/App.css
+
+# Add a start script to package json
+jq -r '.scripts.start = "webpack-dev-server --mode development"' package.json > temp
+mv temp package.json
+
+npx webpack-dev-server --mode development
