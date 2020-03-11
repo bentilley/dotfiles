@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+task +next _get $(task +next ids).short_desc

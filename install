@@ -45,6 +45,9 @@ symlinking_config_files() {
   # TIG
   dotfile_link "tig/tigrc" "$HOME/.tigrc"
 
+  # TASKWARRIOR
+  dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
+
   # TODO set up symlinking for useful scripts to ~/.local/bin
 
   printf "symlinking complete!\n\n"
@@ -81,6 +84,7 @@ check_third_party_tools() {
 
 create_directories() {
   test_and_mkdir ~/.cache/mutt mutt     # mutt cache
+  test_and_mkdir ~/.task taskwarrior    # taskwarrior data
 }
 
 main
