@@ -8,6 +8,7 @@ main() {
   printf "Hello Ben. Let's sync your dotfiles :)\n\n"
   symlinking_config_files
   check_third_party_tools
+  create_directories
 }
 
 symlinking_config_files() {
@@ -65,6 +66,7 @@ check_third_party_tools() {
   brew_install imapfilter imapfilter
   brew_install jq jq
   brew_install lf lf
+  brew_install lynx lynx
   brew_install octave octave
   brew_install pandoc pandoc
   brew_install plantuml plantuml
@@ -75,6 +77,10 @@ check_third_party_tools() {
   brew_install wtfutil wtfutil
 
   printf "third party tool check complete!\n\n"
+}
+
+create_directories() {
+  test_and_mkdir ~/.cache/mutt mutt     # mutt cache
 }
 
 main

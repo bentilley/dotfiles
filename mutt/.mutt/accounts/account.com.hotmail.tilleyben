@@ -20,6 +20,4 @@ set smtp_url = "smtp://tilleyben@hotmail.com@smtp.office365.com:587"
 set smtp_pass = `security find-generic-password -a $USER -s tilleyben@hotmail.com -w`
 
 # TODO - not sure what this is for yet, so leaving for now
-# set header_cache = ~/.mutt/com.gmail.foo/cache/headers            
-# set message_cachedir = ~/.mutt/com.gmail.foo/cache/bodies         
 # set certificate_file = ~/.mutt/com.gmail.foo/certificates  

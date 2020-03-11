@@ -1,5 +1,23 @@
-set folder = "imaps://Ben.Tilley@accesso.com@outlook.office365.com:993"
+###################################
+# Ben.Tilley@accesso.com settings #
+###################################
+
+set from = "Ben.Tilley@accesso.com"
+set realname = "Ben Tilley"
+set imap_user = "Ben.Tilley@accesso.com"
+set imap_pass = `security find-generic-password -a $USER -s Ben.Tilley@accesso.com -w`
+set folder = "imaps://outlook.office365.com:993"
+set hostname="office365.com"
 set spoolfile = "+INBOX"
 set ssl_force_tls = yes
 set ssl_starttls = yes
+set signature = "~/.mutt/signatures/signature.com.accesso.Ben.Tilley"
+set postponed = +Drafts
+mailboxes +INBOX +Admin
 
+# Sending Mail
+set smtp_url = "smtp://Ben.Tilley@accesso.com@smtp.office365.com:587"
+set smtp_pass = `security find-generic-password -a $USER -s Ben.Tilley@accesso.com -w`
+
+# TODO - not sure what this is for yet, so leaving for now
+# set certificate_file = ~/.mutt/com.gmail.foo/certificates  
