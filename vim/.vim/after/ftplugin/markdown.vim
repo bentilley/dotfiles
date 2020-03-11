@@ -9,13 +9,11 @@ setlocal formatoptions+=a
 let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
 
 " Abbreviations
+abbreviate td **TODO:**
 
-
-" Commenting
-"nnoremap <buffer> <localleader>c 0i//<esc>
-"nnoremap <buffer> <localleader>x ^2x
-"vnoremap <buffer> <localleader>c <esc>`<0<c-v>`>I//<esc>
-"vnoremap <buffer> <localleader>x `<0<c-v>`>0lx
+" Font Styling
+nnoremap <buffer> <localleader>b ebi**<Esc>ea**<Esc>
+nnoremap <buffer> <localleader>e ebi_<Esc>ea_<Esc>
 
 " Colours
 hi markdownItalic   ctermfg=NONE   ctermbg=241   cterm=NONE

@@ -102,7 +102,10 @@ nnoremap [w :tabprevious<CR>
 nnoremap ]w :tabnext<CR>
 
 " linting helpers
-nnoremap <leader>g gggqG<c-o><c-o>zz
+nnoremap <Leader>g gggqG<C-O><C-O>zz
+
+" highlighting
+nnoremap <Leader>a :nohl<CR>
 
 " file name to clipboard
 nnoremap <Leader>cf :let @+=expand("%")<CR>
@@ -111,10 +114,10 @@ nnoremap <Leader>cd :let @+=expand("%:p")<CR>
 " fold commands
 nnoremap sfld :set foldmethod=syntax<CR>
 nnoremap mfld :set foldmethod=manual<CR>
-nnoremap <space> za
+nnoremap <Space> za
 
 " renaming things
-nnoremap <Leader>rn yiw:%s/<c-r>+/
+nnoremap <Leader>rn yiw:%s/<C-R>+/
 
 nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
 
