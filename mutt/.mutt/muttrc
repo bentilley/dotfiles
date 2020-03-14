@@ -11,6 +11,7 @@ set mail_check_stats_interval = 300
 set imap_check_subscribed
 unset imap_passive
 alternative_order text/plain text/html *
+auto_view text/html
 
 set header_cache = "~/.cache/mutt"            
 set message_cachedir = "~/.cache/mutt"         
@@ -59,7 +60,6 @@ source '~/.mutt/colours.muttrc'
 # ignore "DomainKey-Signature:"
 # ignore "DKIM-Signature:"
 # hdr_order Date From To Cc
-# auto_view text/html
 # bind editor <space> noop
 
 # Gmail-style keyboard shortcuts

@@ -1,2 +1,3 @@
 text/html; lynx -stdin;
+text/html; lynx -stdin -dump; copiousoutput;
 image/*; open -a Preview.app -f;
