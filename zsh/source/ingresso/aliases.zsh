@@ -20,3 +20,6 @@ alias grouponbehave="env GROUPON_REMOTE_URL='https://groupon-dev.ticketswitch.io
 # cloud_sql_proxy aliases
 alias cspas="cloud_sql_proxy --projects tsw-asgard -dir /tmp"
 alias cspdev="cloud_sql_proxy --projects tsw-develop -dir /tmp"
+
+# working with ~/.config/ingresso/data.json file
+alias ingdevs="jq -r '.people[] | select( .team == \"frontend\") | .github_user' ~/.config/ingresso/data.json"
