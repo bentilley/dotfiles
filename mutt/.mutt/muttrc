@@ -37,8 +37,8 @@ macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.c
 macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.accesso.Ben.Tilley<enter><change-folder>!<enter>'
 
 # Folder hooks
-account-hook 'tilleyben@hotmail.com' 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
-account-hook 'targansaikhan@gmail.com' 'source ~/.mutt/accounts/account.com.gmail.targansaikhan'
+# account-hook 'tilleyben@hotmail.com' 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
+# account-hook 'targansaikhan@gmail.com' 'source ~/.mutt/accounts/account.com.gmail.targansaikhan'
 
 # Basic Macros
 macro index A \
