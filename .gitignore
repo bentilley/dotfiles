@@ -5,3 +5,4 @@ vim/testing
 __pycache__
 vim/.vim/.netrwbook
 zsh_secrets
+*.swp
