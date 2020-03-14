@@ -71,6 +71,7 @@ check_third_party_tools() {
   brew_install lf lf
   brew_install lynx lynx
   brew_install octave octave
+  brew_install offlineimap offlineimap
   brew_install pandoc pandoc
   brew_install plantuml plantuml
   brew_install rg ripgrep
