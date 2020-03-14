@@ -80,6 +80,17 @@ brew_install() {
 
 }
 
+# create a directory that some program needs
+# - provide full path to dir (intermediate dirs will be created)
+test_and_mkdir() {
+  DIR_PATH="$1"
+  REQUIRING_PROG="$2"
+  if [ ! -d $DIR_PATH ]; then
+    mkdir -p $DIR_PATH
+    printf "Additional directory ${green}$DIR_PATH${normal} has been created for ${yellow}$REQUIRING_PROG${normal}"
+  fi
+}
+
 prog_exists() {
   command -v $1 >/dev/null 2>&1
 }

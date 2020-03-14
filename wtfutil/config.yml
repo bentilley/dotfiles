@@ -96,15 +96,27 @@ wtf:
       position:
         top: 0
         left: 0
-        height: 3
+        height: 2
         width: 2
-      refreshInterval: 3600
+      refreshInterval: 600
+    taskwarriorNext:
+      title: "Next"
+      type: cmdrunner
+      cmd: "task"
+      args: ["+next"]
+      enabled: true
+      position:
+        top: 2
+        left: 0
+        height: 1
+        width: 2
+      refreshInterval: 60
     github:
       customQueries:
         openIssuesThisSprint:
           perPage: 10
           title: "🦄 Issues - this sprint"
-          filter: "is:issue is:open label::unicorn: label:0124"
+          filter: "is:issue is:open label::unicorn: label:0305"
         # otherOpenIssues:
         #   perPage: 10
         #   title: "🦄 Issues - not this sprint"
@@ -115,7 +127,7 @@ wtf:
           filter: "is:pr is:open sort:updated-desc label::unicorn:"
         assignedToMeNoUnicorn:
           perPage: 5
-          title: "Assigned Issues"
+          title: "Assigned Pull Requests"
           filter: "is:pr is:open sort:updated-desc assigned:bentilley -label::unicorn:"
         # otherIssues:
         #   perPage: 5

@@ -3,30 +3,50 @@
 ###################
 
 # General Settings
+set timeout = 300
 set mailcap_path = ~/.mutt/mailcap
+set mail_check = 120
+set mail_check_stats
+set mail_check_stats_interval = 300
+set imap_check_subscribed
+unset imap_passive
+alternative_order text/plain text/html *
 
-# Default Account
-source '~/.mutt/accounts/account.com.hotmail.tilleyben'
+set header_cache = "~/.cache/mutt"            
+set message_cachedir = "~/.cache/mutt"         
+
+# Sidebar settings
+set sidebar_visible
+set sidebar_format = "%B %n%* %N"
+set sidebar_folder_indent
+set sidebar_new_mail_only
+
+# Work Account
+source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+
+# Personal Hotmail Account
+# source '~/.mutt/accounts/account.com.hotmail.tilleyben'
+# folder-hook $folder 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
 
 set sort = reverse-date-received
 
 # Accounts Switching
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.hotmail.tilleyben<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.gmail.targansaikhan<enter><change-folder>!<enter>'
+macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.accesso.Ben.Tilley<enter><change-folder>!<enter>'
 
 # Folder hooks
 account-hook 'tilleyben@hotmail.com' 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
 account-hook 'targansaikhan@gmail.com' 'source ~/.mutt/accounts/account.com.gmail.targansaikhan'
 
+# Basic Macros
+macro index A \
+  '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>' \
+  'mark all new in folder as read'
+
 # Colours
 source '~/.mutt/colours.muttrc'
-# set imap_check_subscribed
-# set hostname = gmail.com
-# set mail_check = 120
-# set timeout = 300
-# set imap_keepalive = 300
-# set postponed = "+[Google Mail]/Drafts"
-# set record = "+[Google Mail]/Sent Mail"
 # set header_cache=~/.mutt/cache/headers
 # set message_cachedir=~/.mutt/cache/bodies
 # set certificate_file=~/.mutt/certificates
@@ -39,7 +59,6 @@ source '~/.mutt/colours.muttrc'
 # ignore "DomainKey-Signature:"
 # ignore "DKIM-Signature:"
 # hdr_order Date From To Cc
-# alternative_order text/plain text/html *
 # auto_view text/html
 # bind editor <space> noop
 

@@ -8,18 +8,12 @@ let maplocalleader = ";"
 let b:ale_linters = ['eslint']
 let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
 
-" Abbreviations
 nnoremap <LocalLeader>j :ImportJSWord<CR>
 nnoremap <LocalLeader>i :ImportJSFix<CR>
 nnoremap <LocalLeader>g :ImportJSGoto<CR>
 
+" Abbreviations
 abbreviate /T // TODO
-
-" Commenting
-nnoremap <buffer> <localleader>c 0i//<esc>
-nnoremap <buffer> <localleader>x ^2x
-vnoremap <buffer> <localleader>c <esc>`<^<c-v>`>I//<esc>
-vnoremap <buffer> <localleader>x <esc>`<^<c-v>`>^lx
 
 " Operator Pending Mappings
 

@@ -41,7 +41,7 @@ function dbconnect() {
       mysql \
         --host=leafdb.ingresso.co.uk \
         --user=bentilley \
-        --password=$(security find-generic-password -a "bentilley@leafdb.ingresso.co.uk/mw_live" -w) \
+        --password=$(security find-generic-password -a "bentilley" -s "leafdb/mw_live" -w) \
         --port=9084 \
         --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
         mw_live
@@ -59,7 +59,7 @@ function dbconnect() {
       mysql \
         --host=dogbert.ingresso.co.uk \
         --user=bentilley \
-        --password=$(security find-generic-password -a "bentilley@dogbert.ingresso.co.uk/mw_dev" -w) \
+        --password=$(security find-generic-password -a "bentilley" -s "dogbert/mw_dev" -w) \
         --port=9084 \
         --ssl-key="~/cert/key" --ssl-cert="~/cert/cert" --ssl-ca="~/cert/inter_cert" \
         mw_dev
