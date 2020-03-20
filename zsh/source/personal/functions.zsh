@@ -46,7 +46,7 @@ function ktest() {
 
 # Kubernetes
 function swap() {
-  kubectx $1 && helm ls
+  kubectx $1 && helm ls --all-namespaces
 }
 
 # Working with git

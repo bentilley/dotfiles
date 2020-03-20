@@ -23,3 +23,6 @@ alias cspdev="cloud_sql_proxy --projects tsw-develop -dir /tmp"
 
 # working with ~/.config/ingresso/data.json file
 alias ingdevs="jq -r '.people[] | select( .team == \"frontend\") | .github_user' ~/.config/ingresso/data.json"
+
+# ingresso templates
+alias inget_spike_writeup="cat ~/.config/ingresso/templates/spike-writeup.md | pbcopy"
