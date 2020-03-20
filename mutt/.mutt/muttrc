@@ -21,6 +21,9 @@ set sidebar_visible
 set sidebar_format = "%B %n%* %N"
 set sidebar_folder_indent
 set sidebar_new_mail_only
+bind index <Esc>j sidebar-next
+bind index <Esc>k sidebar-prev
+bind index <Esc>l sidebar-open
 
 # Work Account
 source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
@@ -43,7 +46,7 @@ macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.c
 
 # Basic Macros
 macro index A \
-  '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>' \
+  '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter><sync-mailbox>' \
   'mark all new in folder as read'
 
 # Colours
@@ -69,3 +72,6 @@ source '~/.mutt/colours.muttrc'
 # macro index ga "<change-folder>=[<tab>/All<tab><enter>" "Go to all mail"
 # macro index gs "<change-folder>=[<tab>Starred<enter>" "Go to starred messages"
 # macro index gd "<change-folder>=[<tab>Drafts<enter>" "Go to drafts"
+alias jeffri Jeffri Abu Bakar <jeffri.abubakar@ingresso.co.uk>
+alias josh.clark Joshua Clark <joshua.clark@ingresso.co.uk>
+alias alison.elmore Alison Elmore <alison.elmore@accesso.com>
