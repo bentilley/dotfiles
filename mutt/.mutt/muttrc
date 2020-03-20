@@ -18,22 +18,26 @@ set message_cachedir = "~/.cache/mutt"
 
 # Sidebar settings
 set sidebar_visible
-set sidebar_format = "%B %n%* %N"
+set sidebar_format = "%!%B %n%*  (%N)"
 set sidebar_folder_indent
 set sidebar_new_mail_only
+set sidebar_short_path
 bind index <Esc>j sidebar-next
 bind index <Esc>k sidebar-prev
 bind index <Esc>l sidebar-open
 
+# Key Bindings
+macro index + '<change-folder>=Inbox<enter>'
+
 # Work Account
-source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
-folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+# source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+# folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
 
 # Personal Hotmail Account
-# source '~/.mutt/accounts/account.com.hotmail.tilleyben'
-# folder-hook $folder 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
+source '~/.mutt/accounts/account.com.hotmail.tilleyben'
+folder-hook $folder 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
 
-set sort = reverse-date-received
+set sort = reverse-threads
 
 # Accounts Switching
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.hotmail.tilleyben<enter><change-folder>!<enter>'
@@ -51,6 +55,7 @@ macro index A \
 
 # Colours
 source '~/.mutt/colours.muttrc'
+
 # set header_cache=~/.mutt/cache/headers
 # set message_cachedir=~/.mutt/cache/bodies
 # set certificate_file=~/.mutt/certificates
@@ -72,6 +77,8 @@ source '~/.mutt/colours.muttrc'
 # macro index ga "<change-folder>=[<tab>/All<tab><enter>" "Go to all mail"
 # macro index gs "<change-folder>=[<tab>Starred<enter>" "Go to starred messages"
 # macro index gd "<change-folder>=[<tab>Drafts<enter>" "Go to drafts"
+
 alias jeffri Jeffri Abu Bakar <jeffri.abubakar@ingresso.co.uk>
 alias josh.clark Joshua Clark <joshua.clark@ingresso.co.uk>
 alias alison.elmore Alison Elmore <alison.elmore@accesso.com>
+alias james.little James Little <musicmuzikable@googlemail.com>
