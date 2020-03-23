@@ -30,12 +30,16 @@ bind index <Esc>l sidebar-open
 macro index + '<change-folder>=Inbox<enter>'
 
 # Work Account
-# source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
-# folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
 
 # Personal Hotmail Account
-source '~/.mutt/accounts/account.com.hotmail.tilleyben'
-folder-hook $folder 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
+# source '~/.mutt/accounts/account.com.hotmail.tilleyben'
+# folder-hook $folder 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
+
+# Personal Hotmail Account Local
+# source '~/.mutt/accounts/account.local.com.hotmail.tilleyben'
+# folder-hook $folder 'source ~/.mutt/accounts/account.local.com.hotmail.tilleyben'
 
 set sort = reverse-threads
 

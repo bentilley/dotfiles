@@ -32,7 +32,8 @@ color hdrdefault    yellow          default
 color indicator     brightblack     yellow
 color markers       red             default
 color message       green           default
-color normal        color248        default
+color normal        white           default
+color quoted        color248        default
 color prompt        white           default
 color search        color214        default
 color signature     magenta         default
@@ -49,7 +50,7 @@ mono  error         bold
 
 # -- Sidebar ------------------------------------------------------------------
 
-color sidebar_indicator   brightyellow    default
+color sidebar_indicator   brightblue      default
 color sidebar_flagged     color198        default
 color sidebar_new         color248        default
 color sidebar_highlight   brightblack     yellow
@@ -104,11 +105,13 @@ color header        brightblue      default         "^(Subject)"
 
 # -- Message Body -------------------------------------------------------------
 
-#color quoted        blue            default         
-#color quoted1       cyan            default         
-#color quoted2       yellow          default         
-#color quoted3       red             default         
-#color quoted4       brightred       default         
+color body          yellow          default         "^On .* wrote:"
+
+# color quoted        blue            default         
+# color quoted1       cyan            default         
+# color quoted2       yellow          default         
+# color quoted3       red             default         
+# color quoted4       brightred       default         
 
 #color signature     brightgreen     default         
 #color bold          black           default         

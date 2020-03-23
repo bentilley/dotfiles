@@ -7,14 +7,16 @@ set from = "tilleyben@hotmail.com"
 set realname = "Ben Tilley"
 set imap_user = "tilleyben@hotmail.com"
 set imap_pass = `security find-generic-password -a $USER -s tilleyben@hotmail.com -w`
-set folder = "imaps://outlook.office365.com:993"
 set hostname="office365.com"
-set spoolfile = "+INBOX"
+set folder = "imaps://outlook.office365.com:993"
+set imap_check_subscribed
 set ssl_force_tls = yes
 set ssl_starttls = yes
 set signature = "~/.mutt/signatures/signature.com.hotmail.tilleyben"
+set folder = "~/Mail/outlook.tilleyben/"
+set spoolfile = +Inbox
 set postponed = +Drafts
-mailboxes +INBOX +Admin
+mailboxes +Inbox +Admin
 
 # Sending Mail
 set smtp_url = "smtp://tilleyben@hotmail.com@smtp.office365.com:587"
