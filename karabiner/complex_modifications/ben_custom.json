@@ -81,7 +81,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2"]
+              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
             }
           ]
         },
@@ -102,7 +102,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2"]
+              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
             }
           ]
         },
@@ -123,7 +123,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2"]
+              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
             }
           ]
         },
@@ -144,7 +144,7 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2"]
+              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
             }
           ]
         }

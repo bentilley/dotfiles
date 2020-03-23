@@ -48,6 +48,9 @@ symlinking_config_files() {
   # TASKWARRIOR
   dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
 
+  # ALACRITTY
+  dotfile_link "alacritty/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
+
   # TODO set up symlinking for useful scripts to ~/.local/bin
 
   printf "symlinking complete!\n\n"
