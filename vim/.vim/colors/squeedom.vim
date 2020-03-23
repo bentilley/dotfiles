@@ -24,15 +24,17 @@ set cursorline
 set colorcolumn=80
 hi clear CursorLine                     " removes underline from cursorline
 hi clear SignColumn                     " make ALE gutter neutral colour
-hi ColorColumn ctermbg=237              " colour of colourcolumn
-hi CursorLineNR ctermbg=240             " colour of cursorline number
+hi ColorColumn ctermbg=233              " colour of colourcolumn
 hi MatchParen ctermbg=243               " colour of bracket matching
+highlight LineNR             ctermfg=244   ctermbg=NONE  cterm=NONE
+highlight CursorLineNR       ctermfg=125   ctermbg=236   cterm=NONE
+highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
 
 " colours for the line at the bottom of viewports
-highlight StatusLine         ctermfg=253   ctermbg=126   cterm=NONE
-highlight StatusLineNC       ctermfg=089   ctermbg=253   cterm=NONE
-highlight VertSplit          ctermfg=126   ctermbg=234   cterm=NONE
-highlight NonText            ctermfg=126   ctermbg=NONE  cterm=NONE
+highlight StatusLine         ctermfg=253   ctermbg=125   cterm=NONE
+highlight StatusLineNC       ctermfg=125   ctermbg=233   cterm=NONE
+highlight VertSplit          ctermfg=125   ctermbg=NONE  cterm=NONE
+highlight NonText            ctermfg=125   ctermbg=NONE  cterm=NONE
 highlight SpecialKey         ctermfg=160   ctermbg=NONE  cterm=NONE
 
 " tab line colours
@@ -49,6 +51,11 @@ highlight DiffText           ctermfg=NONE  ctermbg=017   cterm=NONE
 " search
 highlight Search             ctermfg=016   ctermbg=153   cterm=NONE
 
+" popup menu
+highlight Pmenu              ctermfg=0     ctermbg=238   cterm=NONE
+highlight PmenuSel           ctermfg=232   ctermbg=246   cterm=BOLD
+" highlight PmenuSbar          ctermfg=NONE  ctermbg=248   cterm=NONE
+" highlight PmenuThumb         ctermfg=NONE  ctermbg=0     cterm=NONE
 
 " --------------------- "
 " Generic Colour Groups "
@@ -63,7 +70,7 @@ highlight Include            ctermfg=208   ctermbg=NONE   cterm=NONE
 highlight Function           ctermfg=081   ctermbg=NONE   cterm=NONE
 highlight FunctionSpecial    ctermfg=014   ctermbg=NONE   cterm=NONE
 highlight Structure          ctermfg=014   ctermbg=NONE   cterm=BOLD
-highlight StorageClass       ctermfg=047   ctermbg=NONE   cterm=NONE
+highlight StorageClass       ctermfg=165   ctermbg=NONE   cterm=NONE
 highlight Constant           ctermfg=098   ctermbg=NONE   cterm=NONE
 highlight String             ctermfg=160   ctermbg=NONE   cterm=NONE
 highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
@@ -89,9 +96,14 @@ highlight ALEWarning         ctermfg=000   ctermbg=011   cterm=NONE
 " Javascript "
 " ---------- "
 
+highlight LittleBit          ctermfg=222   ctermbg=NONE   cterm=NONE
+
 " Using defaults
 
 highlight link jsComment Comment
+
+highlight link jsOperator LittleBit
+highlight link jsTernaryIfOperator LittleBit
 
 highlight link jsClassKeyword Keyword
 highlight link jsClassMethodType Keyword
@@ -100,6 +112,7 @@ highlight link jsReturn Keyword
 highlight link jsExtendsKeyword Keyword
 highlight link jsFunction Keyword
 highlight link jsLabel Keyword
+highlight link jsRepeat Keyword
 " highlight link jsStatement Keyword
 
 highlight link jsConditional Conditional
@@ -125,6 +138,9 @@ highlight link jsTemplateBraces StringSpecial
 highlight link jsStorageClass StorageClass
 
 highlight link jsGlobalObjects Constant
+
+highlight link jsExportDefault VariableSpecial
+
 
 " Specific JS
 
@@ -157,7 +173,13 @@ highlight htmlItalic         ctermfg=016   ctermbg=246   cterm=NONE
 " XML "
 " --- "
 
-highlight link xmlTagName Statement
+highlight XmlKeyword         ctermfg=077   ctermbg=NONE   cterm=NONE
+highlight XmlAdditional      ctermfg=166   ctermbg=NONE   cterm=NONE
+highlight XmlDull            ctermfg=250   ctermbg=NONE   cterm=NONE
+
+highlight link xmlTagName       XmlAdditional
+highlight link xmlAttrib        XmlKeyword
+highlight link xmlTag           Normal
 
 
 " --- "
