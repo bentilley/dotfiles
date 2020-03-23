@@ -51,6 +51,9 @@ symlinking_config_files() {
   # ALACRITTY
   dotfile_link "alacritty/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
 
+  # OFFLINEIMAP
+  dotfile_link "offlineimap/.offlineimaprc" "$HOME/.offlineimaprc"
+
   # TODO set up symlinking for useful scripts to ~/.local/bin
 
   printf "symlinking complete!\n\n"

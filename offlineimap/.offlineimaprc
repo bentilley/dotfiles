@@ -1,0 +1,28 @@
+# vim: set filetype=conf
+
+[general]
+accounts = Outlook
+maxsyncaccounts = 1
+pythonfile = ~/.dotfiles/offlineimap/offlineimap.py
+metadata = ~/.config/offlineimap
+
+[Account Outlook]
+localrepository = LocalOutlook
+remoterepository = RemoteOutlook
+quick = 10
+
+[Repository LocalOutlook]
+type = Maildir
+localfolders = ~/Mail/outlook.tilleyben
+sep = /
+
+[Repository RemoteOutlook]
+type = IMAP
+ssl = yes
+sslcacertfile = /usr/local/etc/openssl/cert.pem
+auth_mechanisms = PLAIN
+remotehost = outlook.office365.com
+remoteuser = tilleyben@hotmail.com
+remotepasseval = get_password("tilleyben@hotmail.com")
+#remoteusereval = get_username("imap.example.net")
+folderfilter = filter_folders

@@ -6,3 +6,4 @@ __pycache__
 vim/.vim/.netrwbook
 zsh_secrets
 *.swp
+*.pyc
