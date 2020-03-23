@@ -91,7 +91,7 @@ set path=$PWD/**
 set complete-=i                         " removes indluded files from search
 " TODO read status line docs
 " TODO autocommands and setlocal to define diff status lines for diff filetype
-set statusline=%f%=[%4l/%4L]
+set statusline=>\ %f%=[%4l/%4L]
 set omnifunc=syntaxcomplete#Complete
 
 " }}}

@@ -18,12 +18,12 @@ function vf() {
 
 function jf() {
   if [ ! -z $1 ]; then
-    FILE=$(find $1/* -type f | fzf)
+    FILE=$(find $1/* -type f | grep test | fzf)
   else
     FILE=$(fzf)
   fi
   if [ $? -eq 0 ]; then
-    jest $FILE --watch
+    npx jest $FILE --watch
   fi
 }
 
