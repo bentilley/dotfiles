@@ -182,3 +182,21 @@ function print256colours() {
       fi
   done
 }
+
+# function to toggle next in task warrior
+function next() {
+  TASK_ID="$1"
+  OLD_TASK_ID=$(task +next ids)
+  [[ ! -z $2 ]] && SHORT_DESC="short_desc:$2" || SHORT_DESC=""
+
+  if [[ -z $OLD_TASK_ID ]]; then
+    task "$TASK_ID" modify +next $SHORT_DESC
+  else
+    if [[ $OLD_TASK_ID -eq $TASK_ID ]]; then
+      task "$TASK_ID" modify -next
+    else
+      task "$OLD_TASK_ID" modify -next
+      task "$TASK_ID" modify +next $SHORT_DESC
+    fi
+  fi
+}
