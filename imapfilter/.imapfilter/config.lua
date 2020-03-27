@@ -1,3 +1,5 @@
+package.path = package.path .. ";" .. os.getenv("HOME") .. "/.dotfiles/imapfilter/.imapfilter/?.lua"
+
 ---------------
 --  Options  --
 ---------------
@@ -23,12 +25,12 @@
 require 'utils'
 
 server = 'outlook.office365.com'
-user = 'ben.tilley@accesso.com'
-pass = getPassword(server, user)
+user = 'Ben.Tilley@accesso.com'
+pass = getPassword(user)
 
 -- Connects to "imap1.mail.server", as user "user1" with "secret1" as
 -- password.
-account1 = IMAP {
+accessoOutlook = IMAP {
     server = server,
     username = user,
     password = pass,
@@ -46,15 +48,11 @@ account1 = IMAP {
 -- }
 
 -- Get a list of the available mailboxes and folders
-mailboxes, folders = account1:list_all()
+mailboxes, folders = accessoOutlook:list_all()
 
-for k,v in pairs(mailboxes) do
-  print(k, v)
-end
-
-for k,v in pairs(folders) do
-  print(k, v)
-end
+-- for k,v in pairs(mailboxes) do
+--   print(k, v)
+-- end
 
 ---- Get a list of the subscribed mailboxes and folders
 --mailboxes, folders = account1:list_subscribed()
@@ -69,6 +67,23 @@ end
 -------------------
 ----  Mailboxes  --
 -------------------
+
+----  github rules  --
+
+notificationTypes = {
+  'assign',
+  'author',
+  'comment',
+  'mention',
+  'push',
+  'review_requested',
+  'security_alert',
+  'state_change',
+  'your_activity'
+}
+for i, notificationType in ipairs(notificationTypes) do
+  moveGithubNotifications(accessoOutlook, notificationType, "github")
+end
 
 ---- Get the status of a mailbox
 --account1.INBOX:check_status()
