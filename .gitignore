@@ -7,3 +7,4 @@ vim/.vim/.netrwbook
 zsh_secrets
 *.swp
 *.pyc
+*.add.spl
