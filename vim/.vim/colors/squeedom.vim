@@ -31,7 +31,7 @@ highlight CursorLineNR       ctermfg=125   ctermbg=236   cterm=NONE
 highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
 
 " colours for the line at the bottom of viewports
-highlight StatusLine         ctermfg=253   ctermbg=125   cterm=NONE
+highlight StatusLine         ctermfg=250   ctermbg=125   cterm=NONE
 highlight StatusLineNC       ctermfg=125   ctermbg=233   cterm=NONE
 highlight VertSplit          ctermfg=125   ctermbg=NONE  cterm=NONE
 highlight NonText            ctermfg=125   ctermbg=NONE  cterm=NONE
@@ -47,6 +47,9 @@ highlight DiffAdd            ctermfg=NONE  ctermbg=022   cterm=NONE
 highlight DiffChange         ctermfg=NONE  ctermbg=094   cterm=NONE
 highlight DiffDelete         ctermfg=203   ctermbg=052   cterm=BOLD
 highlight DiffText           ctermfg=NONE  ctermbg=017   cterm=NONE
+
+" spell checking
+highlight! link SpellBad Error
 
 " search
 highlight Search             ctermfg=016   ctermbg=153   cterm=NONE
@@ -90,6 +93,8 @@ highlight Title              ctermfg=218   ctermbg=NONE   cterm=NONE
 highlight ALEWarning         ctermfg=000   ctermbg=011   cterm=NONE
 " highlight ALEStyleWarning    ctermfg=015   ctermbg=012   cterm=NONE
 " highlight ALEInfo            ctermfg=088   ctermbg=NONE   cterm=NONE
+highlight link ALEError Error
+highlight link ALEErrorSign ALEError
 
 
 " ---------- "
