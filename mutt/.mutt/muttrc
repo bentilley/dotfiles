@@ -9,7 +9,7 @@ set mail_check = 120
 set mail_check_stats
 set mail_check_stats_interval = 300
 set imap_check_subscribed
-unset imap_passive
+# unset imap_passive
 alternative_order text/plain text/html *
 auto_view text/html
 
@@ -31,7 +31,7 @@ macro index + '<change-folder>=Inbox<enter>'
 
 # Work Account
 source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
-folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+# folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
 
 # Personal Hotmail Account
 # source '~/.mutt/accounts/account.com.hotmail.tilleyben'
