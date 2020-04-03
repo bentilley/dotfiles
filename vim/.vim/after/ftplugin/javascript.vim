@@ -29,6 +29,10 @@ xnoremap iit :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rf(vib"<CR>
 xnoremap ait :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rvf(%$"<CR>
 onoremap iit :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rf(vib"<CR>
 onoremap ait :<C-U>execute "normal! ?^\\s*[xf]\\=it(\r:nohlsearch\rvf(%$"<CR>
+xnoremap ides :<C-U>execute "normal! ?^\\s*[xf]\\=describe(\r:nohlsearch\rf(vib"<CR>
+xnoremap ades :<C-U>execute "normal! ?^\\s*[xf]\\=describe(\r:nohlsearch\rvf(%$"<CR>
+onoremap ides :<C-U>execute "normal! ?^\\s*[xf]\\=describe(\r:nohlsearch\rf(vib"<CR>
+onoremap ades :<C-U>execute "normal! ?^\\s*[xf]\\=describe(\r:nohlsearch\rvf(%$"<CR>
 
 " Additional Filetypes
 " if !exists('b:ran_detect_redux')
