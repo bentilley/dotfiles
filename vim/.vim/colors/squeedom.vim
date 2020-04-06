@@ -60,6 +60,10 @@ highlight PmenuSel           ctermfg=232   ctermbg=246   cterm=BOLD
 " highlight PmenuSbar          ctermfg=NONE  ctermbg=248   cterm=NONE
 " highlight PmenuThumb         ctermfg=NONE  ctermbg=0     cterm=NONE
 
+" folds
+highlight Folded            ctermfg=248    ctermbg=235   cterm=NONE
+highlight link FoldedColumn Folded
+
 " --------------------- "
 " Generic Colour Groups "
 " --------------------- "
@@ -164,6 +168,11 @@ highlight link cStatement Keyword
 highlight link cRepeat Keyword
 highlight link cCustomAccessKey Keyword
 highlight link cppModifier Keyword
+highlight link cCustomClassKey Keyword
+highlight link cppAccess Keyword
+
+highlight link cppClassDef Keyword
+highlight link cppClassName Structure
 
 highlight link cCustomClass ClassSpecial
 
