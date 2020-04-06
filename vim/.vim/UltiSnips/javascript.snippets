@@ -31,11 +31,25 @@ snippet db "Debugger" b
 debugger;
 endsnippet
 
-# LANGUAGE
+snippet ds "doc string" b
+/**
+  * ${1:objectName}
+  * ${2:one line description...}
+  * @${3:param}$0
+  */
+endsnippet
 
-snippet e "export" b
+# import / export
+
+snippet imp "Import statement" b
+import $1 from '$2';
+endsnippet
+
+snippet exp "export" b
 export ${1:default }$0
 endsnippet
+
+# LANGUAGE
 
 snippet if "if statement" b
 if (${1:condition}) {
@@ -57,16 +71,16 @@ function $1($2) {
 }
 endsnippet
 
-snippet afn "Arrow function definition" b
-const ${1:funcName} = ($2) => {$0}
-endsnippet
-
 snippet fm "Class Method Function" b
 $1($2) {$0}
 endsnippet
 
 snippet get "Class Getter Function" b
 get $1() {$0}
+endsnippet
+
+snippet fad "Arrow function definition" b
+const ${1:funcName} = ($2) => {$0}
 endsnippet
 
 snippet fa "Arrow function" i
@@ -77,10 +91,6 @@ snippet ef "Exported function definition" b
 export function $1($2) {
 $0
 }
-endsnippet
-
-snippet imp "Import statement" b
-import $1 from '$2';
 endsnippet
 
 snippet cls "ES6 class definition with constructor" i
@@ -125,7 +135,7 @@ endsnippet
 
 # TESTING
 
-snippet d "jest describe block" b
+snippet des "jest describe block" b
 describe("$1", () => {$2});
 endsnippet
 
@@ -143,6 +153,22 @@ snippet ba "jest before all" b
 beforeAll(() => {
   $0
 });
+endsnippet
+
+snippet ae "jest after each" b
+afterEach(() => {
+  $0
+});
+endsnippet
+
+snippet aa "jest after all" b
+afterAll(() => {
+  $0
+});
+endsnippet
+
+snippet fnj "jest mock function" i
+jest.fn($1)$0
 endsnippet
 
 snippet ex "jest expect" b

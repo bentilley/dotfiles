@@ -84,6 +84,7 @@ highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
 highlight Statement          ctermfg=220   ctermbg=NONE   cterm=NONE
 highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
 highlight ClassSpecial       ctermfg=078   ctermbg=NONE   cterm=NONE
+highlight TryCatchSpecial    ctermfg=202   ctermbg=NONE   cterm=NONE
 
 " Layout
 
@@ -149,6 +150,12 @@ highlight link jsStorageClass StorageClass
 highlight link jsGlobalObjects Constant
 
 highlight link jsExportDefault VariableSpecial
+
+highlight link jsTry TryCatchSpecial
+highlight link jsCatch TryCatchSpecial
+highlight link jsTryCatchBraces TryCatchSpecial
+highlight link jsParensCatch TryCatchSpecial
+highlight link jsParenCatch Normal
 
 
 " Specific JS
