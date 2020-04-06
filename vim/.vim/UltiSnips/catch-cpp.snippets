@@ -1,0 +1,38 @@
+# catch-cpp.snippets
+# Copyright (C) 2020 Ben Tilley <targansaikhan@gmail.com>
+# 
+# Distributed under terms of the MIT license.
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.catch-cpp import some_function
+# endglobal
+
+
+snippet sec "SCENARIO block" b
+SCENARIO("${1:scenario name}") {
+  $0
+}
+endsnippet
+
+snippet given "GIVEN block" b
+GIVEN("${1:situation}") {
+  $0
+}
+endsnippet
+
+snippet when "WHEN block" b
+WHEN("${1:condition}") {
+  $0
+}
+endsnippet
+
+snippet then "THEN block" b
+THEN("${1:outcome}") {
+  $0
+}
+endsnippet
+
+snippet req "REQUIRE block" b
+REQUIRE(${1:test condition});
+endsnippet
