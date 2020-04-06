@@ -23,7 +23,7 @@ export PATH="$PATH:$HOME/Code/ingresso-scripts/bin"
 export PATH="$PATH:$HOME/.local/bin"
 
 # Ruby gems
-export PATH="$PATH:/usr/local/lib/ruby/gems/2.6.0/bin"
+export PATH="$PATH:/usr/local/lib/ruby/gems/2.7.0/bin"
 
 # Go
 export GOPATH="$HOME/.go"
