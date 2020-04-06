@@ -3,6 +3,7 @@
 
 " General Settings (make editing Latex easier)
 let maplocalleader = ";"
+setlocal spell
 
 " augroup LatexSave
 "   autocmd!
