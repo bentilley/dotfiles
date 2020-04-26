@@ -70,9 +70,12 @@ check_third_party_tools() {
   brew_install bat bat
   brew_install ctags universal-ctags
   brew_install exa exa
+  brew_install ffmpeg ffmpeg
   brew_install fswatch fswatch
   brew_install fzf fzf
+  # brew_install gdb gdb
   brew_install gpg gnupg
+  brew_install grip grip
   brew_install htop htop
   brew_install hub hub
   brew_install imapfilter imapfilter
@@ -89,6 +92,10 @@ check_third_party_tools() {
   brew_install urlview urlview
   brew_install vim "vim --HEAD"
   brew_install wtfutil wtfutil
+
+  # TODO make a function for brew cask installs
+  #  - Alacritty
+  #  - Amethyst
 
   printf "third party tool check complete!\n\n"
 }
