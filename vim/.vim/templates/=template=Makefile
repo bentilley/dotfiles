@@ -1,0 +1,10 @@
+# Copyright (C) %YEAR% %USER% <%MAIL%>
+# Distributed under terms of the %LICENSE% license.
+
+# Usage:
+# make		# <effect>
+
+.PHONY: all
+
+all:
+	%HERE%
