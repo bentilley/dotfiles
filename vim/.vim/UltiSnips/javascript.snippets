@@ -93,6 +93,12 @@ $0
 }
 endsnippet
 
+snippet iffe "Immediately Invoked function expression" b
+(function(){
+  $0
+})();
+endsnippet
+
 snippet cls "ES6 class definition with constructor" i
 class $1`!p snip.rv = " extends " if t[2] else ""`$2 {
   constructor($3) {
