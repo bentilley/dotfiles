@@ -8,3 +8,4 @@ zsh_secrets
 *.swp
 *.pyc
 *.add.spl
+mutt/.mutt/aliases

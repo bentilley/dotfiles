@@ -60,6 +60,10 @@ macro index A \
 # Colours
 source '~/.mutt/colours.muttrc'
 
+# Aliases
+set alias_file='~/.mutt/aliases'
+source $alias_file
+
 # set header_cache=~/.mutt/cache/headers
 # set message_cachedir=~/.mutt/cache/bodies
 # set certificate_file=~/.mutt/certificates
@@ -81,8 +85,3 @@ source '~/.mutt/colours.muttrc'
 # macro index ga "<change-folder>=[<tab>/All<tab><enter>" "Go to all mail"
 # macro index gs "<change-folder>=[<tab>Starred<enter>" "Go to starred messages"
 # macro index gd "<change-folder>=[<tab>Drafts<enter>" "Go to drafts"
-
-alias jeffri Jeffri Abu Bakar <jeffri.abubakar@ingresso.co.uk>
-alias josh.clark Joshua Clark <joshua.clark@ingresso.co.uk>
-alias alison.elmore Alison Elmore <alison.elmore@accesso.com>
-alias james.little James Little <musicmuzikable@googlemail.com>
