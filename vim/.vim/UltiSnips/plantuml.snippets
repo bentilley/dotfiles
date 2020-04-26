@@ -50,6 +50,14 @@ package "${1:name}"`!p snip.rv = " as " if t[2] else ""`$2 {
 }
 endsnippet
 
+snippet eB "Entity declaration" b
+entity ${1:Name} {
+  ${0:* mandatory
+  --
+  optional}
+}
+endsnippet
+
 # Linking
 
 snippet - "Link A -- B (line)" b
@@ -170,4 +178,23 @@ endsnippet
 
 snippet a* "Activity - sink" b
 -->(*)
+endsnippet
+
+
+# Entity diagrams
+
+snippet oto "Entity - one to one" b
+${1:Entity1} ||--|| ${0:Entity2}
+endsnippet
+
+snippet otoo "Entity - one to one (optional)" b
+${1:Entity1} ||--o| ${0:Entity2}
+endsnippet
+
+snippet otm "Entity - one to many" b
+${1:Entity1} ||--|{ ${0:Entity2}
+endsnippet
+
+snippet otmo "Entity - one to many (optional)" b
+${1:Entity1} ||--o{ ${0:Entity2}
 endsnippet
