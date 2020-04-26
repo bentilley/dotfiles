@@ -7,8 +7,18 @@
 
 # tools
 
-snippet p "printf" b
+snippet p "printf" i
 printf("$1\n", $0);
+endsnippet
+
+snippet ps "printf no args" i
+printf("$1\n");$0
+endsnippet
+
+snippet mc "multiline comment" b
+/*
+ * $0
+ */
 endsnippet
 
 # basic language
@@ -34,7 +44,16 @@ for ($1; $2; $3) {
 endsnippet
 
 snippet fn "function definition" b
-${1:type} ${2:identifier}(${3:args})${4: {$5}};
+${1:void} ${2:identifier}(${3:args})${4: {$5}}
+endsnippet
+
+snippet fmd "class method definition" i
+${1:Class}::${2:method}(${3:args}) {$0}
+endsnippet
+
+snippet fncd "constructor and destructor definition" b
+${1:Class}::$1() {$0}
+$1::~$1() {}
 endsnippet
 
 # preprocessor
@@ -43,11 +62,47 @@ snippet i "#include statement" b
 #include ${1:"$2"}
 endsnippet
 
-# classes
+snippet iio "#include <iostream>" b
+#include <iostream>
+endsnippet
+
+# user-defined data types
+
+snippet en "enum definition" b
+enum ${1:Name} ${2:: ${3:std::uint_least8_t} }{
+  ${4:${1/.*/\U$0\E/}_${0:FIRST}},
+};
+endsnippet
+
+snippet ec "enum class definition" b
+enum class ${1:Name} ${2:: ${3:std::uint_least8_t} }{
+  ${0:First},
+};
+endsnippet
+
+snippet st "struct definition" b
+struct ${1:Name} {
+  $0
+};
+endsnippet
 
 snippet cls "class definition" b
-class $1 {
-  public:
-    $2
+class ${1:Name} ${2:: ${3:public ${4:PubSub}}${5:, private ${6:PrivSub}}} {
+public:
+  $1();
+  ~$1();
+  $0
+private:
 };
+endsnippet
+
+# bigger things
+
+snippet main "main function definition" b
+int main(int argc, char *argv[]) {
+
+  $0
+
+  return 0;
+}
 endsnippet

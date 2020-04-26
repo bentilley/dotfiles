@@ -18,6 +18,7 @@ let b:ale_cpp_clang_options = '-std=c++14 -Wall -I/Users/MrSquee/Projects/fracta
 
 " Abbreviations
 
+iabbrev <n << "\n";
 
 " Commenting
 "nnoremap <buffer> <localleader>c ^i#<esc>
