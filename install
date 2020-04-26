@@ -14,45 +14,48 @@ main() {
 symlinking_config_files() {
   printf "symlinking config files...\n"
 
+  # ALACRITTY
+  dotfile_link "alacritty/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
+
+  # CTAGS
+  dotfile_link "ctags" "$HOME/.ctags.d"
+
+  # GRIP
+  dotfile_link "grip" "$HOME/.grip"
+
+  # IMAPFILTER
+  dotfile_link "imapfilter/.imapfilter" "$HOME/.imapfilter"
+
+  # LF
+  dotfile_link "lf/lfrc" "$CONFIG_DIR/lf/lfrc"
+
+  # OFFLINEIMAP
+  dotfile_link "offlineimap/.offlineimaprc" "$HOME/.offlineimaprc"
+
+  # MUTT
+  dotfile_link "mutt/.mutt" "$HOME/.mutt"
+
+  # TASKWARRIOR
+  dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
+
+  # TIG
+  dotfile_link "tig/tigrc" "$HOME/.tigrc"
+
+  # TMUX
+  dotfile_link "tmux/.tmux.conf" "$HOME/.tmux.conf"
+  git_install "tmux-plugins/tpm" "$CONFIG_DIR/tmux/plugins/tpm" "tmux plugin manager"
+
   # VIM
   dotfile_link "vim/.vim" "$HOME/.vim"
+
+  # WTFUTIL
+  dotfile_link "wtfutil/config.yml" "$CONFIG_DIR/wtf/config.yml"
 
   # ZSH
   dotfile_link "zsh/.zshenv_wrapper" "$HOME/.zshenv"
   dotfile_link "zsh/.zshenv" "$CONFIG_DIR/zsh/.zshenv"
   dotfile_link "zsh/.zshrc" "$CONFIG_DIR/zsh/.zshrc"
   dotfile_link "zsh/.zprofile" "$CONFIG_DIR/zsh/.zprofile"
-
-  # MUTT
-  dotfile_link "mutt/.mutt" "$HOME/.mutt"
-
-  # IMAPFILTER
-  dotfile_link "imapfilter/.imapfilter" "$HOME/.imapfilter"
-
-  # TMUX
-  dotfile_link "tmux/.tmux.conf" "$HOME/.tmux.conf"
-  git_install "tmux-plugins/tpm" "$CONFIG_DIR/tmux/plugins/tpm" "tmux plugin manager"
-
-  # LF
-  dotfile_link "lf/lfrc" "$CONFIG_DIR/lf/lfrc"
-
-  # CTAGS
-  dotfile_link "ctags" "$HOME/.ctags.d"
-
-  # WTFUTIL
-  dotfile_link "wtfutil/config.yml" "$CONFIG_DIR/wtf/config.yml"
-
-  # TIG
-  dotfile_link "tig/tigrc" "$HOME/.tigrc"
-
-  # TASKWARRIOR
-  dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
-
-  # ALACRITTY
-  dotfile_link "alacritty/alacritty.yml" "$CONFIG_DIR/alacritty/alacritty.yml"
-
-  # OFFLINEIMAP
-  dotfile_link "offlineimap/.offlineimaprc" "$HOME/.offlineimaprc"
 
   # TODO set up symlinking for useful scripts to ~/.local/bin
 
