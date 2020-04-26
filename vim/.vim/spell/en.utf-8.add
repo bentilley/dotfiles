@@ -16,3 +16,7 @@ CloudEvents
 CloudEvent
 Kibana
 Redis
+BigQuery
+TensorFlow
+SQLAlchemy
+Ingresso's

@@ -177,6 +177,7 @@ highlight link cCustomAccessKey Keyword
 highlight link cppModifier Keyword
 highlight link cCustomClassKey Keyword
 highlight link cppAccess Keyword
+highlight link cStructure Keyword
 
 highlight link cppClassDef Keyword
 highlight link cppClassName Structure

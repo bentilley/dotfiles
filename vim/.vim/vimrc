@@ -140,8 +140,8 @@ command TabF tabnew | FZF
 "inoremap <esc> <nop>
 
 " toggle word cases
-inoremap <c-u> <esc>lviwUea
-inoremap <c-y> <esc>lviwuea
+inoremap <c-u> <esc>viwUea
+inoremap <c-y> <esc>viwuea
 " undo
 inoremap <c-z> <esc>ua
 
@@ -171,7 +171,7 @@ command! SF split | FZF
 
 " Abbreviations {{{
 
-
+iabbrev shrg ¯\_(ツ)_/¯
 
 " }}}
 
