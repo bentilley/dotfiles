@@ -1,0 +1,32 @@
+# typescript.snippets
+# Copyright (C) 2020 Ben Tilley <targansaikhan@gmail.com>
+# 
+# Distributed under terms of the MIT license.
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.typescript import some_function
+# endglobal
+
+
+snippet tscls "typescript class definition" b
+interface ${1:Class}Interface {
+  $5
+}
+
+interface $1Constructor {
+  new (${4:args}): $1Interface;
+}
+
+const $1: $1Constructor = class $1 ${2:extends $3 }implements $1Interface {
+  constructor($4) {}
+  $5
+  $0
+}
+endsnippet
+
+snippet en "typescript enum" b
+enum ${1:Name} {
+  ${2:${3:First}${4: = ${5:1}}},$0
+}
+endsnippet
