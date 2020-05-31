@@ -211,10 +211,22 @@ let g:netrw_altv=1 | let g:netrw_alto=1
 
 " }}}
 
-" Prettier Settings {{{
+" COC Settings {{{
 
-nnoremap <Leader>p :silent %!prettier
-      \ --stdin --stdin-filepath % --trailing-comma all --single-quote<CR>
+set hidden
+set cmdheight=2
+set updatetime=300
+set shortmess+=c
+set signcolumn=number
+
+inoremap <silent><expr> <C-Space> coc#refresh()
+nnoremap <silent> [g <Plug>(coc-diagnostic-prev)
+nnoremap <silent> ]g <Plug>(coc-diagnostic-next)
+nnoremap <silent> gd <Plug>(coc-definition)
+nnoremap <silent> gy <Plug>(coc-type-definition)
+nnoremap <silent> gi <Plug>(coc-implementation)
+nnoremap <silent> gr <Plug>(coc-references)
+nnoremap <Localleader>rn <Plug>(coc-rename)
 
 " }}}
 

@@ -1,0 +1,10 @@
+{
+  "suggest.autoTrigger": "always",
+  "suggest.maxCompleteItemCount": 10,
+  "diagnostic.displayByAle": true,
+  "diagnostic.messageTarget": "float",
+  "coc.preferences.formatOnSaveFiletypes": [],
+  "coc.preferences.formatOnType": false,
+  "coc.preferences.formatOnTypeFiletypes": [],
+  "coc.preferences.jumpCommand": "edit"
+}
