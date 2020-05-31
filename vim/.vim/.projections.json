@@ -1,0 +1,10 @@
+{
+  "UltiSnips/*.snippets": {
+    "type": "snippets",
+    "alternate": ["pythonx/snippets/{}.py"]
+  },
+  "pythonx/snippets/*.py": {
+    "type": "snippentsPy",
+    "alternate": ["UltiSnips/{}.snippets"]
+  }
+}

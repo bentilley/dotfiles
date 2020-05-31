@@ -17,7 +17,8 @@
 
 <Full description of option>
 
-\_NOTE: <any notes relating to this option (implications, considerations, etc.)>
+_NOTE: <any notes relating to this option (implications, considerations,
+etc.)>_
 
 ## Background Information
 
