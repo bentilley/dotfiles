@@ -87,7 +87,7 @@ test_and_mkdir() {
   REQUIRING_PROG="$2"
   if [ ! -d $DIR_PATH ]; then
     mkdir -p $DIR_PATH
-    printf "Additional directory ${green}$DIR_PATH${normal} has been created for ${yellow}$REQUIRING_PROG${normal}"
+    printf "Additional directory ${green}$DIR_PATH${normal} has been created for ${yellow}$REQUIRING_PROG${normal}\n"
   fi
 }
 
@@ -101,4 +101,13 @@ brew_install_success() {
 
 brew_install_error() {
   printf "  Did not install ${yellow}$1${normal}. ${blue}Software already installed.${normal}\n"
+}
+
+# updating global npm packages
+# - no args, just run this function and it will perform any updates
+update_global_npm_packages() {
+  printf "\nUpdating Global NPM Packages...\n"
+  npm outdated -g \
+    | awk 'NR > 1 {print $1 "@latest";}' \
+    | xargs -I{} npm install -g {}
 }

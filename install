@@ -9,6 +9,7 @@ main() {
   symlinking_config_files
   check_third_party_tools
   create_directories
+  update_global_npm_packages
 }
 
 symlinking_config_files() {
@@ -78,6 +79,7 @@ check_third_party_tools() {
   brew_install grip grip
   brew_install htop htop
   brew_install hub hub
+  brew_install hugo hugo
   brew_install imapfilter imapfilter
   brew_install jq jq
   brew_install lf lf
@@ -91,6 +93,7 @@ check_third_party_tools() {
   brew_install tmux tmux
   brew_install urlview urlview
   brew_install vim "vim --HEAD"
+  brew_install watchman watchman
   brew_install wtfutil wtfutil
 
   # TODO make a function for brew cask installs
