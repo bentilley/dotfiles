@@ -1,44 +1,44 @@
-" reset PATH variable so that vim used the system Python installation
-" which lets YouCompleteMe run 
-" let $PATH = '/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin'
+" == VIMRC ==
+" Author: Ben Tilley
 
 set viminfo='100,<50,s10,h,n~/.config/vim/viminfo
 source ~/.dotfiles/vim/learning.vim
-let g:AutoPairsMapCh = 0
+"let g:AutoPairsMapCh = 0
 
 " Plugins {{{
 
 call plug#begin('~/.vim/plugged')
-Plug 'w0rp/ale'                         " linting and fixing
-Plug 'mileszs/ack.vim'                  " greping in vim
-Plug 'SirVer/ultisnips'                 " provides 'snippet' functionality
-Plug 'mattn/emmet-vim'                  " html tag completion
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-projectionist'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-surround'
-Plug 'jiangmiao/auto-pairs'
-Plug 'aperezdc/vim-template'
-Plug 'Galooshi/vim-import-js'           " auto import for javascript
-Plug 'pangloss/vim-javascript'          " js syntax highlighting
-Plug 'mxw/vim-jsx'                      " jsx syntax highlighting
-Plug 'posva/vim-vue'                    " vue syntax highlighting
-" Plug 'octol/vim-cpp-enhanced-highlight' " cpp syntax highlighting
-Plug 'bfrg/vim-cpp-modern'              " cpp syntax highlighting
-" Plug 'jeaye/color_coded'                " cpp syntax highlighting
-Plug 'majutsushi/tagbar'                " show tag window
-Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
-Plug 'Quramy/vim-js-pretty-template'    " template string highlighting
-Plug 'aklt/plantuml-syntax'             " plantuml syntax highlighting
-Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
-Plug 'tyru/open-browser.vim'            " open URI in browser
-" Plug 'xavierd/clang_complete'           " autocomplete for CPP
-" Plug 'sheerun/vim-polyglot'             " bundle of language packs
-" Plug 'ivanov/vim-ipython'               " ipython integration
-" Plug 'szymonmaszke/vimpyter'            " ipython integration
-" Plug 'wmvanvliet/jupyter-vim'           " ipython integration
-" Plug 'Valloric/YouCompleteMe'           " autocomplete for vim
+
+  " CORE
+  Plug 'w0rp/ale'
+  Plug 'SirVer/ultisnips'
+  Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'mattn/emmet-vim'
+  Plug 'mileszs/ack.vim'                  " greping in vim
+  Plug 'aperezdc/vim-template'
+  Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
+  Plug 'majutsushi/tagbar'                " show tag window
+  Plug 'tpope/vim-fugitive'
+  Plug 'tpope/vim-projectionist'
+  Plug 'tpope/vim-unimpaired'
+  Plug 'tpope/vim-commentary'
+  Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-abolish'
+
+  " SYNTAX
+  Plug 'pangloss/vim-javascript'          " javascript
+  Plug 'mxw/vim-jsx'                      " jsx
+  Plug 'posva/vim-vue'                    " vue
+  Plug 'bfrg/vim-cpp-modern'              " cpp
+  Plug 'Quramy/vim-js-pretty-template'    " template string
+  Plug 'aklt/plantuml-syntax'             " plantuml
+
+  " LANGUAGE SPECIFIC
+  Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
+  Plug 'tyru/open-browser.vim'            " open URI in browser
+  Plug 'Galooshi/vim-import-js'           " auto import for javascript
+  " Plug 'Quramy/tsuquyomi'                 " typescript language support
+
 call plug#end()
 
 " }}}
@@ -91,10 +91,12 @@ set timeoutlen=1000 ttimeoutlen=0        " exit visual faster
 set rtp+=/usr/local/opt/fzf
 set path=$PWD/**
 set complete-=i                         " removes indluded files from search
+set statusline=>\ %f%=[%4l/%4L]
+set autoindent
+set nocursorline
+" set omnifunc=syntaxcomplete#Complete
 " TODO read status line docs
 " TODO autocommands and setlocal to define diff status lines for diff filetype
-set statusline=>\ %f%=[%4l/%4L]
-set omnifunc=syntaxcomplete#Complete
 
 " }}}
 
@@ -268,12 +270,6 @@ nnoremap <silent> tp :TagbarTogglePause<CR>     " as in 'tag pause!'
 " Emmet Settings {{{
 
 let g:user_emmet_leader_key=','     " trigger emmet expansion with ,,
-
-" }}}
-
-" Clang Complete Settings {{{
-
-let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
 
 " }}}
 
