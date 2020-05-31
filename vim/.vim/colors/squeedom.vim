@@ -22,7 +22,7 @@ let colors_name = "squeedom"
 " Enables cursor line position tracking:
 set cursorline
 set colorcolumn=80
-hi clear CursorLine                     " removes underline from cursorline
+" hi clear CursorLine                     " removes underline from cursorline
 hi clear SignColumn                     " make ALE gutter neutral colour
 hi ColorColumn ctermbg=233              " colour of colourcolumn
 hi MatchParen ctermbg=243               " colour of bracket matching
@@ -47,6 +47,9 @@ highlight DiffAdd            ctermfg=NONE  ctermbg=022   cterm=NONE
 highlight DiffChange         ctermfg=NONE  ctermbg=094   cterm=NONE
 highlight DiffDelete         ctermfg=203   ctermbg=052   cterm=BOLD
 highlight DiffText           ctermfg=NONE  ctermbg=017   cterm=NONE
+
+" alerts
+highlight Todo               ctermfg=000   ctermbg=185   cterm=NONE
 
 " spell checking
 highlight! link SpellBad Error
@@ -95,11 +98,13 @@ highlight Title              ctermfg=218   ctermbg=NONE   cterm=NONE
 " ALE "
 " --- "
 
-highlight ALEWarning         ctermfg=000   ctermbg=011   cterm=NONE
+" highlight ALEWarning         ctermfg=000   ctermbg=011   cterm=NONE
 " highlight ALEStyleWarning    ctermfg=015   ctermbg=012   cterm=NONE
 " highlight ALEInfo            ctermfg=088   ctermbg=NONE   cterm=NONE
 highlight link ALEError Error
+highlight link ALEWarningSign Todo
 highlight link ALEErrorSign ALEError
+highlight link ALEWarning ALEWarningSign
 
 
 " ---------- "
@@ -196,7 +201,7 @@ highlight htmlItalic         ctermfg=016   ctermbg=246   cterm=NONE
 " --- "
 
 highlight XmlKeyword         ctermfg=077   ctermbg=NONE   cterm=NONE
-highlight XmlAdditional      ctermfg=166   ctermbg=NONE   cterm=NONE
+highlight XmlAdditional      ctermfg=168   ctermbg=NONE   cterm=NONE
 highlight XmlDull            ctermfg=250   ctermbg=NONE   cterm=NONE
 
 highlight link xmlTagName       XmlAdditional
