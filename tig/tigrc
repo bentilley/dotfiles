@@ -2,6 +2,7 @@
 
 # Generic bindings
 bind main C !git commit --verbose
+bind status C !git commit --verbose
 
 # Git bindings
 bind diff <Ctrl-c> !?git checkout %(commit) %(file)
