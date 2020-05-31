@@ -20,6 +20,9 @@ alias lk="exa -lag -t=modified"
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
+# vim aliasas
+alias vs="vim -S Session.vim"
+
 # git aliases
 alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
 alias gls="git --no-pager branch --list"
@@ -45,3 +48,6 @@ alias csp="cloud_sql_proxy"
 alias va="source venv/bin/activate"
 alias vd="deactivate"
 # TODO make this a function which search recursively up through directories for venv
+
+# tmux
+alias tx='tmux new -s $(basename $(pwd))'
