@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+DEVDOCS_URL='https://devdocs.io/#q='
+
+main() {
+
+  parse_args "$@"
+  compile_url "$LANGUAGE" "$QUERY"
+
+  open "$QUERY_URL"
+}
+
+parse_args() {
+  POSITIONAL=()
+
+  while [[ $# -gt 0 ]]; do
+    key="$1"
+    case $key in
+      -l|--lang)
+        LANGUAGE="$2"
+        shift 2
+        ;;
+      -q|--query)
+        QUERY="$2"
+        shift 2
+        ;;
+      *)
+        POSITIONAL+=("$1")
+        shift 1
+        ;;
+    esac
+  done
+}
+
+compile_url() {
+  QUERY_URL="${DEVDOCS_URL}${LANGUAGE}%20${QUERY/ /%20}"
+}
+
+main "$@"

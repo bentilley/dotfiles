@@ -50,4 +50,6 @@ alias vd="deactivate"
 # TODO make this a function which search recursively up through directories for venv
 
 # tmux
+alias ta='tmux attach'
+alias tn='cd ~ && tmux new -s info'
 alias tx='tmux new -s $(basename $(pwd))'
