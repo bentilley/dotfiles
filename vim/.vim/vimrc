@@ -330,6 +330,22 @@ let g:email = 'targansaikhan@gmail.com'
 let g:templates_no_autocmd = 0
 let g:templates_no_builtin_templates = 1
 let g:templates_directory = ['~/.vim/templates']
+let g:templates_user_variables = [
+      \   ['FILE_TITLE', 'Template_GetFileTitle'],
+      \]
+
+function! Template_GetFileTitle()
+  let l:file_name = expand('%:t:r')
+  if l:file_name =~ '-'
+    let l:tokens = split(l:file_name, '-')
+    let l:capitalised_tokens = []
+    for t in l:tokens
+      call add(l:capitalised_tokens, toupper(t[:0]).t[1:])
+    endfor 
+    return join(l:capitalised_tokens, ' ')
+  endif
+  return 'Time to write some VimScript...'
+endfunction
 
 " }}}
 
