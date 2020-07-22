@@ -22,10 +22,9 @@ let colors_name = "squeedom"
 " Enables cursor line position tracking:
 set cursorline
 set colorcolumn=80
-" hi clear CursorLine                     " removes underline from cursorline
 hi clear SignColumn                     " make ALE gutter neutral colour
-hi ColorColumn ctermbg=233              " colour of colourcolumn
 hi MatchParen ctermbg=243               " colour of bracket matching
+highlight ColorColumn        ctermfg=NONE  ctermbg=233   cterm=NONE
 highlight LineNR             ctermfg=244   ctermbg=NONE  cterm=NONE
 highlight CursorLineNR       ctermfg=125   ctermbg=236   cterm=NONE
 highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
@@ -71,8 +70,8 @@ highlight link FoldedColumn Folded
 " Generic Colour Groups "
 " --------------------- "
 
-highlight Comment            ctermfg=065   ctermbg=NONE   cterm=NONE
-highlight Type               ctermfg=081   ctermbg=NONE   cterm=NONE
+highlight Comment            ctermfg=060   ctermbg=NONE   cterm=NONE
+highlight Type               ctermfg=220   ctermbg=NONE   cterm=NONE
 highlight PreProc            ctermfg=001   ctermbg=NONE   cterm=NONE
 highlight Keyword            ctermfg=162   ctermbg=NONE   cterm=NONE
 highlight Conditional        ctermfg=162   ctermbg=NONE   cterm=NONE
@@ -84,9 +83,9 @@ highlight StorageClass       ctermfg=165   ctermbg=NONE   cterm=NONE
 highlight Constant           ctermfg=098   ctermbg=NONE   cterm=NONE
 highlight String             ctermfg=160   ctermbg=NONE   cterm=NONE
 highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
-highlight Statement          ctermfg=220   ctermbg=NONE   cterm=NONE
+highlight Statement          ctermfg=081   ctermbg=NONE   cterm=NONE
 highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
-highlight ClassSpecial       ctermfg=078   ctermbg=NONE   cterm=NONE
+highlight ClassSpecial       ctermfg=042   ctermbg=NONE   cterm=NONE
 highlight TryCatchSpecial    ctermfg=202   ctermbg=NONE   cterm=NONE
 
 " Layout
@@ -107,88 +106,6 @@ highlight link ALEErrorSign ALEError
 highlight link ALEWarning ALEWarningSign
 
 
-" ---------- "
-" Javascript "
-" ---------- "
-
-highlight LittleBit          ctermfg=222   ctermbg=NONE   cterm=NONE
-
-" Using defaults
-
-highlight link jsComment Comment
-
-highlight link jsOperator LittleBit
-highlight link jsTernaryIfOperator LittleBit
-
-highlight link jsClassKeyword Keyword
-highlight link jsClassMethodType Keyword
-highlight link jsOperatorKeyword Keyword
-highlight link jsReturn Keyword
-highlight link jsExtendsKeyword Keyword
-highlight link jsFunction Keyword
-highlight link jsLabel Keyword
-highlight link jsRepeat Keyword
-" highlight link jsStatement Keyword
-
-highlight link jsConditional Conditional
-
-highlight link jsImport Include
-highlight link jsfrom Include
-highlight link jsModuleAs Include
-highlight link jsExport Include
-
-highlight link jsFuncName Structure
-highlight link jsClassDefinition Structure
-
-highlight link jsModuleKeyword Function
-highlight link jsClassFuncName Function
-highlight link jsFuncCall Function
-highlight link jsSuper Function
-highlight link jsThis FunctionSpecial
-
-highlight link jsString String
-highlight link jsTemplateString String
-highlight link jsTemplateBraces StringSpecial
-
-highlight link jsStorageClass StorageClass
-
-highlight link jsGlobalObjects Constant
-
-highlight link jsExportDefault VariableSpecial
-
-highlight link jsTry TryCatchSpecial
-highlight link jsCatch TryCatchSpecial
-highlight link jsTryCatchBraces TryCatchSpecial
-highlight link jsParensCatch TryCatchSpecial
-highlight link jsParenCatch Normal
-
-
-" Specific JS
-
-highlight link jsNull VariableSpecial
-highlight link jsUndefined VariableSpecial
-
-
-" --- "
-" CPP "
-" --- "
-
-highlight link cType Keyword
-highlight link cppType Keyword
-highlight link cStorageClass Keyword
-highlight link cStatement Keyword
-highlight link cRepeat Keyword
-highlight link cCustomAccessKey Keyword
-highlight link cppModifier Keyword
-highlight link cCustomClassKey Keyword
-highlight link cppAccess Keyword
-highlight link cStructure Keyword
-
-highlight link cppClassDef Keyword
-highlight link cppClassName Structure
-
-highlight link cCustomClass ClassSpecial
-
 " ---- "
 " HTML "
 " ---- "
@@ -208,27 +125,6 @@ highlight link xmlTagName       XmlAdditional
 highlight link xmlAttrib        XmlKeyword
 highlight link xmlTag           Normal
 
-
-" --- "
-" Vim "
-" --- "
-
-highlight vimHighlight       ctermfg=082   ctermbg=NONE   cterm=NONE
-highlight link vimHiGroup Normal
-
-
-" ------ "
-" Python "
-" ------ "
-
-highlight link pythonStatement Keyword
-highlight link pythonRepeat Keyword
-highlight link pythonOperator Keyword
-
-highlight link pythonDecorator PreProc
-highlight link pythonDecoratorName PreProc
-
-highlight link pythonMultilineComment Comment
 
 " -------- "
 " Markdown "

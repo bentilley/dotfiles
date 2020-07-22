@@ -12,8 +12,10 @@ highlight link typescriptVariable StorageClass
 highlight link typescriptConsoleMethod Function
 highlight link typescriptDateMethod Function
 highlight link typescriptObjectStaticMethod Function
+highlight link typescriptArrowFunc Function
 highlight link typescriptIdentifier FunctionSpecial
 
+highlight link tsxIntrinsicTagName XmlAdditional
 highlight link tsxTagName XmlAdditional
 highlight link tsxAttrib XmlKeyword
 
@@ -23,8 +25,8 @@ highlight link typescriptImport Include
 
 highlight link typescriptGlobal Constant
 
-highlight link typescriptPredefinedType Statement
-highlight link typescriptTypeReference Statement
+highlight link typescriptPredefinedType Type
+highlight link typescriptTypeReference Type
 
 highlight link typescriptIdentifierName Special
 highlight link typescriptDefault VariableSpecial

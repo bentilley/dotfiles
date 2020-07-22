@@ -3,7 +3,6 @@
 
 set viminfo='100,<50,s10,h,n~/.config/vim/viminfo
 source ~/.dotfiles/vim/learning.vim
-"let g:AutoPairsMapCh = 0
 
 " Plugins {{{
 
@@ -37,8 +36,6 @@ call plug#begin('~/.vim/plugged')
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
   Plug 'tyru/open-browser.vim'            " open URI in browser
-  Plug 'Galooshi/vim-import-js'           " auto import for javascript
-  " Plug 'Quramy/tsuquyomi'                 " typescript language support
 
 call plug#end()
 
@@ -111,7 +108,7 @@ nnoremap ]w :tabnext<CR>
 nnoremap <Leader>g gggqG<C-O><C-O>zz
 
 " highlighting
-nnoremap <Leader>a :nohl<CR>
+nnoremap <silent> <Leader>a :nohl<CR>
 
 " file name to clipboard
 nnoremap <Leader>cf :let @+=expand("%")<CR>
@@ -138,21 +135,16 @@ command TabF tabnew | FZF
 
 " Insert Mode Helpers {{{
 
-" exit insert mode
-" inoremap jk <esc>
-"inoremap <esc> <nop>
-
 " toggle word cases
 inoremap <c-u> <esc>viwUea
 inoremap <c-y> <esc>viwuea
-" undo
-inoremap <c-z> <esc>ua
 
 " movement in insert mode
 inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
+inoremap ;a <Esc>A
 
 " }}}
 
@@ -169,6 +161,7 @@ cnoremap <C-l> <Right>
 
 command! VF vsplit | FZF
 command! SF split | FZF
+command! XA mks! | xa
 
 " }}}
 
@@ -336,11 +329,14 @@ endif
 
 " }}}
 
+" JS Pretty Template Settings {{{
+
 " template literal highlighting
 nnoremap <Leader>h :JsPreTmpl html<CR>
 
-nnoremap <M-,> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%<' . line('.') . 'l\S', 'be')<CR>
-nnoremap <M-.> :call search('^'. matchstr(getline('.'), '\(^\s*\)') .'\%>' . line('.') . 'l\S', 'e')<CR>
+" }}}
+
+" Syntax Highlighting Helpers {{{
 
 " for showing you the syntax highlighting group of the word the you are hovering over
 nnoremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
@@ -348,3 +344,5 @@ nnoremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 command ShowColours so $VIMRUNTIME/syntax/hitest.vim
+
+" }}}
