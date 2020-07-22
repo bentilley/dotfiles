@@ -9,7 +9,7 @@
 # endglobal
 
 
-snippet sec "SCENARIO block" b
+snippet sce "SCENARIO block" b
 SCENARIO("${1:scenario name}") {
   $0
 }
@@ -35,4 +35,8 @@ endsnippet
 
 snippet req "REQUIRE block" b
 REQUIRE(${1:test condition});
+endsnippet
+
+snippet Ap "Approx function" w
+Approx($0)
 endsnippet

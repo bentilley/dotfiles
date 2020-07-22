@@ -38,6 +38,9 @@ function GetFirstFileType(filetypes)
   endif
 endfunction
 
+" A command for silently running shell commands in the background without a
+" screen redraw prompt - useful for tmux key bindings.
+command! -nargs=1 Silent execute 'silent !'.<q-args> | execute 'redraw!'
 
 " Quickfix List
 " When using `dd` in the quickfix list, remove the item from the quickfix list.

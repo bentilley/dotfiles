@@ -1,17 +1,17 @@
 # C++ file snippets
 
 # these functions are imported from the /pythonx dir in /.vim
-# global !p
-# from snippets.cpp import generate_constructor
-# endglobal
+global !p
+from snippets.cpp import generate_comment_title
+endglobal
 
 # tools
 
-snippet p "printf" i
+snippet p "printf" w
 printf("$1\n", $0);
 endsnippet
 
-snippet ps "printf no args" i
+snippet ps "printf no args" w
 printf("$1\n");$0
 endsnippet
 
@@ -19,6 +19,11 @@ snippet mc "multiline comment" b
 /*
  * $0
  */
+endsnippet
+
+snippet '#([a-zA-Z/ ]*)' "comment title" r
+`!p generate_comment_title(snip, match[1])`
+$0
 endsnippet
 
 # basic language
@@ -63,20 +68,46 @@ for (${1:auto ${2:element}} : ${3:array}) {
 endsnippet
 
 snippet fn "function definition" b
-${1:void} ${2:identifier}(${3:args})${4: {$5}}
+${1:void} ${2:identifier}(${3:args})${4:$5 {$0}}
+endsnippet
+
+snippet ffn "friend function definition" b
+friend ${1:void} ${2:identifier}(${3:args})${4: {$5}}
 endsnippet
 
 snippet fmd "class method definition" i
-${1:Class}::${2:method}(${3:args}) {$0}
+${1:void} ${2:Class}::${3:method}(${4:args}) {$0}
 endsnippet
 
 snippet fl "lambda function" i
 [${1:capture}](${2:parameters}) ${3:-> ${4:void} }{$0}
 endsnippet
 
-snippet fncd "constructor and destructor definition" b
-${1:Class}::$1() {$0}
-$1::~$1() {}
+snippet fnc "constructor definition" b
+${1:Class}::$1(${2:args})${3: : ${4:init}{${5:$4}}$6} {$0}
+endsnippet
+
+snippet fnd "destructor definition" b
+~${1:Class}::$1() {$0}
+endsnippet
+
+snippet fno "operator function" w
+${1:bool} operator${2:+}(${3:args})${4: {$0}}
+endsnippet
+
+snippet ffno "operator function" b
+friend ${1:bool} operator${2:+}(${3:args})${4: {$0}}
+endsnippet
+
+snippet fncast "cast operator overload" b
+operator ${1:type}() const${2: {$0}}
+endsnippet
+
+snippet fno<< "operator<< function" w
+${1:std::}ostream &operator<<($1ostream &out, const ${2:Name} &${2/(.*)/\l$1/})${4: {
+  $0
+  return out;
+}}
 endsnippet
 
 snippet swt "switch statement" b
@@ -167,4 +198,13 @@ int main(int argc, char *argv[]) {
 
   return 0;
 }
+endsnippet
+
+snippet ds "doc string" b
+/** ${1:Brief description.}
+ *
+ * ${2:More detailed description.}
+ *
+ * ${3:${4:@param} ${5:name} ${6:description}}$0
+ */
 endsnippet
