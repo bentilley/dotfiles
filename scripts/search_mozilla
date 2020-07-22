@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+mozilla_url='https://developer.mozilla.org/search?topic=api&topic={}&q='
+
+main() {
+  url=${mozilla_url/\{\}/$1}
+  open "${url}$2"
+}
+
+main "$@"

@@ -6,6 +6,11 @@ let maplocalleader = ";"
 setlocal makeprg=node_modules/typescript/bin/tsc
 execute "UltiSnipsAddFiletypes javascript"
 
+inoremap ;j <Esc>mhA;<Esc>`ha
+
+" Online Docs
+setlocal keywordprg=mozilla\ js
+
 " ALE (linting and fixing) Settings
 let b:ale_linters = ['eslint']
 let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
@@ -14,12 +19,6 @@ let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
 abbreviate /T // TODO
 
 " Operator Pending Mappings
-
-" a function
-xnoremap if :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rf{vi{"<CR>
-xnoremap af :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rvf{%"<CR>
-onoremap if :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rf{vi{"<CR>
-onoremap af :<C-U>execute "normal! ?^\\s*\\(export\\)\\=\\s*function\r:nohlsearch\rvf{%"<CR>
 
 " a test
 " TODO make a file detect for 'jest' and add this to the jest ftplugin

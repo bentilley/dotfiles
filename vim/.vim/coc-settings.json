@@ -6,5 +6,6 @@
   "coc.preferences.formatOnSaveFiletypes": [],
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnTypeFiletypes": [],
-  "coc.preferences.jumpCommand": "edit"
+  "coc.preferences.jumpCommand": "edit",
+  "javascript.suggestionActions.enabled": false
 }

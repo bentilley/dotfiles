@@ -33,10 +33,10 @@ endsnippet
 
 snippet ds "doc string" b
 /**
-  * ${1:objectName}
-  * ${2:one line description...}
-  * @${3:param}$0
-  */
+ * ${1:objectName}
+ * ${2:one line description...}
+ * @${3:param}$0
+ */
 endsnippet
 
 # import / export
@@ -79,12 +79,12 @@ snippet get "Class Getter Function" b
 get $1() {$0}
 endsnippet
 
-snippet fad "Arrow function definition" b
+snippet fad "Arrow function definition" w
 const ${1:funcName} = ($2) => {$0};
 endsnippet
 
 snippet fa "Arrow function" i
-($1) => {$0}
+($1) => ${2:{$0}}
 endsnippet
 
 snippet ef "Exported function definition" b
@@ -97,6 +97,18 @@ snippet iffe "Immediately Invoked function expression" b
 (function(){
   $0
 })();
+endsnippet
+
+snippet for "For loop" b
+for (${1:initialise}; ${2:condition}; ${3:increment}) {
+  ${0:statement}
+}
+endsnippet
+
+snippet "fori(.+)" "index for loop" br
+for (let `!p snip.rv = match[1]` = ${2:0}; `!p snip.rv = match[1]` < ${3:limit}; ${4:`!p snip.rv = match[1]`++}) {
+  ${0:statement}
+}
 endsnippet
 
 snippet cls "ES6 class definition with constructor" b

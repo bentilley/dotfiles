@@ -10,6 +10,6 @@ source ~/.vim/after/ftplugin/typescript.vim
 " let g:ale_linters = { 'typescriptreact': ['eslint'] }
 " let b:ale_javascript_eslint_options = ['--ext', '.js,.jsx,.ts,.tsx']
 
-" " Abbreviations
+" Abbreviations
 
-" " Operator Pending Mappings
+" Operator Pending Mappings
