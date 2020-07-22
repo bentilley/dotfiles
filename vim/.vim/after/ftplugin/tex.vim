@@ -10,10 +10,10 @@ setlocal spell
 "   autocmd BufWritePost *.tex call CompileLatex()
 " augroup END
 "
-nnoremap <buffer> <LocalLeader>r :call CompileLatex()<CR>
+nnoremap <silent><buffer> <LocalLeader>r :call CompileLatex()<CR>
 
 function CompileLatex()
-  silent !xelatex % && open %:r.pdf
+  silent !xelatex "%" && open "%:r.pdf"
   redraw!
 endfunction
 
@@ -22,6 +22,6 @@ let b:ale_linters = ['lacheck']
 let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']
 
 " Abbreviations
-abbreviate /T // TODO
+abbreviate ;t % TODO
 
 " Operator Pending Mappings

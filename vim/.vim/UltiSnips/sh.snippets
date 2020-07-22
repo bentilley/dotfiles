@@ -23,3 +23,11 @@ ${1:pattern})
   ${0:statements}
   ;;
 endsnippet
+
+snippet col "some colours for output" b
+${1:colour_name}=$(tput setaf ${2:1})$0
+endsnippet
+
+snippet normal "reset output colour" b
+normal=$(tput sgr0)
+endsnippet

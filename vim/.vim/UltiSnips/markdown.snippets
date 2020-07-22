@@ -5,6 +5,10 @@ global !p
 from snippets.markdown import generate_table
 endglobal
 
+snippet url "url" i
+[${1:text}](${2:src})
+endsnippet
+
 snippet img "image" b
 ![${1:alt text}](${2:src}${3: "${0:title text}"})
 endsnippet
