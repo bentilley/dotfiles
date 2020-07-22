@@ -32,6 +32,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'bfrg/vim-cpp-modern'              " cpp
   Plug 'Quramy/vim-js-pretty-template'    " template string
   Plug 'aklt/plantuml-syntax'             " plantuml
+  Plug 'cespare/vim-toml'                 " toml
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser

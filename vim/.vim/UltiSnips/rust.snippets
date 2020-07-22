@@ -1,0 +1,124 @@
+# rust.snippets
+# Copyright (C) 2020 Ben Tilley <targansaikhan@gmail.com>
+# 
+# Distributed under terms of the MIT license.
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.rust import some_function
+# endglobal
+
+
+# Language
+
+snippet fn "function" b
+fn ${1:name}(${2:args}) ${3:-> ${4:return_type} }{
+    ${0:body}
+}
+endsnippet
+
+snippet fm "method function" b
+fn ${1:name}(${2:&}self${3:, ${4:args}}) ${5:-> ${6:return_type} }{
+    ${0:body}
+}
+endsnippet
+
+snippet if "if expression" b
+if ${1:condition} {
+    ${0:block}
+}
+endsnippet
+
+snippet ife "if expression" b
+if ${1:condition} {
+    ${2:if_block}
+} else {
+    ${0:else_block}
+}
+endsnippet
+
+snippet ifl "if let expression" b
+if let ${1:pattern} = ${2:expression} {
+    ${0:body}
+}
+endsnippet
+
+snippet ifle "if let else expression" b
+if let ${1:pattern} = ${2:expression} {
+    ${3:body}
+} else {
+    ${0:body}
+}
+endsnippet
+
+snippet lp "loop expression" i
+loop {
+    ${0:block}
+}
+endsnippet
+
+snippet whl "while statement" b
+while ${1:condition} {
+    ${0:block}
+}
+endsnippet
+
+snippet for "for statement" b
+for ${1:${2:element} in ${3:arr.iter()}} {
+    ${0:block}
+}
+endsnippet
+
+snippet forr "for range statement" b
+for ${1:${2:number} in (${3:1}..${4:10})${5:.rev()}} {
+    ${0:block}
+}
+endsnippet
+
+snippet mat "match statement" b
+match ${1:expression} {
+    ${2:pattern} => ${3:statement},
+    $0
+}
+endsnippet
+
+snippet arm "match arm statement" b
+${1:pattern} => ${2:statement},
+endsnippet
+
+# Data Structures
+
+snippet st "struct definition" b
+struct ${1:Name} {
+    ${2:${3:key}: ${0:value},}
+}
+endsnippet
+
+snippet tst "tuple struct definition" b
+struct ${1:Name}(${0:type});
+endsnippet
+
+snippet imp "implementation block" b
+impl ${1:Struct} {
+    $0
+}
+endsnippet
+
+snippet en "enum definition" b
+enum ${1:Name} {
+    ${2:Kind},$0
+}
+endsnippet
+
+# Strings
+
+snippet strf "String::from" w
+String::from("$1")$0
+endsnippet
+
+
+# Logging and Printing
+
+snippet p "print a variable with println!" i
+println!("${1:{}}"${2:, ${3:x}})
+endsnippet
