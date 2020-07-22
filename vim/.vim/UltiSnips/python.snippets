@@ -8,11 +8,11 @@ endglobal
 # Imports
 
 snippet i "import" b
-import ${0:something}
+import ${0:module}
 endsnippet
 
 snippet imp "import from" b
-from $1 import ${0:$1}
+from ${1:module} import ${0:$1}
 endsnippet
 
 # Functions
@@ -23,15 +23,49 @@ def ${1:name}(${2:args}):
 endsnippet
 
 snippet cls "python class" b
-class $1:
-    def __init__(self`!p snip.rv = comma_if_args(t[2])`$2):
+class ${1:Name}:
+    def __init__(self`!p snip.rv = comma_if_args(t[2])`${2:args}):
 	`!p generate_constructor_body(snip, t[2])`
     $0
 endsnippet
 
-snippet mf "method function definition" b
-def ${1:name}(self`!p snip.rv = comma_if_args(t[2])`$2):
+snippet fmd "method function definition" b
+def ${1:name}(self${2:, ${3:args}}):
     ${0:pass}
+endsnippet
+
+snippet ds "doc string" b
+""" ${1:Short description.} ${2:
+${3:
+Longer description providing more detail...}
+${4:
+${5:Agrs/Returns/Raises}:
+  ${6:example}: ${7:Brief explanation}}}
+$0"""
+endsnippet
+
+# Control Flow
+
+snippet if "if statement" b
+if ${1:condition}:
+    ${0:statement}
+endsnippet
+
+snippet ife "if/else statement" b
+if ${1:condition}:
+    ${2:statement}
+else:
+    ${0:statement}
+endsnippet
+
+snippet ef "elif statement" w
+elif ${1:condition}:
+    ${0:statement}
+endsnippet
+
+snippet el "else statement" w
+else:
+    ${0:statement}
 endsnippet
 
 # Printing and Logging
@@ -49,4 +83,15 @@ endsnippet
 snippet of "open file" b
 with open("${1:filename}") as ${2:file}:
     ${0:pass}
+endsnippet
+
+# Common Patterns
+
+snippet main "main function" b
+def main():
+    ${1:pass}
+
+
+if __name__ == "__main__":
+    main()
 endsnippet
