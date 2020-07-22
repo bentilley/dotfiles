@@ -79,21 +79,25 @@ endsnippet
 # Sequence Diagrams
 
 snippet > "Seq Diag - arrow (right short)" b
-$1 -> $2`!p snip.rv = " : " if t[3] else ""`$3 
+${1:A} -> ${2:B}`!p snip.rv = " : " if t[3] else ""`${3:note} 
 endsnippet
 
 snippet < "Seq Diag - arrow (left short)" b
-$1 <- $2`!p snip.rv = " : " if t[3] else ""`$3 
+${1:A} <- ${2:B}`!p snip.rv = " : " if t[3] else ""`${3:note}
+endsnippet
+
+snippet ac "activate" b
+activate ${0:Actor}
 endsnippet
 
 snippet gp "Seq Diag - group" b
-group ${1:group name}
+group ${1:Name}
   $0
 end
 endsnippet
 
 snippet "n([orl])(b?)" "Seq Diag - note" br
-note `!p snip.rv = note.get_type(match)` ${1:A, B}`!p snip.rv = note.get_oneline(match)`$2
+note `!p snip.rv = note.get_type(match)` ${1:A, B}`!p snip.rv = note.get_oneline(match)`${2:note}
 `!p snip.rv = note.get_note_indent(match)`$0
 `!p snip.rv = note.get_block_close(match)`
 endsnippet
@@ -109,6 +113,12 @@ alt ${1:case 1}
   $0
 else ${2:case 2}
   
+end
+endsnippet
+
+snippet loop "Seq Diag - loop" b
+loop ${1:condition}
+  $0
 end
 endsnippet
 
