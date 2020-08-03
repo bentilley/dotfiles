@@ -15,19 +15,19 @@ endsnippet
 # Vimscript Snippets
 
 snippet fn "Function definition" b
-function $1($2)
+function ${1:Name}(${2:args})
   $0
 endfunction
 endsnippet
 
 snippet if "If statement" b
-if $1
+if ${1:condition}
   $0
 endif
 endsnippet
 
 snippet ife "If statement - with else" b
-if $1
+if ${1:condition}
   $0
 else
   

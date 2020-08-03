@@ -110,6 +110,10 @@ ${1:std::}ostream &operator<<($1ostream &out, const ${2:Name} &${2/(.*)/\l$1/})$
 }}
 endsnippet
 
+snippet ili "initialise list item" i
+${1:variable}{${2:$1}}
+endsnippet
+
 snippet swt "switch statement" b
 switch (${1:expression}) {
 case ${2:label}:
@@ -201,6 +205,10 @@ int main(int argc, char *argv[]) {
 endsnippet
 
 snippet ds "doc string" b
+/** ${1:Documentaion...} */
+endsnippet
+
+snippet dst "doc string template" b
 /** ${1:Brief description.}
  *
  * ${2:More detailed description.}
