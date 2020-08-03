@@ -3,8 +3,6 @@
 " File for additional C++ syntax
 
 
-" highlight link cType Statement
-" highlight link cppType Type
 highlight link cStorageClass Keyword
 highlight link cStatement Keyword
 highlight link cppStatement Keyword
@@ -22,6 +20,7 @@ highlight link cppClassDef Keyword
 highlight link cppClassName Structure
 
 highlight link cCustomClass ClassSpecial
+highlight link cppSTLnamespace ClassSpecial
 
 
 " Custom Highligh Groups
@@ -57,8 +56,13 @@ highligh link cppClassInstantiation Type
 highligh link cppFunctionArgType cppType
 
 " Types in angle brackets
-syn region cppTypeParameters start='<[^<( ]' end='>' contains=cppTypeParam,cppSTLnamespace,cppSTLtype
+syn region cppTypeParameters start='<[^<( =]' end='>' contains=cppTypeParam,cppSTLnamespace,cppSTLtype
 syn match cppTypeParam '<\=\zs\i\+\ze[,>]' contained containedin=cppTypeParameters
 syn cluster cParenGroup add=cppTypeParam
 
 highligh link cppTypeParam cppType
+
+" Doc String Comments
+syn match cDocStringDirective '@\i\+ ' contained containedin=cComment
+
+highlight link cDocStringDirective Special

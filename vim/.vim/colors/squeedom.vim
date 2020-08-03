@@ -20,8 +20,6 @@ endif
 let colors_name = "squeedom"
 
 " Enables cursor line position tracking:
-set cursorline
-set colorcolumn=80
 hi clear SignColumn                     " make ALE gutter neutral colour
 hi MatchParen ctermbg=243               " colour of bracket matching
 highlight ColorColumn        ctermfg=NONE  ctermbg=233   cterm=NONE
@@ -55,6 +53,8 @@ highlight! link SpellBad Error
 
 " search
 highlight Search             ctermfg=016   ctermbg=153   cterm=NONE
+" highlight! link Search Todo
+highlight! link IncSearch WarningMsg
 
 " popup menu
 highlight Pmenu              ctermfg=0     ctermbg=238   cterm=NONE

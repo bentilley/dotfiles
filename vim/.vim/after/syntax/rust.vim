@@ -6,6 +6,8 @@
 " syn match cppClassDecl '\i\+\(\s:\s\i\+\(,\s\i\+\)*\)\=\s{' contains=cppClassName
 " syn match cppClassName '\i\+\ze[a-zA-Z0-9 :,]\+{' contained containedin=cppClassDecl
 
+syn keyword rustKeyword crate
+
 highligh link rustType Statement
 
 highligh link rustTrait ClassSpecial

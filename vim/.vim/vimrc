@@ -26,6 +26,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-abolish'
+  Plug 'qxxxb/vim-searchhi'
+
   if has('nvim')
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
   endif
@@ -101,6 +103,13 @@ set nocursorline
 " set omnifunc=syntaxcomplete#Complete
 " TODO read status line docs
 " TODO autocommands and setlocal to define diff status lines for diff filetype
+
+let g:my_colour_column = 80
+augroup MyColorColumn
+  autocmd!
+  autocmd BufNewFile,BufEnter,WinNew * call squee#SetMyColorColumn()
+  autocmd QuitPre * call squee#SetMyColorColumnCleanUp()
+augroup END
 
 " }}}
 
@@ -354,6 +363,12 @@ function! Template_GetFileTitle()
   endif
   return 'Time to write some VimScript...'
 endfunction
+
+" }}}
+
+" Search HI Settings {{{
+
+let g:searchhi_clear_all_asap = 1
 
 " }}}
 
