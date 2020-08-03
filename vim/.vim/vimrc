@@ -1,7 +1,10 @@
 " == VIMRC ==
 " Author: Ben Tilley
 
-set viminfo='100,<50,s10,h,n~/.config/vim/viminfo
+if !has('nvim')
+  set viminfo='100,<50,s10,h,n~/.config/vim/viminfo
+endif
+
 source ~/.dotfiles/vim/learning.vim
 
 " Plugins {{{
@@ -23,6 +26,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-abolish'
+  if has('nvim')
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+  endif
 
   " SYNTAX
   Plug 'pangloss/vim-javascript'          " javascript
@@ -129,7 +135,7 @@ nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
 nnoremap <Leader>c :terminal ++hidden ctags -R -f ./.git/tags .<CR>
 
 " working with tabs
-command TabF tabnew | FZF
+command! TabF tabnew | FZF
 
 " }}}
 
@@ -211,7 +217,9 @@ set hidden
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
-set signcolumn=number
+if !has('nvim')
+  set signcolumn=number
+endif
 
 " Generic
 nmap <Localleader>rn <Plug>(coc-rename)
@@ -341,7 +349,7 @@ function! Template_GetFileTitle()
     let l:capitalised_tokens = []
     for t in l:tokens
       call add(l:capitalised_tokens, toupper(t[:0]).t[1:])
-    endfor 
+    endfor
     return join(l:capitalised_tokens, ' ')
   endif
   return 'Time to write some VimScript...'
@@ -380,6 +388,6 @@ nnoremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-command ShowColours so $VIMRUNTIME/syntax/hitest.vim
+command! ShowColours so $VIMRUNTIME/syntax/hitest.vim
 
 " }}}
