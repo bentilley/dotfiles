@@ -1,7 +1,10 @@
 " == VIMRC ==
 " Author: Ben Tilley
 
-set viminfo='100,<50,s10,h,n~/.config/vim/viminfo
+if !has('nvim')
+  set viminfo='100,<50,s10,h,n~/.config/vim/viminfo
+endif
+
 source ~/.dotfiles/vim/learning.vim
 
 " Plugins {{{
@@ -23,6 +26,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-abolish'
+  Plug 'qxxxb/vim-searchhi'
+
+  if has('nvim')
+    Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
+  endif
 
   " SYNTAX
   Plug 'pangloss/vim-javascript'          " javascript
@@ -96,6 +104,13 @@ set nocursorline
 " TODO read status line docs
 " TODO autocommands and setlocal to define diff status lines for diff filetype
 
+let g:my_colour_column = 80
+augroup MyColorColumn
+  autocmd!
+  autocmd BufNewFile,BufEnter,WinNew * call squee#SetMyColorColumn()
+  autocmd QuitPre * call squee#SetMyColorColumnCleanUp()
+augroup END
+
 " }}}
 
 " Normal Mode Helpers {{{
@@ -129,7 +144,7 @@ nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
 nnoremap <Leader>c :terminal ++hidden ctags -R -f ./.git/tags .<CR>
 
 " working with tabs
-command TabF tabnew | FZF
+command! TabF tabnew | FZF
 
 " }}}
 
@@ -211,7 +226,9 @@ set hidden
 set cmdheight=2
 set updatetime=300
 set shortmess+=c
-set signcolumn=number
+if !has('nvim')
+  set signcolumn=number
+endif
 
 " Generic
 nmap <Localleader>rn <Plug>(coc-rename)
@@ -349,6 +366,12 @@ endfunction
 
 " }}}
 
+" Search HI Settings {{{
+
+let g:searchhi_clear_all_asap = 1
+
+" }}}
+
 " Custom Commands {{{
 
 " Convenient command to see the difference between the current buffer and the
@@ -380,6 +403,6 @@ nnoremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
-command ShowColours so $VIMRUNTIME/syntax/hitest.vim
+command! ShowColours so $VIMRUNTIME/syntax/hitest.vim
 
 " }}}

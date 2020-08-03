@@ -36,6 +36,9 @@ symlinking_config_files() {
   # MUTT
   dotfile_link "mutt/.mutt" "$HOME/.mutt"
 
+  # NEOVIM
+  dotfile_link "nvim/nvim" "$CONFIG_DIR/nvim"
+
   # TASKWARRIOR
   dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
 
@@ -84,6 +87,7 @@ check_third_party_tools() {
   brew_install jq jq
   brew_install lf lf
   brew_install lynx lynx
+  brew_install nvim nvim
   brew_install octave octave
   brew_install offlineimap offlineimap
   brew_install pandoc pandoc

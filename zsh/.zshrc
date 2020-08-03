@@ -99,6 +99,7 @@ source ~/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 # pyenv
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
 # gcloud Settings
