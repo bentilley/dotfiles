@@ -18,3 +18,11 @@ function! filetypedetection#redux()
     return 0
   endif
 endfunction
+
+" C++ Catch Testing Library
+" augment C++ files that use catch
+function! filetypedetection#catch()
+  let s:catch_library_import_pattern = '^#include.*catch.hpp[>"]$'
+  let s:catch_import_found = search(s:catch_library_import_pattern, 'nw')
+  return s:catch_import_found
+endfunction
