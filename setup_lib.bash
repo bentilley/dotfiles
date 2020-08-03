@@ -109,5 +109,5 @@ update_global_npm_packages() {
   printf "\nUpdating Global NPM Packages...\n"
   npm outdated -g \
     | awk 'NR > 1 {print $1 "@latest";}' \
-    | xargs -I{} npm install -g {}
+    | xargs -I{} sudo npm install -g {}
 }
