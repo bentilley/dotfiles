@@ -7,5 +7,6 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnTypeFiletypes": [],
   "coc.preferences.jumpCommand": "edit",
-  "javascript.suggestionActions.enabled": false
+  "javascript.suggestionActions.enabled": false,
+  "python.jediEnabled": false
 }
