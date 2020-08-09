@@ -67,7 +67,7 @@ for (${1:auto ${2:element}} : ${3:array}) {
 }
 endsnippet
 
-snippet fn "function definition" b
+snippet fn "function definition" w
 ${1:void} ${2:identifier}(${3:args})${4:$5 {$0}}
 endsnippet
 
@@ -173,7 +173,7 @@ struct ${1:Name} {
 };
 endsnippet
 
-snippet cls "class definition" b
+snippet cls "class definition" w
 class ${1:Name} ${2:: ${3:public ${4:PubSub}}${5:, private ${6:PrivSub}}}{
 public:
   $1();
@@ -191,6 +191,10 @@ endsnippet
 
 snippet uns "using namespace" b
 using namespace ${1:Name};$0
+endsnippet
+
+snippet t "template statement" b
+template <${1:typename ${2:T}$3}> $0
 endsnippet
 
 # bigger things
