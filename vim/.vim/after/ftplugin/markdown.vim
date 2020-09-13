@@ -7,7 +7,7 @@ setlocal formatoptions+=a
 
 " Hotkeys
 
-nnoremap <buffer> <localleader>f :call ToggleAutoFormatting()<CR>
+nnoremap <buffer> <silent> <localleader>f :call ToggleAutoFormatting()<CR>
 
 function ToggleAutoFormatting()
   let l:format_options = &formatoptions

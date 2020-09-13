@@ -27,6 +27,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-abolish'
   Plug 'qxxxb/vim-searchhi'
+  Plug 'jeetsukumaran/vim-indentwise'
 
   if has('nvim')
     Plug 'glacambre/firenvim', { 'do': { _ -> firenvim#install(0) } }
