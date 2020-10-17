@@ -29,7 +29,7 @@ export HASH_AUTH_OVERRIDE=YmVudGlsbGV5OnUmWC1kciFjNGcK
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 
 # Ingresso
-export FLUX_FORWARD_NAMESPACE=weave
+export FLUX_FORWARD_NAMESPACE="flux"
 
 # fzf
 export FZF_DEFAULT_COMMAND='ag --nocolor -g .'

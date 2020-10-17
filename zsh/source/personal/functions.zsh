@@ -3,8 +3,6 @@ function vag() {
   vim -p `ag $1 $2 | sed -E -e 's/(.*):[[:digit:]]+:.+/\1/' | uniq`
 }
 
-
-
 function vf() { 
   if [ ! -z $1 ]; then
     FILE=$(find $1/* -type f | fzf)

@@ -30,6 +30,8 @@ highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
 " colours for the line at the bottom of viewports
 highlight StatusLine         ctermfg=250   ctermbg=125   cterm=NONE
 highlight StatusLineNC       ctermfg=125   ctermbg=233   cterm=NONE
+highlight StatusLineTerm     ctermfg=233   ctermbg=002   cterm=NONE
+highlight StatusLineTermNC   ctermfg=002   ctermbg=233   cterm=BOLD
 highlight VertSplit          ctermfg=125   ctermbg=NONE  cterm=NONE
 highlight NonText            ctermfg=125   ctermbg=NONE  cterm=NONE
 highlight SpecialKey         ctermfg=160   ctermbg=NONE  cterm=NONE
@@ -41,9 +43,9 @@ highlight TabLineSel         ctermfg=007   ctermbg=234   cterm=BOLD
 
 " diff tool colours
 highlight DiffAdd            ctermfg=NONE  ctermbg=022   cterm=NONE
-highlight DiffChange         ctermfg=NONE  ctermbg=094   cterm=NONE
-highlight DiffDelete         ctermfg=203   ctermbg=052   cterm=BOLD
-highlight DiffText           ctermfg=NONE  ctermbg=017   cterm=NONE
+highlight DiffChange         ctermfg=NONE  ctermbg=233   cterm=NONE
+highlight DiffDelete         ctermfg=124   ctermbg=233   cterm=NONE
+highlight DiffText           ctermfg=178   ctermbg=232   cterm=NONE
 
 " alerts
 highlight Todo               ctermfg=000   ctermbg=185   cterm=NONE

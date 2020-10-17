@@ -191,7 +191,9 @@ iabbrev shrg ¯\_(ツ)_/¯
 
 " }}}
 
-" Vimdiff helpers {{{
+" Vimdiff Options {{{
+
+set diffopt+=iwhiteall
 
 " shortcuts for 3-way merge
 nnoremap <Leader>1 :diffget LOCAL<CR>
