@@ -1,0 +1,65 @@
+#!/usr/bin/env bash
+
+red=$(tput setaf 1)
+green=$(tput setaf 2)
+yellow=$(tput setaf 3)
+normal=$(tput sgr0)
+
+OUTPUT_UML=/tmp/where_is_it.plantuml
+OUTPUT_SVG=/tmp/where_is_it.svg
+
+main() {
+  start_plantuml_file
+
+  base="$1"
+  shift
+
+  for search_term in "$@"; do
+    search_for $search_term
+  done
+
+  end_plantuml_file
+  open_uml_file
+}
+
+
+search_for() {
+  search_term="$1"
+  # file=$(get_file_name "$file_path")
+  # print_path=$(echo $file_path | sed -E -e "s~$base~BASE~g")
+
+  printf "${green}$search_term:\n${normal}"
+
+  found=$(rg $search_term -l -c)
+
+  for line in $found; do
+    echo $line | sed -E -e 's/(.*)/  \1/g'
+    echo $line \
+      | sed -E -e "s~$base~BASE~g" \
+      | sed -E -e "s~(.*):.*~($search_term) --> (\1)~g" >> ${OUTPUT_UML}
+  done
+}
+
+
+get_file_name() {
+  echo $1 | sed -E -e 's/.*\/(.*)/\1/g'
+}
+
+
+start_plantuml_file() {
+  printf "@startuml\n\nheader Where Is It?\ntitle Where Is It?\n\n" > ${OUTPUT_UML}
+}
+
+
+end_plantuml_file() {
+  printf "\n@enduml" >> ${OUTPUT_UML}
+}
+
+
+open_uml_file() {
+  plantuml ${OUTPUT_UML} -tsvg >/dev/null 2>&1
+  open -a "Google Chrome" ${OUTPUT_SVG}
+}
+
+
+main "$@"
