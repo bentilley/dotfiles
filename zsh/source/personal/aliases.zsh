@@ -53,3 +53,9 @@ alias vd="deactivate"
 alias ta='tmux attach'
 alias tn='cd ~ && tmux new -s info'
 alias tx='tmux new -s $(basename $(pwd))'
+
+# Linux
+if [[ "$(uname)" == "Linux" ]]; then
+  alias pbcopy='xclip -selection clipboard -in'
+  alias pbpaste='xclip -selection clipboard -out'
+fi
