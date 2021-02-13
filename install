@@ -21,6 +21,10 @@ symlinking_config_files() {
   # CTAGS
   dotfile_link "ctags" "$HOME/.ctags.d"
 
+  # GIT
+  dotfile_link "git/gitignore.global" "$CONFIG_DIR/.gitignore"
+  dotfile_link "git/gitconfig" "$HOME/.gitconfig"
+
   # GRIP
   dotfile_link "grip" "$HOME/.grip"
 
