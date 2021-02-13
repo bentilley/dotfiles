@@ -107,13 +107,31 @@ export HISTSIZE=50000
 export SAVEHIST=100000
 setopt HIST_FIND_NO_DUPS
 
+# Alias for command substitution - easier than typing it
+function var-subs () {
+  LBUFFER="${LBUFFER}"'$()'
+  zle backward-char
+}
+zle -N var-subs
+
+# FZF history search
+function fzf-history () {
+  COMMAND="$(history | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
+  zle redisplay
+  BUFFER=${COMMAND}
+}
+zle -N fzf-history
+
 # key bindings
 bindkey -v
 bindkey -M vicmd "^V" edit-command-line
 bindkey -M viins "^K" history-search-backward
 bindkey -M viins "^J" history-search-forward
 bindkey -M viins "^E" end-of-line
-export KEYTIMEOUT=1
+bindkey -M viins "^O" var-subs
+bindkey -M viins "^R" history-incremental-search-backward
+bindkey -M viins "^F" fzf-history
+export KEYTIMEOUT=10
 
 # source additional files
 for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
