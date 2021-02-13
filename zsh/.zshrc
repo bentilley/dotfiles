@@ -65,15 +65,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# set up 'pure' theme
-autoload -U promptinit; promptinit
-prompt pure
-# set up kubectl prompt
-source ~/.dotfiles/zsh/prompt/kube-ps1.sh
-PROMPT='$(kube_ps1) '$PROMPT
-KUBE_PS1_SEPARATOR='| '
-kubeoff -g
-
 # I think this is enabled in OMZ
 # # Basic auto/tab complete:
 # autoload -U compinit
@@ -134,3 +125,6 @@ done
 
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
+
+# setup starship prompt
+eval "$(starship init zsh)"

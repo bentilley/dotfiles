@@ -1,0 +1,26 @@
+# Starship Configuration
+
+# Global Options
+
+add_newline = true  # default
+scan_timeout = 30  # default
+# format = """
+# [┌───────────────────>](bold green)
+# [┌](bold green)$all
+# [└─>](bold green) """
+
+
+# Git Branch
+
+[git_branch]
+format = "[$symbol$branch]($style) "
+symbol = ""
+style = "bold purple" 
+
+
+# Python
+
+[python]
+format = '[${symbol}${pyenv_prefix}${version}( \($virtualenv\))]($style) '
+symbol = "🐍"
+style = "bold yellow"
