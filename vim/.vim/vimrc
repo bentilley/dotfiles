@@ -61,6 +61,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'tyru/open-browser.vim'            " open URI in browser
   Plug 'tmux-plugins/vim-tmux'            " nice extras for tmux.conf
 
+  " MISC
+  Plug 'vimwiki/vimwiki'
+
 call plug#end()
 
 " }}}
@@ -387,6 +390,18 @@ endfunction
 " Search HI Settings {{{
 
 let g:searchhi_clear_all_asap = 1
+
+" }}}
+
+" VimWiki Settings {{{
+
+" define the wikis
+let wiki_1 = {}
+let wiki_1.path = '~/Documents/vimwiki'
+
+let g:vimwiki_list = [wiki_1]
+
+let g:vimwiki_global_ext = 0  " don't make temporary wikis
 
 " }}}
 
