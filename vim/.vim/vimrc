@@ -41,6 +41,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'Quramy/vim-js-pretty-template'    " template string
   Plug 'aklt/plantuml-syntax'             " plantuml
   Plug 'cespare/vim-toml'                 " toml
+  Plug 'lark-parser/vim-lark-syntax'      " lark
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
