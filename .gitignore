@@ -9,3 +9,4 @@ zsh_secrets
 *.pyc
 *.add.spl
 mutt/.mutt/aliases
+grip/cache*

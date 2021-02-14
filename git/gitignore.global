@@ -8,7 +8,7 @@ __mine__/
 
 ### Vim ###
 # Coc Settings Dir
-.vim/
+.vim/coc-settings.json
 
 # Swap
 [._]*.s[a-v][a-z]
