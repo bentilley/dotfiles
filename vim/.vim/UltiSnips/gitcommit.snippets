@@ -1,0 +1,15 @@
+# gitcommit.snippets
+# Copyright (C) 2021 Ben Tilley <targansaikhan@gmail.com>
+# 
+# Distributed under terms of the MIT license.
+
+# these functions are imported from the /pythonx dir in /.vim
+global !p
+from snippets.gitcommit import expand_tabstops
+endglobal
+
+
+post_jump "expand_tabstops(snip)"
+snippet "(build|ci|docs|feat|fix|perf|refactor|style|test)" "conventional commit message" br
+`!p snip.rv = match[1]`
+endsnippet
