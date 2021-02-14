@@ -293,6 +293,19 @@ nnoremap ]j :ALEPrevious<cr>
 nnoremap ]J :ALEFirst<cr>
 nnoremap ]J :ALELast<cr>
 
+function ToggleALEFixOnSave()
+  if !exists("b:ale_fix_on_save")
+    let b:ale_fix_on_save = 0
+    echom "Fix on save: OFF"
+  else
+    let b:ale_fix_on_save = !b:ale_fix_on_save
+    echom "Fix on save: ".(b:ale_fix_on_save ? "ON" : "OFF")
+  endif
+endfunction
+
+" think 'formatting off'
+nnoremap <silent> <localleader>fo :<C-U>call ToggleALEFixOnSave()<CR>
+
 " }}}
 
 " Ultisnips Settings {{{
