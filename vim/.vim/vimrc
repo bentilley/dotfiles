@@ -96,7 +96,8 @@ nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 colorscheme squeedom
 set undofile
-set undodir^=~/.config/vim/extra/undo//               " set a directory for undo files
+set undodir^=~/.config/vim/extra/undo//  " set a directory for undo files
+set viewdir=~/.config/vim/views          " set a directory for view files
 let mapleader = "\\"
 let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
@@ -118,9 +119,7 @@ set path=$PWD/**
 set complete-=i                         " removes indluded files from search
 set autoindent
 set nocursorline
-" set omnifunc=syntaxcomplete#Complete
-" TODO read status line docs
-" TODO autocommands and setlocal to define diff status lines for diff filetype
+set modeline
 
 let g:my_colour_column = 80
 augroup MyColorColumn
@@ -185,7 +184,10 @@ inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
-inoremap ;a <Esc>A
+inoremap <localleader>a <Esc>A
+
+" brace magic
+inoremap <localleader>b <CR><CR><ESC>ki<TAB>
 
 " }}}
 
@@ -209,6 +211,7 @@ command! XA mks! | xa
 " Abbreviations {{{
 
 iabbrev shrg ¯\_(ツ)_/¯
+iabbrev td # TODO()
 
 " }}}
 
