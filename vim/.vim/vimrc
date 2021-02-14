@@ -83,6 +83,7 @@ augroup END
 nnoremap <silent> <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>
 nnoremap <silent> <Leader>sf :source %<CR>
+nnoremap <silent> <Leader>vc :vs ~/.dotfiles/vim/.vim/colors/squeedom.vim<CR>
 nnoremap <silent> <Leader>vd :vs ~/.dotfiles/vim/.vim<CR>
 nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
