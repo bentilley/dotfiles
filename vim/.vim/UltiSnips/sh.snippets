@@ -10,6 +10,12 @@ if ${1:[ ${2:some test} ]}; then
 fi
 endsnippet
 
+snippet whl "while loop" b
+while ${1:read -r ${2:line}}; do
+  ${3:echo $line}
+done
+endsnippet
+
 snippet case "case statement" b
 case "${1:\$1}" in
   ${2:pattern})
@@ -30,4 +36,23 @@ endsnippet
 
 snippet normal "reset output colour" b
 normal=$(tput sgr0)
+endsnippet
+
+# TODO create python func to parse option string => option templates
+snippet opts "getopts loop" b
+while getopts ":${1:x:}" opt; do
+  case "$opt" in
+  ${2:x})
+    ${3:${4:VAR}="$OPTARG"}
+    ;;
+  \?)
+    echo "Usage: ${4:command [-e DESC]}" 1>&2
+    ;;
+  :)
+    echo "Invalid option: $OPTARG requires an argument" 1>&2
+    ;;
+  esac
+done
+${5:# Shift parsed options from the input
+shift $((OPTIND - 1))}
 endsnippet
