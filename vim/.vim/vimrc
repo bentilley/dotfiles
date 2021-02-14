@@ -22,6 +22,9 @@ call plug#begin('~/.vim/plugged')
   Plug 'w0rp/ale'
   Plug 'SirVer/ultisnips'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  " Plug 'lotabout/skim', { 'do': './install' }
   Plug 'mattn/emmet-vim'
   Plug 'mileszs/ack.vim'                  " greping in vim
   Plug 'aperezdc/vim-template'
@@ -107,7 +110,6 @@ set smartcase                            " search case sensitive if contains cap
 set listchars=eol:$,space:.,tab:<->,trail:%,precedes:<,extends:>
 set sidescroll=5
 set timeoutlen=1000 ttimeoutlen=0        " exit visual faster
-set rtp+=/usr/local/opt/fzf
 set path=$PWD/**
 set complete-=i                         " removes indluded files from search
 set statusline=>\ %f%=[%4l/%4L]
