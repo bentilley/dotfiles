@@ -246,6 +246,26 @@ function next() {
   fi
 }
 
+function get_tasks() { 
+  type="$1"
+  case "$type" in
+    gitlab)
+      description=$(glab issue list --mine \
+        | grep '^#' \
+        | fzf \
+        | sed -E -e 's/\s+\([a-z]+:[a-z-]+,.*//g')
+      ;;
+    *)
+      echo "Task type $type is not configured"
+      return 1
+    ;;
+  esac
+
+  if [ -n "$description" ]; then
+    task add project:ticket due:1week priority:H "$description"
+  fi
+}
+
 # capture the stdout of a process
 capture() {
     sudo dtrace -p "$1" -qn '
