@@ -1,12 +1,29 @@
+# MacOS
+
 .DS_Store
 .netrwhist
-vim/.vim/plugged
-vim/testing
+
+# Grip
+grip/cache*
+
+
+# Mutt
+mutt/.mutt/aliases
+
+
+# Python
 __pycache__
-vim/.vim/.netrwbook
-zsh_secrets
-*.swp
 *.pyc
 *.add.spl
-mutt/.mutt/aliases
-grip/cache*
+
+
+# Vim
+vim/.vim/.netrwbook
+vim/testing
+*.swp
+vim/.vim/plugged
+vim/.vim/autoload/plug.vim*
+
+
+# Zsh
+zsh_secrets

@@ -9,6 +9,13 @@ source ~/.dotfiles/vim/learning.vim
 
 " Plugins {{{
 
+" auto download and install vim-plug if doesn't exist
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
   " CORE
@@ -41,11 +48,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'Quramy/vim-js-pretty-template'    " template string
   Plug 'aklt/plantuml-syntax'             " plantuml
   Plug 'cespare/vim-toml'                 " toml
+  Plug 'ekalinin/Dockerfile.vim'          " docker
+  Plug 'chr4/nginx.vim'                   " nginx
   Plug 'lark-parser/vim-lark-syntax'      " lark
+  Plug 'lifepillar/pgsql.vim'             " postgresql
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
   Plug 'tyru/open-browser.vim'            " open URI in browser
+  Plug 'tmux-plugins/vim-tmux'            " nice extras for tmux.conf
 
 call plug#end()
 
