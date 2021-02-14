@@ -39,7 +39,7 @@ snippet ds "doc string" b
 ${3:
 Longer description providing more detail...}
 ${4:
-${5:Agrs/Returns/Raises}:
+${5:Args/Returns/Raises}:
   ${6:example}: ${7:Brief explanation}}}
 $0"""
 endsnippet
@@ -85,8 +85,19 @@ snippet pdir "print with dir()" b
 print(dir(${0:variable}))
 endsnippet
 
-snippet db "python debugger" b
+snippet db "python debugger breakpoint" b
 breakpoint()
+endsnippet
+
+snippet pdb "python debugger" b
+import pdb; pdb.set_trace()
+endsnippet
+
+snippet tdb "try/except with python debugger" b
+try:
+    ${VISUAL}
+except Exception:
+    import pdb; pdb.set_trace()
 endsnippet
 
 # File IO

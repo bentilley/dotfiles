@@ -5,6 +5,7 @@
 " General Settings (make editing python easier)
 let maplocalleader = ";"
 let b:my_colour_column = 88
+let g:pyindent_open_paren = 'shiftwidth()'
 
 
 " Indenting
@@ -16,12 +17,11 @@ setlocal shiftwidth=4
 let b:ale_linters = ['flake8', 'pylint', 'mypy']
 let b:ale_fixers = ['black', 'remove_trailing_lines', 'trim_whitespace']
 
+" If we're in my Services dir, enforce the 80 character line length
+if expand('%:p') =~ $HOME.'/code/Services'
+  let b:my_colour_column = 79
+  let g:ale_python_black_options = '--line-length 79'
+endif
+
 
 " Abbreviations
-
-
-" Commenting
-nnoremap <buffer> <localleader>c ^i#<esc>
-nnoremap <buffer> <localleader>x ^x
-vnoremap <buffer> <localleader>c <esc>`<^<c-v>`>I#<esc>
-vnoremap <buffer> <localleader>x <esc>`<^<c-v>`>^x
