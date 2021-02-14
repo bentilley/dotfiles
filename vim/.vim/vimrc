@@ -116,7 +116,6 @@ set sidescroll=5
 set timeoutlen=1000 ttimeoutlen=0        " exit visual faster
 set path=$PWD/**
 set complete-=i                         " removes indluded files from search
-set statusline=>\ %f%=[%4l/%4L]
 set autoindent
 set nocursorline
 " set omnifunc=syntaxcomplete#Complete
@@ -129,6 +128,14 @@ augroup MyColorColumn
   autocmd BufNewFile,BufEnter,WinNew * call squee#SetMyColorColumn()
   autocmd QuitPre * call squee#SetMyColorColumnCleanUp()
 augroup END
+
+" }}}
+
+" Status Line {{{
+
+set statusline=>\ %f%{tagbar#currenttag(\"\ >\ \%s\",\"\",\"fs\")}%=[%4l/%4L]
+" TODO read status line docs
+" TODO autocommands and setlocal to define diff status lines for diff filetype
 
 " }}}
 
