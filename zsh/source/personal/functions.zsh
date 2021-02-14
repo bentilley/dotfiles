@@ -4,16 +4,67 @@ function vag() {
 }
 
 function vf() { 
+  FZF=(fzf --multi --preview='bat --color=always --style=plain {}')
+  if [ $((2 * $LINES)) -gt $COLUMNS ]; then
+    FZF+=("--preview-window=down")
+  fi
+
   if [ ! -z $1 ]; then
-    FILE=$(find $1/* -type f | fzf)
+    FILES=$(find $1/* -type f | "${FZF[@]}")
   else
-    FILE=$(fzf)
+    FILES=$("${FZF[@]}")
   fi
   if [ $? -eq 0 ]; then
-    vim $FILE
+    FILES=$(echo $FILES | paste -s -d ' ')  # remove newlines
+    print -S "vim $FILES"  # add to history
+    vim $(echo $FILES)
   fi
 }
 
+function vimthat()  {
+  LAST_BUFFER="$(fc -ln -1)"
+
+  if [[ ! "$LAST_BUFFER" =~ '^rg' ]]; then
+    printf "'vimthat' can only be used after 'rg'. "
+    printf "Last command was '$LAST_BUFFER'.\n"
+    return 1
+  fi
+
+  # add the -l option if it is missing
+  if [[ ! "$LAST_BUFFER" =~ '-l' ]]; then
+    LAST_BUFFER="$LAST_BUFFER -l"
+  fi
+
+  # get the thing after `rg` to start a search in vim when we load
+  SEARCH_TERM=$(echo $LAST_BUFFER | sed -E -e 's/^rg //' -e 's/(\w+).*/\1/g')
+
+  vim $(eval $LAST_BUFFER) -c "/$SEARCH_TERM"
+}
+
+# Pytest
+
+function ptf() {
+  FZF=(fzf --multi --preview='bat --color=always --style=plain {}')
+  if [ $((2 * $LINES)) -gt $COLUMNS ]; then
+    FZF+=("--preview-window=down")
+  fi
+  PYTEST=(pytest -n0 --pdbcls=IPython.terminal.debugger:Pdb)
+
+  if [ ! -z $1 ]; then
+    FILES=$(find $1/* -type f | grep test | "${FZF[@]}")
+  else
+    FILES=$("${FZF[@]}")
+  fi
+
+  if [ $? -eq 0 ]; then
+    FILES=$(echo $FILES | paste -s -d ' ')  # remove newlines
+    print -S "$(echo ${PYTEST[@]}) $FILES"
+    "${PYTEST[@]}" $(echo $FILES)
+  fi
+  
+}
+
+# Jest
 function jf() {
   if [ ! -z $1 ]; then
     FILE=$(find $1/* -type f | grep test | fzf)
@@ -72,12 +123,6 @@ function pull() {
   chrome "$(hub browse -u | sed -E -e 's/(.*white-label).*/\1/g')/pull/$1"
 }
 
-# seeing all TODO comments in a directory
-function todos() {
-  ag '// TODO ' $1 | sed -E -e 's/.*\/\/ TODO/TODO/'
-  echo "Number of TODOs: $(ag '// TODO ' $1 | wc -l)"
-}
-
 # working on different things
 function work_list() {
   ls -1 ~/.dotfiles/scripts/automator/automation \
@@ -132,7 +177,7 @@ create_session() {
 }
 
 # Note taking
-NOTE_DIR='/Users/jammy/notes'
+NOTE_DIR="$HOME/Documents/notes"
 function note() {
   if [ -z "$1" ]; then
     echo "Run 'note ls' to see notes, or 'note <note-name>' to get started!"
@@ -181,6 +226,8 @@ function print256colours() {
   done
 }
 
+# Task Warrior
+
 # function to toggle next in task warrior
 function next() {
   TASK_ID="$1"
@@ -196,6 +243,26 @@ function next() {
       task "$OLD_TASK_ID" modify -next
       task "$TASK_ID" modify +next $SHORT_DESC
     fi
+  fi
+}
+
+function get_tasks() { 
+  type="$1"
+  case "$type" in
+    gitlab)
+      description=$(glab issue list --mine \
+        | grep '^#' \
+        | fzf \
+        | sed -E -e 's/\s+\([a-z]+:[a-z-]+,.*//g')
+      ;;
+    *)
+      echo "Task type $type is not configured"
+      return 1
+    ;;
+  esac
+
+  if [ -n "$description" ]; then
+    task add project:ticket due:1week priority:H "$description"
   fi
 }
 

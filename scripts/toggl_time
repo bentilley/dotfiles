@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+/home/ben/go/bin/toggl current \
+  | grep Duration \
+  | awk '{ print $2 }' \
+  | sed -e 's/\([0-9]\+:[0-9]\+\):[0-9]\+/toggl \1/g'

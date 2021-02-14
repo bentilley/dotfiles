@@ -31,7 +31,6 @@ data.location=~/.task
 
 
 # Waiting status for tickets that are not being worked on yet
-
 uda.waiting.type=string
 uda.waiting.label=Waiting
 uda.waiting.values=yes,no
@@ -39,3 +38,4 @@ uda.waiting.values=yes,no
 # Short description
 uda.short_desc.type=string
 uda.short_desc.label=short
+alias.glab=exec glab_issue_to_task

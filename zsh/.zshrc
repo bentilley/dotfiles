@@ -33,7 +33,7 @@ ZSH_THEME=""
 # ENABLE_CORRECTION="true"
 
 # Uncomment the following line to display red dots whilst waiting for completion.
-# COMPLETION_WAITING_DOTS="true"
+COMPLETION_WAITING_DOTS="true"
 
 # Uncomment the following line if you want to disable marking untracked files
 # under VCS as dirty. This makes repository status check for large repositories
@@ -56,6 +56,7 @@ ZSH_THEME=""
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+  bgnotify
   git
   web-search
 )
@@ -64,15 +65,6 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-# set up 'pure' theme
-autoload -U promptinit; promptinit
-prompt pure
-# set up kubectl prompt
-source ~/.dotfiles/zsh/prompt/kube-ps1.sh
-PROMPT='$(kube_ps1) '$PROMPT
-KUBE_PS1_SEPARATOR='| '
-kubeoff -g
-
 # I think this is enabled in OMZ
 # # Basic auto/tab complete:
 # autoload -U compinit
@@ -80,6 +72,8 @@ kubeoff -g
 # zmodload zsh/complist
 # compinit
 # _comp_options+=(globdots)		# Include hidden files.
+
+type firefox &>/dev/null && export BROWSER=firefox
 
 # ADD-ONS
 source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh # iTerm2 shell integration
@@ -97,23 +91,36 @@ source ~/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
 
 # pyenv
+export PATH="/home/ben/.pyenv/bin:$PATH"
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
-
-# gcloud Settings
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc'
-source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc'
-export CLOUDSDK_PYTHON='/usr/local/bin/python2'
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # autojump settings
 [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 
 # History configuration
 export HISTSIZE=50000
 export SAVEHIST=100000
 setopt HIST_FIND_NO_DUPS
+
+# Alias for command substitution - easier than typing it
+function var-subs () {
+  LBUFFER="${LBUFFER}"'$()'
+  zle backward-char
+}
+zle -N var-subs
+
+# FZF history search
+function fzf-history () {
+  COMMAND="$(history | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
+  zle redisplay
+  BUFFER=${COMMAND}
+}
+zle -N fzf-history
 
 # key bindings
 bindkey -v
@@ -121,7 +128,10 @@ bindkey -M vicmd "^V" edit-command-line
 bindkey -M viins "^K" history-search-backward
 bindkey -M viins "^J" history-search-forward
 bindkey -M viins "^E" end-of-line
-export KEYTIMEOUT=1
+bindkey -M viins "^O" var-subs
+bindkey -M viins "^R" history-incremental-search-backward
+bindkey -M viins "^F" fzf-history
+export KEYTIMEOUT=10
 
 # source additional files
 for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
@@ -129,7 +139,10 @@ for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
 done
 
 # source any secrets / api keys etc.
-source ~/.dotfiles/zsh/zsh_secrets
+[ -f ~/.dotfiles/zsh/zsh_secrets ] && source ~/.dotfiles/zsh/zsh_secrets
 
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
+
+# setup starship prompt
+eval "$(starship init zsh)"

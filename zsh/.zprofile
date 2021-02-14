@@ -16,9 +16,6 @@ export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
 # for installing python better with homebrew
 export PATH="/usr/local/opt/python/libexec/bin:$PATH"
 
-# Ingresso scripts
-export PATH="$PATH:$HOME/Code/ingresso-scripts/bin"
-
 # Haskell stack packages
 export PATH="$PATH:$HOME/.local/bin"
 
@@ -31,9 +28,15 @@ export PATH=$GEM_HOME/bin:$PATH
 export PATH="$PATH:/usr/local/lib/ruby/gems/2.7.0/bin"
 
 # Go
-export GOPATH="$HOME/.go"
-export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+if [[ "$(uname)" == "Linux" ]]; then
+  export GOPATH="$HOME/go"
+  export GOROOT="/usr/local/go"
+  export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+else
+  export GOPATH="$HOME/.go"
+  export GOROOT="/usr/local/opt/go/libexec"
+  export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
+fi
 
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
@@ -45,3 +48,7 @@ export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 # view instructions here https://reactnative.dev/docs/environment-setup
+
+# if [[ "$(uname)" == "Linux" ]]; then
+#   eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# fi

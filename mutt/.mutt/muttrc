@@ -30,7 +30,7 @@ bind index <Esc>l sidebar-open
 macro index + '<change-folder>=Inbox<enter>'
 
 # Work Account
-source '~/.mutt/accounts/account.com.accesso.Ben.Tilley'
+source '~/.mutt/accounts/account.org.suade.ben'
 # folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
 
 # Personal Hotmail Account

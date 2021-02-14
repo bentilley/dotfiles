@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+main() {
+  task=$(get_tasks | fzf | sed -E -e 's/\s+\([a-z]+:[a-z-]+,.*//g')
+  echo "Adding $task"
+  task add project:ticket due:1week priority:H "$task"
+}
+
+get_tasks() {
+  glab issue list --mine | grep '^#'
+}
+
+main "$@"

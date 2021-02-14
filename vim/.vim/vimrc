@@ -9,12 +9,22 @@ source ~/.dotfiles/vim/learning.vim
 
 " Plugins {{{
 
+" auto download and install vim-plug if doesn't exist
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 call plug#begin('~/.vim/plugged')
 
   " CORE
   Plug 'w0rp/ale'
   Plug 'SirVer/ultisnips'
   Plug 'neoclide/coc.nvim', {'branch': 'release'}
+  Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+  Plug 'junegunn/fzf.vim'
+  " Plug 'lotabout/skim', { 'do': './install' }
   Plug 'mattn/emmet-vim'
   Plug 'mileszs/ack.vim'                  " greping in vim
   Plug 'aperezdc/vim-template'
@@ -41,10 +51,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'Quramy/vim-js-pretty-template'    " template string
   Plug 'aklt/plantuml-syntax'             " plantuml
   Plug 'cespare/vim-toml'                 " toml
+  Plug 'ekalinin/Dockerfile.vim'          " docker
+  Plug 'chr4/nginx.vim'                   " nginx
+  Plug 'lark-parser/vim-lark-syntax'      " lark
+  Plug 'lifepillar/pgsql.vim'             " postgresql
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
   Plug 'tyru/open-browser.vim'            " open URI in browser
+  Plug 'tmux-plugins/vim-tmux'            " nice extras for tmux.conf
+
+  " MISC
+  Plug 'vimwiki/vimwiki'
 
 call plug#end()
 
@@ -68,6 +86,7 @@ augroup END
 nnoremap <silent> <Leader>ev :vs $MYVIMRC<CR>
 nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>
 nnoremap <silent> <Leader>sf :source %<CR>
+nnoremap <silent> <Leader>vc :vs ~/.dotfiles/vim/.vim/colors/squeedom.vim<CR>
 nnoremap <silent> <Leader>vd :vs ~/.dotfiles/vim/.vim<CR>
 nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
@@ -77,7 +96,8 @@ nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 colorscheme squeedom
 set undofile
-set undodir^=~/.config/vim/extra/undo//               " set a directory for undo files
+set undodir^=~/.config/vim/extra/undo//  " set a directory for undo files
+set viewdir=~/.config/vim/views          " set a directory for view files
 let mapleader = "\\"
 let maplocalleader = ";"
 set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
@@ -95,15 +115,11 @@ set smartcase                            " search case sensitive if contains cap
 set listchars=eol:$,space:.,tab:<->,trail:%,precedes:<,extends:>
 set sidescroll=5
 set timeoutlen=1000 ttimeoutlen=0        " exit visual faster
-set rtp+=/usr/local/opt/fzf
 set path=$PWD/**
 set complete-=i                         " removes indluded files from search
-set statusline=>\ %f%=[%4l/%4L]
 set autoindent
 set nocursorline
-" set omnifunc=syntaxcomplete#Complete
-" TODO read status line docs
-" TODO autocommands and setlocal to define diff status lines for diff filetype
+set modeline
 
 let g:my_colour_column = 80
 augroup MyColorColumn
@@ -111,6 +127,14 @@ augroup MyColorColumn
   autocmd BufNewFile,BufEnter,WinNew * call squee#SetMyColorColumn()
   autocmd QuitPre * call squee#SetMyColorColumnCleanUp()
 augroup END
+
+" }}}
+
+" Status Line {{{
+
+set statusline=>\ %f%{tagbar#currenttag(\"\ >\ \%s\",\"\",\"fs\")}%=[%4l/%4L]
+" TODO read status line docs
+" TODO autocommands and setlocal to define diff status lines for diff filetype
 
 " }}}
 
@@ -160,7 +184,10 @@ inoremap <C-h> <C-o>h
 inoremap <C-j> <C-o>j
 inoremap <C-k> <C-o>k
 inoremap <C-l> <C-o>l
-inoremap ;a <Esc>A
+inoremap <localleader>a <Esc>A
+
+" brace magic
+inoremap <localleader>b <CR><CR><ESC>ki<TAB>
 
 " }}}
 
@@ -184,6 +211,7 @@ command! XA mks! | xa
 " Abbreviations {{{
 
 iabbrev shrg ¯\_(ツ)_/¯
+iabbrev td # TODO()
 
 " }}}
 
@@ -274,6 +302,19 @@ nnoremap [j :ALENext<cr>
 nnoremap ]j :ALEPrevious<cr>
 nnoremap ]J :ALEFirst<cr>
 nnoremap ]J :ALELast<cr>
+
+function ToggleALEFixOnSave()
+  if !exists("b:ale_fix_on_save")
+    let b:ale_fix_on_save = 0
+    echom "Fix on save: OFF"
+  else
+    let b:ale_fix_on_save = !b:ale_fix_on_save
+    echom "Fix on save: ".(b:ale_fix_on_save ? "ON" : "OFF")
+  endif
+endfunction
+
+" think 'formatting off'
+nnoremap <silent> <localleader>fo :<C-U>call ToggleALEFixOnSave()<CR>
 
 " }}}
 
@@ -372,6 +413,18 @@ endfunction
 " Search HI Settings {{{
 
 let g:searchhi_clear_all_asap = 1
+
+" }}}
+
+" VimWiki Settings {{{
+
+" define the wikis
+let wiki_1 = {}
+let wiki_1.path = '~/Documents/vimwiki'
+
+let g:vimwiki_list = [wiki_1]
+
+let g:vimwiki_global_ext = 0  " don't make temporary wikis
 
 " }}}
 

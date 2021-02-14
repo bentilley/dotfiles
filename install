@@ -21,6 +21,13 @@ symlinking_config_files() {
   # CTAGS
   dotfile_link "ctags" "$HOME/.ctags.d"
 
+  # GIT
+  dotfile_link "git/gitignore.global" "$CONFIG_DIR/.gitignore"
+  dotfile_link "git/gitconfig" "$HOME/.gitconfig"
+
+  # GLOW
+  dotfile_link "glow/glow.yml" "$CONFIG_DIR/glow/glow.yml"
+
   # GRIP
   dotfile_link "grip" "$HOME/.grip"
 
@@ -38,6 +45,9 @@ symlinking_config_files() {
 
   # NEOVIM
   dotfile_link "nvim/nvim" "$CONFIG_DIR/nvim"
+
+  # STARSHIP
+  dotfile_link "starship/starship.toml" "$CONFIG_DIR/starship.toml"
 
   # TASKWARRIOR
   dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
@@ -108,8 +118,9 @@ check_third_party_tools() {
 }
 
 create_directories() {
-  test_and_mkdir ~/.cache/mutt mutt     # mutt cache
-  test_and_mkdir ~/.task taskwarrior    # taskwarrior data
+  test_and_mkdir ~/.cache/mutt mutt             # mutt cache
+  test_and_mkdir ~/.task taskwarrior            # taskwarrior data
+  test_and_mkdir "$CONFIG_DIR/vim/views" vim    # vim view data
 }
 
 main

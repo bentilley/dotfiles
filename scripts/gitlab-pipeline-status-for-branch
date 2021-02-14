@@ -1,0 +1,57 @@
+#!/usr/bin/env bash
+
+GIT=/home/linuxbrew/.linuxbrew/bin/git
+GLAB=/home/linuxbrew/.linuxbrew/bin/glab
+
+main() {
+  BRANCH_FILE="$1"
+  GIT_REPO="$2"
+
+  if [ -n "$GIT_REPO" ]; then
+    cd "$GIT_REPO" || exit 1
+  fi
+
+  if [ -n "$BRANCH_FILE" ]; then
+    BRANCH=$(cat "$BRANCH_FILE")
+  else
+    BRANCH=$(get_branch_name)
+  fi
+
+  # Get the number at the start of the branch name
+  ISSUE_NUMBER=$(echo "$BRANCH" | sed -E -e 's/^([0-9]+).*$/\1/g')
+
+  MR_NUM=$(get_gitlab_mergerequest_number)
+
+  if [ -n "$MR_NUM" ]; then
+    PIPELINE_STATUS=$(get_pipeline_status_for_mergerequest)
+  fi
+
+  if [ -n "$MR_NUM" ]; then
+    printf "MR #%s" "$MR_NUM "
+  fi
+
+  if [ -n "$PIPELINE_STATUS" ]; then
+    printf "PL %s" "${PIPELINE_STATUS}"
+  fi
+
+  printf "\n" # new line at the end of the output
+}
+
+get_branch_name() {
+  $GIT branch --show-current
+}
+
+get_gitlab_mergerequest_number() {
+  $GLAB mr list --mine |
+    grep "$ISSUE_NUMBER" |
+    awk '{ print $1 }' |
+    tr -d '!'
+}
+
+get_pipeline_status_for_mergerequest() {
+  $GLAB pipeline list |
+    grep "$MR_NUM" |
+    awk 'NR==1 { print $3 " " $1; exit }'
+}
+
+main "$@"

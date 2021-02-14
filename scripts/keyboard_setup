@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+
+main() {
+  printf "Keyboard time! "
+  case "$1" in
+  office)
+    setxkbmap -layout bpt
+    xcape -e 'Control_L=Escape'
+    xset r rate 180 40
+    printf "Set to OFFICE.\n"
+    exit 0
+    ;;
+  home)
+    setxkbmap -layout us
+    xset r rate 180 40
+    printf "Set to HOME.\n"
+    exit 0
+    ;;
+  *)
+    printf "Invalid option, choose from 'office' and 'home'...\n"
+    exit 1
+    ;;
+  esac
+
+}
+
+main "$@"

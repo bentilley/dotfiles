@@ -26,6 +26,7 @@ highlight ColorColumn        ctermfg=NONE  ctermbg=233   cterm=NONE
 highlight LineNR             ctermfg=244   ctermbg=NONE  cterm=NONE
 highlight CursorLineNR       ctermfg=125   ctermbg=236   cterm=NONE
 highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
+highlight FoldColumn         ctermfg=004   ctermbg=234   cterm=BOLD
 
 " colours for the line at the bottom of viewports
 highlight StatusLine         ctermfg=250   ctermbg=125   cterm=NONE
@@ -45,7 +46,7 @@ highlight TabLineSel         ctermfg=007   ctermbg=234   cterm=BOLD
 highlight DiffAdd            ctermfg=NONE  ctermbg=022   cterm=NONE
 highlight DiffChange         ctermfg=NONE  ctermbg=233   cterm=NONE
 highlight DiffDelete         ctermfg=124   ctermbg=233   cterm=NONE
-highlight DiffText           ctermfg=178   ctermbg=232   cterm=NONE
+highlight DiffText           ctermfg=178   ctermbg=232   cterm=BOLD
 
 " alerts
 highlight Todo               ctermfg=000   ctermbg=185   cterm=NONE

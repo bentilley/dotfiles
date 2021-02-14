@@ -22,10 +22,20 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # vim aliasas
 alias vs="vim -S Session.vim"
+alias lvim='vim -c "normal '"'"'0"'
+alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
+alias vtag='vim $(git tmsu | xargs readlink -f)'
+
+# pgcli aliases
+alias pg="docker run -it --rm --network suade pgcli"
+
+# toggl aliases
+alias tgopen="firefox https://track.toggl.com"
 
 # git aliases
-alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
 alias gls="git --no-pager branch --list"
+alias gdx="git ls-files --others --exclude-standard"
+alias gdo="git --no-pager diff --name-only"
 # showbranches
 alias sb="git for-each-ref \
   --sort=committerdate refs/heads/ \
@@ -56,3 +66,9 @@ alias vd="deactivate"
 alias ta='tmux attach'
 alias tn='cd ~ && tmux new -s info'
 alias tx='tmux new -s $(basename $(pwd))'
+
+# Linux
+if [[ "$(uname)" == "Linux" ]]; then
+  alias pbcopy='xclip -selection clipboard -in'
+  alias pbpaste='xclip -selection clipboard -out'
+fi

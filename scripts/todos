@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+SHOW_COUNT=false
+
+main() {
+  while getopts ":cfp:" opt; do
+    case "$opt" in
+    c)
+      SHOW_COUNT=true
+      ;;
+    f)
+      JUST_FILE_NAMES=true
+      ;;
+    p)
+      ISSUE_NUM="$OPTARG"
+      ;;
+    \?)
+      echo "Usage: todos [-p ISSUE_NUMBER]" 1>&2
+      ;;
+    :)
+      echo "Invalid option: $OPTARG requires an argument" 1>&2
+      ;;
+    esac
+  done
+
+  # Shift parsed options from the input
+  shift $((OPTIND - 1))
+
+  TODOS=$(search_todos)
+  echo "$TODOS" | column -t -s ':'
+
+  if $SHOW_COUNT; then
+    printf "\n"
+    echo "Number of TODOs: $(echo "$TODOS" | wc -l)"
+  fi
+}
+
+search_todos() {
+  SEARCH_STR="TODO"
+  if [ -n "$ISSUE_NUM" ]; then
+    SEARCH_STR="$SEARCH_STR\\s*\\($ISSUE_NUM\\)"
+  fi
+
+  if [ "$JUST_FILE_NAMES" == "true" ]; then
+    rg --ignore-case --no-heading --no-line-number --hidden --files-with-matches "$SEARCH_STR"
+    exit 0
+  fi
+
+  rg --ignore-case --no-heading --no-line-number --hidden "$SEARCH_STR" |
+    sed -E -e 's/^([^:]+:).*TODO/\1  TODO/i'
+}
+
+main "$@"
