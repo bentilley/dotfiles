@@ -1,0 +1,15 @@
+#!/usr/bin/env sh
+
+INTERVAL=1
+
+main() {
+  LIMIT="$1"
+  COUNT=0
+  while [ "$COUNT" -lt "$LIMIT" ]; do
+    COUNT=$((COUNT + 1))
+    echo "$COUNT"
+    sleep "$INTERVAL"
+  done
+}
+
+main "$@"
