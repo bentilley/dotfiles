@@ -46,6 +46,9 @@ symlinking_config_files() {
   # NEOVIM
   dotfile_link "nvim/nvim" "$CONFIG_DIR/nvim"
 
+  # PDB
+  dotfile_link "pdb/.pdbrc" "$HOME/.pdbrc"
+
   # STARSHIP
   dotfile_link "starship/starship.toml" "$CONFIG_DIR/starship.toml"
 
