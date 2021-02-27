@@ -1,5 +1,5 @@
 # quick confing access
-alias conf="lf $HOME/.config"
+alias conf="lf $HOME/.dotfiles"
 alias zconf="vim $ZDOTDIR/.zshrc"
 alias zres="source $ZDOTDIR/.zshrc"
 alias zalias="vim ~/.dotfiles/zsh/source/personal/aliases.zsh"
@@ -8,6 +8,7 @@ alias zc="vim ~/.dotfiles/zsh/source"
 alias vconf="vim ~/.vim/vimrc"
 alias tconf="vim ~/.dotfiles/tmux/.tmux.conf"
 alias kconf="vim ~/.config/karabiner/assets/complex_modifications"
+alias gconf="vim ~/.dotfiles/git/gitconfig"
 alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \"(^#.*|^$|myali)\" | sort"
 alias mconf="vim ~/.mutt/muttrc"
 

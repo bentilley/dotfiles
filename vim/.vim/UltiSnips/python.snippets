@@ -34,13 +34,18 @@ def ${1:name}(self${2:, ${3:args}}):
     ${0:pass}
 endsnippet
 
+snippet tmd "test method function definition" b
+def test_${1:something}(self${2:, ${3:args}}):
+    ${0:self.assertTrue(False)}
+endsnippet
+
 snippet ds "doc string" b
 """ ${1:Short description.} ${2:
 ${3:
 Longer description providing more detail...}
 ${4:
 ${5:Args/Returns/Raises}:
-  ${6:example}: ${7:Brief explanation}}}
+    ${6:example}: ${7:Brief explanation}}}
 $0"""
 endsnippet
 
@@ -90,7 +95,7 @@ breakpoint()
 endsnippet
 
 snippet pdb "python debugger" b
-import pdb; pdb.set_trace()
+import pdb; pdb.set_trace()  # noqa
 endsnippet
 
 snippet tdb "try/except with python debugger" b

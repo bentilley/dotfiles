@@ -43,12 +43,17 @@ function vimthat()  {
 
 # Pytest
 
+function mypytest() {
+  clear
+  pytest -c ~/.dotfiles/pytest/pytest.ini "$@"
+}
+
 function ptf() {
   FZF=(fzf --multi --preview='bat --color=always --style=plain {}')
   if [ $((2 * $LINES)) -gt $COLUMNS ]; then
     FZF+=("--preview-window=down")
   fi
-  PYTEST=(pytest -n0 --pdbcls=IPython.terminal.debugger:Pdb)
+  PYTEST=(mypytest)
 
   if [ ! -z $1 ]; then
     FILES=$(find $1/* -type f | grep test | "${FZF[@]}")
@@ -224,6 +229,12 @@ function print256colours() {
           printf "\n";
       fi
   done
+}
+
+# Toggl
+
+function tg() {
+  toggl start -P 164660338 "$1" && tgopen
 }
 
 # Task Warrior

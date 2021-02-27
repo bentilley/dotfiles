@@ -1,0 +1,1 @@
+alias x pdb.set_trace = lambda: None;; c
