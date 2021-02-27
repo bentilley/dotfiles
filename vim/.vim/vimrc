@@ -120,6 +120,7 @@ set complete-=i                         " removes indluded files from search
 set autoindent
 set nocursorline
 set modeline
+set tags+=./.git/tags
 
 let g:my_colour_column = 80
 augroup MyColorColumn
@@ -205,6 +206,20 @@ cnoremap <C-l> <Right>
 command! VF vsplit | FZF
 command! SF split | FZF
 command! XA mks! | xa
+command! -nargs=? FZFDiff call squee#FZFDiff(<f-args>)
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+
+" Command for searching all open buffers for a word
+if !exists(":BufSearch")
+  command -nargs=1 BufSearch :cexpr [] | :bufdo vimgrepadd <args> %
+endif
 
 " }}}
 
@@ -303,18 +318,8 @@ nnoremap ]j :ALEPrevious<cr>
 nnoremap ]J :ALEFirst<cr>
 nnoremap ]J :ALELast<cr>
 
-function ToggleALEFixOnSave()
-  if !exists("b:ale_fix_on_save")
-    let b:ale_fix_on_save = 0
-    echom "Fix on save: OFF"
-  else
-    let b:ale_fix_on_save = !b:ale_fix_on_save
-    echom "Fix on save: ".(b:ale_fix_on_save ? "ON" : "OFF")
-  endif
-endfunction
-
 " think 'formatting off'
-nnoremap <silent> <localleader>fo :<C-U>call ToggleALEFixOnSave()<CR>
+nnoremap <silent> yof :<C-U>call squee#ToggleALEFixOnSave()<CR>
 
 " }}}
 
@@ -425,23 +430,6 @@ let wiki_1.path = '~/Documents/vimwiki'
 let g:vimwiki_list = [wiki_1]
 
 let g:vimwiki_global_ext = 0  " don't make temporary wikis
-
-" }}}
-
-" Custom Commands {{{
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
-" Command for searching all open buffers for a word
-if !exists(":BufSearch")
-  command -nargs=1 BufSearch :cexpr [] | :bufdo vimgrepadd <args> %
-endif
 
 " }}}
 

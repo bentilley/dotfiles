@@ -22,3 +22,21 @@ function! squee#SetMyColorColumnCleanUp()
     call remove(s:current_matches, l:win_id)
   endif
 endfunction
+
+function squee#FZFDiff(...)
+  " Fuzzy search the files that have changed between two diffs.
+  " The default is to diff the HEAD and the merge-base.
+  let l:base = get(a:000, 0, '$(git merge-base master HEAD)')
+  call fzf#run({'source': 'git diff --name-only '.l:base, 'sink': 'e'})
+endfunction
+
+function squee#ToggleALEFixOnSave()
+  " Function to toggle the ALE fix on save setting for an individual buffer
+  if !exists("b:ale_fix_on_save")
+    let b:ale_fix_on_save = 0
+    echom "Fix on save: OFF"
+  else
+    let b:ale_fix_on_save = !b:ale_fix_on_save
+    echom "Fix on save: ".(b:ale_fix_on_save ? "ON" : "OFF")
+  endif
+endfunction
