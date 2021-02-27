@@ -8,19 +8,77 @@ scan_timeout = 30  # default
 # [┌───────────────────>](bold green)
 # [┌](bold green)$all
 # [└─>](bold green) """
+format = """
+$username\
+$hostname\
+$shlvl\
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_status\
+$hg_branch\
+$docker_context\
+$package\
+$cmake\
+$dart\
+$dotnet\
+$elixir\
+$elm\
+$erlang\
+$golang\
+$helm\
+$java\
+$julia\
+$kotlin\
+$nim\
+$nodejs\
+$ocaml\
+$perl\
+$php\
+$purescript\
+$python\
+$ruby\
+$rust\
+$swift\
+$terraform\
+$vagrant\
+$zig\
+$nix_shell\
+$conda\
+$memory_usage\
+$aws\
+$gcloud\
+$openstack\
+$env_var\
+$crystal\
+$custom\
+$line_break\
+$cmd_duration\
+$lua\
+$jobs\
+$battery\
+$time\
+$status\
+$character"""
 
-
-# Git Branch
 
 [git_branch]
+# disabled = true
 format = "[$symbol$branch]($style) "
+# format = "[$symbol]($style)"
+truncation_length = 8
 symbol = ""
 style = "bold purple" 
 
-
-# Python
-
 [python]
-format = '[${symbol}${pyenv_prefix}${version}( \($virtualenv\))]($style) '
+# format = '[${symbol}${pyenv_prefix}${version}( \($virtualenv\))]($style) '
+format = '[${symbol}${pyenv_prefix}(\($virtualenv\))]($style) '
+pyenv_version_name = false
 symbol = "🐍"
 style = "bold yellow"
+
+[cmd_duration]
+format = "[$duration]($style) "
+style = "bold blue" 
