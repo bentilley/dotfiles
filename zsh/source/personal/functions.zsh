@@ -231,6 +231,12 @@ function print256colours() {
   done
 }
 
+# Toggl
+
+function tg() {
+  toggl start -P 164660338 "$1" && tgopen
+}
+
 # Task Warrior
 
 # function to toggle next in task warrior
