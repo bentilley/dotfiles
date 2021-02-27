@@ -45,6 +45,9 @@ alias sb="git for-each-ref \
 # generate a import diagram for a directory
 alias impdiag="bash ~/.dotfiles/scripts/plantuml_diagram.sh"
 
+# jest
+alias jdb="node --inspect-brk node_modules/.bin/jest --runInBand"
+
 # kubectl aliases
 alias k='kubectl'
 alias kg='kubectl get'
