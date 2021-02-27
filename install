@@ -83,11 +83,13 @@ check_third_party_tools() {
   brew_install autojump autojump
   brew_install bat bat
   brew_install ctags universal-ctags
+  brew_install delta git-delta
   brew_install exa exa
   brew_install ffmpeg ffmpeg
   brew_install fswatch fswatch
   brew_install fzf fzf
   # brew_install gdb gdb
+  brew_install glow glow
   brew_install gpg gnupg
   brew_install grip grip
   brew_install htop htop
@@ -103,6 +105,7 @@ check_third_party_tools() {
   brew_install pandoc pandoc
   brew_install plantuml plantuml
   brew_install rg ripgrep
+  brew_install starship starship
   brew_install tig tig
   brew_install tmux tmux
   brew_install urlview urlview
