@@ -56,3 +56,24 @@ done
 ${5:# Shift parsed options from the input
 shift $((OPTIND - 1))}
 endsnippet
+
+snippet ynw "Yes/No user input while loop" b
+while true; do
+    read -p "Do you wish to install this program?" yn
+    case $yn in
+        [Yy]* ) make install; break;;
+        [Nn]* ) exit;;
+        * ) echo "Please answer yes or no.";;
+    esac
+done
+endsnippet
+
+snippet yn "Yes/No user input" b
+echo "Do you wish to install this program?"
+select yn in "Yes" "No"; do
+    case $yn in
+        Yes ) make install; break;;
+        No ) exit;;
+    esac
+done
+endsnippet
