@@ -61,8 +61,8 @@ autocmd FileType qf map <buffer> dd :RemoveQFItem<cr>
 " Redirecting vim commands
 " i.e. i^R=Exec('ls')
 function! Exec(command)
-    redir =>output
-    silent exec a:command
-    redir END
-    return output
+  redir =>output
+  silent exec a:command
+  redir END
+  return output
 endfunction
