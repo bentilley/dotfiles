@@ -207,6 +207,7 @@ command! VF vsplit | FZF
 command! SF split | FZF
 command! XA mks! | xa
 command! -nargs=? FZFDiff call squee#FZFDiff(<f-args>)
+command! -nargs=? FZFHist call squee#FZFHistory(<f-args>)
 
 " Convenient command to see the difference between the current buffer and the
 " file it was loaded from, thus the changes you made.

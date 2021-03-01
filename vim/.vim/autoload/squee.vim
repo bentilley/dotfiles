@@ -23,6 +23,9 @@ function! squee#SetMyColorColumnCleanUp()
   endif
 endfunction
 
+" ----- "
+"  FZF  "
+" ----- "
 function squee#FZFDiff(...)
   " Fuzzy search the files that have changed between two diffs.
   " The default is to diff the HEAD and the merge-base.
@@ -30,6 +33,25 @@ function squee#FZFDiff(...)
   call fzf#run({'source': 'git diff --name-only '.l:base, 'sink': 'e'})
 endfunction
 
+function! s:FZFHistorySink(...)
+  let l:args_copy = deepcopy(a:000)
+  call map(l:args_copy, {k, v -> substitute(v, '^\s*\d\+\s\+', '', '')})
+  call append(line('.'), l:args_copy)
+endfunction
+
+function! squee#FZFHistory(...)
+  let l:command = 'fc -R ~/.config/zsh/.zsh_history && fc -l 1'
+  let l:history = system(l:command)
+  call fzf#run({
+    \'source': systemlist(l:command),
+    \'options': ['--tac', '--multi'],
+    \'sink': function('s:FZFHistorySink')
+  \})
+endfunction
+
+" ----- "
+"  ALE  "
+" ----- "
 function squee#ToggleALEFixOnSave()
   " Function to toggle the ALE fix on save setting for an individual buffer
   if !exists("b:ale_fix_on_save")
