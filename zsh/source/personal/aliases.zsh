@@ -1,7 +1,7 @@
 # quick confing access
 alias conf="lf $HOME/.dotfiles"
 alias zconf="vim $ZDOTDIR/.zshrc"
-alias zres="source $ZDOTDIR/.zshrc"
+alias zres="exec zsh"
 alias zalias="vim ~/.dotfiles/zsh/source/personal/aliases.zsh"
 alias zfunc="vim ~/.dotfiles/zsh/source/personal/functions.zsh"
 alias zc="vim ~/.dotfiles/zsh/source"
@@ -37,10 +37,7 @@ alias tgopen="firefox https://track.toggl.com"
 alias gls="git --no-pager branch --list"
 alias gdx="git ls-files --others --exclude-standard"
 alias gdo="git --no-pager diff --name-only"
-# showbranches
-alias sb="git for-each-ref \
-  --sort=committerdate refs/heads/ \
-  --format='%(HEAD) %(color:yellow)%(refname:short)%(color:reset) - %(color:red)%(objectname:short)%(color:reset) - %(contents:subject) - %(authorname) (%(color:green)%(committerdate:relative)%(color:reset))'"
+alias gcof='git checkout $(git --no-pager branch --list | fzf)'
 
 # generate a import diagram for a directory
 alias impdiag="bash ~/.dotfiles/scripts/plantuml_diagram.sh"
