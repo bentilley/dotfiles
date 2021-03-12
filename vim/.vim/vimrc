@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-abolish'
   Plug 'qxxxb/vim-searchhi'
+  Plug 'vim-test/vim-test'
   Plug 'jeetsukumaran/vim-indentwise'
 
   if has('nvim')
@@ -470,5 +471,18 @@ nnoremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 command! ShowColours so $VIMRUNTIME/syntax/hitest.vim
+
+" }}}
+
+" Vim Test Settings {{{
+
+" make test commands execute using dispatch.vim
+let test#strategy = "dispatch"
+
+nmap <silent> <C-T>n :TestNearest<CR>
+nmap <silent> <C-T>f :TestFile<CR>
+nmap <silent> <C-T>s :TestSuite<CR>
+nmap <silent> <C-T>l :TestLast<CR>
+nmap <silent> <C-T>g :TestVisit<CR>
 
 " }}}
