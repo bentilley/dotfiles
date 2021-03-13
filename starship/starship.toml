@@ -82,3 +82,6 @@ style = "bold yellow"
 [cmd_duration]
 format = "[$duration]($style) "
 style = "bold blue" 
+
+[gcloud]
+format = '[$account(\($region\))]($style) '
