@@ -76,7 +76,6 @@ source $ZSH/oh-my-zsh.sh
 type firefox &>/dev/null && export BROWSER=firefox
 
 # ADD-ONS
-source ~/.dotfiles/zsh/.iterm2_shell_integration.zsh # iTerm2 shell integration
 source ~/.dotfiles/zsh/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # syntax highlighting
