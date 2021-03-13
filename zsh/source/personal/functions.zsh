@@ -15,7 +15,7 @@ function vf() {
     FILES=$("${FZF[@]}")
   fi
   if [ $? -eq 0 ]; then
-    FILES=$(echo $FILES | paste -s -d ' ')  # remove newlines
+    FILES=$(echo $FILES | paste -s -d ' ' -)  # remove newlines
     print -S "vim $FILES"  # add to history
     vim $(echo $FILES)
   fi
