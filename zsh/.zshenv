@@ -1,5 +1,6 @@
 export EDITOR="vim"
 export PAGER="less"
+export HISTFILE="$HOME/.config/zsh/.zsh_history"
 
 # path for ruby - added because brew told me
 export PKG_CONFIG_PATH="/usr/local/opt/ruby/lib/pkgconfig"

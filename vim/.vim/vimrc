@@ -35,8 +35,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-unimpaired'
   Plug 'tpope/vim-commentary'
   Plug 'tpope/vim-surround'
+  Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-abolish'
   Plug 'qxxxb/vim-searchhi'
+  Plug 'vim-test/vim-test'
   Plug 'jeetsukumaran/vim-indentwise'
 
   if has('nvim')
@@ -420,6 +422,27 @@ endfunction
 
 let g:searchhi_clear_all_asap = 1
 
+nmap n <Plug>(searchhi-n)
+nmap N <Plug>(searchhi-N)
+nmap * <Plug>(searchhi-*)
+nmap g* <Plug>(searchhi-g*)
+nmap # <Plug>(searchhi-#)
+nmap g# <Plug>(searchhi-g#)
+nmap gd <Plug>(searchhi-gd)
+nmap gD <Plug>(searchhi-gD)
+
+vmap n <Plug>(searchhi-v-n)
+vmap N <Plug>(searchhi-v-N)
+vmap * <Plug>(searchhi-v-*)
+vmap g* <Plug>(searchhi-v-g*)
+vmap # <Plug>(searchhi-v-#)
+vmap g# <Plug>(searchhi-v-g#)
+vmap gd <Plug>(searchhi-v-gd)
+vmap gD <Plug>(searchhi-v-gD)
+
+nmap <silent> <C-L> <Plug>(searchhi-clear-all)
+vmap <silent> <C-L> <Plug>(searchhi-v-clear-all)
+
 " }}}
 
 " VimWiki Settings {{{
@@ -449,5 +472,18 @@ nnoremap <F8> :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> t
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 command! ShowColours so $VIMRUNTIME/syntax/hitest.vim
+
+" }}}
+
+" Vim Test Settings {{{
+
+" make test commands execute using dispatch.vim
+let test#strategy = "dispatch"
+
+nmap <silent> <C-T>n :TestNearest<CR>
+nmap <silent> <C-T>f :TestFile<CR>
+nmap <silent> <C-T>s :TestSuite<CR>
+nmap <silent> <C-T>l :TestLast<CR>
+nmap <silent> <C-T>g :TestVisit<CR>
 
 " }}}

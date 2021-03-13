@@ -56,8 +56,7 @@ highlight! link SpellBad Error
 
 " search
 highlight Search             ctermfg=016   ctermbg=153   cterm=NONE
-" highlight! link Search Todo
-highlight! link IncSearch WarningMsg
+highlight IncSearch          ctermfg=000   ctermbg=166   cterm=BOLD
 
 " popup menu
 highlight Pmenu              ctermfg=0     ctermbg=238   cterm=NONE

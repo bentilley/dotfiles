@@ -20,5 +20,5 @@ syntax region pythonMultilineComment start=+^\s*"""+ end=+"""+
 highlight link pythonMultilineComment Comment
 
 " Comments in multiline strings - used in verbose regex
-syntax match pythonRawStringComment '#.*$' contained containedin=pythonRawString
+syntax match pythonRawStringComment ' #.*$' contained containedin=pythonRawString
 highlight link pythonRawStringComment Comment
