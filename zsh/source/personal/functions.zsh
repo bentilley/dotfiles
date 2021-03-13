@@ -286,3 +286,19 @@ capture() {
         }
     '
 }
+
+
+# LaTeX
+
+function install_latex_class {
+  # See http://matsguru.com/latex-hack-adding-a-custom-cls-to-your-search-path/
+  if [ -f "$1" ]; then
+    if [[ ! "$1" = *.cls ]]; then
+      echo 'Can only install class files i.e. *.cls'
+      return 1
+    fi
+    echo "Installing $1"
+    cp "$1" "$(kpsewhich --var-value TEXMFLOCAL)/tex/latex/local"
+    texhash
+  fi
+}
