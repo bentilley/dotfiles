@@ -82,6 +82,8 @@ style = "bold yellow"
 [cmd_duration]
 format = "[$duration]($style) "
 style = "bold blue" 
+show_notifications = true
+min_time_to_notify = 30_000
 
 [gcloud]
 format = '[$account(\($region\))]($style) '
