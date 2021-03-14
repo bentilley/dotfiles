@@ -82,41 +82,49 @@ symlinking_config_files() {
 check_third_party_tools() {
   printf "checking third party tools...\n"
 
-  brew_install ag the_silver_searcher
-  brew_install autojump autojump
-  brew_install bat bat
-  brew_install ctags universal-ctags
-  brew_install delta git-delta
-  brew_install exa exa
-  brew_install ffmpeg ffmpeg
-  brew_install fswatch fswatch
-  brew_install fzf fzf
-  # brew_install gdb gdb
-  brew_install glow glow
-  brew_install gpg gnupg
-  brew_install grip grip
-  brew_install htop htop
-  brew_install hub hub
-  brew_install hugo hugo
-  brew_install imapfilter imapfilter
-  brew_install jq jq
-  brew_install lf lf
-  brew_install lynx lynx
-  brew_install nvim nvim
-  brew_install octave octave
-  brew_install offlineimap offlineimap
-  brew_install pandoc pandoc
-  brew_install plantuml plantuml
-  brew_install rg ripgrep
-  brew_install starship starship
-  brew_install shellcheck shellcheck
-  brew_install shfmt shfmt
-  brew_install tig tig
-  brew_install tmux tmux
-  brew_install urlview urlview
-  brew_install vim "vim --HEAD"
-  brew_install watchman watchman
-  brew_install wtfutil wtfutil
+  # ZINIT
+  if [ ! -d "$CONFIG_DIR/zsh/.zinit" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
+  fi
+
+  if [[ "$(uname)" == "Darwin" ]]; then
+    printf "Running Mac brew installs...\n"
+    brew_install ag the_silver_searcher
+    brew_install autojump autojump
+    brew_install bat bat
+    brew_install ctags universal-ctags
+    brew_install delta git-delta
+    brew_install exa exa
+    brew_install ffmpeg ffmpeg
+    brew_install fswatch fswatch
+    brew_install fzf fzf
+    # brew_install gdb gdb
+    brew_install glow glow
+    brew_install gpg gnupg
+    brew_install grip grip
+    brew_install htop htop
+    brew_install hub hub
+    brew_install hugo hugo
+    brew_install imapfilter imapfilter
+    brew_install jq jq
+    brew_install lf lf
+    brew_install lynx lynx
+    brew_install nvim nvim
+    brew_install octave octave
+    brew_install offlineimap offlineimap
+    brew_install pandoc pandoc
+    brew_install plantuml plantuml
+    brew_install rg ripgrep
+    brew_install starship starship
+    brew_install shellcheck shellcheck
+    brew_install shfmt shfmt
+    brew_install tig tig
+    brew_install tmux tmux
+    brew_install urlview urlview
+    brew_install vim "vim --HEAD"
+    brew_install watchman watchman
+    brew_install wtfutil wtfutil
+  fi
 
   # TODO make a function for brew cask installs
   #  - Alacritty
@@ -126,9 +134,9 @@ check_third_party_tools() {
 }
 
 create_directories() {
-  test_and_mkdir ~/.cache/mutt mutt             # mutt cache
-  test_and_mkdir ~/.task taskwarrior            # taskwarrior data
-  test_and_mkdir "$CONFIG_DIR/vim/views" vim    # vim view data
+  test_and_mkdir ~/.cache/mutt mutt          # mutt cache
+  test_and_mkdir ~/.task taskwarrior         # taskwarrior data
+  test_and_mkdir "$CONFIG_DIR/vim/views" vim # vim view data
 }
 
 main
