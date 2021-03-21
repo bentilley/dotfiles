@@ -14,15 +14,19 @@ setopt hist_find_no_dups      # find no dups when searching history
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete dups first when HISTFILE exceeds HISTSIZE
 
-# set up zinit plugin manager (should be done before compinit)
-source ~/.config/zsh/.zinit/bin/zinit.zsh
-# See https://github.com/zdharma/zinit for details
-
 # Set Options
 setopt auto_cd
 setopt auto_pushd
 setopt pushd_ignore_dups
 setopt pushdminus
+
+# fpath
+fpath=(~/.dotfiles/zsh/lib/funcs $fpath)
+autoload -Uz $fpath[1]/*(.:t)
+
+# set up zinit plugin manager (should be done before compinit)
+source ~/.config/zsh/.zinit/bin/zinit.zsh
+# See https://github.com/zdharma/zinit for details
 
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select
