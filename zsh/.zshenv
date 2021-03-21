@@ -1,4 +1,7 @@
 if [[ -z $TMUX ]]; then
+  # Personal bin
+  export PATH="$HOME/.dotfiles/bin:$PATH"
+
   # Haskell
   export PATH="$PATH:$HOME/.local/bin"  # Haskell stack packages
   [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && \
