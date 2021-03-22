@@ -2,8 +2,8 @@
 alias conf="lf $HOME/.dotfiles"
 alias zconf="vim $ZDOTDIR/.zshrc"
 alias zres="exec zsh"
-alias zalias="vim ~/.dotfiles/zsh/source/personal/aliases.zsh"
-alias zfunc="vim ~/.dotfiles/zsh/source/personal/functions.zsh"
+alias zalias="vim ~/.dotfiles/zsh/source/aliases.zsh"
+alias zfunc="vim ~/.dotfiles/zsh/source/functions.zsh"
 alias zc="vim ~/.dotfiles/zsh/source"
 alias vconf="vim ~/.vim/vimrc"
 alias tconf="vim ~/.dotfiles/tmux/.tmux.conf"
@@ -22,6 +22,7 @@ alias lk="exa -lag -t=modified"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # vim aliasas
+alias v="vim"
 alias vs="vim -S Session.vim"
 alias lvim='vim -c "normal '"'"'0"'
 alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
@@ -61,9 +62,9 @@ alias vd="deactivate"
 # TODO make this a function which search recursively up through directories for venv
 
 # tmux
+alias t="tmux"
 alias ta='tmux attach'
 alias tn='cd ~ && tmux new -s info'
-alias tx='tmux new -s $(basename $(pwd))'
 
 # Linux
 if [[ "$(uname)" == "Linux" ]]; then
