@@ -4,12 +4,15 @@ export EDITOR="vim"
 export PAGER="less"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 type firefox &>/dev/null && export BROWSER=firefox
+fpath=($HOME/.dotfiles/zsh/completions $fpath)
 
 
 # History configuration
 export HISTSIZE=50000
 export SAVEHIST=100000
 export HISTFILE="$HOME/.config/zsh/.zsh_history"
+# setopt share_history          # share history across multiple shells
+setopt inc_append_history     # append to history file as you go, not on exit
 setopt hist_find_no_dups      # find no dups when searching history
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete dups first when HISTFILE exceeds HISTSIZE
@@ -17,6 +20,10 @@ setopt hist_expire_dups_first # delete dups first when HISTFILE exceeds HISTSIZE
 # set up zinit plugin manager (should be done before compinit)
 source ~/.config/zsh/.zinit/bin/zinit.zsh
 # See https://github.com/zdharma/zinit for details
+
+# autojump settings (should be done before compinit)
+[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 
 # Set Options
 setopt auto_cd
@@ -45,10 +52,6 @@ export MP_EDITOR_VISUAL=/usr/local/bin/vim
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-# autojump settings
-[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
-[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
-
 # Alias for command substitution - easier than typing it
 function var-subs () {
   LBUFFER="${LBUFFER}"'$()'
@@ -58,7 +61,7 @@ zle -N var-subs
 
 # FZF history search
 function fzf-history () {
-  COMMAND="$(history | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
+  COMMAND="$(history 1 | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
   zle redisplay
   BUFFER=${COMMAND}
 }
