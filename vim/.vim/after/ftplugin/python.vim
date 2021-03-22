@@ -24,4 +24,10 @@ if expand('%:p') =~ $HOME.'/code/Services'
 endif
 
 
+" Python Syntax Plugin
+
+let g:python_highlight_all = 1
+let g:python_highlight_operators = 0
+
+
 " Abbreviations

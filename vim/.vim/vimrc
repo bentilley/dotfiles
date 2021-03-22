@@ -47,6 +47,7 @@ call plug#begin('~/.vim/plugged')
 
   " SYNTAX
   Plug 'pangloss/vim-javascript'          " javascript
+  Plug 'vim-python/python-syntax'         " python
   Plug 'mxw/vim-jsx'                      " jsx
   Plug 'posva/vim-vue'                    " vue
   Plug 'bfrg/vim-cpp-modern'              " cpp

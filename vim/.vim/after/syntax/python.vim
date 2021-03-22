@@ -9,11 +9,20 @@ highlight link pythonTypeHint Type
 
 highlight link pythonStatement Keyword
 highlight link pythonRepeat Keyword
-highlight link pythonOperator Keyword
 highlight link pythonException Keyword
+highlight link pythonOperator Keyword
+
+highlight link pythonFunctionCall FunctionSpecial
 
 highlight link pythonDecorator PreProc
 highlight link pythonDecoratorName PreProc
+highlight link pythonDottedName PreProc
+
+highlight link pythonClass ClassSpecial
+highlight link pythonClassVar VariableSpecial
+
+highlight link pythonExClass Exception
+
 
 " Multi-line Comments
 syntax region pythonMultilineComment start=+^\s*"""+ end=+"""+
