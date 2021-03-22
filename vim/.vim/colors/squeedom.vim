@@ -80,15 +80,16 @@ highlight Conditional        ctermfg=162   ctermbg=NONE   cterm=NONE
 highlight Include            ctermfg=208   ctermbg=NONE   cterm=NONE
 highlight Function           ctermfg=081   ctermbg=NONE   cterm=NONE
 highlight FunctionSpecial    ctermfg=014   ctermbg=NONE   cterm=NONE
-highlight Structure          ctermfg=014   ctermbg=NONE   cterm=BOLD
+highlight Structure          ctermfg=087   ctermbg=NONE   cterm=BOLD
 highlight StorageClass       ctermfg=165   ctermbg=NONE   cterm=NONE
-highlight Constant           ctermfg=098   ctermbg=NONE   cterm=NONE
-highlight String             ctermfg=160   ctermbg=NONE   cterm=NONE
+highlight Constant           ctermfg=134   ctermbg=NONE   cterm=NONE
+highlight String             ctermfg=098   ctermbg=NONE   cterm=NONE
 highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
 highlight Statement          ctermfg=081   ctermbg=NONE   cterm=NONE
 highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
 highlight ClassSpecial       ctermfg=042   ctermbg=NONE   cterm=NONE
 highlight TryCatchSpecial    ctermfg=202   ctermbg=NONE   cterm=NONE
+highlight Exception          ctermfg=160   ctermbg=NONE   cterm=BOLD
 
 " Layout
 
