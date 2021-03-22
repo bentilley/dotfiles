@@ -72,6 +72,9 @@ truncation_length = 8
 symbol = ""
 style = "bold purple" 
 
+[nodejs]
+format = "[$symbol($version )]($style)"
+
 [python]
 # format = '[${symbol}${pyenv_prefix}${version}( \($virtualenv\))]($style) '
 format = '[${symbol}${pyenv_prefix}(\($virtualenv\))]($style) '
