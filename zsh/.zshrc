@@ -4,7 +4,6 @@ export EDITOR="vim"
 export PAGER="less"
 export LSCOLORS="Gxfxcxdxbxegedabagacad"
 type firefox &>/dev/null && export BROWSER=firefox
-fpath=($HOME/.dotfiles/zsh/completions $fpath)
 
 
 # History configuration
@@ -17,6 +16,17 @@ setopt hist_find_no_dups      # find no dups when searching history
 setopt extended_history       # record timestamp of command in HISTFILE
 setopt hist_expire_dups_first # delete dups first when HISTFILE exceeds HISTSIZE
 
+# Set Options
+setopt auto_cd
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt pushdminus
+
+# fpath
+fpath=(~/.dotfiles/zsh/completions $fpath)
+fpath=(~/.dotfiles/zsh/lib/funcs $fpath)
+autoload -Uz $fpath[1]/*(.:t)  # autoload func directory
+
 # set up zinit plugin manager (should be done before compinit)
 source ~/.config/zsh/.zinit/bin/zinit.zsh
 # See https://github.com/zdharma/zinit for details
@@ -24,12 +34,6 @@ source ~/.config/zsh/.zinit/bin/zinit.zsh
 # autojump settings (should be done before compinit)
 [ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
 [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
-
-# Set Options
-setopt auto_cd
-setopt auto_pushd
-setopt pushd_ignore_dups
-setopt pushdminus
 
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select

@@ -1,0 +1,25 @@
+# "pytest fzf", a mash up to quickly run pytest files by fuzzy finding.
+
+function ptf() {
+  FZF=(fzf --multi --preview='bat --color=always --style=plain {}')
+  if [ $((2 * $LINES)) -gt $COLUMNS ]; then
+    FZF+=("--preview-window=down")
+  fi
+  PYTEST=(mypytest)
+
+  if [ ! -z $1 ]; then
+    FILES=$(find $1/* -type f | grep test | "${FZF[@]}")
+  else
+    FILES=$("${FZF[@]}")
+  fi
+
+  if [ $? -eq 0 ]; then
+    FILES=$(echo $FILES | paste -s -d ' ')  # remove newlines
+    print -S "$(echo ${PYTEST[@]}) $FILES"
+    "${PYTEST[@]}" $(echo $FILES)
+  fi
+  
+}
+
+ptf "$@"
+# vim:ft=zsh

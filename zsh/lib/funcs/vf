@@ -1,0 +1,23 @@
+# "vim fzf", a mash up to quickly open files by fuzzy finding.
+
+function vf() { 
+  echo New style vf...
+  FZF=(fzf --multi --preview='bat --color=always --style=plain {}')
+  if [ $((2 * $LINES)) -gt $COLUMNS ]; then
+    FZF+=("--preview-window=down")
+  fi
+
+  if [ ! -z $1 ]; then
+    FILES=$(find $1/* -type f | "${FZF[@]}")
+  else
+    FILES=$("${FZF[@]}")
+  fi
+  if [ $? -eq 0 ]; then
+    FILES=$(echo $FILES | paste -s -d ' ' -)  # remove newlines
+    print -S "vim $FILES"  # add to history
+    vim $(echo $FILES)
+  fi
+}
+
+vf "$@"
+# vim:ft=zsh

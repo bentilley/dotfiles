@@ -1,0 +1,13 @@
+# A test function for seeing how autoloaded functions work.
+
+echo Testy setup
+
+function testy() {
+  echo I am testy
+  if [[ ! -z "$*" ]]; then
+    echo Args "$*"
+  fi
+}
+
+testy "$@"
+# vim:ft=zsh
