@@ -6,6 +6,13 @@
 highlight link vimHighlight Keyword
 highlight link vimCommand Keyword
 
+highlight link vimGroup Type
+
+highlight link vimHiAttrib Constant
+
+highlight link vimHiCTerm VariableSpecial
+highlight link vimHiCTermFgBg VariableSpecial
+
 highlight link vimSynType Statement
 
 highlight link vimHiGroup Normal
