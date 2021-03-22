@@ -147,6 +147,7 @@ set statusline=>\ %f%{tagbar#currenttag(\"\ >\ \%s\",\"\",\"fs\")}%=[%4l/%4L]
 " tab settings - a la unimpaired
 nnoremap [w :tabprevious<CR>
 nnoremap ]w :tabnext<CR>
+nnoremap <silent> <C-w>D :tab sp<CR>
 
 " linting helpers
 nnoremap <Leader>g gggqG<C-O><C-O>zz
