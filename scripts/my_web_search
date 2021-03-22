@@ -15,7 +15,13 @@ web_search () {
         else
                 url="${(j://:)${(s:/:)urls[$1]}[1,2]}"
         fi
-        open "$url"
+
+        if [[ "$(uname)" == "Darwin" ]]; then
+          OPEN_COMMAND=open
+        else
+          OPEN_COMMAND=xdg-open
+        fi
+        $OPEN_COMMAND "$url"
 }
 
 web_search "$@"
