@@ -90,8 +90,12 @@ done
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light davidparsson/zsh-pyenv-lazy
+zinit light MichaelAquilina/zsh-auto-notify
 # zinit light zdharma/fast-syntax-highlighting
 zinit snippet OMZP::git
+
+# ZSH Auto-notify
+AUTO_NOTIFY_IGNORE+=("journalctl")
 
 # setup direnv - directory level variables
 eval "$(direnv hook zsh)"
