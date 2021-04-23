@@ -149,6 +149,15 @@ nnoremap [w :tabprevious<CR>
 nnoremap ]w :tabnext<CR>
 nnoremap <silent> <C-w>D :tab sp<CR>
 
+" yanking and pasting from the clipboard
+nnoremap <LocalLeader>y "+y
+nnoremap <LocalLeader>p "+p
+nnoremap <LocalLeader>P "+P
+
+" Inserting lines from normal mode
+nnoremap <LocalLeader>o o<Esc>
+nnoremap <LocalLeader>O O<Esc>
+
 " linting helpers
 nnoremap <Leader>g gggqG<C-O><C-O>zz
 
@@ -172,9 +181,6 @@ nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
 
 " generate ctags
 nnoremap <Leader>c :terminal ++hidden ctags -R -f ./.git/tags .<CR>
-
-" working with tabs
-command! TabF tabnew | FZF
 
 " }}}
 
@@ -209,6 +215,7 @@ cnoremap <C-l> <Right>
 
 command! VF vsplit | FZF
 command! SF split | FZF
+command! TF tabnew | FZF
 command! XA mks! | xa
 command! -nargs=? FZFDiff call squee#FZFDiff(<f-args>)
 command! -nargs=? FZFHist call squee#FZFHistory(<f-args>)
