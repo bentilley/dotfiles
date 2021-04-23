@@ -46,14 +46,14 @@ symlink_error() {
 # for installing software from github
 # - this checks if the software already exists, otherwise it clones it
 git_install() {
-  GIT_REPO="$1"
-  INSTALL_DIR="$2"
-  SOFTWARE_NAME="$3"
-  if [ ! -d $INSTALL_DIR ]; then
-    git clone https://github.com/$GIT_REPO $INSTALL_DIR
-    git_install_success $SOFTWARE_NAME $INSTALL_DIR
+  local GIT_REPO="$1"
+  local INSTALL_DIR="$2"
+  local SOFTWARE_NAME="$3"
+  if [ ! -d "$INSTALL_DIR" ]; then
+    git clone "https://github.com/$GIT_REPO" "$INSTALL_DIR"
+    git_install_success "$SOFTWARE_NAME" "$INSTALL_DIR"
   else
-    git_install_error $INSTALL_DIR "Directory already exists"
+    git_install_error "$INSTALL_DIR" "Directory already exists"
   fi
 }
 
@@ -69,13 +69,13 @@ git_install_error() {
 # installing software from brew formulae
 # - just given the executable name and the formula name, installs if not found
 brew_install() {
-  EXECUTABLE_NAME="$1"
-  BREW_FORMULA="$2"
-  if ! prog_exists $EXECUTABLE_NAME; then
-    brew_install_success $EXECUTABLE_NAME
-    brew install $BREW_FORMULA
+  local EXECUTABLE_NAME="$1"
+  local BREW_FORMULA="$2"
+  if ! prog_exists "$EXECUTABLE_NAME"; then
+    brew_install_success "$EXECUTABLE_NAME"
+    brew install "$BREW_FORMULA"
   else
-    brew_install_error $EXECUTABLE_NAME
+    brew_install_error "$EXECUTABLE_NAME"
   fi
 
 }
@@ -83,16 +83,16 @@ brew_install() {
 # create a directory that some program needs
 # - provide full path to dir (intermediate dirs will be created)
 test_and_mkdir() {
-  DIR_PATH="$1"
-  REQUIRING_PROG="$2"
-  if [ ! -d $DIR_PATH ]; then
-    mkdir -p $DIR_PATH
+  local DIR_PATH="$1"
+  local REQUIRING_PROG="$2"
+  if [ ! -d "$DIR_PATH" ]; then
+    mkdir -p "$DIR_PATH"
     printf "Additional directory ${green}$DIR_PATH${normal} has been created for ${yellow}$REQUIRING_PROG${normal}\n"
   fi
 }
 
 prog_exists() {
-  command -v $1 >/dev/null 2>&1
+  command -v "$1" >/dev/null 2>&1
 }
 
 brew_install_success() {
@@ -107,7 +107,17 @@ brew_install_error() {
 # - no args, just run this function and it will perform any updates
 update_global_npm_packages() {
   printf "\nUpdating Global NPM Packages...\n"
-  npm outdated -g \
-    | awk 'NR > 1 {print $1 "@latest";}' \
-    | xargs -I{} sudo npm install -g {}
+  npm outdated -g |
+    awk 'NR > 1 {print $1 "@latest";}' |
+    xargs -I{} sudo npm install -g {}
+}
+
+######################################
+# Install scripts for specific tools #
+######################################
+install_glab() {
+  printf "Installing ${blue}glab${normal}."
+  local URL=https://raw.githubusercontent.com/profclems/glab/trunk/scripts/install.sh
+  local INSTALL_DIR=/usr/local/bin
+  curl -s $URL | sudo BINDIR=$INSTALL_DIR sh
 }

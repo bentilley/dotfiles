@@ -87,6 +87,10 @@ check_third_party_tools() {
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
   fi
 
+  if [ ! -f "/usr/local/bin/glab" ]; then
+    install_glab
+  fi
+
   if [[ "$(uname)" == "Darwin" ]]; then
     printf "Running Mac brew installs...\n"
     brew_install ag the_silver_searcher
