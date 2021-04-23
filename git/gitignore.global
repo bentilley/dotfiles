@@ -9,6 +9,7 @@ __mine__/
 ### Vim ###
 # Coc Settings Dir
 .vim/coc-settings.json
+pyrightconfig.json
 
 # Swap
 [._]*.s[a-v][a-z]
@@ -30,5 +31,8 @@ Sessionx.vim
 
 # Projectionist
 .projections.json
+
+# Pyenv
+.python-version
 
 # vim: set ft=gitignore:
