@@ -77,6 +77,7 @@ bindkey -v
 bindkey -M vicmd "^V" edit-command-line
 bindkey -M viins "^K" history-search-backward
 bindkey -M viins "^J" history-search-forward
+bindkey -M viins "^A" beginning-of-line
 bindkey -M viins "^E" end-of-line
 bindkey -M viins "^O" var-subs
 bindkey -M viins "^R" history-incremental-search-backward
@@ -94,7 +95,7 @@ done
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light davidparsson/zsh-pyenv-lazy
-zinit light MichaelAquilina/zsh-auto-notify
+# zinit light MichaelAquilina/zsh-auto-notify
 # zinit light zdharma/fast-syntax-highlighting
 zinit snippet OMZP::git
 

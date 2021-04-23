@@ -1,7 +1,6 @@
 # "vim fzf", a mash up to quickly open files by fuzzy finding.
 
 function vf() { 
-  echo New style vf...
   FZF=(fzf --multi --preview='bat --color=always --style=plain {}')
   if [ $((2 * $LINES)) -gt $COLUMNS ]; then
     FZF+=("--preview-window=down")

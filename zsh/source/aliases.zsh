@@ -1,3 +1,6 @@
+# global aliasses
+alias -g BG='&>/dev/null &'
+
 # quick confing access
 alias conf="lf $HOME/.dotfiles"
 alias zconf="vim $ZDOTDIR/.zshrc"
