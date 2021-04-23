@@ -228,6 +228,15 @@ endif
 
 " }}}
 
+" Custom Operators {{{
+
+nnoremap <silent> <localleader>f :set opfunc=operators#Format<CR>g@
+vnoremap <silent> <localleader>f :<C-U>call operators#Format(visualmode(), 1)<CR>
+nnoremap <silent> <localleader>l :set opfunc=operators#LimeLight<CR>g@
+vnoremap <silent> <localleader>l :<C-U>call operators#LimeLight(visualmode(), 1)<CR>
+
+" }}}
+
 " Abbreviations {{{
 
 iabbrev shrg ¯\_(ツ)_/¯
@@ -347,7 +356,7 @@ augroup END
 let g:limelight_conceal_ctermfg = 240
 let g:limelight_default_coefficient = 0.4
 let g:limelight_paragraph_span = 0
-nnoremap <Leader>i :Limelight!!<CR>
+nnoremap <LocalLeader>i :Limelight!!<CR>
 function! SetLimelightSpan(span)
   let g:limelight_paragraph_span = a:span
 endfunction

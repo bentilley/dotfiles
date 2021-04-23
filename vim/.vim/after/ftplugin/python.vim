@@ -6,6 +6,7 @@
 let maplocalleader = ";"
 let b:my_colour_column = 88
 let g:pyindent_open_paren = 'shiftwidth()'
+let b:op_format_cmd = 'black --fast --quiet -'
 
 
 " Indenting
@@ -21,6 +22,7 @@ let b:ale_fixers = ['black', 'remove_trailing_lines', 'trim_whitespace']
 if expand('%:p') =~ $HOME.'/code/Services'
   let b:my_colour_column = 79
   let g:ale_python_black_options = '--line-length 79'
+let b:op_format_cmd = 'black --fast --quiet --line-length 79 -'
 endif
 
 
