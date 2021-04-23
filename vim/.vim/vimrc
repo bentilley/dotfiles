@@ -103,7 +103,6 @@ set undodir^=~/.config/vim/extra/undo//  " set a directory for undo files
 set viewdir=~/.config/vim/views          " set a directory for view files
 let mapleader = "\\"
 let maplocalleader = ";"
-set clipboard+=unnamed                   " yanking goes straigth clipboard buffer
 set noea                                 " stopping windows from automatic resize on close
 set softtabstop=2 shiftwidth=2 expandtab " spaces instead of tabs, and set indent width
 set shiftround
