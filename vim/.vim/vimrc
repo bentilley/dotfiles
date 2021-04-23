@@ -509,4 +509,8 @@ nmap <silent> <C-T>s :TestSuite<CR>
 nmap <silent> <C-T>l :TestLast<CR>
 nmap <silent> <C-T>g :TestVisit<CR>
 
+" let g:test#preserve_screen = 1
+" let g:test#echo_command = 1
+" let g:test#python#pyenv#options = '--tb=short -vv'
+
 " }}}
