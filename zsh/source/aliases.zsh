@@ -42,6 +42,8 @@ alias gls="git --no-pager branch --list"
 alias gdx="git ls-files --others --exclude-standard"
 alias gdo="git --no-pager diff --name-only"
 alias gcof='git checkout $(git --no-pager branch --list | fzf)'
+alias grp='git rev-parse'
+alias grps='git rev-parse --short'
 
 # generate a import diagram for a directory
 alias impdiag="bash ~/.dotfiles/scripts/plantuml_diagram.sh"
