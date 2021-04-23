@@ -25,7 +25,7 @@ highlight link pythonExClass Exception
 
 
 " Multi-line Comments
-syntax region pythonMultilineComment start=+^\s*"""+ end=+"""+
+syntax region pythonMultilineComment start=+^\s*""".+ end=+"""+
 highlight link pythonMultilineComment Comment
 
 " Comments in multiline strings - used in verbose regex

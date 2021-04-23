@@ -8,5 +8,7 @@
   "coc.preferences.formatOnTypeFiletypes": [],
   "coc.preferences.jumpCommand": "edit",
   "javascript.suggestionActions.enabled": false,
-  "python.jediEnabled": false
+  "python.analysis.typeCheckingMode": "off",
+  "pyright.disableSelfClsNotAccessed": true,
+  "python.pythonPath": "/home/ben/code/pytest-errorformat/venv/bin/python"
 }
