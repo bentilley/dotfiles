@@ -404,9 +404,14 @@ if executable('rg')
 endif
 let g:ackhighlight = 1
 let g:ack_autoclose = 1
-command! -nargs=* -bang Ag call ack#Ack('grep<bang>',<q-args>)
-nnoremap ag :Ag!<Space>
-nnoremap sg :Ag<Space>
+
+nnoremap <LocalLeader>s :Ack!<Space>
+
+" }}}
+
+" FZF Settings {{{
+
+nnoremap <LocalLeader>S :Rg<Space>
 
 " }}}
 
