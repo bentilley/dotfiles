@@ -6,6 +6,7 @@ set hidden
 
 # mappings
 
+map t toggle
 map D delete
 map <c-e> $$EDITOR ~/.config/lf/lfrc
 map <c-s> source ~/.config/lf/lfrc
