@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Simple clipboard command that is OS agnostic.
+
+if [ "$(uname)" = "Linux" ]; then
+  CLIP_BOARD="xclip -selection clipboard -in"
+elif [ "$(uname)" = "Darwin" ]; then
+  CLIP_BOARD="pbcopy"
+else
+  exit 1
+fi
+
+(
+  while IFS='' read -rN1 line || [ -n "$line" ]; do
+    printf "%s" "$line"
+  done
+) | $CLIP_BOARD

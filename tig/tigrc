@@ -7,9 +7,10 @@ bind status C !git commit --verbose
 # Git bindings
 bind diff <Ctrl-c> !?git checkout %(commit) %(file)
 bind main <Ctrl-c> !?git checkout %(commit)
+bind main P !?git cherry-pick %(commit)
 
 # copy the highlighted commit hash
-bind main Y !@sh -c "echo %(commit) | pbcopy"
+bind main Y !@sh -c "printf %(commit) | cb"
 
 # delete the file under the cursor
 bind status <Ctrl-d> !rm -i %(file)
