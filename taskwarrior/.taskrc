@@ -38,7 +38,12 @@ uda.waiting.values=yes,no
 # Short description
 uda.short_desc.type=string
 uda.short_desc.label=short
+
+# aliases
 alias.glab=exec glab_issue_to_task
+alias.glabmr=exec glab_mr_to_task
+
+# review definitions
 uda.reviewed.type=date
 uda.reviewed.label=Reviewed
 report._reviewed.description=Tasksh review report.  Adjust the filter to your needs.

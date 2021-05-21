@@ -58,6 +58,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'chr4/nginx.vim'                   " nginx
   Plug 'lark-parser/vim-lark-syntax'      " lark
   Plug 'lifepillar/pgsql.vim'             " postgresql
+  Plug 'MTDL9/vim-log-highlighting'       " arbitrary log files
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
@@ -176,7 +177,7 @@ nnoremap <Space> za
 nnoremap <Leader>rn yiw:%s/<C-R>+/
 nnoremap <C-p> viwp
 
-nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
+nnoremap <LocalLeader>bs yiw:BufferSearch <C-R>0<CR>
 
 " generate ctags
 nnoremap <Leader>c :terminal ++hidden ctags -R -f ./.git/tags .<CR>
@@ -228,8 +229,8 @@ if !exists(":DiffOrig")
 endif
 
 " Command for searching all open buffers for a word
-if !exists(":BufSearch")
-  command -nargs=1 BufSearch :cexpr [] | :bufdo vimgrepadd <args> %
+if !exists(":BufferSearch")
+  command -nargs=1 BufferSearch :cexpr [] | :bufdo vimgrepadd <args> %
 endif
 
 " }}}
@@ -510,6 +511,6 @@ nmap <silent> <C-T>g :TestVisit<CR>
 
 " let g:test#preserve_screen = 1
 " let g:test#echo_command = 1
-" let g:test#python#pyenv#options = '--tb=short -vv'
+let g:test#python#pytest#options = '-n0'
 
 " }}}
