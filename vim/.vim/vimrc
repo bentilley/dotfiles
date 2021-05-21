@@ -511,6 +511,6 @@ nmap <silent> <C-T>g :TestVisit<CR>
 
 " let g:test#preserve_screen = 1
 " let g:test#echo_command = 1
-" let g:test#python#pyenv#options = '--tb=short -vv'
+let g:test#python#pytest#options = '-n0'
 
 " }}}
