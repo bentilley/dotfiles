@@ -177,7 +177,7 @@ nnoremap <Space> za
 nnoremap <Leader>rn yiw:%s/<C-R>+/
 nnoremap <C-p> viwp
 
-nnoremap <Leader>bs yiw:BufSearch <C-R>0<CR>
+nnoremap <LocalLeader>bs yiw:BufferSearch <C-R>0<CR>
 
 " generate ctags
 nnoremap <Leader>c :terminal ++hidden ctags -R -f ./.git/tags .<CR>
@@ -229,8 +229,8 @@ if !exists(":DiffOrig")
 endif
 
 " Command for searching all open buffers for a word
-if !exists(":BufSearch")
-  command -nargs=1 BufSearch :cexpr [] | :bufdo vimgrepadd <args> %
+if !exists(":BufferSearch")
+  command -nargs=1 BufferSearch :cexpr [] | :bufdo vimgrepadd <args> %
 endif
 
 " }}}
