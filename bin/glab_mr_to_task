@@ -6,7 +6,7 @@ main() {
     task_title=$(get_task_title "$task_id")
     echo "$task_title"
     if [ -n "$task_title" ]; then
-      task="#${task_id}  ${task_title}"
+      task='!'"${task_id}  ${task_title}"
       echo "Adding $task"
       task add project:ticket due:1week priority:H "$task"
     fi
@@ -17,16 +17,16 @@ main() {
 choose_task_id() {
   get_tasks |
     fzf |
-    awk '{ gsub("#", "", $1); print $1 }'
+    awk '{ gsub("!", "", $1); print $1 }'
 }
 
 get_tasks() {
-  glab issue list --assignee=@me | rg '^#'
+  glab mr list --assignee=@me | rg '^!'
 }
 
 get_task_title() {
   id="$1"
-  glab issue view "$id" |
+  glab mr view "$id" |
     rg '^title:' |
     sed -e 's/^title:\s*//g'
 }
