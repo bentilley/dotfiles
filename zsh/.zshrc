@@ -75,8 +75,8 @@ zle -N fzf-history
 # key bindings
 bindkey -v
 bindkey -M vicmd "^V" edit-command-line
-bindkey -M viins "^K" history-search-backward
-bindkey -M viins "^J" history-search-forward
+bindkey -M viins "^K" history-beginning-search-backward
+bindkey -M viins "^J" history-beginning-search-forward
 bindkey -M viins "^A" beginning-of-line
 bindkey -M viins "^E" end-of-line
 bindkey -M viins "^O" var-subs
