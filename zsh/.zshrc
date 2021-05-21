@@ -95,6 +95,7 @@ done
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light davidparsson/zsh-pyenv-lazy
+zinit light mroth/evalcache
 # zinit light MichaelAquilina/zsh-auto-notify
 # zinit light zdharma/fast-syntax-highlighting
 zinit snippet OMZP::git
@@ -102,9 +103,12 @@ zinit snippet OMZP::git
 # ZSH Auto-notify
 AUTO_NOTIFY_IGNORE+=("journalctl")
 
+# setup rbenv
+_evalcache rbenv init -
+
 # setup direnv - directory level variables
-eval "$(direnv hook zsh)"
+_evalcache direnv hook zsh
 
 # setup starship prompt
-eval "$(starship init zsh)"
+_evalcache starship init zsh
 # zprof
