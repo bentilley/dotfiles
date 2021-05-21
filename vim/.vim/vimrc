@@ -58,6 +58,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'chr4/nginx.vim'                   " nginx
   Plug 'lark-parser/vim-lark-syntax'      " lark
   Plug 'lifepillar/pgsql.vim'             " postgresql
+  Plug 'MTDL9/vim-log-highlighting'       " arbitrary log files
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
