@@ -15,6 +15,8 @@ highlight link typescriptObjectStaticMethod Function
 highlight link typescriptArrowFunc Function
 highlight link typescriptIdentifier FunctionSpecial
 
+highlight link typescriptExceptions Exception
+
 highlight link tsxIntrinsicTagName XmlAdditional
 highlight link tsxTagName XmlAdditional
 highlight link tsxAttrib XmlKeyword
