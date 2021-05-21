@@ -1,7 +1,7 @@
 # vim: ft=muttrc
-###################################
-# Ben.Tilley@accesso.com settings #
-###################################
+##########################
+# ben@suade.org settings #
+##########################
 
 set from = "ben@suade.org"
 set realname = "Ben Tilley"
