@@ -99,52 +99,25 @@ wtf:
         height: 2
         width: 2
       refreshInterval: 600
-    taskwarriorNext:
-      title: "Next"
-      type: cmdrunner
-      cmd: "task"
-      args: ["+next"]
+    gitlabtodo:
       enabled: true
       position:
         top: 2
         left: 0
         height: 1
         width: 2
-      refreshInterval: 60
-    github:
-      customQueries:
-        openIssuesThisSprint:
-          perPage: 10
-          title: "🦄 Issues - this sprint"
-          filter: "is:issue is:open label::unicorn: label:0305"
-        # otherOpenIssues:
-        #   perPage: 10
-        #   title: "🦄 Issues - not this sprint"
-        #   filter: "is:issue is:open label::unicorn: -label:0109"
-        unicornPRs:
-          perPage: 5
-          title: "🦄 Pull Requests"
-          filter: "is:pr is:open sort:updated-desc label::unicorn:"
-        assignedToMeNoUnicorn:
-          perPage: 5
-          title: "Assigned Pull Requests"
-          filter: "is:pr is:open sort:updated-desc assigned:bentilley -label::unicorn:"
-        # otherIssues:
-        #   perPage: 5
-        #   title: "Others Issues"
-        #   filter: "is:issue is:open -assignee:bentilley sort:updated-desc label:0109"
-        # othersPRs:
-        #   perPage: 5
-        #   title: "Others Pull Requests"
-        #   filter: "is:open is:pr -assignee:bentilley sort:updated-desc"
+      domain: https://gitlab.internal.suade.org
+      refreshInterval: 300
+      numberOfTodos: 10,
+    gitlab:
       enabled: true
-      enableStatus: true
       position:
         top: 0
         left: 2
         height: 3
         width: 2
+      domain: https://gitlab.internal.suade.org
       refreshInterval: 300
-      repositories:
-        - "ingresso-group/white-label"
-      username: "bentilley"
+      projects:
+        - "suade/Services"
+      username: "ben"
