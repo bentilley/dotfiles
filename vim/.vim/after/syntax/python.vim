@@ -3,8 +3,8 @@
 " File for additional python syntax
 
 " Highlighting for type hints
-syntax keyword pythonTypeHint Any Optional Union
-syntax keyword pythonTypeHint DefaultDict Dict List Set
+syntax keyword pythonTypeHint Any Optional Union Callable
+syntax keyword pythonTypeHint DefaultDict Dict List Set Tuple
 highlight link pythonTypeHint Type
 
 highlight link pythonStatement Keyword

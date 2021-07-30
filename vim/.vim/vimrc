@@ -64,6 +64,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
   Plug 'tyru/open-browser.vim'            " open URI in browser
   Plug 'tmux-plugins/vim-tmux'            " nice extras for tmux.conf
+  Plug 'pixelneo/vim-python-docstring'    " python docstring generation
 
   " MISC
   Plug 'vimwiki/vimwiki'
@@ -501,7 +502,8 @@ command! ShowColours so $VIMRUNTIME/syntax/hitest.vim
 " Vim Test Settings {{{
 
 " make test commands execute using dispatch.vim
-let test#strategy = "dispatch"
+let g:test#strategy = "dispatch"
+let g:test#runner_commands = ['PyTest']
 
 nmap <silent> <C-T>n :TestNearest<CR>
 nmap <silent> <C-T>f :TestFile<CR>
@@ -509,8 +511,10 @@ nmap <silent> <C-T>s :TestSuite<CR>
 nmap <silent> <C-T>l :TestLast<CR>
 nmap <silent> <C-T>g :TestVisit<CR>
 
-" let g:test#preserve_screen = 1
-" let g:test#echo_command = 1
-let g:test#python#pytest#options = '-n0'
+let g:test#echo_command = 1
+let g:test#python#pytest#options = ''
+if getcwd() =~ $HOME.'/code/services'
+  let g:test#python#pytest#options .= '-n0'
+endif
 
 " }}}

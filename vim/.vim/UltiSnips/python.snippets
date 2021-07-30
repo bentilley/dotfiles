@@ -36,8 +36,17 @@ endsnippet
 
 snippet tmd "test method function definition" b
 def test_${1:something}(self${2:, ${3:args}}):
-    ${0:self.assertTrue(False)}
+    ${0:assert False}
 endsnippet
+
+# Special Functions
+
+snippet fmdd "dunder method" b
+def __${1:init}__(self${2:, ${3:args}}):
+    ${0:pass}
+endsnippet
+
+# Documentation
 
 snippet ds "doc string" b
 """ ${1:Short description.}${2:
@@ -75,9 +84,9 @@ endsnippet
 
 snippet tc "try / except" b
 try:
-    ${1:statement}
-except ${2:Error}:
-    ${3:handle}
+    ${VISUAL:statement}
+except ${1:Exception${2: as e}}:
+    ${0:pass}
 endsnippet
 
 # Printing and Logging
@@ -103,6 +112,10 @@ try:
     ${VISUAL}
 except Exception:
     import pdb; pdb.set_trace()
+endsnippet
+
+snippet rdb "celery remote debugger - for multi-threads" b
+from celery.contrib import rdb; rdb.set_trace()  # noqa
 endsnippet
 
 # File IO

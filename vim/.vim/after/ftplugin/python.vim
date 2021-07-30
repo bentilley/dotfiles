@@ -19,11 +19,15 @@ let b:ale_linters = ['flake8', 'pylint', 'mypy']
 let b:ale_fixers = ['black', 'remove_trailing_lines', 'trim_whitespace']
 
 " If we're in my Services dir, enforce the 80 character line length
-if expand('%:p') =~ $HOME.'/code/Services'
+if expand('%:p') =~ $HOME.'/code/services'
   let b:my_colour_column = 79
   let g:ale_python_black_options = '--line-length 79'
 let b:op_format_cmd = 'black --fast --quiet --line-length 79 -'
 endif
+
+
+" Vim-test Plugin
+" let g:test#runner_commands = ['PyTest']
 
 
 " Python Syntax Plugin
@@ -33,3 +37,10 @@ let g:python_highlight_operators = 0
 
 
 " Abbreviations
+
+
+" Vim Python Docstring Settings {{{
+
+nnoremap <LocalLeader>d :Docstring<CR>
+
+" }}}
