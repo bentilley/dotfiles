@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'                  " greping in vim
   Plug 'aperezdc/vim-template'
   Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
+  Plug 'junegunn/goyo.vim'                " distraction free vim
   Plug 'majutsushi/tagbar'                " show tag window
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-projectionist'
