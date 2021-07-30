@@ -59,6 +59,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'lark-parser/vim-lark-syntax'      " lark
   Plug 'lifepillar/pgsql.vim'             " postgresql
   Plug 'MTDL9/vim-log-highlighting'       " arbitrary log files
+  Plug 'tpope/vim-markdown'               " markdown
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
@@ -516,5 +517,11 @@ let g:test#python#pytest#options = ''
 if getcwd() =~ $HOME.'/code/services'
   let g:test#python#pytest#options .= '-n0'
 endif
+
+" }}}
+
+" Vim Markdown Settings {{{
+
+let g:markdown_fenced_languages = ['python']
 
 " }}}
