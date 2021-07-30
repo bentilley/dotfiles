@@ -28,6 +28,9 @@ symlinking_config_files() {
   # GLOW
   dotfile_link "glow/glow.yml" "$CONFIG_DIR/glow/glow.yml"
 
+  # GRC - Generic Colouriser
+  dotfile_link "grc/.grc" "$HOME/.grc"
+
   # GRIP
   dotfile_link "grip" "$HOME/.grip"
 
