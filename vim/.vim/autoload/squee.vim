@@ -23,6 +23,18 @@ function! squee#SetMyColorColumnCleanUp()
   endif
 endfunction
 
+
+function! squee#ToggleScrollView()
+  " Toggle whether to scroll the cursor or the view
+  if &scrolloff
+    let &scrolloff=0
+    echom "Scroll View: OFF"
+  else
+    let &scrolloff=(winheight(win_getid()) + 2) / 2
+    echom "Scroll View: ON"
+  endif
+endfunction
+
 " ----- "
 "  FZF  "
 " ----- "

@@ -3,10 +3,17 @@ if exists('g:loaded_mrsquee')
 endif
 let g:loaded_mrsquee = 1
 
-nnoremap <Leader>ef :EditFTPlugin<CR>
+" Scroll Off
+
+command! -nargs=0 ToggleScrollView call squee#ToggleScrollView()
+nnoremap <silent> <LocalLeader>c :ToggleScrollView<CR>
+
+" Vim File Editing
+
 command! -nargs=? EditFTPlugin call EditFTPlugin(<args>)
-nnoremap <Leader>es :EditSyntax<CR>
+nnoremap <LocalLeader>ef :EditFTPlugin<CR>
 command! -nargs=? EditSyntax call EditSyntax(<args>)
+nnoremap <LocalLeader>es :EditSyntax<CR>
 
 function EditFTPlugin(...)
   let l:ftplugin_after_dir = expand('~/.vim/after/ftplugin/')
