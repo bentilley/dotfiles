@@ -75,30 +75,6 @@ call plug#end()
 
 " }}}
 
-" Loading and Configuring Settings {{{
-
-" automatically source vimrc after session load
-augroup sessions
-  autocmd!
-  autocmd SessionLoadPost * :source $MYVIMRC
-augroup END
-
-" using marker folding for .vimrc
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-" handly quick file and directory edit mappings
-nnoremap <silent> <Leader>ev :vs $MYVIMRC<CR>
-nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>
-nnoremap <silent> <Leader>sf :source %<CR>
-nnoremap <silent> <Leader>vc :vs ~/.dotfiles/vim/.vim/colors/squeedom.vim<CR>
-nnoremap <silent> <Leader>vd :vs ~/.dotfiles/vim/.vim<CR>
-nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
-
-" }}}
-
 " Basic Editor Settings {{{
 
 colorscheme squeedom
@@ -134,6 +110,30 @@ augroup MyColorColumn
   autocmd BufNewFile,BufEnter,WinNew * call squee#SetMyColorColumn()
   autocmd QuitPre * call squee#SetMyColorColumnCleanUp()
 augroup END
+
+" }}}
+
+" Loading and Configuring Settings {{{
+
+" automatically source vimrc after session load
+augroup sessions
+  autocmd!
+  autocmd SessionLoadPost * :source $MYVIMRC
+augroup END
+
+" using marker folding for .vimrc
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" handly quick file and directory edit mappings
+nnoremap <silent> <LocalLeader>ev :vs $MYVIMRC<CR>
+nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>
+nnoremap <silent> <Leader>sf :source %<CR>
+nnoremap <silent> <Leader>vc :vs ~/.dotfiles/vim/.vim/colors/squeedom.vim<CR>
+nnoremap <silent> <Leader>vd :vs ~/.dotfiles/vim/.vim<CR>
+nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 " }}}
 
