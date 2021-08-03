@@ -20,11 +20,11 @@ count=stop
 regexp=^... (\d| )\d \d\d:\d\d:\d\d(\s[\w\d]+?\s)
 colours=green, green, red
 count=once
-======
-# everything in parentheses
-regexp=\(.+?\)
-colours=green
-count=more
+# ======
+# # everything in parentheses
+# regexp=\(.+?\)
+# colours=green
+# count=more
 ======
 # everything in `'
 regexp=\`.+?\'
@@ -32,8 +32,8 @@ colours=bold yellow
 count=more
 ======
 # this is probably a pathname
-regexp=/[\w/\.]+
-colours=bold green
+regexp= /[\w/\.-]+
+colours=yellow
 count=more
 ======
 # name of process and pid
@@ -51,7 +51,42 @@ regexp=connect
 colours=on_red
 count=more
 ======
+# urls
+regexp=(https?://[\w/_\-:]+)
+colours=yellow
+count=more
+======
 # date format
 regexp=^\w{3} \d\d \d\d:\d\d:\d\d
 colours="\033[38;5;244m"
 count=once
+======
+# http verbs
+regexp=\b(GET|POST|DELETE|PUT)\b
+colours=bold green
+count=more
+======
+# http response codes - 100s
+regexp=\b(10[0123])\b
+colours=bold green
+count=more
+======
+# http response codes - 200s
+regexp=\b(2[02][012345678])\b
+colours=bold green
+count=more
+======
+# http response codes - 300s
+regexp=\b(30[012345678])\b
+colours=bold yellow
+count=more
+======
+# http response codes - 400s
+regexp=\b(4[01235][0123456789])\b
+colours=reverse red
+count=more
+======
+# http response codes - 500s
+regexp=\b(5[01][012345678])\b
+colours=reverse red
+count=more
