@@ -10,6 +10,9 @@ if [[ -z $TMUX ]]; then
   # Rust
   export PATH="$HOME/.cargo/bin:$PATH"
 
+  # Go
+  export PATH="$HOME/go/bin:$PATH"
+
   if [[ "$(uname)" == "Darwin" ]] && [[ "$(whoami)" == "MrSquee" ]]; then
     source ~/.dotfiles/zsh/zshenv-personal-mac
   fi

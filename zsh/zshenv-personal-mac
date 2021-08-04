@@ -13,11 +13,6 @@ export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 # view instructions here https://reactnative.dev/docs/environment-setup
 
-# Go
-export GOPATH="$HOME/.go"
-export GOROOT="/usr/local/opt/go/libexec"
-export PATH="$PATH:$GOPATH/bin:$GOROOT/bin"
-
 # paths for zlib
 if [ -d /usr/local/opt/zlib ]; then
   export LDFLAGS="-L/usr/local/opt/zlib/lib"
