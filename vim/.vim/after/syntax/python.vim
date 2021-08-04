@@ -4,7 +4,7 @@
 
 " Highlighting for type hints
 syntax keyword pythonTypeHint Any Awaitable Callable Optional Union
-syntax keyword pythonTypeHint DefaultDict Dict List Set
+syntax keyword pythonTypeHint DefaultDict Dict List Set Tuple
 highlight link pythonTypeHint Type
 
 highlight link pythonStatement Keyword

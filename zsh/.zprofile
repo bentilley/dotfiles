@@ -1,1 +1,1 @@
-echo ".zprofile just got sourced!"
+echo "Welcome to your terminal! :)"

@@ -13,7 +13,7 @@ if exists(":CompilerSet") != 2		" older Vim always used :setlocal
 endif
 
 CompilerSet makeprg=pytest\ --tb=short\ -vv\ $*
-CompilerSet errorformat=%f:%l:\ %m
+CompilerSet errorformat=%f:%l:%m
 
 " CompilerSet errorformat=
 "   \%+G%[=]%\\+\ %*\\d\ passed%.%#,

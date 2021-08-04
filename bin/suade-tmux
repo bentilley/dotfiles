@@ -1,0 +1,6 @@
+#!/usr/bin/env sh
+
+tmux new-session -d -c ~/code/services/Services-main -s Services-main
+tmux new-session -d -c ~/code/services/Services-wt1 -s Services-wt1
+tmux new-session -d -c ~/code/services/Services-wt2 -s Services-wt2
+tmux attach-session -t Services-main -d

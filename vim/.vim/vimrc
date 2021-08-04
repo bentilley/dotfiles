@@ -29,6 +29,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mileszs/ack.vim'                  " greping in vim
   Plug 'aperezdc/vim-template'
   Plug 'junegunn/limelight.vim'           " hyper focused text highlighting
+  Plug 'junegunn/goyo.vim'                " distraction free vim
   Plug 'majutsushi/tagbar'                " show tag window
   Plug 'tpope/vim-fugitive'
   Plug 'tpope/vim-projectionist'
@@ -59,40 +60,18 @@ call plug#begin('~/.vim/plugged')
   Plug 'lark-parser/vim-lark-syntax'      " lark
   Plug 'lifepillar/pgsql.vim'             " postgresql
   Plug 'MTDL9/vim-log-highlighting'       " arbitrary log files
+  Plug 'tpope/vim-markdown'               " markdown
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
   Plug 'tyru/open-browser.vim'            " open URI in browser
   Plug 'tmux-plugins/vim-tmux'            " nice extras for tmux.conf
+  Plug 'pixelneo/vim-python-docstring'    " python docstring generation
 
   " MISC
   Plug 'vimwiki/vimwiki'
 
 call plug#end()
-
-" }}}
-
-" Loading and Configuring Settings {{{
-
-" automatically source vimrc after session load
-augroup sessions
-  autocmd!
-  autocmd SessionLoadPost * :source $MYVIMRC
-augroup END
-
-" using marker folding for .vimrc
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
-" handly quick file and directory edit mappings
-nnoremap <silent> <Leader>ev :vs $MYVIMRC<CR>
-nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>
-nnoremap <silent> <Leader>sf :source %<CR>
-nnoremap <silent> <Leader>vc :vs ~/.dotfiles/vim/.vim/colors/squeedom.vim<CR>
-nnoremap <silent> <Leader>vd :vs ~/.dotfiles/vim/.vim<CR>
-nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 " }}}
 
@@ -131,6 +110,30 @@ augroup MyColorColumn
   autocmd BufNewFile,BufEnter,WinNew * call squee#SetMyColorColumn()
   autocmd QuitPre * call squee#SetMyColorColumnCleanUp()
 augroup END
+
+" }}}
+
+" Loading and Configuring Settings {{{
+
+" automatically source vimrc after session load
+augroup sessions
+  autocmd!
+  autocmd SessionLoadPost * :source $MYVIMRC
+augroup END
+
+" using marker folding for .vimrc
+augroup filetype_vim
+  autocmd!
+  autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" handly quick file and directory edit mappings
+nnoremap <silent> <LocalLeader>ev :vs $MYVIMRC<CR>
+nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>
+nnoremap <silent> <Leader>sf :source %<CR>
+nnoremap <silent> <Leader>vc :vs ~/.dotfiles/vim/.vim/colors/squeedom.vim<CR>
+nnoremap <silent> <Leader>vd :vs ~/.dotfiles/vim/.vim<CR>
+nnoremap <silent> <Leader>t :!tmux source ~/.tmux.conf<CR>
 
 " }}}
 
@@ -501,7 +504,8 @@ command! ShowColours so $VIMRUNTIME/syntax/hitest.vim
 " Vim Test Settings {{{
 
 " make test commands execute using dispatch.vim
-let test#strategy = "dispatch"
+let g:test#strategy = "dispatch"
+let g:test#runner_commands = ['PyTest']
 
 nmap <silent> <C-T>n :TestNearest<CR>
 nmap <silent> <C-T>f :TestFile<CR>

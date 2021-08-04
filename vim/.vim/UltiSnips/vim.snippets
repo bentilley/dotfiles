@@ -34,8 +34,12 @@ else
 endif
 endsnippet
 
-snippet for "for loop" b
+snippet for "For loop" b
 for ${1:i} in ${2:list}
   ${0:statement}
 endfor
+endsnippet
+
+snippet p "Echo (print) statement" b
+echom ${1:"${2:something}"}
 endsnippet

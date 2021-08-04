@@ -24,3 +24,6 @@
 
 [interactive]
         #diffFilter = delta --color-only
+
+[rebase]
+	autosquash = true
