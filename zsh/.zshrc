@@ -2,7 +2,7 @@
 # Variables
 export EDITOR="vim"
 export PAGER="less"
-export LSCOLORS="Gxfxcxdxbxegedabagacad"
+export LSCOLORS="ExfxcxdxCxegedabagacad"
 type firefox &>/dev/null && export BROWSER=firefox
 
 
