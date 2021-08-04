@@ -3,7 +3,7 @@
 " File for additional python syntax
 
 " Highlighting for type hints
-syntax keyword pythonTypeHint Any Optional Union
+syntax keyword pythonTypeHint Any Awaitable Callable Optional Union
 syntax keyword pythonTypeHint DefaultDict Dict List Set
 highlight link pythonTypeHint Type
 

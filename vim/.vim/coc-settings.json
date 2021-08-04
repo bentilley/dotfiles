@@ -9,6 +9,5 @@
   "coc.preferences.jumpCommand": "edit",
   "javascript.suggestionActions.enabled": false,
   "python.analysis.typeCheckingMode": "off",
-  "pyright.disableSelfClsNotAccessed": true,
   "python.venvPath": "/home/ben/.pyenv/versions"
 }
