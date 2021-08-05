@@ -1,3 +1,4 @@
+# vim: ft=muttrc
 ####################################
 # targansaikhan@gmail.com settings #
 ####################################
@@ -5,17 +6,21 @@
 set from = "targansaikhan@gmail.com"
 set realname = "Ben Tilley"
 set imap_user = "targansaikhan@gmail.com"
-set imap_pass = `security find-generic-password -a $USER -s targansaikhan@gmail.com -w`
+set imap_pass = "`pass show email/targansaikhan@gmail.com`"
 set folder = "imaps://imap.gmail.com:993"
+folder-hook $folder 'source ~/.mutt/accounts/account.com.gmail.targansaikhan'
 set hostname="gmail.com"
 set spoolfile = "+INBOX"
 set ssl_force_tls = yes
 set ssl_starttls = yes
 set signature = "~/.mutt/signatures/signature.com.hotmail.tilleyben"
-set postponed = +[Gmail]/Drafts
-mailboxes +INBOX
+set postponed = "+[Gmail]/Drafts"
+set record = "+[Gmail]/Sent Mail"
+set trash = "+[Gmail]/Trash"
+# unmailboxes *
+mailboxes -label GmailInbox +INBOX
 
-# TODO - not sure what this is for yet, so leaving for now
-# set header_cache = ~/.mutt/com.gmail.foo/cache/headers            
-# set message_cachedir = ~/.mutt/com.gmail.foo/cache/bodies         
-# set certificate_file = ~/.mutt/com.gmail.foo/certificates  
+# SMTP Settings
+set smtp_authenticators = 'gssapi:login'
+set smtp_url = "smtp://targansaikhan@smtp.gmail.com:587"
+set smtp_pass = "`pass show email/targansaikhan@gmail.com`"

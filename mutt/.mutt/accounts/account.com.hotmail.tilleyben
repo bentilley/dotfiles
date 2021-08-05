@@ -6,19 +6,21 @@
 set from = "tilleyben@hotmail.com"
 set realname = "Ben Tilley"
 set imap_user = "tilleyben@hotmail.com"
-set imap_pass = `security find-generic-password -a $USER -s tilleyben@hotmail.com -w`
+set imap_pass = "`pass show email/tilleyben@hotmail.com`"
 set folder = "imaps://outlook.office365.com:993"
+folder-hook $folder 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
 set hostname="office365.com"
 set spoolfile = "+INBOX"
 set ssl_force_tls = yes
 set ssl_starttls = yes
 set signature = "~/.mutt/signatures/signature.com.hotmail.tilleyben"
 set postponed = +Drafts
-mailboxes +INBOX +Admin
+set record = +Sent
+set trash = +Deleted
+# unmailboxes *
+mailboxes -label HotmailInbox +INBOX
 
-# Sending Mail
+# SMTP Settings
+unset smtp_authenticators
 set smtp_url = "smtp://tilleyben@hotmail.com@smtp.office365.com:587"
-set smtp_pass = `security find-generic-password -a $USER -s tilleyben@hotmail.com -w`
-
-# TODO - not sure what this is for yet, so leaving for now
-# set certificate_file = ~/.mutt/com.gmail.foo/certificates  
+set smtp_pass = "`pass show email/tilleyben@hotmail.com`"

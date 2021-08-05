@@ -19,6 +19,3 @@ mailboxes +INBOX +Work +Office
 # Sending Mail
 set smtp_url = "smtp://ben@suade.org@smtp.office365.com:587"
 set smtp_pass = "`keyring get mutt ben@suade.org`"
-
-# TODO - not sure what this is for yet, so leaving for now
-# set certificate_file = ~/.mutt/com.gmail.foo/certificates  

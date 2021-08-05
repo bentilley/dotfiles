@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+main() {
+  if is_personal_computer; then
+    echo "$HOME/.mutt/accounts/account.com.hotmail.tilleyben"
+  fi
+}
+
+is_personal_computer() {
+  if [ "$USER" == "MrSquee" ]; then
+    return 0
+  else
+    return 1
+  fi
+}
+
+main "$@"

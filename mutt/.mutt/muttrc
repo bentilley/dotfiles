@@ -8,15 +8,25 @@ set mailcap_path = ~/.mutt/mailcap
 set mail_check = 120
 set mail_check_stats
 set mail_check_stats_interval = 300
-set imap_check_subscribed
-# unset imap_passive
 alternative_order text/plain text/html *
 auto_view text/html
 
-set header_cache = "~/.cache/mutt"            
-set message_cachedir = "~/.cache/mutt"         
+set sort = reverse-threads
+# set sort_aux = 'reverse-last-date-received'
+set move = no
+# hdr_order Date From To Cc
 
-# Sidebar settings
+# IMAP Settings
+set imap_deflate
+# set imap_check_subscribed
+# unset imap_passive
+
+# Cache Settings
+set header_cache = "~/.cache/mutt/headers"            
+set message_cachedir = "~/.cache/mutt/messages"         
+set certificate_file = "~/.cache/mutt/certificates"
+
+# Sidebar Settings
 set sidebar_visible
 set sidebar_format = "%!%B %n%*  (%N)"
 set sidebar_folder_indent
@@ -29,33 +39,13 @@ bind index <Esc>l sidebar-open
 # Key Bindings
 macro index + '<change-folder>=Inbox<enter>'
 
-# Work Account
-source '~/.mutt/accounts/account.org.suade.ben'
-# folder-hook $folder 'source ~/.mutt/accounts/account.com.accesso.Ben.Tilley'
-
-# Personal Hotmail Account
-# source '~/.mutt/accounts/account.com.hotmail.tilleyben'
-# folder-hook $folder 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
-
-# Personal Hotmail Account Local
-# source '~/.mutt/accounts/account.local.com.hotmail.tilleyben'
-# folder-hook $folder 'source ~/.mutt/accounts/account.local.com.hotmail.tilleyben'
-
-set sort = reverse-threads
+# Setup Initial Account
+source "`bash ~/.dotfiles/mutt/set_startup_account`"
 
 # Accounts Switching
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.hotmail.tilleyben<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.gmail.targansaikhan<enter><change-folder>!<enter>'
-macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.accesso.Ben.Tilley<enter><change-folder>!<enter>'
-
-# Folder hooks
-# account-hook 'tilleyben@hotmail.com' 'source ~/.mutt/accounts/account.com.hotmail.tilleyben'
-# account-hook 'targansaikhan@gmail.com' 'source ~/.mutt/accounts/account.com.gmail.targansaikhan'
-
-# Basic Macros
-macro index A \
-  '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter><sync-mailbox>' \
-  'mark all new in folder as read'
+# macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.org.suade.ben<enter><change-folder>!<enter>'
 
 # Colours
 source '~/.mutt/colours.muttrc'
@@ -64,19 +54,13 @@ source '~/.mutt/colours.muttrc'
 set alias_file='~/.mutt/aliases'
 source $alias_file
 
-# set header_cache=~/.mutt/cache/headers
-# set message_cachedir=~/.mutt/cache/bodies
-# set certificate_file=~/.mutt/certificates
-# set move = no
-# set include
-# set sort = 'threads'
-# set sort_aux = 'reverse-last-date-received'
-# set auto_tag = yes
-# ignore "Authentication-Results:"
-# ignore "DomainKey-Signature:"
-# ignore "DKIM-Signature:"
-# hdr_order Date From To Cc
-# bind editor <space> noop
+# Header Ignores
+# ignore "X-Mailer"
+
+# Macros
+macro index A \
+  '<tag-pattern>~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter><sync-mailbox>' \
+  'mark all new in folder as read'
 
 # Gmail-style keyboard shortcuts
 # macro index,pager y "<enter-command>unset trash\n <delete-message>" "Gmail archive message"

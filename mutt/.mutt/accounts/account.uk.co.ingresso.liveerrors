@@ -1,5 +1,0 @@
-set folder = "imaps://liveerrors@imap.ingresso.co.uk:993"
-set spoolfile = "+INBOX"
-set ssl_force_tls = yes
-set ssl_starttls = yes
-
