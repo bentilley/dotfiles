@@ -1,2 +1,3 @@
 alias x pdb.set_trace = lambda: None;; c
+alias ix ipdb.set_trace = lambda: None;; c
 alias cp import os; os.system("echo '" + %* + "' | cb")
