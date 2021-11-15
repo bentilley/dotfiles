@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+FZF=fzf
+DB_FILE=${SQUEE_DB_FILE:-$HOME/.config/dbs}
+
+while getopts ":e" opt; do
+  case "$opt" in
+  e)
+    vim "$DB_FILE"
+    exit 0
+    ;;
+  \?)
+    echo "Usage: command [-e (edit)]" 1>&2
+    ;;
+  :)
+    echo "Invalid option: $OPTARG requires an argument" 1>&2
+    ;;
+  esac
+done
+# Shift parsed options from the input
+shift $((OPTIND - 1))
+
+main() {
+  DB=$(get_database)
+  URI=$(echo "$DB" | awk '{ print $2 }')
+  # read -r user_name db_name <<<$(echo "$URI" | sed -E -e 's~postgres(ql)?://({^@]+)@([^:]+):.*$~\2 \3~')
+  read -r user host port rest <<<$(
+    echo "$URI" |
+      sed -e 's~postgres\(ql\)\?://\([^@]\+\)@\([^:]\+\):\([^/]\+\)\(.*\)$~\2 \3 \4 \5~'
+  )
+  pw=$(pass show "elwood/dbs/$host/$user")
+  echo "postgresql://$user:$pw@$host:$port$rest"
+}
+
+get_database() {
+  $FZF <"$DB_FILE"
+}
+
+main "$@"
