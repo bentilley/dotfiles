@@ -21,6 +21,9 @@ symlinking_config_files() {
   # CTAGS
   dotfile_link "ctags" "$HOME/.ctags.d"
 
+  # DELVE
+  dotfile_link "dlv/config.yml" "$HOME/.dlv/config.yml"
+
   # GIT
   dotfile_link "git/gitignore.global" "$CONFIG_DIR/.gitignore"
   dotfile_link "git/gitconfig" "$HOME/.gitconfig"
@@ -51,6 +54,9 @@ symlinking_config_files() {
 
   # PDB
   dotfile_link "pdb/.pdbrc" "$HOME/.pdbrc"
+
+  # PDB
+  dotfile_link "pgcli/config" "$CONFIG_DIR/pgcli"
 
   # STARSHIP
   dotfile_link "starship/starship.toml" "$CONFIG_DIR/starship.toml"
