@@ -5,7 +5,6 @@ export PAGER="less"
 export LSCOLORS="ExfxcxdxCxegedabagacad"
 type firefox &>/dev/null && export BROWSER=firefox
 
-
 # History configuration
 export HISTSIZE=50000
 export SAVEHIST=100000
@@ -48,7 +47,10 @@ _comp_options+=(globdots)		# Include hidden files.
 
 
 # fzf
-export FZF_DEFAULT_COMMAND='ag --nocolor -g .'
+export FZF_DEFAULT_COMMAND='rg --color=never --files-with-matches .'
+
+# direnv
+export DIRENV_WARN_TIMEOUT='10s'
 
 # macports
 export MP_EDITOR_VISUAL=/usr/local/bin/vim
@@ -68,9 +70,17 @@ zle -N var-subs
 function fzf-history () {
   COMMAND="$(history 1 | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
   zle redisplay
-  BUFFER=${COMMAND}
+  LBUFFER=${COMMAND}
 }
 zle -N fzf-history
+
+# FZF history search
+function fzf-history-uniq () {
+  COMMAND="$(history -n 1 | sort | uniq | fzf --reverse --query=${LBUFFER})"
+  zle redisplay
+  LBUFFER=${COMMAND}
+}
+zle -N fzf-history-uniq
 
 # key bindings
 bindkey -v
@@ -82,6 +92,7 @@ bindkey -M viins "^E" end-of-line
 bindkey -M viins "^O" var-subs
 bindkey -M viins "^R" history-incremental-search-backward
 bindkey -M viins "^F" fzf-history
+bindkey -M viins "^G" fzf-history-uniq
 export KEYTIMEOUT=10
 
 # source additional files
@@ -112,3 +123,7 @@ _evalcache direnv hook zsh
 # setup starship prompt
 _evalcache starship init zsh
 # zprof
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+
