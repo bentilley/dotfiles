@@ -1,35 +1,35 @@
-import platform
+import getpass
 import subprocess
 
 
-def get_password(platform):
-    if platform == "Linux":
-        return subprocess.run(
-            [
-                "keyring",
-                "get",
-                "grip",
-                "bentilley",
-            ],
-            capture_output=True,
-        ).stdout.strip()
+USER_NAME_MAP = {
+    "btilley": "ben-tilley-elw",
+    "mrsquee": "bentilley",
+}
 
-    if platform == "Darwin":
-        return subprocess.run(
-            [
-                "security",
-                "find-generic-password",
-                "-a",
-                "bentilley",
-                "-s",
-                "grip@github.com",
-                "-w",
-            ],
-            capture_output=True,
-        ).stdout.strip()
 
-    raise Exception("Platform is not recognised!")
+PW_CMD_MAP = {
+    "btilley": ["pass", "show", "github/grip-markdown-elwood-laptop"],
+    "mrsquee": [
+        "pass",
+        "find-generic-password",
+        "-a",
+        "bentilley",
+        "-s",
+        "grip@github.com",
+        "-w",
+    ],
+}
+
+
+def get_password(username):
+    command = PW_CMD_MAP[username]
+    return subprocess.run(
+        command,
+        capture_output=True,
+    ).stdout.strip()
 
 
 USERNAME = "bentilley"
-PASSWORD = get_password(platform.system())
+USERNAME = USER_NAME_MAP[getpass.getuser()]
+PASSWORD = get_password(getpass.getuser())
