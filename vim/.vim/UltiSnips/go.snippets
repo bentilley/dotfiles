@@ -9,8 +9,107 @@
 # endglobal
 
 
-snippet fn "function definition" b
-func ${1:name}(${2:args}) {
+snippet fn "function definition" i
+func ${1:name}(${2:args}) ${3:return} {
+    ${0:fmt.Println("function")}
+}
+endsnippet
+
+snippet fmd "method definition" i
+func (${1:class type}) ${2:name}(${3:args}) ${4:return} {
+    ${0:fmt.Println("function")}
+}
+endsnippet
+
+snippet fng "annonymous go routing" b
+go func(${1:args}) {
+    ${0:fmt.Println("goroutine!")}
+}($1)
+endsnippet
+
+# Data Types
+
+snippet obj "new struct type" b
+type ${1:Name} struct {
+    ${0:Prop string}
+}
+endsnippet
+
+# Control Flow
+
+snippet if "if block" b
+if ${1:condition} {
     ${0:body}
 }
+endsnippet
+
+snippet ife "if else" b
+if ${1:condition} {
+    ${2:body}
+} else {
+    ${0:body}
+}
+endsnippet
+
+snippet ifer "if error check" b
+if $1err != nil {
+    ${0:fmt.Println("Error: %v", err)}
+}
+endsnippet
+
+snippet ifm "if map key check" b
+if ${1:var}, ok := ${2:Map}[${3:key}]; ok {
+    ${0:fmt.Println($3, $1)}
+}
+endsnippet
+
+snippet sw "switch statement" b
+switch ${1:statement} {
+case ${2:value}:
+	${3:log.Info("we have %s", $2)}
+default:
+	${0:log.Info("default")}
+}
+endsnippet
+
+snippet fori "for loop" b
+for ${1:i} := 0; $1 < ${2:count}; $1++ {
+    ${0:fmt.Println(i)}
+}
+endsnippet
+
+snippet forr "for range loop" b
+for ${1:_}, ${2:v} := range ${3:iterable} {
+    ${0:fmt.Println("value: %s", $2)}
+}
+endsnippet
+
+snippet forc "for channel loop" b
+for ${1:msg} := range ${2:ch} {
+    ${0:fmt.Println("value: %s", $1)}
+}
+endsnippet
+
+snippet for "while true loop" b
+for {
+    ${0:fmt.Println("looping...")}
+}
+endsnippet
+
+snippet sel "select statement" b
+select {
+case ${1:data := <-chan}:
+    ${0:fmt.Println(data)}
+}
+endsnippet
+
+# Printing
+
+snippet p "print" b
+fmt.Println(${0:"something"})
+endsnippet
+
+# Array / Slice operations
+snippet "app([_a-zA-Z][_a-zA-Z0-9]+)" "append to array / slice" r
+`!p snip.rv = match.group(1)` = append(`!p snip.rv = match.group(1)`, ${0:var})
 endsnippet

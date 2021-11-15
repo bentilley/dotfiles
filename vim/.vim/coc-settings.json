@@ -9,5 +9,8 @@
   "coc.preferences.jumpCommand": "edit",
   "javascript.suggestionActions.enabled": false,
   "python.analysis.typeCheckingMode": "off",
-  "python.venvPath": "/home/ben/.pyenv/versions"
+  "python.venvPath": "/Users/btilley/.pyenv/versions",
+  "go.toolsEnvVars": {
+    "GO111MODULE": "on"
+  }
 }

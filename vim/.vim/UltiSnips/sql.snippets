@@ -1,0 +1,23 @@
+# sql.snippets
+# Copyright (C) 2021 Ben Tilley <targansaikhan@gmail.com>
+# 
+# Distributed under terms of the MIT license.
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.sql import some_function
+# endglobal
+
+
+snippet fn "SQL function" b
+CREATE OR REPLACE FUNCTION ${1:name}($2)
+RETURNS ${3:value}
+LANGUAGE ${4:language}
+AS
+$$
+${5:DECLARE}
+BEGIN
+  ${0:body}
+END
+$$
+endsnippet

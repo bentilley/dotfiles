@@ -21,6 +21,7 @@ endfunction
 
 
 " ALE (linting and fixing) Settings
+let b:ale_linters = ['vale']
 let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
 
 

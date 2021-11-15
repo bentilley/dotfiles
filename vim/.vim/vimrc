@@ -38,6 +38,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
   Plug 'tpope/vim-dispatch'
   Plug 'tpope/vim-abolish'
+  Plug 'tpope/vim-dadbod'
+  Plug 'tpope/vim-capslock'
   Plug 'qxxxb/vim-searchhi'
   Plug 'vim-test/vim-test'
   Plug 'jeetsukumaran/vim-indentwise'
@@ -52,6 +54,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'mxw/vim-jsx'                      " jsx
   Plug 'posva/vim-vue'                    " vue
   Plug 'bfrg/vim-cpp-modern'              " cpp
+  " Plug 'fatih/vim-go'                     " go
   Plug 'Quramy/vim-js-pretty-template'    " template string
   Plug 'aklt/plantuml-syntax'             " plantuml
   Plug 'cespare/vim-toml'                 " toml
@@ -175,6 +178,9 @@ nnoremap <Leader>cd :let @+=expand("%:p")<CR>
 nnoremap sfld :set foldmethod=syntax<CR>
 nnoremap mfld :set foldmethod=manual<CR>
 nnoremap <Space> za
+
+" add scafolding
+nnoremap gs i--------------- working ---------------<Esc>
 
 " renaming things
 nnoremap <Leader>rn yiw:%s/<C-R>+/
@@ -490,6 +496,12 @@ nnoremap <Leader>h :JsPreTmpl html<CR>
 
 " }}}
 
+" Goyo Settings {{{
+
+ let g:goyo_width = 120
+
+" }}}
+
 " Syntax Highlighting Helpers {{{
 
 " for showing you the syntax highlighting group of the word the you are hovering over
@@ -505,7 +517,7 @@ command! ShowColours so $VIMRUNTIME/syntax/hitest.vim
 
 " make test commands execute using dispatch.vim
 let g:test#strategy = "dispatch"
-let g:test#runner_commands = ['PyTest']
+let g:test#runner_commands = ['PyTest', 'GoTest']
 
 nmap <silent> <C-T>n :TestNearest<CR>
 nmap <silent> <C-T>f :TestFile<CR>
