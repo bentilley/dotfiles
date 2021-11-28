@@ -45,7 +45,7 @@ source "`bash ~/.dotfiles/mutt/set_startup_account`"
 # Accounts Switching
 macro index <f2> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.hotmail.tilleyben<enter><change-folder>!<enter>'
 macro index <f3> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.com.gmail.targansaikhan<enter><change-folder>!<enter>'
-# macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/account.org.suade.ben<enter><change-folder>!<enter>'
+# macro index <f4> '<sync-mailbox><enter-command>source ~/.mutt/accounts/[WORK_ACCOUNT_ADDRESS_HERE]<enter><change-folder>!<enter>'
 
 # Colours
 source '~/.mutt/colours.muttrc'
