@@ -99,25 +99,3 @@ wtf:
         height: 2
         width: 2
       refreshInterval: 600
-    gitlabtodo:
-      enabled: true
-      position:
-        top: 2
-        left: 0
-        height: 1
-        width: 2
-      domain: https://gitlab.internal.suade.org
-      refreshInterval: 300
-      numberOfTodos: 10,
-    gitlab:
-      enabled: true
-      position:
-        top: 0
-        left: 2
-        height: 3
-        width: 2
-      domain: https://gitlab.internal.suade.org
-      refreshInterval: 300
-      projects:
-        - "suade/Services"
-      username: "ben"
