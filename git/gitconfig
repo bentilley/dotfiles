@@ -8,7 +8,7 @@
         tmsutag = "!gtt() { tmsu tag $1 $(git branch --show-current) ;}; gtt"
 
 [user]
-	email = ben@suade.org
+	email = tilleyben@hotmail.com
 	name = Ben Tilley
 
 [merge]
