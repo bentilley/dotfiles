@@ -1,3 +1,9 @@
 #!/usr/bin/env bash
 
-task +next _get $(task +next ids).short_desc
+DESC=$(task +next _get "$(task +next ids)".short_desc)
+
+if [ -z "$DESC" ]; then
+  DESC=$(task _get "$(task +next ids)".description)
+fi
+
+echo "$DESC"
