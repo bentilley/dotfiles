@@ -31,9 +31,6 @@ alias lvim='vim -c "normal '"'"'0"'
 alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
 alias vtag='vim $(git tmsu | xargs readlink -f)'
 
-# pgcli aliases
-alias pg="docker run -it --rm pgcli"
-
 # toggl aliases
 alias tgopen="firefox https://track.toggl.com"
 
