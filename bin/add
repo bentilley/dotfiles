@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+usage() {
+  EXIT_CODE="$1"
+  echo "Usage: add [-p PROJECT] TASK" 1>&2
+  exit "$EXIT_CODE"
+}
+
+main() {
+  while getopts "hp:" opt; do
+    case "$opt" in
+    p)
+      PROJECT="$OPTARG"
+      ;;
+    h)
+      usage 0
+      ;;
+    \?)
+      usage 0
+      ;;
+    :)
+      echo "Invalid option: $OPTARG requires an argument" 1>&2
+      ;;
+    esac
+  done
+  # Shift parsed options from the input
+  shift $((OPTIND - 1))
+
+  TASK="$1"
+  shift 1
+
+  if [ -z "$TASK" ]; then
+    echo Task is not defined.
+    usage 1
+  fi
+
+  if [ -z "$PROJECT" ]; then
+    PROJECT="$(git branch --show-current)"
+  fi
+
+  if [ -z "$PROJECT" ]; then
+    echo Project is not defined.
+    usage 1
+  fi
+
+  task add project:"$PROJECT" "$TASK" "$@"
+}
+
+main "$@"

@@ -17,6 +17,8 @@ alias mconf="vim ~/.mutt/muttrc"
 
 # Taskwarrior
 alias todo="task summary && task calendar && task next"
+alias a="add"
+alias ta='task project:"$(git branch --show-current)" next'
 
 # Exa (colourful ls)
 alias lk="exa -lag -t=modified"
@@ -65,7 +67,6 @@ alias vd="deactivate"
 
 # tmux
 alias t="tmux"
-alias ta='tmux attach'
 alias tn='cd ~ && tmux new -s info'
 
 # Linux
