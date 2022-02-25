@@ -14,6 +14,7 @@ TYPE_DESCRIPTION = {
     "refactor": "A code change that neither fixes a bug nor adds a feature",
     "style": "Changes that do not affect the meaning of the code (e.g. formatting)",
     "test": "Adding missing tests or correcting existing tests",
+    "wip": "Work in progress (to be squashed later)",
 }
 
 
