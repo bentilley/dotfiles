@@ -82,6 +82,10 @@ function fzf-history-uniq () {
 }
 zle -N fzf-history-uniq
 
+# Edit command line in vim widget
+autoload -z edit-command-line
+zle -N edit-command-line
+
 # key bindings
 bindkey -v
 bindkey -M vicmd "^V" edit-command-line
