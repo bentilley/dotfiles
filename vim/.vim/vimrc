@@ -191,6 +191,9 @@ nnoremap <LocalLeader>bs yiw:BufferSearch <C-R>0<CR>
 " generate ctags
 nnoremap <Leader>c :terminal ++hidden ctags -R -f ./.git/tags .<CR>
 
+" markdown
+nnoremap <LocalLeader>ca :%s/\[ \]/[x]/<CR>
+
 " }}}
 
 " Insert Mode Helpers {{{
