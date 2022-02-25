@@ -7,6 +7,12 @@
   "coc.preferences.formatOnType": false,
   "coc.preferences.formatOnTypeFiletypes": [],
   "coc.preferences.jumpCommand": "edit",
+  "coc.preferences.rootPatterns": [
+    ".git",
+    ".hg",
+    ".projections.json",
+    "pyrightconfig.json"
+  ],
   "javascript.suggestionActions.enabled": false,
   "python.analysis.typeCheckingMode": "off",
   "python.venvPath": "/Users/btilley/.pyenv/versions",
