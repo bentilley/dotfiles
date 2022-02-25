@@ -35,6 +35,12 @@ type ${1:Name} struct {
 }
 endsnippet
 
+snippet inf "new interface type" b
+type ${1:Name} interface {
+    ${0:Method() string}
+}
+endsnippet
+
 # Control Flow
 
 snippet if "if block" b
@@ -57,6 +63,12 @@ if $1err != nil {
 }
 endsnippet
 
+snippet iferr "if error check combined" b
+if err := ${1:someFunc()}; err != nil {
+    ${0:fmt.Println("Error: %v", err)}
+}
+endsnippet
+
 snippet ifm "if map key check" b
 if ${1:var}, ok := ${2:Map}[${3:key}]; ok {
     ${0:fmt.Println($3, $1)}
@@ -67,6 +79,15 @@ snippet sw "switch statement" b
 switch ${1:statement} {
 case ${2:value}:
 	${3:log.Info("we have %s", $2)}
+default:
+	${0:log.Info("default")}
+}
+endsnippet
+
+snippet swt "switch type statement" b
+switch ${1:o} := ${2:object}.(type) {
+case ${3:string}:
+	${4:log.Info("we have %w", $1)}
 default:
 	${0:log.Info("default")}
 }
@@ -112,4 +133,24 @@ endsnippet
 # Array / Slice operations
 snippet "app([_a-zA-Z][_a-zA-Z0-9]+)" "append to array / slice" r
 `!p snip.rv = match.group(1)` = append(`!p snip.rv = match.group(1)`, ${0:var})
+endsnippet
+
+# Testing
+
+snippet t "test" b
+func Test${1:Something}(t *testing.T) {
+    err := ${2:testFunction()}
+    if err != nil {
+        t.Fatalf(${0:"test failed: %v", err})
+    }
+}
+endsnippet
+
+snippet tm "test main function" b
+func TestMain(m *testing.M) {
+    // write code here to run before tests
+    exitVal := m.Run()
+    // write code here to run after tests
+    os.Exit(exitVal)
+}
 endsnippet
