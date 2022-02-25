@@ -139,3 +139,12 @@ def main():
 if __name__ == "__main__":
     main()
 endsnippet
+
+# Argument Parsing
+
+snippet args "argparse setup" b
+parser = argparse.ArgumentParser(description="${1:how this script works}")
+parser.add_argument("--${2:arg}", help="${3:what $3 does}")
+# see https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument
+args = parser.parse_args()
+endsnippet
