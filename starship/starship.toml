@@ -89,4 +89,4 @@ show_notifications = false
 min_time_to_notify = 30_000
 
 [gcloud]
-format = '[$account(\($region\))]($style) '
+format = '[$project\($region\) - $account]($style) '
