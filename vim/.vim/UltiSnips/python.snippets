@@ -147,4 +147,9 @@ parser = argparse.ArgumentParser(description="${1:how this script works}")
 parser.add_argument("--${2:arg}", help="${3:what $3 does}")
 # see https://docs.python.org/3/library/argparse.html#argparse.ArgumentParser.add_argument
 args = parser.parse_args()
+
+# Utils
+
+snippet td "TODO label" b
+# TODO(`git branch --show-current | sed -e 's/^\([0-9]\+\)-.*$/\1/g'`) $0
 endsnippet
