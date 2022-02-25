@@ -212,3 +212,47 @@ endsnippet
 snippet mtm "Entity - many to many" b
 ${1:Entity1} }|--|{ ${0:Entity2}
 endsnippet
+
+
+# Deployment Diagrams
+
+snippet deployment "demo deployment diagram" b
+' https://plantuml.com/deployment-diagram
+node Node1 as n1
+node "Node 2" as n2
+file f1 as "File 1"
+cloud c1 as "this is a cloud"
+
+n1 -> n2
+n1 --> f1
+f1 -> c1
+endsnippet
+
+snippet elements "deployment elements" b
+actor actor
+agent agent
+artifact artifact
+boundary boundary
+card card
+circle circle
+cloud cloud
+collections collections
+component component
+control control
+database database
+entity entity
+file file
+folder folder
+frame frame
+hexagon hexagon
+interface interface
+label label
+node node
+package package
+person person
+queue queue
+rectangle rectangle
+stack stack
+storage storage
+usecase usecase
+endsnippet
