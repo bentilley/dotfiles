@@ -16,10 +16,10 @@ setlocal noexpandtab
 
 
 " ALE (linting and fixing) Settings
-let b:ale_linters = ['golangci-lint']
-let b:ale_fixers = ['golines', 'remove_trailing_lines', 'trim_whitespace']
+let b:ale_linters = ['golangci-lint', 'govet', 'staticcheck']
+let b:ale_fixers = ['gofumpt', 'golines', 'remove_trailing_lines', 'trim_whitespace']
 
-" let g:ale_go_golangci_lint_options = '--out-format=github-actions'
+let g:ale_go_golangci_lint_options = ''
 let g:ale_go_golangci_lint_package = 1
 
 

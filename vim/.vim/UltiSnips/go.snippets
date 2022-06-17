@@ -15,6 +15,12 @@ func ${1:name}(${2:args}) ${3:return} {
 }
 endsnippet
 
+snippet fnv "variable function definition" i
+${1:name} := func(${2:args}) ${3:return} {
+    ${0:fmt.Println("function")}
+}
+endsnippet
+
 snippet fmd "method definition" i
 func (${1:class type}) ${2:name}(${3:args}) ${4:return} {
     ${0:fmt.Println("function")}
@@ -27,7 +33,23 @@ go func(${1:args}) {
 }($1)
 endsnippet
 
+snippet fna "annonymous function" i
+func(${1:args})$2 { ${0:fmt.Println("function!")} }($1)
+endsnippet
+
+snippet fne "empty function" i
+func() { ${0:fmt.Println("function!")} }
+endsnippet
+
 # Data Types
+
+snippet st "struct" i
+struct{$0}
+endsnippet
+
+snippet in "interface" i
+interface{$0}
+endsnippet
 
 snippet obj "new struct type" b
 type ${1:Name} struct {
@@ -124,6 +146,24 @@ case ${1:data := <-chan}:
 }
 endsnippet
 
+# Errors
+
+snippet erw "wrapped error" i
+fmt.Errorf("${1:additional info}: %w", err)
+endsnippet
+
+# Types
+
+snippet map "map type" i
+map[${1:string}]${2:string}
+endsnippet
+
+# Language Helpers
+
+snippet ic "interface check" b
+var _ interface := (*type)(nil)
+endsnippet
+
 # Printing
 
 snippet p "print" b
@@ -146,11 +186,39 @@ func Test${1:Something}(t *testing.T) {
 }
 endsnippet
 
+snippet tt "test table" b
+tests := []struct{
+    name string
+    ${1:${2:property} ${3:int}}
+}{
+    {
+        name: "${4:test 1}",
+        $2: 1,
+    },
+}
+
+for _, tt := range tests {
+    t.Run(tt.name, func(t *testing.T) {
+        ${0:doSomething()}
+    })
+}
+endsnippet
+
 snippet tm "test main function" b
 func TestMain(m *testing.M) {
     // write code here to run before tests
     exitVal := m.Run()
     // write code here to run after tests
     os.Exit(exitVal)
+}
+endsnippet
+
+# Benchmarking
+
+snippet b "benchmark" b
+func Benchmark${1:Something}(b *testing.B) {
+    for i := 0; i < b.N; i++ {
+        ${2:someFunc()}
+    }
 }
 endsnippet
