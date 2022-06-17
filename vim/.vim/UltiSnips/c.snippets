@@ -1,0 +1,34 @@
+# c.snippets
+# Copyright (C) 2021 Ben Tilley <targansaikhan@gmail.com>
+# 
+# Distributed under terms of the MIT license.
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.c import some_function
+# endglobal
+
+
+snippet p "printf" b
+printf("${1:%s}"${2:, var});
+endsnippet
+
+snippet i "include" b
+#include <${1:stdio.h}>
+endsnippet
+
+# Functions
+
+snippet fn "function" b
+${1:void} ${2:name}(${3:args}) {
+  ${0:body}
+}
+endsnippet
+
+# Control Flow
+
+snippet fori "for loop" b
+for (int ${1:i} = ${2:0}; $1 < ${3:10}; $1++) {
+  ${0:body}
+}
+endsnippet

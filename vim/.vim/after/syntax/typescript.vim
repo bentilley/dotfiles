@@ -6,11 +6,13 @@ syntax keyword typescriptAbstract abstract
 
 highlight link typescriptStatementKeyword Keyword
 highlight link typescriptOperator Keyword
+highlight link typescriptRepeat Keyword
 
 highlight link typescriptVariable StorageClass
 
 highlight link typescriptConsoleMethod Function
 highlight link typescriptDateMethod Function
+highlight link typescriptPromiseMethod Function
 highlight link typescriptObjectStaticMethod Function
 highlight link typescriptArrowFunc Function
 highlight link typescriptIdentifier FunctionSpecial
@@ -36,6 +38,7 @@ highlight link typescriptDefault VariableSpecial
 highlight link typescriptTemplateSB StringSpecial
 
 highlight link typescriptBOMWindowProp Normal
+highlight link typescriptBOMHistoryProp Normal
 highlight link typescriptPaymentShippingOptionProp Normal
 highlight link typescriptDOMDocMethod Normal
 highlight link typescriptDOMFormProp Normal

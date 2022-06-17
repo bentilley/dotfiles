@@ -7,6 +7,10 @@ endglobal
 
 # UTILS
 
+snippet td "TODO label" b
+// TODO(`git branch --show-current | sed -e 's/^\([0-9]\+\)-.*$/\1/g'`) $0
+endsnippet
+
 snippet lg "Console logging" i
 console.log($1);
 endsnippet
@@ -71,6 +75,14 @@ if (${1:condition}) {
 }
 endsnippet
 
+snippet ifs "short if statement" b
+if (${1:condition}) ${0:return};
+endsnippet
+
+snippet err "new error" i
+new Error("${1:something went wrong}")${0:;}
+endsnippet
+
 snippet fn "Named function definition" i
 function $1($2) {
   $0
@@ -99,7 +111,7 @@ $0
 }
 endsnippet
 
-snippet iffe "Immediately Invoked function expression" b
+snippet iife "Immediately Invoked function expression" b
 (function(){
   $0
 })();
