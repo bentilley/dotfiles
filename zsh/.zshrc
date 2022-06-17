@@ -59,6 +59,9 @@ export MP_EDITOR_VISUAL=/usr/local/bin/vim
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
+# nvm
+export NVM_LAZY_LOAD=true
+
 # Alias for command substitution - easier than typing it
 function var-subs () {
   LBUFFER="${LBUFFER}"'$()'
@@ -96,7 +99,7 @@ bindkey -M viins "^E" end-of-line
 bindkey -M viins "^O" var-subs
 bindkey -M viins "^R" history-incremental-search-backward
 bindkey -M viins "^F" fzf-history
-bindkey -M viins "^G" fzf-history-uniq
+bindkey -M viins "^T" fzf-history-uniq
 export KEYTIMEOUT=10
 
 # source additional files
@@ -111,9 +114,14 @@ done
 zinit light zsh-users/zsh-autosuggestions
 zinit light davidparsson/zsh-pyenv-lazy
 zinit light mroth/evalcache
+zinit light lukechilds/zsh-nvm
+zinit light kadaan/zsh-goenv-lazy
 # zinit light MichaelAquilina/zsh-auto-notify
 # zinit light zdharma/fast-syntax-highlighting
 zinit snippet OMZP::git
+
+# setup key bindings for navi (set to Ctrl-G)
+_evalcache navi widget zsh
 
 # ZSH Auto-notify
 AUTO_NOTIFY_IGNORE+=("journalctl")

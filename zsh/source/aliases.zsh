@@ -15,6 +15,9 @@ alias gconf="vim ~/.dotfiles/git/gitconfig"
 alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \"(^#.*|^$|myali)\" | sort"
 alias mconf="vim ~/.mutt/muttrc"
 
+# utils
+alias wthr="curl wttr.in"
+
 # Taskwarrior
 alias todo="task summary && task calendar && task next"
 alias a="add"
