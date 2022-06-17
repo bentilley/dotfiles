@@ -122,6 +122,7 @@ check_third_party_tools() {
     brew_install jq jq
     brew_install lf lf
     brew_install lynx lynx
+    brew_install navi navi
     brew_install nvim nvim
     brew_install octave octave
     brew_install offlineimap offlineimap
