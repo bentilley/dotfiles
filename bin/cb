@@ -4,18 +4,16 @@
 
 if [ "$(uname)" = "Linux" ]; then
   CLIP_BOARD="xclip -selection clipboard -in"
-  # READ_COMMAND="read -rN1"
 elif [ "$(uname)" = "Darwin" ]; then
   CLIP_BOARD="pbcopy"
-  # READ_COMMAND="read -rn1"
 else
   exit 1
 fi
 
-# (
-#   while IFS='' $READ_COMMAND line || [ -n "$line" ]; do
-#     printf "%s" "$line"
-#   done
-# ) | $CLIP_BOARD
+if command -v gsed &>/dev/null; then
+  SED="gsed"
+else
+  SED="sed"
+fi
 
-sed -z '$ s/\n$//' </dev/stdin | $CLIP_BOARD
+$SED -z '$ s/\n$//' </dev/stdin | $CLIP_BOARD
