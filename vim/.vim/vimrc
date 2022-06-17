@@ -82,32 +82,32 @@ call plug#end()
 " Basic Editor Settings {{{
 
 colorscheme squeedom
-set undofile
-set undodir^=~/.config/vim/extra/undo//  " set a directory for undo files
-set viewdir=~/.config/vim/views          " set a directory for view files
 let mapleader = "\\"
 let maplocalleader = ";"
-set noea                                 " stopping windows from automatic resize on close
-set softtabstop=2 shiftwidth=2 expandtab " spaces instead of tabs, and set indent width
-set shiftround
-set backspace=2                          " make backspace work like most other programs
-set incsearch                            " highlight first search match while typing
-set hlsearch | nohl                      " highlight all search matches when search completed
-set number                               " add line numbers
-set relativenumber                       " do line numbering relative to current cursor row
-set notagrelative                        " tags not followed relative to tag file
-set ignorecase                           " search case insensitive - use \C for sensitive
-set smartcase                            " search case sensitive if contains capital letters
-set listchars=eol:$,space:.,tab:<->,trail:%,precedes:<,extends:>
-set sidescroll=5
-set timeoutlen=1000 ttimeoutlen=0        " exit visual faster
-set path=$PWD/**
-set complete-=i                         " removes indluded files from search
 set autoindent
-set nocursorline
+set backspace=2                          " make backspace work like most other programs
+set complete-=i                         " removes indluded files from search
+set hlsearch | nohl                      " highlight all search matches when search completed
+set ignorecase                           " search case insensitive - use \C for sensitive
+set incsearch                            " highlight first search match while typing
+set listchars=eol:$,space:.,tab:<->,trail:%,precedes:<,extends:>
 set modeline
-set tags+=./.git/tags
+set nocursorline
+set noea                                 " stopping windows from automatic resize on close
+set notagrelative                        " tags not followed relative to tag file
+set number                               " add line numbers
+set path=$PWD/**
+set relativenumber                       " do line numbering relative to current cursor row
 set scrolloff=2
+set shiftround
+set sidescroll=5
+set smartcase                            " search case sensitive if contains capital letters
+set softtabstop=2 shiftwidth=2 expandtab " spaces instead of tabs, and set indent width
+set tags+=./.git/tags
+set timeoutlen=1000 ttimeoutlen=0        " exit visual faster
+set undodir^=~/.config/vim/extra/undo//  " set a directory for undo files
+set undofile
+set viewdir=~/.config/vim/views          " set a directory for view files
 
 let g:my_colour_column = 80
 augroup MyColorColumn
