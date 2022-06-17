@@ -8,7 +8,7 @@ source ~/.vim/after/ftplugin/typescript.vim
 " let b:ale_linters = ['eslint']
 " let b:ale_fixers = ['prettier', 'remove_trailing_lines', 'trim_whitespace']
 " let g:ale_linters = { 'typescriptreact': ['eslint'] }
-" let b:ale_javascript_eslint_options = ['--ext', '.js,.jsx,.ts,.tsx']
+let b:ale_javascript_eslint_options = '--ext .js,.jsx,.ts,.tsx'
 
 " Abbreviations
 

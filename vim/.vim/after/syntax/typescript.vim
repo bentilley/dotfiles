@@ -38,6 +38,7 @@ highlight link typescriptDefault VariableSpecial
 highlight link typescriptTemplateSB StringSpecial
 
 highlight link typescriptBOMWindowProp Normal
+" highlight link typescriptBOMWindowMethod Function
 highlight link typescriptBOMHistoryProp Normal
 highlight link typescriptPaymentShippingOptionProp Normal
 highlight link typescriptDOMDocMethod Normal

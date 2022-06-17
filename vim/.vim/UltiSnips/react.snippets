@@ -1,0 +1,67 @@
+# react.snippets
+# Copyright (C) 2022 Ben Tilley <targansaikhan@gmail.com>
+# 
+# Distributed under terms of the MIT license.
+
+# these functions are imported from the /pythonx dir in /.vim
+# global !p
+# from snippets.react import some_function
+# endglobal
+
+# Hooks
+
+snippet eff "useEffect hook" b
+${2:React.}useEffect(() => {
+  ${0:console.log("useEffect")}
+}, [$1]);
+endsnippet
+
+snippet effch "useEffect hook" b
+${0:React.}useEffect(() => console.log("$1 changed", $1), [$1]);
+endsnippet
+
+snippet ref "useRef hook" b
+const ${1:ref} = ${0:React.}useRef(${2:null});
+endsnippet
+
+snippet refts "useRef hook typescript generic" b
+const ${1:ref} = ${0:React.}useRef<${3:HTMLElement}>(${2:null});
+endsnippet
+
+snippet state "useState hook" b
+const [${1:state}, set`!p snip.rv = (t[1] or "").capitalize()`] = ${0:React.}useState(${3:""})
+endsnippet
+
+snippet statets "useState hook typescript generic" b
+const [${1:state}, set`!p snip.rv = (t[1] or "").capitalize()`] = ${0:React.}useState<${2:string}>(${3:""})
+endsnippet
+
+snippet red "useReducer hook" b
+const [state, dispatch] = React.useReducer(
+  (s , a) => {
+    switch (a.type) {
+      case "ACTION":
+	return { ...s };
+      default:
+	return s;
+    }
+  },
+  {}
+);
+endsnippet
+
+snippet redts "useReducer hook" b
+type State = {};
+type Action = { type: "ACTION_TYPE"};
+const [state, dispatch] = React.useReducer(
+  (s: State , a: Action) => {
+    switch (a.type) {
+      case "ACTION_TYPE":
+	return { ...s };
+      default:
+	return s;
+    }
+  },
+  {}
+);
+endsnippet
