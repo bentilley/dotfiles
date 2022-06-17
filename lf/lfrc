@@ -6,6 +6,7 @@ set hidden
 
 # mappings
 
+map b !git blame "$f"
 map t toggle
 map D delete
 map <c-e> $$EDITOR ~/.config/lf/lfrc
