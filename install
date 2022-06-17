@@ -50,7 +50,7 @@ symlinking_config_files() {
   dotfile_link "mutt/.mutt" "$HOME/.mutt"
 
   # NEOVIM
-  dotfile_link "nvim/nvim" "$CONFIG_DIR/nvim"
+  dotfile_link "nvim/config" "$CONFIG_DIR/nvim"
 
   # PDB
   dotfile_link "pdb/.pdbrc" "$HOME/.pdbrc"
