@@ -47,7 +47,7 @@ search_todos() {
   fi
 
   rg --ignore-case --no-heading --no-line-number --hidden "$SEARCH_STR" |
-    sed -E -e 's/^([^:]+:).*TODO/\1  TODO/i'
+    sed -E -e 's/^([^:]+:).*TODO/\1  TODO/'
 }
 
 main "$@"
