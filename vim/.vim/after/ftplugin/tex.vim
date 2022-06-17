@@ -19,7 +19,7 @@ endfunction
 
 " ALE (linting and fixing) Settings
 let b:ale_linters = ['lacheck']
-let b:ale_fixers = ['remove_trailing_lines', 'trim_whitespace']
+let b:ale_fixers = ['latexindent', 'remove_trailing_lines', 'trim_whitespace']
 
 " Abbreviations
 abbreviate ;t % TODO
