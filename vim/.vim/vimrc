@@ -64,6 +64,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'lifepillar/pgsql.vim'             " postgresql
   Plug 'MTDL9/vim-log-highlighting'       " arbitrary log files
   Plug 'tpope/vim-markdown'               " markdown
+  " Plug 'odjhey/vim-curl-syntax'           " curl
 
   " LANGUAGE SPECIFIC
   Plug 'weirongxu/plantuml-previewer.vim' " plantuml previewer in browser
@@ -106,6 +107,7 @@ set autoindent
 set nocursorline
 set modeline
 set tags+=./.git/tags
+set scrolloff=2
 
 let g:my_colour_column = 80
 augroup MyColorColumn
@@ -200,7 +202,7 @@ nnoremap <LocalLeader>ca :%s/\[ \]/[x]/<CR>
 
 " toggle word cases
 inoremap <c-u> <esc>viwUea
-inoremap <c-y> <esc>viwuea
+" inoremap <c-y> <esc>viwuea
 
 " movement in insert mode
 inoremap <C-h> <C-o>h
