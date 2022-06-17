@@ -36,7 +36,7 @@ substitute-path:
 # max-array-values: 64
 
 # Maximum loaded string length.
-max-string-len: 500
+max-string-len: 1000
 
 # Output evaluation.
 # max-variable-recurse: 1
