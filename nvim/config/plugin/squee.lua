@@ -1,0 +1,4 @@
+-- squee.lua
+-- Author:  Ben Tilley
+-- Created: 2022-06-24
+-- Plugin for configuration logic
