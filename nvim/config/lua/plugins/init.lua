@@ -76,17 +76,32 @@ function plugins.vim_plug()
 	-- default configurations for diagnostic-languageserver (used with neovim/nvim-lspconfig)
 	Plug("creativenull/diagnosticls-configs-nvim")
 
-	Plug('kosayoda/nvim-lightbulb')
-	Plug('antoinemadec/FixCursorHold.nvim')
+	-- neovim treesitter config
+	Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 
-	Plug("tpope/vim-commentary")
-	Plug("tpope/vim-fugitive")
-	Plug("tpope/vim-surround")
-	Plug("tpope/vim-unimpaired")
-	-- Plug('vim-test/vim-test')
+	-- show the lightbulb emoji in the gutter when a code action is available
+	Plug("kosayoda/nvim-lightbulb")
+
+	-- fixes known issue with the CursorHold event in neovim
+	-- remove when this issue is resolved https://github.com/neovim/neovim/issues/12587
+	Plug("antoinemadec/FixCursorHold.nvim")
 
 	-- file formatting on save
 	Plug("mhartington/formatter.nvim")
+
+	-- add commenting actions
+	Plug("tpope/vim-commentary")
+
+	-- interact with git in neovim
+	Plug("tpope/vim-fugitive")
+
+	-- add bracket and other text surrounding commands
+	Plug("tpope/vim-surround")
+
+	-- add a bunch of [] mappings for interacting with neovim
+	Plug("tpope/vim-unimpaired")
+
+	-- Plug('vim-test/vim-test')
 
 	vim.call("plug#end")
 end

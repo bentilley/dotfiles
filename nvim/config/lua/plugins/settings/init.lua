@@ -5,5 +5,6 @@
 
 require(... .. ".FixCursorHold-nvim")
 require(... .. ".nvim-lspconfig")
+require(... .. ".nvim-treesitter")
 require(... .. ".diagnosticls-configs-nvim")
 require(... .. ".formatter-nvim")
