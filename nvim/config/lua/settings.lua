@@ -36,7 +36,8 @@ opt.backspace = { "indent", "eol", "start" }
 opt.complete = opt.complete - "i"
 opt.completeopt = { "menu", "menuone", "noselect", "preview" }
 opt.foldlevelstart = 99
-opt.foldmethod = "indent"
+opt.foldmethod = "expr"
+opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.formatoptions = "tcqj1"
 opt.listchars = { eol = "$", space = ".", tab = "<->", trail = "%", precedes = "<", extends = ">" }
 opt.path = opt.path + (vim.env.PWD .. "/**")

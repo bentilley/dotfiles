@@ -37,6 +37,7 @@ nmap("<Leader>ev", ":vsplit $MYVIMRC<CR>") -- custom, edit vimrc
 nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") -- custom, edit vimrc
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
+nmap("<Leader>z", "za") -- custom, fold toggle
 
 nmap("<LocalLeader>e", vim.diagnostic.open_float) -- vim.diagnostic.* nvim-lspconfig
 nmap("<LocalLeader>o", "o<Esc>") -- custom, insert line below
