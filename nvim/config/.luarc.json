@@ -5,7 +5,8 @@
   },
   "diagnostics": {
     "globals": [
-      "vim"
+      "vim",
+      "use"
     ]
   },
   "telemetry": {

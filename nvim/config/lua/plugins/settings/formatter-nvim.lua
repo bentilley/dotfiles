@@ -1,4 +1,4 @@
--- formatter.nvim.lua
+-- formatter-nvim.lua
 -- Author: Ben Tilley
 -- Created: 2022-07-02
 -- formatter.nvim Plugin Settings
@@ -10,8 +10,9 @@ require("formatter").setup({
 	log_level = vim.log.levels.WARN,
 	filetype = {
 		go = {
-			require("formatter.filetypes.go").gofumpt,
 			require("formatter.filetypes.go").goimports,
+			require("formatter.filetypes.go").gofumpt,
+			require("formatter.filetypes.go").golines,
 		},
 		javascript = {
 			require("formatter.filetypes.javascript").prettier,

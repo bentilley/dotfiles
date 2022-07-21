@@ -3,5 +3,9 @@
 -- Created: 2022-05-08
 -- My NeoVim Setup
 
-require('plugins').vim_plug()
-require('settings')
+require("colour")
+require("plugins").vim_plug()
+require("settings")
+require("mappings")
+require("autocommands")
+require("plugins.settings")

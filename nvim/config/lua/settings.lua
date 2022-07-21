@@ -3,50 +3,57 @@
 -- Created: 2022-05-08
 -- Neovim Settings & Configuration
 
+-- constants
+
+local opt = vim.opt
+
 -- boolean options
 
-vim.opt.autoindent = true
-vim.opt.autoread = true
--- vim.opt.equalalways    = false
-vim.opt.expandtab = true
-vim.opt.hidden = true
-vim.opt.hlsearch = true
-vim.opt.ignorecase = true
-vim.opt.incsearch = true
-vim.opt.lazyredraw = true
-vim.opt.modeline = true
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.ruler = true
-vim.opt.shiftround = true
-vim.opt.showcmd = true
-vim.opt.showmatch = true
-vim.opt.showmode = true
-vim.opt.smartcase = true
-vim.opt.smartindent = true
--- vim.opt.tagrelative = false
--- vim.opt.termguicolors  = true
-vim.opt.undofile = true
-vim.opt.wildmenu = true
+opt.autoindent = true
+opt.autoread = true
+opt.expandtab = true
+opt.hidden = true
+opt.hlsearch = true
+opt.ignorecase = true
+opt.incsearch = true
+opt.lazyredraw = true
+opt.modeline = true
+opt.number = true
+opt.relativenumber = true
+opt.ruler = true
+opt.shiftround = true
+opt.showcmd = true
+opt.showmatch = true
+opt.showmode = true
+opt.smartcase = true
+opt.smartindent = true
+opt.undofile = true
+opt.wildmenu = true
 
 -- non-boolean options
 
-vim.opt.backspace = { "indent", "eol", "start" }
-vim.opt.complete = vim.opt.complete - "i"
-vim.opt.completeopt = { "menu", "menuone", "noselect", "preview" }
-vim.opt.foldlevelstart = 99
-vim.opt.foldmethod = "indent"
-vim.opt.formatoptions = "tcqj1"
-vim.opt.listchars = { eol = "$", space = ".", tab = "<->", trail = "%", precedes = "<", extends = ">" }
-vim.opt.path = vim.opt.path + (vim.env.PWD .. "/**")
-vim.opt.scrolloff = 2
-vim.opt.shiftwidth = 2
-vim.opt.sidescroll = 5
-vim.opt.softtabstop = 2
-vim.opt.statusline = "%< %n:%f %m%r%y%=%-35.(line: %l of %L, col: %c%V (%P)%)"
-vim.opt.tabstop = 4
-vim.opt.tag = vim.opt.tag + "./.git/tags"
-vim.opt.timeoutlen = 500
-vim.opt.ttimeoutlen = 0
-vim.opt.wildmode = { "longest", "full" }
--- vim.opt.wildignore     = '*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*'
+opt.backspace = { "indent", "eol", "start" }
+opt.complete = opt.complete - "i"
+opt.completeopt = { "menu", "menuone", "noselect", "preview" }
+opt.foldlevelstart = 99
+opt.foldmethod = "indent"
+opt.formatoptions = "tcqj1"
+opt.listchars = { eol = "$", space = ".", tab = "<->", trail = "%", precedes = "<", extends = ">" }
+opt.path = opt.path + (vim.env.PWD .. "/**")
+opt.scrolloff = 2
+opt.shiftwidth = 2
+opt.sidescroll = 5
+opt.softtabstop = 2
+opt.statusline = "%< %n:%f %m%r%y%=%-35.(line: %l of %L, col: %c%V (%P)%)"
+opt.tabstop = 4
+opt.tag = opt.tag + "./.git/tags"
+opt.timeoutlen = 500
+opt.ttimeoutlen = 0
+opt.wildmode = { "longest", "full" }
+
+-- old settings graveyard
+-- keeping them here incase I need them later :)
+
+-- opt.tagrelative = false
+-- opt.termguicolors  = true
+-- opt.wildignore     = '*/tmp/*,*.so,*.swp,*.zip,*/node_modules/*'

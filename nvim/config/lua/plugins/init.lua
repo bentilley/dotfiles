@@ -73,6 +73,12 @@ function plugins.vim_plug()
 	-- neovim language server configs
 	Plug("neovim/nvim-lspconfig")
 
+	-- default configurations for diagnostic-languageserver (used with neovim/nvim-lspconfig)
+	Plug("creativenull/diagnosticls-configs-nvim")
+
+	Plug('kosayoda/nvim-lightbulb')
+	Plug('antoinemadec/FixCursorHold.nvim')
+
 	Plug("tpope/vim-commentary")
 	Plug("tpope/vim-fugitive")
 	Plug("tpope/vim-surround")
