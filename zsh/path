@@ -1,3 +1,19 @@
+# vim: set ft=zsh:
+#
+# Haskell
+export PATH="$PATH:$HOME/.local/bin"  # Haskell stack packages
+[ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && \
+  source "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env"
+
+# Rust
+export PATH="$HOME/.cargo/bin:$PATH"
+
+# Go
+export PATH="$HOME/go/bin:$PATH"
+
+# GNU tools
+export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
+
 # $PATH setup
 export PATH="/usr/local/opt/ruby/bin:$PATH"  # ruby path (brew told me)
 export PATH="/usr/local/sbin:$PATH"  # some homebrew formulae put executables in local/sbin

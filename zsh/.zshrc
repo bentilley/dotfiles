@@ -45,6 +45,15 @@ zstyle ':completion:*' expand prefix suffix 
 autoload -Uz compinit && compinit
 _comp_options+=(globdots)		# Include hidden files.
 
+# Set PATH
+if [[ -z $TMUX ]]; then
+  # Personal bin
+  export PATH="$HOME/.dotfiles/bin:$PATH"
+
+  if [[ "$(uname)" == "Darwin" ]] && [[ "$(whoami)" == "MrSquee" ]]; then
+    source ~/.dotfiles/zsh/path
+  fi
+fi
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --color=never --files-with-matches .'
@@ -138,4 +147,3 @@ _evalcache starship init zsh
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-
