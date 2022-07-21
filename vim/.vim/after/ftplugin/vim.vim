@@ -1,8 +1,9 @@
 " Vim filetype plugin file
 " Language:     VimScript
 
-" General Settings (make editing python easier)
+" General Settings (make editing vimscript easier)
 let maplocalleader = ";"
+setlocal foldmethod=marker
 
 " Indenting
 

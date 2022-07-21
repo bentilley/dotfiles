@@ -18,3 +18,15 @@ endsnippet
 snippet ph "phony target" b
 .PHONY: ${0:target}
 endsnippet
+
+snippet av "automatic variables" b
+# $@ - The file name of the target of the rule. 
+# $% - The target member name, when the target is an archive member.
+# $< - The name of the first prerequisite.
+# $? - The names of all the prerequisites that are newer than the target, with spaces between them.
+# $^ - The names of all the prerequisites, with spaces between them.
+# $+ - This is like ‘$^’, but prerequisites listed more than once are duplicated in the order they were listed in the makefile.
+# $| - The names of all the order-only prerequisites, with spaces between them.
+# $* - The stem with which an implicit rule matches.
+# ‘$(@D)’ / ‘$(@F)’  - The dir / file part of the file name of the automatic variable.
+endsnippet

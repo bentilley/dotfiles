@@ -126,12 +126,6 @@ augroup sessions
   autocmd SessionLoadPost * :source $MYVIMRC
 augroup END
 
-" using marker folding for .vimrc
-augroup filetype_vim
-  autocmd!
-  autocmd FileType vim setlocal foldmethod=marker
-augroup END
-
 " handly quick file and directory edit mappings
 nnoremap <silent> <LocalLeader>ev :vs $MYVIMRC<CR>
 nnoremap <silent> <Leader>sv :source $MYVIMRC<CR>

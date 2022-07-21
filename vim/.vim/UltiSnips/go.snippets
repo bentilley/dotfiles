@@ -63,6 +63,25 @@ type ${1:Name} interface {
 }
 endsnippet
 
+snippet enum "enum" b
+type ${1:EnumType} int64
+
+const (
+    ${2:EnumType1} $1 = iota
+    ${3:EnumType2}
+)
+
+func (`!p snip.rv = t[1][:1].lower()` $1) String() string {
+    switch `!p snip.rv = t[1][:1].lower()` {
+    case $2:
+	    return "`!p snip.rv = t[2].lower()`"
+    case $3:
+	    return "`!p snip.rv = t[3].lower()`"
+    }
+    return "${0:unknown}"
+}
+endsnippet
+
 # Control Flow
 
 snippet if "if block" b

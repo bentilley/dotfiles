@@ -16,16 +16,9 @@ setlocal shiftwidth=4
 
 
 " ALE (linting and fixing) Settings
-let b:ale_linters = ['flake8', 'pylint', 'mypy']
+" let b:ale_linters = ['flake8', 'pylint', 'mypy']
+let b:ale_linters = ['flake8', 'mypy']
 let b:ale_fixers = ['black', 'remove_trailing_lines', 'trim_whitespace']
-
-" If we're in my Services dir, enforce the 80 character line length
-if expand('%:p') =~ $HOME.'/code/Market' || expand('%:p') =~ $HOME.'/code/XMS'
-  let b:my_colour_column = 100
-  let b:ale_python_flake8_options = '--max-line-length=100'
-  let b:op_format_cmd = 'black --fast --quiet --line-length 100 -'
-  " setlocal formatprg=black\ --fast\ --quiet\ --line-length\ 100\ -
-endif
 
 
 " Vim-test Plugin
