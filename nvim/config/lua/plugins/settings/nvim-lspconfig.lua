@@ -15,12 +15,6 @@ end
 
 -- language server configs
 
--- -- Diagnositc Language Server
--- -- https://github.com/iamcco/diagnostic-languageserver
--- -- A kind of template language server for running linters and formatters.
--- require("lspconfig").diagnosticls.setup({ on_attach = on_attach })
--- -- npm install -g diagnostic-languageserver
-
 -- Docker
 require("lspconfig").dockerls.setup({ on_attach = on_attach })
 -- npm install -g dockerfile-language-server-nodejs
