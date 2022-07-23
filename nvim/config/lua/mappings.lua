@@ -68,6 +68,7 @@ nmap("<F8>", require("colour").show_syntax_group) -- " custom, show syntax highl
 
 -- insert mode mappings
 
+-- see: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
 imap("<C-E>", function()
 	if luasnip.choice_active() then
 		luasnip.next_choice()
