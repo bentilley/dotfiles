@@ -9,35 +9,6 @@ local fn = vim.fn
 local data_dir = fn.stdpath("data") .. "/site"
 local plugins = {}
 
--- packer.vim
--- https://github.com/wbthomason/packer.nvim
-
--- install packer.vim if not already installed
-local function install_packer()
-	local install_path = data_dir .. "/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
-		vim.api.nvim_echo({ { "Installing packer.nvim", "Type" } }, true, {})
-		fn.system({
-			"git",
-			"clone",
-			"--depth",
-			"1",
-			"https://github.com/wbthomason/packer.nvim",
-			install_path,
-		})
-	end
-	vim.cmd("packadd packer.nvim")
-end
-
--- packer.vim setup
-function plugins.packer()
-	install_packer()
-
-	require("packer").startup(function()
-		use("wbthomason/packer.nvim")
-	end)
-end
-
 -- vim-plug
 -- https://github.com/junegunn/vim-plug
 
@@ -110,6 +81,35 @@ function plugins.vim_plug()
 	-- Plug('vim-test/vim-test')
 
 	vim.call("plug#end")
+end
+
+-- packer.vim
+-- https://github.com/wbthomason/packer.nvim
+
+-- install packer.vim if not already installed
+local function install_packer()
+	local install_path = data_dir .. "/pack/packer/start/packer.nvim"
+	if fn.empty(fn.glob(install_path)) > 0 then
+		vim.api.nvim_echo({ { "Installing packer.nvim", "Type" } }, true, {})
+		fn.system({
+			"git",
+			"clone",
+			"--depth",
+			"1",
+			"https://github.com/wbthomason/packer.nvim",
+			install_path,
+		})
+	end
+	vim.cmd("packadd packer.nvim")
+end
+
+-- packer.vim setup
+function plugins.packer()
+	install_packer()
+
+	require("packer").startup(function()
+		use("wbthomason/packer.nvim")
+	end)
 end
 
 return plugins
