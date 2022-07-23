@@ -4,7 +4,8 @@
 -- Neovim Plugins Settings & Configuration Entry Point
 
 require(... .. ".FixCursorHold-nvim")
-require(... .. ".nvim-lspconfig")
-require(... .. ".nvim-treesitter")
 require(... .. ".diagnosticls-configs-nvim")
 require(... .. ".formatter-nvim")
+require(... .. ".gitsigns")
+require(... .. ".nvim-lspconfig")
+require(... .. ".nvim-treesitter")

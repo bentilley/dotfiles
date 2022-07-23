@@ -15,12 +15,20 @@ local function nmap(shortcut, command, opts)
 	vim.keymap.set("n", shortcut, command, opts or { noremap = true, silent = true })
 end
 
-local function xmap(shortcut, command, opts)
+local function vmap(shortcut, command, opts)
 	vim.keymap.set("v", shortcut, command, opts or { noremap = true, silent = true })
 end
 
 local function imap(shortcut, command, opts)
 	vim.keymap.set("i", shortcut, command, opts or { noremap = true, silent = true })
+end
+
+local function xmap(shortcut, command, opts)
+	vim.keymap.set("x", shortcut, command, opts or { noremap = true, silent = true })
+end
+
+local function omap(shortcut, command, opts)
+	vim.keymap.set("x", shortcut, command, opts or { noremap = true, silent = true })
 end
 
 -- mappings
@@ -86,12 +94,12 @@ function mappings.setup_lsp_mappings(client, bufnr)
 
 	if client.resolved_capabilities.document_formatting then
 		nmap("<LocalLeader>f", vim.lsp.buf.formatting, bufopts)
-		xmap("<LocalLeader>f", vim.lsp.buf.range_formatting, bufopts)
+		vmap("<LocalLeader>f", vim.lsp.buf.range_formatting, bufopts)
 	end
 
 	nmap("<LocalLeader>rn", vim.lsp.buf.rename, bufopts)
 	nmap("<LocalLeader>ca", vim.lsp.buf.code_action, bufopts)
-	xmap("<LocalLeader>ca", vim.lsp.buf.range_code_action, bufopts)
+	vmap("<LocalLeader>ca", vim.lsp.buf.range_code_action, bufopts)
 	nmap("<LocalLeader>cl", function()
 		print(vim.inspect(client.resolved_capabilities))
 	end, bufopts)
@@ -101,6 +109,56 @@ function mappings.setup_lsp_mappings(client, bufnr)
 	nmap("<LocalLeader>wl", function()
 		print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 	end, bufopts)
+end
+
+-- This is the on_attach function for the gitsigns plugin. We only map the
+-- following keys after the plugin has attached to the buffer.
+function mappings.setup_gitsigns_mappings(bufnr)
+	local gs = package.loaded.gitsigns
+
+	-- Navigation
+	nmap("]h", function()
+		vim.schedule(function()
+			gs.next_hunk()
+		end)
+		return "<Ignore>"
+	end, { buffer = bufnr, expr = true })
+
+	nmap("[h", function()
+		vim.schedule(function()
+			gs.prev_hunk()
+		end)
+		return "<Ignore>"
+	end, { buffer = bufnr, expr = true })
+
+	-- actions
+	local bufopts = { buffer = bufnr }
+	nmap("<LocalLeader>hs", ":Gitsigns stage_hunk<CR>", bufopts)
+	vmap("<LocalLeader>hs", ":Gitsigns stage_hunk<CR>", bufopts)
+	nmap("<LocalLeader>hu", gs.undo_stage_hunk, bufopts)
+	nmap("<LocalLeader>hr", ":Gitsigns reset_hunk<CR>", bufopts)
+	vmap("<LocalLeader>hr", ":Gitsigns reset_hunk<CR>", bufopts)
+	nmap("<LocalLeader>hS", gs.stage_buffer, bufopts)
+	nmap("<LocalLeader>hR", gs.reset_buffer, bufopts)
+	nmap("<LocalLeader>hp", gs.preview_hunk, bufopts)
+	nmap("<LocalLeader>hb", function()
+		gs.blame_line({ full = true })
+	end, bufopts)
+	nmap("<LocalLeader>hd", gs.diffthis, bufopts)
+	nmap("<LocalLeader>hD", function()
+		gs.diffthis("~")
+	end, bufopts)
+
+	-- toggles
+	nmap("yogb", gs.toggle_current_line_blame, bufopts)
+	nmap("yogd", gs.toggle_deleted, bufopts)
+	nmap("yogl", gs.toggle_linehl, bufopts)
+	nmap("yogn", gs.toggle_numhl, bufopts)
+	nmap("yogw", gs.toggle_word_diff, bufopts)
+
+	-- text object
+	omap("ih", ":<C-U>Gitsigns select_hunk<CR>", bufopts)
+	xmap("ih", ":<C-U>Gitsigns select_hunk<CR>", bufopts)
 end
 
 return mappings

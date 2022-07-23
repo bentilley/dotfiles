@@ -45,7 +45,6 @@ opt.scrolloff = 2
 opt.shiftwidth = 2
 opt.sidescroll = 5
 opt.softtabstop = 2
-opt.statusline = "%< %n:%f %m%r%y%=%-35.(line: %l of %L, col: %c%V (%P)%)"
 opt.tabstop = 4
 opt.tag = opt.tag + "./.git/tags"
 opt.timeoutlen = 500

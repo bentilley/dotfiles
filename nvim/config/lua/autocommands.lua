@@ -9,6 +9,7 @@ local autocommands = {}
 
 local augroup = vim.api.nvim_create_augroup
 local autocmd = vim.api.nvim_create_autocmd
+local statusline = require("statusline")
 
 -- auto commands
 
@@ -43,5 +44,22 @@ function autocommands.setup_lsp_autocommands(client, bufnr)
 		})
 	end
 end
+
+-- switch the statusline format for the active window
+local statuslinegroup = augroup("StatusLineGroup", { clear = true })
+autocmd({ "WinEnter", "BufEnter" }, {
+	group = statuslinegroup,
+	pattern = "*",
+	callback = function()
+		vim.wo.statusline = statusline.active()
+	end,
+})
+autocmd({ "WinLeave", "BufLeave" }, {
+	group = statuslinegroup,
+	pattern = "*",
+	callback = function()
+		vim.wo.statusline = statusline.inactive()
+	end,
+})
 
 return autocommands

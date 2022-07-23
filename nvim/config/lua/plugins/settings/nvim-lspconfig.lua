@@ -8,7 +8,11 @@
 local setup_lsp_mappings = require("mappings").setup_lsp_mappings
 local setup_lsp_autocommands = require("autocommands").setup_lsp_autocommands
 
+local lsp_status = require("plugins.settings.lsp-status")
+lsp_status.register_progress()
+
 local function on_attach(client, bufnr)
+	lsp_status.on_attach(client)
 	setup_lsp_mappings(client, bufnr)
 	setup_lsp_autocommands(client, bufnr)
 end
@@ -28,7 +32,10 @@ require("lspconfig").jsonls.setup({ on_attach = on_attach })
 -- npm install -g vscode-langservers-extracted
 
 -- Lua
-require("lspconfig").sumneko_lua.setup({ on_attach = on_attach })
+require("lspconfig").sumneko_lua.setup({
+	on_attach = on_attach,
+	capabilities = lsp_status.capabilities,
+})
 -- brew install lua-language-server
 
 -- Python
@@ -38,3 +45,5 @@ require("lspconfig").pyright.setup({ on_attach = on_attach })
 -- Typescript
 require("lspconfig").tsserver.setup({ on_attach = on_attach })
 -- npm install -g typescript typescript-language-server
+
+vim.opt.statusline = lsp_status.status()

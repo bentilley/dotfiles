@@ -5,7 +5,8 @@
 
 require("colour")
 require("plugins").vim_plug()
+require("plugins.settings")
+require("statusline")
 require("settings")
 require("mappings")
 require("autocommands")
-require("plugins.settings")

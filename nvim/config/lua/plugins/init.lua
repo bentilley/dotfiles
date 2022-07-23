@@ -76,6 +76,9 @@ function plugins.vim_plug()
 	-- default configurations for diagnostic-languageserver (used with neovim/nvim-lspconfig)
 	Plug("creativenull/diagnosticls-configs-nvim")
 
+	-- add lsp information to the statusline
+	Plug("nvim-lua/lsp-status.nvim")
+
 	-- neovim treesitter config
 	Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 
@@ -94,6 +97,9 @@ function plugins.vim_plug()
 
 	-- interact with git in neovim
 	Plug("tpope/vim-fugitive")
+
+	-- git decorations in gutter column
+	Plug('lewis6991/gitsigns.nvim')
 
 	-- add bracket and other text surrounding commands
 	Plug("tpope/vim-surround")

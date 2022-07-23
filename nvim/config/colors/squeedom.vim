@@ -28,11 +28,17 @@ highlight CursorLineNR       ctermfg=125   ctermbg=236   cterm=NONE
 highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
 highlight FoldColumn         ctermfg=004   ctermbg=234   cterm=BOLD
 
-" colours for the line at the bottom of viewports
-highlight StatusLine         ctermfg=250   ctermbg=125   cterm=NONE
-highlight StatusLineNC       ctermfg=125   ctermbg=233   cterm=NONE
-highlight StatusLineTerm     ctermfg=233   ctermbg=002   cterm=NONE
-highlight StatusLineTermNC   ctermfg=002   ctermbg=233   cterm=BOLD
+" status line colours
+highlight StatusLine                   ctermfg=125   ctermbg=234   cterm=NONE
+highlight StatusLineNC                 ctermfg=242   ctermbg=234   cterm=NONE
+highlight StatusLineTerm               ctermfg=233   ctermbg=002   cterm=NONE
+highlight StatusLineTermNC             ctermfg=002   ctermbg=234   cterm=NONE
+highlight StatusLinePromptAccent       ctermfg=233   ctermbg=125   cterm=BOLD
+highlight StatusLineFileAccent         ctermfg=250   ctermbg=234   cterm=BOLD
+highlight StatusLinePositionInfoAccent ctermfg=242   ctermbg=234   cterm=NONE
+highlight StatusLineLspAccent          ctermfg=236   ctermbg=250   cterm=NONE
+
+" editor special colours
 highlight VertSplit          ctermfg=125   ctermbg=NONE  cterm=NONE
 highlight NonText            ctermfg=125   ctermbg=NONE  cterm=NONE
 highlight SpecialKey         ctermfg=160   ctermbg=NONE  cterm=NONE
@@ -73,6 +79,32 @@ highlight LspReferenceText   ctermfg=NONE  ctermbg=235   cterm=NONE
 highlight LspReferenceRead   ctermfg=NONE  ctermbg=235   cterm=NONE
 highlight LspReferenceWrite  ctermfg=NONE  ctermbg=093   cterm=NONE
 
+" gitsigns plugin
+
+highlight GitSignsCurrentLineBlame  ctermfg=242   ctermbg=NONE  cterm=NONE
+highlight GitSignsAdd               ctermfg=040   ctermbg=NONE  cterm=NONE
+highlight GitSignsChange            ctermfg=220   ctermbg=NONE  cterm=NONE
+highlight GitSignsDelete            ctermfg=160   ctermbg=NONE  cterm=NONE
+
+highlight link GitSignsAddNr GitSignsAdd
+highlight link GitSignsChangeNr GitSignsChange
+highlight link GitSignsDeleteNr GitSignsDelete
+
+highlight link GitSignsAddLn GitSignsAdd
+highlight link GitSignsChangeLn GitSignsChange
+highlight link GitSignsDeleteLn GitSignsDelete
+
+highlight link GitSignsAddInline GitSignsAdd
+highlight link GitSignsChangeInline GitSignsChange
+highlight link GitSignsDeleteInline GitSignsDelete
+
+highlight link GitSignsAddLnInline GitSignsAdd
+highlight link GitSignsChangeLnInline GitSignsChange
+highlight link GitSignsDeleteLnInline GitSignsDelete
+
+highlight link GitSignsAddVirtLnInline GitSignsAdd
+highlight link GitSignsChangeVirtLnInline GitSignsChange
+highlight link GitSignsDeleteVirtLnInline GitSignsDelete
 
 " --------------------- "
 " Generic Colour Groups "
