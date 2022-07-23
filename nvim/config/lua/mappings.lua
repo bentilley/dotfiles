@@ -4,6 +4,7 @@
 -- Neovim Mappings
 
 local mappings = {}
+local luasnip = require("plugins.settings.luasnip")
 
 -- constants
 
@@ -28,7 +29,11 @@ local function xmap(shortcut, command, opts)
 end
 
 local function omap(shortcut, command, opts)
-	vim.keymap.set("x", shortcut, command, opts or { noremap = true, silent = true })
+	vim.keymap.set("o", shortcut, command, opts or { noremap = true, silent = true })
+end
+
+local function smap(shortcut, command, opts)
+	vim.keymap.set("s", shortcut, command, opts or { noremap = true, silent = true })
 end
 
 -- mappings
@@ -62,6 +67,21 @@ nmap("]w", ":tabnext<CR>") -- custom, next tab
 nmap("<F8>", require("colour").show_syntax_group) -- " custom, show syntax highlighting group of word
 
 -- insert mode mappings
+
+imap("<C-E>", function()
+	if luasnip.choice_active() then
+		luasnip.next_choice()
+	else
+		return "<C-E>"
+	end
+end, { silent = true, expr = true }) -- luasnip, change choice in choice node
+smap("<C-E>", function()
+	if luasnip.choice_active() then
+		luasnip.next_choice()
+	else
+		return "<C-E>"
+	end
+end, { silent = true, expr = true }) -- luasnip, change choice in choice node
 
 imap("<C-h>", "<C-o>h") -- custom, movement in insert mode
 imap("<C-j>", "<C-o>j") -- custom, movement in insert mode
