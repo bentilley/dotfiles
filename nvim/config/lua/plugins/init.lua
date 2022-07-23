@@ -45,6 +45,7 @@ function plugins.vim_plug()
 	Plug("neovim/nvim-lspconfig")
 
 	-- default configurations for diagnostic-languageserver (used with neovim/nvim-lspconfig)
+	-- possible alternative: https://github.com/mfussenegger/nvim-lint
 	Plug("creativenull/diagnosticls-configs-nvim")
 
 	-- add lsp information to the statusline
@@ -55,6 +56,28 @@ function plugins.vim_plug()
 
 	-- show the lightbulb emoji in the gutter when a code action is available
 	Plug("kosayoda/nvim-lightbulb")
+
+	-- autocompletion
+	-- possible alternative: https://github.com/ms-jpq/coq_nvim
+	Plug("hrsh7th/nvim-cmp")
+
+	-- autocompletion source lsp
+	Plug("hrsh7th/cmp-nvim-lsp")
+
+	-- autocompletion source buffer
+	Plug("hrsh7th/cmp-buffer")
+
+	-- autocompletion source file path
+	Plug("hrsh7th/cmp-path")
+
+	-- autocompletion source command line
+	Plug("hrsh7th/cmp-cmdline")
+
+	-- snippets
+	Plug("L3MON4D3/LuaSnip")
+
+	-- autocompletion source snippets
+	Plug("saadparwaiz1/cmp_luasnip")
 
 	-- fixes known issue with the CursorHold event in neovim
 	-- remove when this issue is resolved https://github.com/neovim/neovim/issues/12587
@@ -70,7 +93,7 @@ function plugins.vim_plug()
 	Plug("tpope/vim-fugitive")
 
 	-- git decorations in gutter column
-	Plug('lewis6991/gitsigns.nvim')
+	Plug("lewis6991/gitsigns.nvim")
 
 	-- add bracket and other text surrounding commands
 	Plug("tpope/vim-surround")

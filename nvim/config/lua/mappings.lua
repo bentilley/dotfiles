@@ -76,7 +76,8 @@ imap("<LocalLeader>U", "<Esc> viwUea") -- custom, current word lower-case
 -- This is the on_attach function for langauge server. We only map the following keys
 -- after the language server attaches to the current buffer.
 function mappings.setup_lsp_mappings(client, bufnr)
-	vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc" -- Enable completion triggered by <c-x><c-o>
+	-- diasble the omnifunc as we're using autocompletion (nvim-cmp plugin)
+	-- vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc" -- Enable completion triggered by <c-x><c-o>
 
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
