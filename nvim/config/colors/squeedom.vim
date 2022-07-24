@@ -106,6 +106,11 @@ highlight link GitSignsAddVirtLnInline GitSignsAdd
 highlight link GitSignsChangeVirtLnInline GitSignsChange
 highlight link GitSignsDeleteVirtLnInline GitSignsDelete
 
+" indent-blankline plugin
+
+highlight IndentBlanklineChar         ctermfg=235   ctermbg=NONE   cterm=NONE
+highlight IndentBlanklineContextChar  ctermfg=014   ctermbg=NONE   cterm=NONE
+
 " --------------------- "
 " Generic Colour Groups "
 " --------------------- "

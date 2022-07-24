@@ -39,7 +39,7 @@ opt.foldlevelstart = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.formatoptions = "tcqj1"
-opt.listchars = { eol = "$", space = ".", tab = "<->", trail = "%", precedes = "<", extends = ">" }
+opt.listchars = { eol = "↴", space = ".", tab = "<->", trail = "%", precedes = "<", extends = ">" }
 opt.path = opt.path + (vim.env.PWD .. "/**")
 opt.scrolloff = 2
 opt.shiftwidth = 2

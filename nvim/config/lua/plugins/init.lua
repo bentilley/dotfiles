@@ -101,6 +101,9 @@ function plugins.vim_plug()
 	-- add a bunch of [] mappings for interacting with neovim
 	Plug("tpope/vim-unimpaired")
 
+	-- add virtual indent lines to see indentation more clearly
+	Plug('lukas-reineke/indent-blankline.nvim')
+
 	-- Plug('vim-test/vim-test')
 
 	vim.call("plug#end")
