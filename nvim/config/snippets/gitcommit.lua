@@ -21,7 +21,7 @@ local f = ls.function_node
 -- local postfix = require("luasnip.extras.postfix").postfix
 
 return {
-	s({ trig = "(%a+):", regTrig = true }, {
+	s({ trig = "(%a+)", regTrig = true }, {
 		f(function(_, snip)
 			return snip.captures[1]
 		end, {}, {}),
