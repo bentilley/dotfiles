@@ -43,6 +43,12 @@ g.maplocalleader = ";" -- NOTE: plugin clever-f re-maps original ';' usage to mu
 
 -- normal mode mappings
 
+-- yogb, gs.toggle_current_line_blame  (setup_gitsigns_mappings)
+-- yogd, gs.toggle_deleted             (setup_gitsigns_mappings)
+-- yogl, gs.toggle_linehl              (setup_gitsigns_mappings)
+-- yogn, gs.toggle_numhl               (setup_gitsigns_mappings)
+-- yogw, gs.toggle_word_diff           (setup_gitsigns_mappings)
+
 nmap("<Leader>a", ":nohlsearch<CR>") -- custom, remove search high-lighting
 nmap("<Leader>cf", ':let @+=expand("%")') -- custom, copy file name to clipboard
 nmap("<Leader>cd", ':let @+=expand("%:p")') -- custom, copy file directory name to clipboard
@@ -52,15 +58,43 @@ nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
 nmap("<Leader>z", "za") -- custom, fold toggle
 
+-- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
+-- <LocalLeader>cl, function() print(vim.inspect(client.resolved_capabilities)) end  (setup_lsp_mappings)
 nmap("<LocalLeader>e", vim.diagnostic.open_float) -- vim.diagnostic.* nvim-lspconfig
+-- <LocalLeader>f, vim.lsp.buf.formatting                          (setup_lsp_mappings)
+-- <LocalLeader>gD, vim.lsp.buf.declaration                        (setup_lsp_mappings)
+-- <LocalLeader>gci, vim.lsp.buf.incoming_calls                    (setup_lsp_mappings)
+-- <LocalLeader>gco, vim.lsp.buf.outgoing_calls                    (setup_lsp_mappings)
+-- <LocalLeader>gd, vim.lsp.buf.definition                         (setup_lsp_mappings)
+-- <LocalLeader>gi, vim.lsp.buf.implementation                     (setup_lsp_mappings)
+-- <LocalLeader>gr, vim.lsp.buf.references                         (setup_lsp_mappings)
+-- <LocalLeader>gs, vim.lsp.buf.document_symbol                    (setup_lsp_mappings)
+-- <LocalLeader>gt, vim.lsp.buf.type_definition                    (setup_lsp_mappings)
+-- <LocalLeader>hD, function() gs.diffthis("~") end                (setup_lsp_mappings)
+-- <LocalLeader>hR, gs.reset_buffer                                (setup_gitsigns_mappings)
+-- <LocalLeader>hS, gs.stage_buffer                                (setup_gitsigns_mappings)
+-- <LocalLeader>hb, function() gs.blame_line({ full = true }) end  (setup_gitsigns_mappings)
+-- <LocalLeader>hd, gs.diffthis                                    (setup_gitsigns_mappings)
+-- <LocalLeader>hp, gs.preview_hunk                                (setup_gitsigns_mappings)
+-- <LocalLeader>hr, ":Gitsigns reset_hunk<CR>"                     (setup_gitsigns_mappings)
+-- <LocalLeader>hs, ":Gitsigns stage_hunk<CR>"                     (setup_gitsigns_mappings)
+-- <LocalLeader>hu, gs.undo_stage_hunk                             (setup_gitsigns_mappings)
+-- <LocalLeader>k, vim.lsp.buf.hover                               (setup_lsp_mappings)
 nmap("<LocalLeader>o", "o<Esc>") -- custom, insert line below
 nmap("<LocalLeader>O", "O<Esc>") -- custom, insert line above
 nmap("<LocalLeader>q", vim.diagnostic.setloclist) -- vim.diagnostic.* nvim-lspconfig
+-- <LocalLeader>rn, vim.lsp.buf.rename                                                       (setup_lsp_mappings)
+-- <LocalLeader>wa, vim.lsp.buf.add_workspace_folder                                         (setup_lsp_mappings)
+-- <LocalLeader>wr, vim.lsp.buf.remove_workspace_folder                                      (setup_lsp_mappings)
+-- <LocalLeader>wl, function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end  (setup_lsp_mappings)
 
+-- <C-k>, vim.lsp.buf.signature_help (setup_lsp_mappings)
 nmap("<C-w>D", ":tab split<CR>") -- custom, duplicate buffer in new tab
 
 nmap("[d", vim.diagnostic.goto_prev) -- vim.diagnostic.* nvim-lspconfig
 nmap("]d", vim.diagnostic.goto_next) -- vim.diagnostic.* nvim-lspconfig
+-- ]h, function() vim.schedule(function() gs.next_hunk() end) return "<Ignore>" end  (setup_gitsigns_mappings)
+-- [h, function() vim.schedule(function() gs.prev_hunk() end) return "<Ignore>" end  (setup_gitsigns_mappings)
 nmap("[w", ":tabprevious<CR>") -- custom, previous tab
 nmap("]w", ":tabnext<CR>") -- custom, next tab
 
@@ -93,6 +127,20 @@ imap("<LocalLeader>a", "<Esc>A") -- custom, jump to end of line
 imap("<LocalLeader>b", "<CR><CR><ESC>ki<TAB>") -- custom, open brakets across multiple lines
 imap("<LocalLeader>u", "<Esc> viwuea") -- custom, current word upper-case
 imap("<LocalLeader>U", "<Esc> viwUea") -- custom, current word lower-case
+
+-- visual mode mappings
+
+-- ih, ":<C-U>Gitsigns select_hunk<CR>" (setup_gitsigns_mappings)
+
+-- <LocalLeader>ca, vim.lsp.buf.range_code_action  (setup_lsp_mappings)
+-- <LocalLeader>f, vim.lsp.buf.range_formatting    (setup_lsp_mappings)
+-- <LocalLeader>hs, ":Gitsigns stage_hunk<CR>"     (setup_gitsigns_mappings)
+-- <LocalLeader>hr, ":Gitsigns reset_hunk<CR>"     (setup_gitsigns_mappings)
+
+-- operator pending mappings
+
+-- ih, ":<C-U>Gitsigns select_hunk<CR>" (setup_gitsigns_mappings)
+
 
 -- This is the on_attach function for langauge server. We only map the following keys
 -- after the language server attaches to the current buffer.
