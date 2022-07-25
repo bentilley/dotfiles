@@ -141,12 +141,13 @@ imap("<LocalLeader>U", "<Esc> viwUea") -- custom, current word lower-case
 
 -- ih, ":<C-U>Gitsigns select_hunk<CR>" (setup_gitsigns_mappings)
 
+-- setup functions - called in other files to set up mappings.
 
 -- This is the on_attach function for langauge server. We only map the following keys
 -- after the language server attaches to the current buffer.
 function mappings.setup_lsp_mappings(client, bufnr)
-	-- diasble the omnifunc as we're using autocompletion (nvim-cmp plugin)
-	-- vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc" -- Enable completion triggered by <c-x><c-o>
+	-- I think this on-demand completion can live side by side with autocompletion
+	vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc" -- Enable completion triggered by <c-x><c-o>
 
 	local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
