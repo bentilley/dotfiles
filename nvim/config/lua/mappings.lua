@@ -102,22 +102,9 @@ nmap("<F8>", require("colour").show_syntax_group) -- " custom, show syntax highl
 
 -- insert mode mappings
 
--- see: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
-imap("<C-E>", function()
-	if luasnip.choice_active() then
-		luasnip.next_choice()
-	else
-		return "<C-E>"
-	end
-end, { silent = true, expr = true }) -- luasnip, change choice in choice node
-smap("<C-E>", function()
-	if luasnip.choice_active() then
-		luasnip.next_choice()
-	else
-		return "<C-E>"
-	end
-end, { silent = true, expr = true }) -- luasnip, change choice in choice node
-
+-- see: https://github.com/L3MON4D3/LuaSnip#keymaps=
+imap("<C-E>", "luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'") -- luasnip, change choice in choice mode
+smap("<C-E>", "luasnip#choice_active() ? '<Plug>luasnip-next-choice' : '<C-E>'") -- luasnip, change choice in choice mode
 imap("<C-h>", "<C-o>h") -- custom, movement in insert mode
 imap("<C-j>", "<C-o>j") -- custom, movement in insert mode
 imap("<C-k>", "<C-o>k") -- custom, movement in insert mode
@@ -125,6 +112,10 @@ imap("<C-l>", "<C-o>l") -- custom, movement in insert mode
 
 imap("<LocalLeader>a", "<Esc>A") -- custom, jump to end of line
 imap("<LocalLeader>b", "<CR><CR><ESC>ki<TAB>") -- custom, open brakets across multiple lines
+imap("<LocalLeader>s", "<Plug>luasnip-expand-or-jump") -- luasnip, expand snippet
+imap("<LocalLeader>S", "<cmd>lua require'luasnip'.jump(-1)<Cr>") -- luasnip, jump backwards
+smap("<LocalLeader>s", "<cmd>lua require'luasnip'.jump(1)<Cr>") -- luasnip, jump forwards
+smap("<LocalLeader>S", "<cmd>lua require'luasnip'.jump(-1)<Cr>") -- luasnip, jump backwards
 imap("<LocalLeader>u", "<Esc> viwuea") -- custom, current word upper-case
 imap("<LocalLeader>U", "<Esc> viwUea") -- custom, current word lower-case
 
