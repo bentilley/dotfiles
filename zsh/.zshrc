@@ -1,6 +1,7 @@
 # zmodload zsh/zprof
 # Variables
-export EDITOR="vim"
+export EDITOR="nvim"
+export GIT_EDITOR="nvim"
 export PAGER="less"
 export LSCOLORS="ExfxcxdxCxegedabagacad"
 type firefox &>/dev/null && export BROWSER=firefox
