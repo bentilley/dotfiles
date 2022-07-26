@@ -3,8 +3,10 @@
 -- Created: 2022-07-09
 -- nvim-lspconfig Plugin Settings
 
-local cmp = require("plugins.settings.nvim-cmp")
 local lsp_status = require("plugins.settings.lsp-status")
+
+-- perform nvim-cmp setup before nvim-lspconfig setup
+require("plugins.settings.nvim-cmp")
 
 -- constants
 

@@ -7,7 +7,7 @@
 
 local fn = vim.fn
 local data_dir = fn.stdpath("data") .. "/site"
-local plugins = {}
+local M = {}
 
 -- vim-plug
 -- https://github.com/junegunn/vim-plug
@@ -30,7 +30,7 @@ local function install_vim_plug()
 end
 
 -- packer.vim setup
-function plugins.vim_plug()
+function M.vim_plug()
 	install_vim_plug()
 
 	-- from https://dev.to/vonheikemen/neovim-using-vim-plug-in-lua-3oom
@@ -130,7 +130,7 @@ local function install_packer()
 end
 
 -- packer.vim setup
-function plugins.packer()
+function M.packer()
 	install_packer()
 
 	require("packer").startup(function()
@@ -138,4 +138,4 @@ function plugins.packer()
 	end)
 end
 
-return plugins
+return M

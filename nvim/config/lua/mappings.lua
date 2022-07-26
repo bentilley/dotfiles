@@ -3,8 +3,8 @@
 -- Created: 2022-07-02
 -- Neovim Mappings
 
-local mappings = {}
-local luasnip = require("plugins.settings.luasnip")
+local M = {}
+local formatter_nvim = require("plugins.settings.formatter-nvim")
 
 -- constants
 
@@ -43,6 +43,7 @@ g.maplocalleader = ";" -- NOTE: plugin clever-f re-maps original ';' usage to mu
 
 -- normal mode mappings
 
+nmap("yof", formatter_nvim.toggle_formatter_disabled) -- custom, toggle auto formatting
 -- yogb, gs.toggle_current_line_blame  (setup_gitsigns_mappings)
 -- yogd, gs.toggle_deleted             (setup_gitsigns_mappings)
 -- yogl, gs.toggle_linehl              (setup_gitsigns_mappings)
@@ -136,7 +137,7 @@ imap("<LocalLeader>U", "<Esc> viwUea") -- custom, current word lower-case
 
 -- This is the on_attach function for langauge server. We only map the following keys
 -- after the language server attaches to the current buffer.
-function mappings.setup_lsp_mappings(client, bufnr)
+function M.setup_lsp_mappings(client, bufnr)
 	-- I think this on-demand completion can live side by side with autocompletion
 	vim.bo.omnifunc = "v:lua.vim.lsp.omnifunc" -- Enable completion triggered by <c-x><c-o>
 
@@ -175,7 +176,7 @@ end
 
 -- This is the on_attach function for the gitsigns plugin. We only map the
 -- following keys after the plugin has attached to the buffer.
-function mappings.setup_gitsigns_mappings(bufnr)
+function M.setup_gitsigns_mappings(bufnr)
 	local gs = package.loaded.gitsigns
 
 	-- Navigation
@@ -223,4 +224,4 @@ function mappings.setup_gitsigns_mappings(bufnr)
 	xmap("ih", ":<C-U>Gitsigns select_hunk<CR>", bufopts)
 end
 
-return mappings
+return M

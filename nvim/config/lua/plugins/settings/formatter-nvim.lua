@@ -4,6 +4,7 @@
 -- formatter.nvim Plugin Settings
 
 -- local util = require("formatter.util")
+local M = {}
 
 require("formatter").setup({
 	logging = true,
@@ -40,3 +41,21 @@ require("formatter").setup({
 		},
 	},
 })
+
+-- only run the formatting if the buffer doesn't define the formatter_nvim_disabled variable
+function M.format_write_if_enabled()
+	if not vim.b.formatter_nvim_disabled then
+		vim.api.nvim_command("FormatWrite")
+	end
+end
+
+-- toggle the formatter on and off for current buffer
+function M.toggle_formatter_disabled()
+	if not vim.b.formatter_nvim_disabled then
+		vim.b.formatter_nvim_disabled = true
+	else
+		vim.b.formatter_nvim_disabled = not vim.b.formatter_nvim_disabled
+	end
+end
+
+return M

@@ -3,7 +3,8 @@
 -- Created: 2022-07-02
 -- Neovim Auto-commands & Auto-groups
 
-local autocommands = {}
+local M = {}
+local formatter_nvim = require("plugins.settings.formatter-nvim")
 
 -- constants
 
@@ -15,7 +16,12 @@ local statusline = require("statusline")
 
 -- auto-format the file on save
 local formatter = augroup("FormatterNvim", { clear = true })
-autocmd("BufWritePost", { group = formatter, pattern = "*", command = "FormatWrite" })
+autocmd("BufWritePost", {
+	group = formatter,
+	pattern = "*",
+	-- command = "FormatWrite",
+	callback = formatter_nvim.format_write_if_enabled,
+})
 
 -- show the lightbuld icon in the gutter when a code action is available.
 -- maybe can get rid of this in the future, but useful to learn what is available.
@@ -29,7 +35,7 @@ autocmd({ "CursorHold", "CursorHoldI" }, {
 -- This is run in the on_attach function for language servers. We use it to
 -- only set up the following autocommands after the language serfer attaches to
 -- the current buffer.
-function autocommands.setup_lsp_autocommands(client, bufnr)
+function M.setup_lsp_autocommands(client, bufnr)
 	if client.resolved_capabilities.document_highlight then
 		local lspauto = augroup("LspAutoGroup", { clear = true })
 		autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -62,4 +68,4 @@ autocmd({ "WinLeave", "BufLeave" }, {
 	end,
 })
 
-return autocommands
+return M

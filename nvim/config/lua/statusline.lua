@@ -3,18 +3,28 @@
 -- Created: 2022-07-22
 -- Statusline Setup
 
-local statusline = {}
+local M = {}
+
+-- show if formatting is disabled
+function M.is_formatting()
+	if not vim.b.formatter_nvim_disabled then
+		return "[f]"
+	else
+		return ""
+	end
+end
 
 -- statusline config
 
-statusline.active = function()
+function M.active()
 	return table.concat({
 		"%#StatusLinePromptAccent#",
 		" >> ",
 		"%#StatusLineFileAccent#",
-		" %n:%f %m%r%y ",
+		" %n:%f %m%r%y",
+		"%{v:lua.require('statusline').is_formatting()}",
 		"%#StatusLinePositionInfoAccent#",
-		"line: %l of %L, col: %c%V (%P)",
+		" line: %l of %L, col: %c%V (%P)",
 		"%#StatusLine#",
 		"%=%#StatusLineLspAccent#",
 		"%{v:lua.require('plugins.settings.lsp-status').status()}",
@@ -22,8 +32,8 @@ statusline.active = function()
 	})
 end
 
-function statusline.inactive()
+function M.inactive()
 	return " %n:%F"
 end
 
-return statusline
+return M
