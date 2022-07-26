@@ -92,6 +92,14 @@ dlsconfig.setup({
 		linter = { shellcheck },
 	},
 
+	["typescript"] = {
+		linter = { eslint },
+	},
+
+	["typescriptreact"] = {
+		linter = { eslint },
+	},
+
 	["zsh"] = {
 		linter = { shellcheck },
 	},
