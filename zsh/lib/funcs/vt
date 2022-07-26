@@ -18,7 +18,7 @@ function vt()  {
   # get the thing after `rg` to start a search in vim when we load
   SEARCH_TERM=$(echo $LAST_BUFFER | sed -E -e 's/^rg //' -e 's/(\w+).*/\1/g')
 
-  vim $(eval $LAST_BUFFER) -c "/$SEARCH_TERM"
+  $EDITOR $(eval $LAST_BUFFER) -c "/$SEARCH_TERM"
 }
 
 vt "$@"

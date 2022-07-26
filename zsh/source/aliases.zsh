@@ -1,19 +1,20 @@
+# shellcheck shell=bash
 # global aliasses
 alias -g BG='&>/dev/null &'
 
 # quick confing access
-alias conf="lf $HOME/.dotfiles"
-alias zconf="vim $ZDOTDIR/.zshrc"
+alias conf="lf \$HOME/.dotfiles"
+alias zconf="nvim \$ZDOTDIR/.zshrc"
 alias zres="exec zsh"
-alias zalias="vim ~/.dotfiles/zsh/source/aliases.zsh"
-alias zfunc="vim ~/.dotfiles/zsh/source/functions.zsh"
-alias zc="vim ~/.dotfiles/zsh/source"
-alias vconf="vim ~/.vim/vimrc"
-alias tconf="vim ~/.dotfiles/tmux/.tmux.conf"
-alias kconf="vim ~/.config/karabiner/assets/complex_modifications"
-alias gconf="vim ~/.dotfiles/git/gitconfig"
+alias zalias="nvim ~/.dotfiles/zsh/source/aliases.zsh"
+alias zfunc="nvim ~/.dotfiles/zsh/source/functions.zsh"
+alias zc="nvim ~/.dotfiles/zsh/source"
+alias vconf="nvim ~/.config/nvim/init.lua"
+alias tconf="nvim ~/.dotfiles/tmux/.tmux.conf"
+alias kconf="nvim ~/.config/karabiner/assets/complex_modifications"
+alias gconf="nvim ~/.dotfiles/git/gitconfig"
 alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \"(^#.*|^$|myali)\" | sort"
-alias mconf="vim ~/.mutt/muttrc"
+alias mconf="nvim ~/.mutt/muttrc"
 
 # utils
 alias wthr="curl wttr.in"
@@ -29,12 +30,11 @@ alias lk="exa -lag -t=modified"
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
-# vim aliasas
-alias v="vim"
-alias vs="vim -S Session.vim"
-alias lvim='vim -c "normal '"'"'0"'
-alias vlc="vim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
-alias vtag='vim $(git tmsu | xargs readlink -f)'
+# nvim aliasas
+alias v="nvim"
+alias lvim='nvim -c "normal '"'"'0"'
+alias vlc="nvim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
+alias vtag='nvim $(git tmsu | xargs readlink -f)'
 
 # toggl aliases
 alias tgopen="firefox https://track.toggl.com"
