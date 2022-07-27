@@ -27,6 +27,8 @@ opt.showmatch = true
 opt.showmode = true
 opt.smartcase = true
 opt.smartindent = true
+opt.splitbelow = true
+opt.splitright = true
 opt.undofile = true
 opt.wildmenu = true
 
