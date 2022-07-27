@@ -85,6 +85,7 @@ nmap("<LocalLeader>o", "o<Esc>") -- custom, insert line below
 nmap("<LocalLeader>O", "O<Esc>") -- custom, insert line above
 nmap("<LocalLeader>q", vim.diagnostic.setloclist) -- vim.diagnostic.* nvim-lspconfig
 -- <LocalLeader>rn, vim.lsp.buf.rename                                                       (setup_lsp_mappings)
+nmap("<LocalLeader>s", ":grep ") -- custom, search for word
 -- <LocalLeader>wa, vim.lsp.buf.add_workspace_folder                                         (setup_lsp_mappings)
 -- <LocalLeader>wr, vim.lsp.buf.remove_workspace_folder                                      (setup_lsp_mappings)
 -- <LocalLeader>wl, function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end  (setup_lsp_mappings)

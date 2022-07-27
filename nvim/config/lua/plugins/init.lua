@@ -89,6 +89,12 @@ function M.vim_plug()
 	-- add commenting actions
 	Plug("tpope/vim-commentary")
 
+	-- make sure fzf is installed
+	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
+
+	-- fzf search functionality
+	Plug("ibhagwan/fzf-lua", { branch = "main" })
+
 	-- interact with git in neovim
 	Plug("tpope/vim-fugitive")
 
@@ -102,7 +108,7 @@ function M.vim_plug()
 	Plug("tpope/vim-unimpaired")
 
 	-- add virtual indent lines to see indentation more clearly
-	Plug('lukas-reineke/indent-blankline.nvim')
+	Plug("lukas-reineke/indent-blankline.nvim")
 
 	-- Plug('vim-test/vim-test')
 
