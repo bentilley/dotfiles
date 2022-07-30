@@ -27,6 +27,9 @@ require("formatter").setup({
 		python = {
 			require("formatter.filetypes.python").black,
 		},
+		toml = {
+			require("formatter.filetypes.toml").taplo,
+		},
 		typescript = {
 			require("formatter.filetypes.typescript").prettier,
 		},
