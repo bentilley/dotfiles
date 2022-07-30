@@ -20,8 +20,24 @@ local f = ls.function_node
 -- local lambda = require("luasnip.extras").l
 -- local postfix = require("luasnip.extras.postfix").postfix
 
+local TYPE_DESCRIPTION = {
+	build = "Changes that affect the build system or external dependencies",
+	ci = "Changes to our CI configuration files and scripts",
+	docs = "Documentation only changes",
+	feat = "A new feature",
+	fix = "A bug fix",
+	perf = "A code change that improves performance",
+	refactor = "A code change that neither fixes a bug nor adds a feature",
+	style = "Changes that do not affect the meaning of the code (e.g. formatting)",
+	test = "Adding missing tests or correcting existing tests",
+	wip = "Work in progress (to be squashed later)",
+}
+
 return {
-	s({ trig = "(%a+)", regTrig = true }, {
+	s({
+		trig = "(%a+)",
+		regTrig = true,
+	}, {
 		f(function(_, snip)
 			return snip.captures[1]
 		end, {}, {}),
@@ -31,19 +47,20 @@ return {
 		i(0),
 		t({ "", "", "# " }),
 		f(function(_, snip)
-			local TYPE_DESCRIPTION = {
-				build = "Changes that affect the build system or external dependencies",
-				ci = "Changes to our CI configuration files and scripts",
-				docs = "Documentation only changes",
-				feat = "A new feature",
-				fix = "A bug fix",
-				perf = "A code change that improves performance",
-				refactor = "A code change that neither fixes a bug nor adds a feature",
-				style = "Changes that do not affect the meaning of the code (e.g. formatting)",
-				test = "Adding missing tests or correcting existing tests",
-				wip = "Work in progress (to be squashed later)",
-			}
 			return TYPE_DESCRIPTION[snip.captures[1]]
 		end, {}, {}),
+	}, {
+		condition = function(_, matched_trigger, _)
+			for key, _ in pairs(TYPE_DESCRIPTION) do
+				if matched_trigger == key then
+					return true
+				end
+			end
+			-- vim.pretty_print(line_to_cursor)
+			-- vim.pretty_print(matched_trigger)
+			-- vim.pretty_print(captures)
+			return false
+		end,
 	}),
-}, {}
+},
+	{}
