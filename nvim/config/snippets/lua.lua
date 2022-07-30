@@ -24,9 +24,21 @@ return {
 	s({ trig = "trig" }, t("loaded!!")),
 }, {
 	s(
-		{ trig = "fn", name = "basic function" },
+		{ trig = "fn l", name = "local function" },
 		{
 			t("local function "),
+			i(1, "name"),
+			t("("),
+			i(2),
+			t({ ")", "\t" }),
+			i(3),
+			t({ "", "end" }),
+		}
+	),
+	s(
+		{ trig = "fn g", name = "global function" },
+		{
+			t("function "),
 			i(1, "name"),
 			t("("),
 			i(2),
