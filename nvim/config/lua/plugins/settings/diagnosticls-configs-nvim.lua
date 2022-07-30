@@ -20,6 +20,8 @@ local mypy = require("diagnosticls-configs.linters.mypy")
 -- pip install mypy
 local shellcheck = require("diagnosticls-configs.linters.shellcheck")
 -- brew install shellcheck
+local vint = require("diagnosticls-configs.linters.vint")
+-- brew install vint
 
 -- formatters
 
@@ -98,6 +100,10 @@ dlsconfig.setup({
 
 	["typescriptreact"] = {
 		linter = { eslint },
+	},
+
+	["vim"] = {
+		linter = { vint },
 	},
 
 	["zsh"] = {

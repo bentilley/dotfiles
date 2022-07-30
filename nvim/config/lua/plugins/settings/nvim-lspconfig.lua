@@ -53,3 +53,7 @@ require("lspconfig").pyright.setup({ on_attach = on_attach, capabilities = capab
 -- Typescript
 require("lspconfig").tsserver.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g typescript typescript-language-server
+
+-- Vim
+require("lspconfig").vimls.setup({ on_attach = on_attach, capabilities = capabilities })
+-- npm install -g vim-language-server
