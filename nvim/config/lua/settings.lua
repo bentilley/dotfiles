@@ -41,8 +41,16 @@ opt.foldlevelstart = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
 opt.formatoptions = "tcqj1"
-opt.grepprg = "rg --vimgrep --follow"
-opt.listchars = { eol = "↴", space = ".", tab = "<->", trail = "%", precedes = "<", extends = ">" }
+opt.grepformat = "%f:%l:%c:%m"
+opt.grepprg = "rg --vimgrep"
+opt.listchars = {
+	eol = "↴",
+	space = ".",
+	tab = "<->",
+	trail = "%",
+	precedes = "<",
+	extends = ">",
+}
 opt.path = opt.path + (vim.env.PWD .. "/**")
 opt.scrolloff = 2
 opt.shiftwidth = 2
