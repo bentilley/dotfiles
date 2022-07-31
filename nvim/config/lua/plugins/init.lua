@@ -54,6 +54,9 @@ function M.vim_plug()
 	-- neovim treesitter config
 	Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 
+	-- treesitter utils e.g. view highlight groups
+	Plug("nvim-treesitter/playground")
+
 	-- show the lightbulb emoji in the gutter when a code action is available
 	Plug("kosayoda/nvim-lightbulb")
 

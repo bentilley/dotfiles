@@ -21,6 +21,7 @@ require("nvim-treesitter.configs").setup({
 		"make",
 		"markdown",
 		"python",
+		"query",
 		"scss",
 		"sql",
 		"toml",
@@ -65,6 +66,24 @@ require("nvim-treesitter.configs").setup({
 	-- Indentation based on treesitter for the = operator.
 	indent = {
 		enable = true,
+	},
+
+	-- View treesitter information directly in Neovim
+	-- see: https://github.com/nvim-treesitter/playground
+	playground = {
+		enable = true,
+		-- keybindings = {
+		-- 	toggle_query_editor = "o",
+		-- 	toggle_hl_groups = "i",
+		-- 	toggle_injected_languages = "t",
+		-- 	toggle_anonymous_nodes = "a",
+		-- 	toggle_language_display = "I",
+		-- 	focus_language = "f",
+		-- 	unfocus_language = "F",
+		-- 	update = "R",
+		-- 	goto_node = "<cr>",
+		-- 	show_help = "?",
+		-- },
 	},
 })
 

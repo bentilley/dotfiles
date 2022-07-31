@@ -57,6 +57,7 @@ nmap("<Leader>ev", ":vsplit $MYVIMRC<CR>") -- custom, edit vimrc
 nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") -- custom, edit vimrc
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
+nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
 nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
