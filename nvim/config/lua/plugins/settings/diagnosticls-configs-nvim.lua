@@ -20,6 +20,8 @@ local mypy = require("diagnosticls-configs.linters.mypy")
 -- pip install mypy
 local shellcheck = require("diagnosticls-configs.linters.shellcheck")
 -- brew install shellcheck
+local stylelint = require("diagnosticls-configs.linters.stylelint")
+-- npm install stylelint stylelint-config-standard
 local vint = require("diagnosticls-configs.linters.vint")
 -- brew install vint
 
@@ -50,9 +52,17 @@ dlsconfig.setup({
 		linter = { cpplint },
 	},
 
+	["css"] = {
+		linter = { stylelint },
+	},
+
 	["go"] = {
 		linter = { golangci_lint },
 		-- formatter = { gofumpt },
+	},
+
+	["html"] = {
+		linter = { stylelint },
 	},
 
 	["javascript"] = {
@@ -61,6 +71,10 @@ dlsconfig.setup({
 
 	["javascriptreact"] = {
 		linter = { eslint },
+	},
+
+	["less"] = {
+		linter = { stylelint },
 	},
 
 	-- see field definitions here: https://github.com/iamcco/diagnostic-languageserver#config--document=

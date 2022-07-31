@@ -30,6 +30,10 @@ capabilities = vim.tbl_extend("keep", capabilities or {}, lsp_status.capabilitie
 
 -- language server configs
 
+-- CSS
+require("lspconfig").cssls.setup({ on_attach = on_attach, capabilities = capabilities })
+-- npm install -g vscode-langservers-extracted
+
 -- Docker
 require("lspconfig").dockerls.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g dockerfile-language-server-nodejs
@@ -37,6 +41,10 @@ require("lspconfig").dockerls.setup({ on_attach = on_attach, capabilities = capa
 -- Go
 require("lspconfig").gopls.setup({ on_attach = on_attach, capabilities = capabilities })
 -- go install golang.org/x/tools/gopls@latest
+
+-- HTML
+require("lspconfig").html.setup({ on_attach = on_attach, capabilities = capabilities })
+-- npm install -g vscode-langservers-extracted
 
 -- JSON
 require("lspconfig").jsonls.setup({ on_attach = on_attach, capabilities = capabilities })
