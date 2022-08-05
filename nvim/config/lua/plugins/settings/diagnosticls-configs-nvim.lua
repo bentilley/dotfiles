@@ -108,6 +108,32 @@ dlsconfig.setup({
 		linter = { shellcheck },
 	},
 
+	["sql"] = {
+		linter = {
+			{
+				sourceName = "sqlint",
+				command = fs.executable("sqlint"),
+				debounce = 100,
+				args = { "--stdin", "--format", "json" },
+				parseJson = {
+					sourceName = "[0].filepath",
+					errorsRoot = "[0].diagnostics",
+					line = "location.start.line",
+					column = "location.start.column",
+					endLine = "location.end.line",
+					endColumn = "location.end.column",
+					message = "[sqlint] ${message} [${rulename}]",
+					security = "errorLevel",
+				},
+				securities = {
+					["0"] = "info",
+					["1"] = "warning",
+					["2"] = "error",
+				},
+			},
+		},
+	},
+
 	["typescript"] = {
 		linter = { eslint },
 	},

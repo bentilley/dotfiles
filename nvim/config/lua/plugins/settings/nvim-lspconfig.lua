@@ -58,6 +58,18 @@ require("lspconfig").sumneko_lua.setup({ on_attach = on_attach, capabilities = c
 require("lspconfig").pyright.setup({ on_attach = on_attach, capabilities = capabilities })
 -- pip install pyright
 
+-- SQL
+require("lspconfig").sqls.setup({
+	on_attach = function(client, bufnr)
+		on_attach(client, bufnr)
+		-- separate plugin required to access language server functionality
+		-- see: https://github.com/nanotee/sqls.nvim
+		require("sqls").on_attach(client, bufnr)
+	end,
+	capabilities = capabilities,
+})
+-- npm install -g typescript typescript-language-server
+
 -- Typescript
 require("lspconfig").tsserver.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g typescript typescript-language-server

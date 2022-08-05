@@ -51,6 +51,9 @@ function M.vim_plug()
 	-- add lsp information to the statusline
 	Plug("nvim-lua/lsp-status.nvim")
 
+	-- additional plugin for sqls language server
+	Plug("nanotee/sqls.nvim")
+
 	-- neovim treesitter config
 	Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
 

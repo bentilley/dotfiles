@@ -91,6 +91,8 @@ nmap("<LocalLeader>S", ":Grep ") -- custom, search for word
 -- <LocalLeader>wa, vim.lsp.buf.add_workspace_folder                                         (setup_lsp_mappings)
 -- <LocalLeader>wr, vim.lsp.buf.remove_workspace_folder                                      (setup_lsp_mappings)
 -- <LocalLeader>wl, function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end  (setup_lsp_mappings)
+nmap("<LocalLeader>x", "<Plug>(sqls-execute-query)") -- sqls.nvim, sqls language server plugin
+nmap("<LocalLeader>X", "<Plug>(sqls-execute-query-vertical)") -- sqls.nvim, sqls language server plugin
 
 -- <C-k>, vim.lsp.buf.signature_help (setup_lsp_mappings)
 nmap("<C-w>D", ":tab split<CR>") -- custom, duplicate buffer in new tab
@@ -131,6 +133,8 @@ imap("<LocalLeader>U", "<Esc> viwUea") -- custom, current word lower-case
 -- <LocalLeader>f, vim.lsp.buf.range_formatting    (setup_lsp_mappings)
 -- <LocalLeader>hs, ":Gitsigns stage_hunk<CR>"     (setup_gitsigns_mappings)
 -- <LocalLeader>hr, ":Gitsigns reset_hunk<CR>"     (setup_gitsigns_mappings)
+vmap("<LocalLeader>x", "<Plug>(sqls-execute-query)") -- sqls.nvim, sqls language server plugin
+vmap("<LocalLeader>X", "<Plug>(sqls-execute-query-vertical)") -- sqls.nvim, sqls language server plugin
 
 -- operator pending mappings
 
