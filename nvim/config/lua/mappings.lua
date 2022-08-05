@@ -58,6 +58,10 @@ nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") --
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
 nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
+nmap("<Leader>l", ":FzfLua builtin<CR>") -- fzf-lua, seach fzf-lua operations
+nmap("<Leader>lf", ":FzfLua files<CR>") -- fzf-lua, search files
+nmap("<Leader>lg", ":FzfLua live_grep<CR>") -- fzf-lua, live search project
+nmap("<Leader>ls", ":FzfLua grep<CR>") -- fzf-lua, grep project pattern
 nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
