@@ -57,7 +57,13 @@ dlsconfig.setup({
 	},
 
 	["go"] = {
-		linter = { golangci_lint },
+		linter = {
+			vim.tbl_extend("force", golangci_lint, {
+				securities = {
+					[""] = "warning",
+				},
+			}),
+		},
 		-- formatter = { gofumpt },
 	},
 
