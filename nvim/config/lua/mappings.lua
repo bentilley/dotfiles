@@ -58,6 +58,10 @@ nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") --
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
 nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
+nmap("<Leader>j", ":HopChar1AC<CR>") -- hop.nvim, smart document jumping
+nmap("<Leader>J", "HopChar1BC<CR>") -- hop.nvim, smart document jumping
+nmap("<Leader>k", ":HopWordAC<CR>") -- hop.nvim, smart document jumping
+nmap("<Leader>K", ":HopWordBC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>l", ":FzfLua builtin<CR>") -- fzf-lua, seach fzf-lua operations
 nmap("<Leader>lf", ":FzfLua files<CR>") -- fzf-lua, search files
 nmap("<Leader>lg", ":FzfLua live_grep<CR>") -- fzf-lua, live search project

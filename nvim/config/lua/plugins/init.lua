@@ -41,6 +41,9 @@ function M.vim_plug()
 	-- smart behaviour for `f` key mapping
 	Plug("rhysd/clever-f.vim")
 
+	-- additional jump motion to anywhere in the visible buffer
+	Plug("phaazon/hop.nvim")
+
 	-- neovim language server configs
 	Plug("neovim/nvim-lspconfig")
 
@@ -99,6 +102,7 @@ function M.vim_plug()
 	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
 
 	-- fzf search functionality
+	-- possible alternative: https://github.com/nvim-telescope/telescope.nvim
 	Plug("ibhagwan/fzf-lua", { branch = "main" })
 
 	-- interact with git in neovim
