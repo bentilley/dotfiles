@@ -38,6 +38,9 @@ function M.vim_plug()
 
 	vim.call("plug#begin", data_dir .. "/plugged")
 
+	-- additional lua functions for nvim
+	Plug("nvim-lua/plenary.nvim")
+
 	-- smart behaviour for `f` key mapping
 	Plug("rhysd/clever-f.vim")
 
@@ -101,9 +104,8 @@ function M.vim_plug()
 	-- make sure fzf is installed
 	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
 
-	-- fzf search functionality
-	-- possible alternative: https://github.com/nvim-telescope/telescope.nvim
-	Plug("ibhagwan/fzf-lua", { branch = "main" })
+	-- search functionality
+	Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
 
 	-- interact with git in neovim
 	Plug("tpope/vim-fugitive")

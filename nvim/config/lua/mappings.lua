@@ -62,10 +62,11 @@ nmap("<Leader>j", ":HopChar1AC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>J", "HopChar1BC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>k", ":HopWordAC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>K", ":HopWordBC<CR>") -- hop.nvim, smart document jumping
-nmap("<Leader>l", ":FzfLua builtin<CR>") -- fzf-lua, seach fzf-lua operations
-nmap("<Leader>lf", ":FzfLua files<CR>") -- fzf-lua, search files
-nmap("<Leader>lg", ":FzfLua live_grep<CR>") -- fzf-lua, live search project
-nmap("<Leader>ls", ":FzfLua grep<CR>") -- fzf-lua, grep project pattern
+nmap("<Leader>l", ":Telescope builtin<CR>") -- telescope, seach telescope operations
+nmap("<Leader>lf", ":Telescope find_files<CR>") -- telescope, search files
+nmap("<Leader>lg", ":Telescope live_grep<CR>") -- telescope, live search project
+nmap("<Leader>lm", ":Telescope marks<CR>") -- telescope, search project marks
+nmap("<Leader>ls", ":Telescope grep_string<CR>") -- telescope, grep project pattern
 nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
