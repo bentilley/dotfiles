@@ -113,6 +113,9 @@ function M.vim_plug()
 	-- git decorations in gutter column
 	Plug("lewis6991/gitsigns.nvim")
 
+	-- interact with github in nvim
+	Plug("pwntester/octo.nvim")
+
 	-- add bracket and other text surrounding commands
 	Plug("tpope/vim-surround")
 
