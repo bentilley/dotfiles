@@ -138,6 +138,9 @@ check_third_party_tools() {
     brew_install vim "vim --HEAD"
     brew_install watchman watchman
     brew_install wtfutil wtfutil
+
+    brew tap homebrew/cask-fonts
+    brew install --cask font-meslo-lg-nerd-font
   fi
 
   # TODO make a function for brew cask installs
