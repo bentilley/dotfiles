@@ -39,9 +39,8 @@ highlight SpecialKey         ctermfg=160   ctermbg=NONE  cterm=NONE
 highlight Folded             ctermfg=248   ctermbg=235   cterm=NONE
 highlight FoldColumn         ctermfg=014   ctermbg=NONE  cterm=NONE
 highlight MatchParen         ctermfg=NONE  ctermbg=243   cterm=NONE
-" highlight ColorColumn        ctermfg=NONE  ctermbg=233   cterm=NONE
-highlight LineNR             ctermfg=244   ctermbg=NONE  cterm=NONE
-highlight CursorLineNR       ctermfg=125   ctermbg=236   cterm=NONE
+highlight LineNR             ctermfg=244   ctermbg=234   cterm=NONE
+highlight CursorLineNR       ctermfg=255   ctermbg=236   cterm=BOLD
 highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
 highlight VisualSpecial      ctermfg=NONE  ctermbg=141   cterm=NONE
 

@@ -11,6 +11,7 @@ local opt = vim.opt
 
 opt.autoindent = true
 opt.autoread = true
+opt.cursorline = true
 opt.expandtab = true
 opt.hidden = true
 opt.hlsearch = true
@@ -37,6 +38,7 @@ opt.wildmenu = true
 opt.backspace = { "indent", "eol", "start" }
 opt.complete = opt.complete - "i"
 opt.completeopt = { "menu", "menuone", "noselect", "preview" }
+opt.cursorlineopt = { "number" }
 opt.foldlevelstart = 99
 opt.foldmethod = "expr"
 opt.foldexpr = "nvim_treesitter#foldexpr()"
