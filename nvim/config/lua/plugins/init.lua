@@ -41,6 +41,9 @@ function M.vim_plug()
 	-- additional lua functions for nvim
 	Plug("nvim-lua/plenary.nvim")
 
+	-- additional font icons
+	Plug('kyazdani42/nvim-web-devicons')
+
 	-- smart behaviour for `f` key mapping
 	Plug("rhysd/clever-f.vim")
 
