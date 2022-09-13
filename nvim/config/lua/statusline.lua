@@ -19,7 +19,7 @@ end
 function M.active()
 	return table.concat({
 		"%#StatusLinePromptAccent#",
-		" >> ",
+		"  ",
 		"%#StatusLineFileAccent#",
 		" %n:%f %m%r%y",
 		"%{v:lua.require('statusline').is_formatting()}",
