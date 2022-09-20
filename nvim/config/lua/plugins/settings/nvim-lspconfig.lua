@@ -68,7 +68,7 @@ require("lspconfig").sqls.setup({
 	end,
 	capabilities = capabilities,
 })
--- npm install -g typescript typescript-language-server
+-- go install github.com/lighttiger2505/sqls@latest
 
 -- Typescript
 require("lspconfig").tsserver.setup({ on_attach = on_attach, capabilities = capabilities })
