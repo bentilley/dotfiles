@@ -125,6 +125,9 @@ function M.vim_plug()
 	-- add a bunch of [] mappings for interacting with neovim
 	Plug("tpope/vim-unimpaired")
 
+	-- add project configuration using .projections.json file
+	Plug("tpope/vim-projectionist")
+
 	-- add virtual indent lines to see indentation more clearly
 	Plug("lukas-reineke/indent-blankline.nvim")
 
