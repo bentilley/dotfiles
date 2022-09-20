@@ -27,6 +27,9 @@ require("formatter").setup({
 		python = {
 			require("formatter.filetypes.python").black,
 		},
+		sql = {
+			require("formatter.filetypes.sql").pgformat,
+		},
 		toml = {
 			require("formatter.filetypes.toml").taplo,
 		},
