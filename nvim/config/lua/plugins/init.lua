@@ -131,6 +131,10 @@ function M.vim_plug()
 	-- add virtual indent lines to see indentation more clearly
 	Plug("lukas-reineke/indent-blankline.nvim")
 
+	-- add simple file template functionality
+	-- Plug("aperezdc/vim-template")
+	-- TODO: needs some tlc to setup some custom templates for
+
 	-- Plug('vim-test/vim-test')
 
 	vim.call("plug#end")
