@@ -42,7 +42,7 @@ function M.vim_plug()
 	Plug("nvim-lua/plenary.nvim")
 
 	-- additional font icons
-	Plug('kyazdani42/nvim-web-devicons')
+	Plug("kyazdani42/nvim-web-devicons")
 
 	-- smart behaviour for `f` key mapping
 	Plug("rhysd/clever-f.vim")
@@ -103,6 +103,9 @@ function M.vim_plug()
 
 	-- add commenting actions
 	Plug("tpope/vim-commentary")
+
+	-- add todo comment functionality
+	Plug("folke/todo-comments.nvim")
 
 	-- make sure fzf is installed
 	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })

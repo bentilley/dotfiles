@@ -5,6 +5,7 @@
 
 local M = {}
 local formatter_nvim = require("plugins.settings.formatter-nvim")
+local todo_comments = require("plugins.settings.todo-comments-nvim")
 
 -- constants
 
@@ -69,6 +70,7 @@ nmap("<Leader>lm", ":Telescope marks<CR>") -- telescope, search project marks
 nmap("<Leader>ls", ":Telescope grep_string<CR>") -- telescope, grep project pattern
 nmap("<Leader>s", ":Lgrep ") -- custom, search for word
 nmap("<Leader>S", ":Grep ") -- custom, search for word
+nmap("<Leader>t", ":TodoQuickFix") -- todo-comments.nvim, show todo,fix,etc. comments
 nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
@@ -110,6 +112,8 @@ nmap("[d", vim.diagnostic.goto_prev) -- vim.diagnostic.* nvim-lspconfig
 nmap("]d", vim.diagnostic.goto_next) -- vim.diagnostic.* nvim-lspconfig
 -- ]h, function() vim.schedule(function() gs.next_hunk() end) return "<Ignore>" end  (setup_gitsigns_mappings)
 -- [h, function() vim.schedule(function() gs.prev_hunk() end) return "<Ignore>" end  (setup_gitsigns_mappings)
+nmap("[m", todo_comments.jump_prev) -- todo_comments.nvim, previous todo message
+nmap("]m", todo_comments.jump_next) -- todo_comments.nvim, next todo message
 nmap("[w", ":tabprevious<CR>") -- custom, previous tab
 nmap("]w", ":tabnext<CR>") -- custom, next tab
 
