@@ -67,6 +67,8 @@ nmap("<Leader>lf", ":Telescope find_files<CR>") -- telescope, search files
 nmap("<Leader>lg", ":Telescope live_grep<CR>") -- telescope, live search project
 nmap("<Leader>lm", ":Telescope marks<CR>") -- telescope, search project marks
 nmap("<Leader>ls", ":Telescope grep_string<CR>") -- telescope, grep project pattern
+nmap("<Leader>s", ":Lgrep ") -- custom, search for word
+nmap("<Leader>S", ":Grep ") -- custom, search for word
 nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
@@ -95,8 +97,6 @@ nmap("<LocalLeader>o", "o<Esc>") -- custom, insert line below
 nmap("<LocalLeader>O", "O<Esc>") -- custom, insert line above
 nmap("<LocalLeader>q", vim.diagnostic.setloclist) -- vim.diagnostic.* nvim-lspconfig
 -- <LocalLeader>rn, vim.lsp.buf.rename                                                       (setup_lsp_mappings)
-nmap("<LocalLeader>s", ":Lgrep ") -- custom, search for word
-nmap("<LocalLeader>S", ":Grep ") -- custom, search for word
 -- <LocalLeader>wa, vim.lsp.buf.add_workspace_folder                                         (setup_lsp_mappings)
 -- <LocalLeader>wr, vim.lsp.buf.remove_workspace_folder                                      (setup_lsp_mappings)
 -- <LocalLeader>wl, function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end  (setup_lsp_mappings)
