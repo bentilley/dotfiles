@@ -30,6 +30,10 @@ capabilities = vim.tbl_extend("keep", capabilities or {}, lsp_status.capabilitie
 
 -- language server configs
 
+-- C++
+require("lspconfig").ccls.setup({ on_attach = on_attach, capabilities = capabilities })
+-- brew install ccls
+
 -- CSS
 require("lspconfig").cssls.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g vscode-langservers-extracted

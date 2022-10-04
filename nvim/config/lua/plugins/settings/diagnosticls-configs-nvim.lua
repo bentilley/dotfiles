@@ -8,7 +8,7 @@ local fs = require("diagnosticls-configs.fs")
 
 -- linters
 
-local cpplint = require("diagnosticls-configs.linters.cpplint")
+-- local cpplint = require("diagnosticls-configs.linters.cpplint")
 -- brew install cpplint
 local eslint = require("diagnosticls-configs.linters.eslint")
 -- npm install eslint
@@ -48,9 +48,10 @@ dlsconfig.setup({
 		linter = { shellcheck },
 	},
 
-	["cpp"] = {
-		linter = { cpplint },
-	},
+	-- diagnosticls clashes with ccls as they don't have the same indent_encoding
+	-- ["cpp"] = {
+	-- 	linter = { cpplint },
+	-- },
 
 	["css"] = {
 		linter = { stylelint },

@@ -10,6 +10,12 @@ require("formatter").setup({
 	logging = true,
 	log_level = vim.log.levels.WARN,
 	filetype = {
+		c = {
+			require("formatter.filetypes.c").clangformat,
+		},
+		cpp = {
+			require("formatter.filetypes.cpp").clangformat,
+		},
 		go = {
 			require("formatter.filetypes.go").goimports,
 			require("formatter.filetypes.go").gofumpt,
