@@ -71,7 +71,7 @@ nmap("<Leader>lm", ":Telescope marks<CR>") -- telescope, search project marks
 nmap("<Leader>ls", ":Telescope grep_string<CR>") -- telescope, grep project pattern
 nmap("<Leader>s", ":Lgrep ") -- custom, search for word
 nmap("<Leader>S", ":Grep ") -- custom, search for word
-nmap("<Leader>t", ":TodoQuickFix") -- todo-comments.nvim, show todo,fix,etc. comments
+nmap("<Leader>m", ":TodoQuickFix<CR>") -- todo-comments.nvim, show todo,fix,etc. comments
 nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
