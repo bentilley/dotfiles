@@ -107,6 +107,9 @@ function M.vim_plug()
 	-- add todo comment functionality
 	Plug("folke/todo-comments.nvim")
 
+	-- add text case coercion
+	Plug("johmsalas/text-case.nvim")
+
 	-- make sure fzf is installed
 	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
 
