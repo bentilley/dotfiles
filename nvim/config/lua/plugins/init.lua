@@ -138,8 +138,7 @@ function M.vim_plug()
 	Plug("lukas-reineke/indent-blankline.nvim")
 
 	-- add simple file template functionality
-	-- Plug("aperezdc/vim-template")
-	-- TODO: needs some tlc to setup some custom templates for
+	Plug("aperezdc/vim-template")
 
 	-- Plug('vim-test/vim-test')
 
