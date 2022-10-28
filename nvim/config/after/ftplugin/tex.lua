@@ -9,4 +9,4 @@ vim.opt_local.spell = true
 
 -- non-boolean options
 
-vim.bo.makeprg = "latexmk -pdf -pv"
+vim.opt_local.makeprg = "latexmk -pdf -pv"

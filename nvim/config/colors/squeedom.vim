@@ -1,7 +1,7 @@
 " squeedom.vim
 " Author:  Ben Tilley
 " Created: 2022-09-09
-" Squeedom Colourscheme
+" Squeedom Colour Scheme
 
 " Remove all existing highlighting and set the defaults.
 highlight clear
@@ -23,10 +23,10 @@ if &background ==# 'light'
 
 " design system {{{
 
-  highlight Normal             ctermfg=000   ctermbg=015   cterm=NONE
+  highlight Normal             ctermfg=000   ctermbg=015   cterm=none
 
-  highlight Primary            ctermfg=125   ctermbg=NONE  cterm=NONE
-  highlight Secondary          ctermfg=014   ctermbg=NONE  cterm=NONE
+  highlight Primary            ctermfg=125   ctermbg=none  cterm=none
+  highlight Secondary          ctermfg=014   ctermbg=none  cterm=none
 
 " }}}
 
@@ -34,93 +34,101 @@ if &background ==# 'light'
 
   highlight clear SignColumn
 
-  highlight WinSeparator       ctermfg=125   ctermbg=NONE  cterm=NONE
-  highlight NonText            ctermfg=248   ctermbg=NONE  cterm=NONE
-  highlight SpecialKey         ctermfg=160   ctermbg=NONE  cterm=NONE
-  highlight Folded             ctermfg=008   ctermbg=252   cterm=NONE
-  highlight FoldColumn         ctermfg=014   ctermbg=NONE  cterm=NONE
-  highlight MatchParen         ctermfg=NONE  ctermbg=243   cterm=NONE
-  highlight LineNR             ctermfg=008   ctermbg=252   cterm=NONE
-  highlight CursorLineNR       ctermfg=000   ctermbg=254   cterm=BOLD
-  highlight Visual             ctermfg=NONE  ctermbg=252   cterm=NONE
-  highlight VisualSpecial      ctermfg=NONE  ctermbg=141   cterm=NONE
+  highlight WinSeparator       ctermfg=125   ctermbg=none  cterm=none
+  highlight NonText            ctermfg=248   ctermbg=none  cterm=none
+  highlight SpecialKey         ctermfg=160   ctermbg=none  cterm=none
+  highlight Folded             ctermfg=008   ctermbg=252   cterm=none
+  highlight FoldColumn         ctermfg=014   ctermbg=none  cterm=none
+  highlight MatchParen         ctermfg=none  ctermbg=243   cterm=none
+  highlight LineNR             ctermfg=008   ctermbg=252   cterm=none
+  highlight CursorLineNR       ctermfg=000   ctermbg=254   cterm=bold
+  highlight Visual             ctermfg=none  ctermbg=252   cterm=none
+  highlight VisualSpecial      ctermfg=none  ctermbg=141   cterm=none
 
-  highlight TabLine            ctermfg=008   ctermbg=252   cterm=NONE
-  highlight TabLineFill        ctermfg=008   ctermbg=252   cterm=NONE
-  highlight TabLineSel         ctermfg=000   ctermbg=250   cterm=BOLD
+  highlight TabLine            ctermfg=008   ctermbg=252   cterm=none
+  highlight TabLineFill        ctermfg=008   ctermbg=252   cterm=none
+  highlight TabLineSel         ctermfg=000   ctermbg=250   cterm=bold
 
-  highlight Pmenu              ctermfg=000   ctermbg=252   cterm=NONE
-  highlight PmenuSel           ctermfg=000   ctermbg=248   cterm=BOLD
+  highlight Pmenu              ctermfg=000   ctermbg=252   cterm=none
+  highlight PmenuSel           ctermfg=000   ctermbg=248   cterm=bold
 
 " }}}
 
 " objects {{{
 
-  highlight Title              ctermfg=218   ctermbg=NONE  cterm=NONE
-  highlight Todo               ctermfg=000   ctermbg=185   cterm=NONE
-  highlight Emphasis           ctermfg=016   ctermbg=246   cterm=NONE
+  highlight Title              ctermfg=218   ctermbg=none  cterm=none
+  highlight Todo               ctermfg=000   ctermbg=185   cterm=none
+  highlight Emphasis           ctermfg=016   ctermbg=246   cterm=none
 
 " }}}
 
 " search {{{
 
   highlight Search             ctermfg=094   ctermbg=180
-  highlight IncSearch          ctermfg=094   ctermbg=180   cterm=REVERSE
+  highlight IncSearch          ctermfg=094   ctermbg=180   cterm=reverse
 
 " }}}
 
 " diff {{{
 
 
-  highlight DiffAdd               ctermfg=040   ctermbg=254   cterm=NONE
-  highlight DiffAddText           ctermfg=040   ctermbg=NONE  cterm=BOLD
-  highlight DiffDelete            ctermfg=160   ctermbg=254   cterm=NONE
-  highlight DiffDeleteText        ctermfg=160   ctermbg=NONE  cterm=BOLD
-  highlight DiffText              ctermfg=220   ctermbg=NONE  cterm=BOLD
-  highlight DiffChange            ctermfg=NONE  ctermbg=254   cterm=NONE
+  highlight DiffAdd               ctermfg=040   ctermbg=254   cterm=none
+  highlight DiffAddText           ctermfg=040   ctermbg=none  cterm=bold
+  highlight DiffDelete            ctermfg=160   ctermbg=254   cterm=none
+  highlight DiffDeleteText        ctermfg=160   ctermbg=none  cterm=bold
+  highlight DiffText              ctermfg=220   ctermbg=none  cterm=bold
+  highlight DiffChange            ctermfg=none  ctermbg=254   cterm=none
 
 " }}}
 
 " code {{{
 
-  highlight Comment            ctermfg=060   ctermbg=NONE   cterm=NONE
-  highlight CommentSpecial     ctermfg=242   ctermbg=NONE   cterm=NONE
-  highlight Type               ctermfg=220   ctermbg=NONE   cterm=NONE
-  highlight PreProc            ctermfg=001   ctermbg=NONE   cterm=NONE
-  highlight Keyword            ctermfg=162   ctermbg=NONE   cterm=NONE
-  highlight Conditional        ctermfg=162   ctermbg=NONE   cterm=NONE
-  highlight Include            ctermfg=208   ctermbg=NONE   cterm=NONE
-  highlight Function           ctermfg=081   ctermbg=NONE   cterm=NONE
-  highlight FunctionSpecial    ctermfg=014   ctermbg=NONE   cterm=NONE
-  highlight Structure          ctermfg=087   ctermbg=NONE   cterm=BOLD
-  highlight StorageClass       ctermfg=165   ctermbg=NONE   cterm=NONE
-  highlight Constant           ctermfg=134   ctermbg=NONE   cterm=NONE
-  highlight String             ctermfg=098   ctermbg=NONE   cterm=NONE
-  highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
-  highlight Statement          ctermfg=081   ctermbg=NONE   cterm=NONE
-  highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
-  highlight ClassSpecial       ctermfg=042   ctermbg=NONE   cterm=NONE
-  highlight TryCatchSpecial    ctermfg=202   ctermbg=NONE   cterm=NONE
-  highlight Exception          ctermfg=160   ctermbg=NONE   cterm=BOLD
+  highlight Comment            ctermfg=060   ctermbg=none   cterm=none
+  highlight CommentSpecial     ctermfg=242   ctermbg=none   cterm=none
+  highlight Type               ctermfg=220   ctermbg=none   cterm=none
+  highlight PreProc            ctermfg=001   ctermbg=none   cterm=none
+  highlight Keyword            ctermfg=162   ctermbg=none   cterm=none
+  highlight Conditional        ctermfg=162   ctermbg=none   cterm=none
+  highlight Include            ctermfg=208   ctermbg=none   cterm=none
+  highlight Function           ctermfg=081   ctermbg=none   cterm=none
+  highlight FunctionSpecial    ctermfg=014   ctermbg=none   cterm=none
+  highlight Structure          ctermfg=087   ctermbg=none   cterm=bold
+  highlight StorageClass       ctermfg=165   ctermbg=none   cterm=none
+  highlight Constant           ctermfg=134   ctermbg=none   cterm=none
+  highlight String             ctermfg=098   ctermbg=none   cterm=none
+  highlight StringSpecial      ctermfg=088   ctermbg=none   cterm=none
+  highlight Statement          ctermfg=081   ctermbg=none   cterm=none
+  highlight VariableSpecial    ctermfg=047   ctermbg=none   cterm=none
+  highlight ClassSpecial       ctermfg=042   ctermbg=none   cterm=none
+  highlight TryCatchSpecial    ctermfg=202   ctermbg=none   cterm=none
+  highlight Exception          ctermfg=160   ctermbg=none   cterm=bold
 
 " }}}
 
 " statusline {{{
 
-  highlight StatusLine                   ctermfg=125   ctermbg=252   cterm=NONE
-  highlight StatusLineNC                 ctermfg=008   ctermbg=252   cterm=NONE
-  highlight StatusLineTerm               ctermfg=000   ctermbg=002   cterm=NONE
-  highlight StatusLineTermNC             ctermfg=002   ctermbg=252   cterm=NONE
-  highlight StatusLinePromptAccent       ctermfg=015   ctermbg=125   cterm=BOLD
-  highlight StatusLineFileAccent         ctermfg=000   ctermbg=252   cterm=BOLD
-  highlight StatusLinePositionInfoAccent ctermfg=008   ctermbg=252   cterm=NONE
-  highlight StatusLineLspAccent          ctermfg=008   ctermbg=250   cterm=NONE
+  highlight StatusLine                   ctermfg=125   ctermbg=252   cterm=none
+  highlight StatusLineNC                 ctermfg=008   ctermbg=252   cterm=none
+  highlight StatusLineTerm               ctermfg=000   ctermbg=002   cterm=none
+  highlight StatusLineTermNC             ctermfg=002   ctermbg=234   cterm=none
+  highlight StatusLinePromptAccent       ctermfg=015   ctermbg=125   cterm=bold
+  highlight StatusLineFileAccent         ctermfg=000   ctermbg=252   cterm=bold
+  highlight StatusLinePositionInfoAccent ctermfg=008   ctermbg=252   cterm=none
+  highlight StatusLineLspAccent          ctermfg=008   ctermbg=250   cterm=none
 
 " }}}
 
 " spellcheck {{{
 
-  highlight link SpellBad Error
+  highlight clear SpellBad
+  highlight clear SpellCap
+  highlight clear SpellRare
+  highlight clear SpellLocal
+
+  highlight SpellBad                     ctermfg=none  ctermbg=252   cterm=undercurl
+  highlight link SpellCap SpellBad
+  highlight link SpellRare SpellBad
+  highlight link SpellLocal SpellBad
 
 " }}}
 
@@ -176,10 +184,10 @@ else
 
 " design system {{{
 
-  highlight Normal             ctermfg=015   ctermbg=000   cterm=NONE
+  highlight Normal             ctermfg=015   ctermbg=000   cterm=none
 
-  highlight Primary            ctermfg=125   ctermbg=NONE  cterm=NONE
-  highlight Secondary          ctermfg=014   ctermbg=NONE  cterm=NONE
+  highlight Primary            ctermfg=125   ctermbg=none  cterm=none
+  highlight Secondary          ctermfg=014   ctermbg=none  cterm=none
 
 " }}}
 
@@ -187,92 +195,100 @@ else
 
   highlight clear SignColumn
 
-  highlight WinSeparator       ctermfg=125   ctermbg=NONE  cterm=NONE
-  highlight NonText            ctermfg=240   ctermbg=NONE  cterm=NONE
-  highlight SpecialKey         ctermfg=160   ctermbg=NONE  cterm=NONE
-  highlight Folded             ctermfg=248   ctermbg=235   cterm=NONE
-  highlight FoldColumn         ctermfg=014   ctermbg=NONE  cterm=NONE
-  highlight MatchParen         ctermfg=NONE  ctermbg=243   cterm=NONE
-  highlight LineNR             ctermfg=244   ctermbg=234   cterm=NONE
-  highlight CursorLineNR       ctermfg=255   ctermbg=236   cterm=BOLD
-  highlight Visual             ctermfg=NONE  ctermbg=236   cterm=NONE
-  highlight VisualSpecial      ctermfg=NONE  ctermbg=141   cterm=NONE
+  highlight WinSeparator       ctermfg=125   ctermbg=none  cterm=none
+  highlight NonText            ctermfg=240   ctermbg=none  cterm=none
+  highlight SpecialKey         ctermfg=160   ctermbg=none  cterm=none
+  highlight Folded             ctermfg=248   ctermbg=235   cterm=none
+  highlight FoldColumn         ctermfg=014   ctermbg=none  cterm=none
+  highlight MatchParen         ctermfg=none  ctermbg=243   cterm=none
+  highlight LineNR             ctermfg=244   ctermbg=234   cterm=none
+  highlight CursorLineNR       ctermfg=255   ctermbg=236   cterm=bold
+  highlight Visual             ctermfg=none  ctermbg=236   cterm=none
+  highlight VisualSpecial      ctermfg=none  ctermbg=141   cterm=none
 
-  highlight TabLine            ctermfg=015   ctermbg=238   cterm=NONE
-  highlight TabLineFill        ctermfg=007   ctermbg=234   cterm=NONE
-  highlight TabLineSel         ctermfg=007   ctermbg=234   cterm=BOLD
+  highlight TabLine            ctermfg=015   ctermbg=238   cterm=none
+  highlight TabLineFill        ctermfg=007   ctermbg=234   cterm=none
+  highlight TabLineSel         ctermfg=007   ctermbg=234   cterm=bold
 
-  highlight Pmenu              ctermfg=0     ctermbg=238   cterm=NONE
-  highlight PmenuSel           ctermfg=232   ctermbg=246   cterm=BOLD
+  highlight Pmenu              ctermfg=0     ctermbg=238   cterm=none
+  highlight PmenuSel           ctermfg=232   ctermbg=246   cterm=bold
 
 " }}}
 
 " objects {{{
 
-  highlight Title              ctermfg=218   ctermbg=NONE  cterm=NONE
-  highlight Todo               ctermfg=000   ctermbg=185   cterm=NONE
-  highlight Emphasis           ctermfg=016   ctermbg=246   cterm=NONE
+  highlight Title              ctermfg=218   ctermbg=none  cterm=none
+  highlight Todo               ctermfg=000   ctermbg=185   cterm=none
+  highlight Emphasis           ctermfg=016   ctermbg=246   cterm=none
 
 " }}}
 
 " search {{{
 
   highlight Search             ctermfg=094   ctermbg=180
-  highlight IncSearch          ctermfg=094   ctermbg=180   cterm=REVERSE
+  highlight IncSearch          ctermfg=094   ctermbg=180   cterm=reverse
 
 " }}}
 
 " diff {{{
 
-  highlight DiffAdd               ctermfg=040   ctermbg=234   cterm=NONE
-  highlight DiffAddText           ctermfg=040   ctermbg=NONE  cterm=BOLD  " custom
-  highlight DiffDelete            ctermfg=160   ctermbg=234   cterm=NONE
-  highlight DiffDeleteText        ctermfg=160   ctermbg=NONE  cterm=BOLD  " custom
-  highlight DiffText              ctermfg=220   ctermbg=NONE  cterm=NONE
-  highlight DiffChange            ctermfg=NONE  ctermbg=234   cterm=NONE
+  highlight DiffAdd               ctermfg=040   ctermbg=234   cterm=none
+  highlight DiffAddText           ctermfg=040   ctermbg=none  cterm=bold  " custom
+  highlight DiffDelete            ctermfg=160   ctermbg=234   cterm=none
+  highlight DiffDeleteText        ctermfg=160   ctermbg=none  cterm=bold  " custom
+  highlight DiffText              ctermfg=220   ctermbg=none  cterm=none
+  highlight DiffChange            ctermfg=none  ctermbg=234   cterm=none
 
 " }}}
 
 " code {{{
 
-  highlight Comment            ctermfg=060   ctermbg=NONE   cterm=NONE
-  highlight CommentSpecial     ctermfg=242   ctermbg=NONE   cterm=NONE
-  highlight Type               ctermfg=220   ctermbg=NONE   cterm=NONE
-  highlight PreProc            ctermfg=001   ctermbg=NONE   cterm=NONE
-  highlight Keyword            ctermfg=162   ctermbg=NONE   cterm=NONE
-  highlight Conditional        ctermfg=162   ctermbg=NONE   cterm=NONE
-  highlight Include            ctermfg=208   ctermbg=NONE   cterm=NONE
-  highlight Function           ctermfg=081   ctermbg=NONE   cterm=NONE
-  highlight FunctionSpecial    ctermfg=014   ctermbg=NONE   cterm=NONE
-  highlight Structure          ctermfg=087   ctermbg=NONE   cterm=BOLD
-  highlight StorageClass       ctermfg=165   ctermbg=NONE   cterm=NONE
-  highlight Constant           ctermfg=134   ctermbg=NONE   cterm=NONE
-  highlight String             ctermfg=098   ctermbg=NONE   cterm=NONE
-  highlight StringSpecial      ctermfg=088   ctermbg=NONE   cterm=NONE
-  highlight Statement          ctermfg=081   ctermbg=NONE   cterm=NONE
-  highlight VariableSpecial    ctermfg=047   ctermbg=NONE   cterm=NONE
-  highlight ClassSpecial       ctermfg=042   ctermbg=NONE   cterm=NONE
-  highlight TryCatchSpecial    ctermfg=202   ctermbg=NONE   cterm=NONE
-  highlight Exception          ctermfg=160   ctermbg=NONE   cterm=BOLD
+  highlight Comment            ctermfg=060   ctermbg=none   cterm=none
+  highlight CommentSpecial     ctermfg=242   ctermbg=none   cterm=none
+  highlight Type               ctermfg=220   ctermbg=none   cterm=none
+  highlight PreProc            ctermfg=001   ctermbg=none   cterm=none
+  highlight Keyword            ctermfg=162   ctermbg=none   cterm=none
+  highlight Conditional        ctermfg=162   ctermbg=none   cterm=none
+  highlight Include            ctermfg=208   ctermbg=none   cterm=none
+  highlight Function           ctermfg=081   ctermbg=none   cterm=none
+  highlight FunctionSpecial    ctermfg=014   ctermbg=none   cterm=none
+  highlight Structure          ctermfg=087   ctermbg=none   cterm=bold
+  highlight StorageClass       ctermfg=165   ctermbg=none   cterm=none
+  highlight Constant           ctermfg=134   ctermbg=none   cterm=none
+  highlight String             ctermfg=098   ctermbg=none   cterm=none
+  highlight StringSpecial      ctermfg=088   ctermbg=none   cterm=none
+  highlight Statement          ctermfg=081   ctermbg=none   cterm=none
+  highlight VariableSpecial    ctermfg=047   ctermbg=none   cterm=none
+  highlight ClassSpecial       ctermfg=042   ctermbg=none   cterm=none
+  highlight TryCatchSpecial    ctermfg=202   ctermbg=none   cterm=none
+  highlight Exception          ctermfg=160   ctermbg=none   cterm=bold
 
 " }}}
 
 " statusline {{{
 
-  highlight StatusLine                   ctermfg=125   ctermbg=234   cterm=NONE
-  highlight StatusLineNC                 ctermfg=242   ctermbg=234   cterm=NONE
-  highlight StatusLineTerm               ctermfg=233   ctermbg=002   cterm=NONE
-  highlight StatusLineTermNC             ctermfg=002   ctermbg=234   cterm=NONE
-  highlight StatusLinePromptAccent       ctermfg=233   ctermbg=125   cterm=BOLD
-  highlight StatusLineFileAccent         ctermfg=250   ctermbg=234   cterm=BOLD
-  highlight StatusLinePositionInfoAccent ctermfg=242   ctermbg=234   cterm=NONE
-  highlight StatusLineLspAccent          ctermfg=236   ctermbg=250   cterm=NONE
+  highlight StatusLine                   ctermfg=125   ctermbg=234   cterm=none
+  highlight StatusLineNC                 ctermfg=242   ctermbg=234   cterm=none
+  highlight StatusLineTerm               ctermfg=233   ctermbg=002   cterm=none
+  highlight StatusLineTermNC             ctermfg=002   ctermbg=234   cterm=none
+  highlight StatusLinePromptAccent       ctermfg=233   ctermbg=125   cterm=bold
+  highlight StatusLineFileAccent         ctermfg=250   ctermbg=234   cterm=bold
+  highlight StatusLinePositionInfoAccent ctermfg=242   ctermbg=234   cterm=none
+  highlight StatusLineLspAccent          ctermfg=236   ctermbg=250   cterm=none
 
 " }}}
 
 " spellcheck {{{
 
-  highlight link SpellBad Error
+  highlight clear SpellBad
+  highlight clear SpellCap
+  highlight clear SpellRare
+  highlight clear SpellLocal
+
+  highlight SpellBad                     ctermfg=none  ctermbg=234   cterm=undercurl
+  highlight link SpellCap SpellBad
+  highlight link SpellRare SpellBad
+  highlight link SpellLocal SpellBad
 
 " }}}
 
