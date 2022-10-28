@@ -74,6 +74,10 @@ require("lspconfig").sqls.setup({
 })
 -- go install github.com/lighttiger2505/sqls@latest
 
+-- LaTeX
+require("lspconfig").texlab.setup({ on_attach = on_attach, capabilities = capabilities })
+-- brew install texlab
+
 -- Typescript
 require("lspconfig").tsserver.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g typescript typescript-language-server

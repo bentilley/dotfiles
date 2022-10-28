@@ -26,6 +26,7 @@ require("formatter").setup({
 		},
 		json = {
 			require("formatter.filetypes.json").jq,
+			-- brew install jq
 		},
 		lua = {
 			require("formatter.filetypes.lua").stylua,
@@ -35,6 +36,10 @@ require("formatter").setup({
 		},
 		sql = {
 			require("formatter.filetypes.sql").pgformat,
+		},
+		tex = {
+			require("formatter.filetypes.tex").latexindent,
+			-- brew install latexindent
 		},
 		toml = {
 			require("formatter.filetypes.toml").taplo,
