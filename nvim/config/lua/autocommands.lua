@@ -36,7 +36,7 @@ autocmd({ "CursorHold", "CursorHoldI" }, {
 -- only set up the following autocommands after the language serfer attaches to
 -- the current buffer.
 function M.setup_lsp_autocommands(client, bufnr)
-	if client.resolved_capabilities.document_highlight then
+	if client.server_capabilities.documentHighlightProvider then
 		local lspauto = augroup("LspAutoGroup", { clear = true })
 		autocmd({ "CursorHold", "CursorHoldI" }, {
 			group = lspauto,

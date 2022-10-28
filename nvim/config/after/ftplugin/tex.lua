@@ -5,7 +5,7 @@
 
 -- boolean options
 
-vim.wo.spell = true
+vim.opt_local.spell = true
 
 -- non-boolean options
 

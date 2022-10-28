@@ -75,7 +75,7 @@ nmap("<Leader>m", ":TodoQuickFix<CR>") -- todo-comments.nvim, show todo,fix,etc.
 nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
--- <LocalLeader>cl, function() print(vim.inspect(client.resolved_capabilities)) end  (setup_lsp_mappings)
+-- <LocalLeader>cl, function() print(vim.inspect(client.server_capabilities)) end  (setup_lsp_mappings)
 nmap("<LocalLeader>e", vim.diagnostic.open_float) -- vim.diagnostic.* nvim-lspconfig
 -- <LocalLeader>f, vim.lsp.buf.formatting                          (setup_lsp_mappings)
 -- <LocalLeader>gD, vim.lsp.buf.declaration                        (setup_lsp_mappings)
@@ -176,16 +176,20 @@ function M.setup_lsp_mappings(client, bufnr)
 	nmap("<LocalLeader>k", vim.lsp.buf.hover, bufopts)
 	nmap("<C-k>", vim.lsp.buf.signature_help, bufopts)
 
-	if client.resolved_capabilities.document_formatting then
-		nmap("<LocalLeader>f", vim.lsp.buf.formatting, bufopts)
-		vmap("<LocalLeader>f", vim.lsp.buf.range_formatting, bufopts)
+	if client.server_capabilities.documentFormattingProvider then
+		nmap("<LocalLeader>f", function()
+			vim.lsp.buf.format({ async = true })
+		end, bufopts)
+		vmap("<LocalLeader>f", function()
+			vim.lsp.buf.format({ async = true })
+		end, bufopts)
 	end
 
 	nmap("<LocalLeader>rn", vim.lsp.buf.rename, bufopts)
 	nmap("<LocalLeader>ca", vim.lsp.buf.code_action, bufopts)
 	vmap("<LocalLeader>ca", vim.lsp.buf.range_code_action, bufopts)
 	nmap("<LocalLeader>cl", function()
-		print(vim.inspect(client.resolved_capabilities))
+		print(vim.inspect(client.server_capabilities))
 	end, bufopts)
 
 	nmap("<LocalLeader>wa", vim.lsp.buf.add_workspace_folder, bufopts)
