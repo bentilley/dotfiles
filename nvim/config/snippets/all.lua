@@ -1,15 +1,15 @@
--- lua.lua
+-- all.lua
 -- Author: Ben Tilley
--- Created: 2022-07-25
--- Lua Snippets for LuaSnip
+-- Created: 2022-11-05
+-- All language Snippets for LuaSnip
 
 local ls = require("luasnip")
 local s = ls.snippet
 -- local sn = ls.snippet_node
 -- local isn = ls.indent_snippet_node
-local t = ls.text_node
-local i = ls.insert_node
--- local f = ls.function_node
+-- local t = ls.text_node
+-- local i = ls.insert_node
+local f = ls.function_node
 -- local c = ls.choice_node
 -- local d = ls.dynamic_node
 -- local r = ls.restore_node
@@ -21,24 +21,19 @@ local i = ls.insert_node
 -- local postfix = require("luasnip.extras.postfix").postfix
 
 return {
-	s({ trig = "trig" }, t("loaded!!")),
-}, {
-	s({ trig = "fn l", name = "local function" }, {
-		t("local function "),
-		i(1, "name"),
-		t("("),
-		i(2),
-		t({ ")", "\t" }),
-		i(3),
-		t({ "", "end" }),
-	}),
-	s({ trig = "fn g", name = "global function" }, {
-		t("function "),
-		i(1, "name"),
-		t("("),
-		i(2),
-		t({ ")", "\t" }),
-		i(3),
-		t({ "", "end" }),
-	}),
-}
+	-- Expands to todays date, e.g. 2022-11-05
+	s(
+		{ trig = "_today" },
+		f(function()
+			return os.date("%Y-%m-%d")
+		end, {}, {})
+	),
+	-- Expands to todays date and time, e.g. 2022-11-05 22:17:43
+	s(
+		{ trig = "_now" },
+		f(function()
+			return os.date("%Y-%m-%d %H:%M:%S")
+		end, {}, {})
+	),
+},
+	{}

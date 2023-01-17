@@ -16,6 +16,9 @@ require("formatter").setup({
 		cpp = {
 			require("formatter.filetypes.cpp").clangformat,
 		},
+		css = {
+			require("formatter.filetypes.css").prettier,
+		},
 		go = {
 			require("formatter.filetypes.go").goimports,
 			require("formatter.filetypes.go").gofumpt,
@@ -33,6 +36,9 @@ require("formatter").setup({
 		},
 		python = {
 			require("formatter.filetypes.python").black,
+		},
+		scss = {
+			require("formatter.filetypes.css").prettier,
 		},
 		sql = {
 			require("formatter.filetypes.sql").pgformat,

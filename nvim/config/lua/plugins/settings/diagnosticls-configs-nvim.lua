@@ -16,6 +16,8 @@ local flake8 = require("diagnosticls-configs.linters.flake8")
 -- pip install flake8
 local golangci_lint = require("diagnosticls-configs.linters.golangci_lint")
 -- brew install golangci-lint
+-- local lacheck = require("diagnosticls-configs.linters.lacheck")
+-- brew install lacheck
 local mypy = require("diagnosticls-configs.linters.mypy")
 -- pip install mypy
 local shellcheck = require("diagnosticls-configs.linters.shellcheck")
@@ -140,6 +142,25 @@ dlsconfig.setup({
 			},
 		},
 	},
+
+	-- ["tex"] = {
+	-- 	linter = {
+	-- 		{
+	-- 			sourceName = "lacheck",
+	-- 			command = "lacheck",
+	-- 			debounce = 100,
+	-- 			doesWriteToFile = true,
+	-- 			args = { "%file" },
+	-- 			offsetLine = 0,
+	-- 			offsetColumn = 0,
+	-- 			formatLines = 1,
+	-- 			formatPattern = {
+	-- 				[[^"([^"]+)", line (\d+): (.+)$]],
+	-- 				{ sourceName = 1, line = 2, message = { "[lacheck] ", 3 } },
+	-- 			},
+	-- 		},
+	-- 	},
+	-- },
 
 	["typescript"] = {
 		linter = { eslint },

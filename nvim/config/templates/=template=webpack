@@ -1,0 +1,59 @@
+import path from "path";
+import webpack from "webpack";
+import merge from "webpack-merge";
+import "webpack-dev-server";
+import nodeExternals from "webpack-node-externals";
+
+const commonConfig: webpack.Configuration = {
+  entry: { index: "./src/index.ts" },
+  target: "node",
+  module: {
+    rules: [
+      {
+        test: /\.ts$/,
+        use: "ts-loader",
+        exclude: /node_modules/,
+      },
+    ],
+  },
+  externals: [nodeExternals()],
+  resolve: {
+    extensions: [".ts", ".js"],
+  },
+};
+
+const developmentConfig: webpack.Configuration = merge(commonConfig, {
+  mode: "development",
+  devtool: "inline-source-map",
+  devServer: {
+    hot: false,
+    liveReload: true,
+    port: process.env.PORT || 3000,
+    static: "./dist",
+    watchFiles: ["src/**/*.ts"],
+  },
+});
+
+const productionConfig: webpack.Configuration = {
+  mode: "production",
+  output: {
+    path: path.resolve(__dirname, "dist"),
+    filename: "[name].js",
+  },
+};
+
+const config = (_, argv) => {
+  let conf: webpack.Configuration;
+
+  if (argv.mode === "development") {
+    conf = merge(commonConfig, developmentConfig);
+  } else if (argv.mode === "production") {
+    conf = merge(commonConfig, productionConfig);
+  } else {
+    throw new Error("Unknown mode");
+  }
+
+  return conf;
+};
+
+export default config;

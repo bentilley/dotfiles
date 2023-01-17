@@ -3,7 +3,7 @@
 -- Created: 2022-09-17
 -- Python Snippets for LuaSnip
 
-local ls = require("plugins.settings.luasnip")
+local ls = require("luasnip")
 local s = ls.snippet
 -- local sn = ls.snippet_node
 -- local isn = ls.indent_snippet_node

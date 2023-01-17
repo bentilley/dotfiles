@@ -4,6 +4,7 @@
 -- nvim-cmp Autocompletion Plugin Settings
 
 local cmp = require("cmp")
+local types = require("cmp.types")
 local luasnip = require("plugins.settings.luasnip")
 
 -- functions
@@ -38,7 +39,13 @@ cmp.setup({
 	-- },
 
 	-- key mappings
-	mapping = cmp.mapping.preset.insert({
+	mapping = {
+		["<C-n>"] = {
+			i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }),
+		},
+		["<C-p>"] = {
+			i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
+		},
 		["<C-b>"] = cmp.mapping.scroll_docs(-4),
 		["<C-f>"] = cmp.mapping.scroll_docs(4),
 		["<C-Space>"] = cmp.mapping.complete(),
@@ -50,6 +57,8 @@ cmp.setup({
 
 		-- making autocomplete work with snippets
 		-- see https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
+		-- If this isn't working for some reason, bear in mind that you mind have to look at
+		-- https://github.com/zbirenbaum/copilot-cmp#tab-completion-configuration-highly-recommended
 		["<Tab>"] = cmp.mapping(function(fallback)
 			if cmp.visible() then
 				cmp.select_next_item()
@@ -70,11 +79,12 @@ cmp.setup({
 				fallback()
 			end
 		end, { "i", "s" }),
-	}),
+	},
 
 	-- sources to compile list of completion items from.
 	-- see list of sources here: https://github.com/hrsh7th/nvim-cmp/wiki/List-of-sources
 	sources = cmp.config.sources({
+		{ name = "copilot" },
 		{ name = "nvim_lsp" },
 		{ name = "luasnip" },
 	}, {

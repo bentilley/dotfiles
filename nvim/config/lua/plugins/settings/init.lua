@@ -4,6 +4,7 @@
 -- Neovim Plugins Settings & Configuration Entry Point
 
 require(... .. ".FixCursorHold-nvim")
+require(... .. ".copilot-lua")
 require(... .. ".diagnosticls-configs-nvim")
 require(... .. ".formatter-nvim")
 require(... .. ".gitsigns")

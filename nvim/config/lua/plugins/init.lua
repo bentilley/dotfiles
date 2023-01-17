@@ -94,6 +94,12 @@ function M.vim_plug()
 	-- autocompletion source snippets
 	Plug("saadparwaiz1/cmp_luasnip")
 
+	-- Github Copilot - AI autocompletion
+	Plug("zbirenbaum/copilot.lua")
+
+	-- copilot cmp source
+	Plug("zbirenbaum/copilot-cmp")
+
 	-- fixes known issue with the CursorHold event in neovim
 	-- remove when this issue is resolved https://github.com/neovim/neovim/issues/12587
 	Plug("antoinemadec/FixCursorHold.nvim")
@@ -139,6 +145,9 @@ function M.vim_plug()
 
 	-- add simple file template functionality
 	Plug("aperezdc/vim-template")
+
+	-- html and css abbreviation expansion
+	Plug("mattn/emmet-vim")
 
 	-- Plug('vim-test/vim-test')
 

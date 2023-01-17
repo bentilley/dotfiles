@@ -72,7 +72,6 @@ nmap("<Leader>ls", ":Telescope grep_string<CR>") -- telescope, grep project patt
 nmap("<Leader>s", ":Lgrep ") -- custom, search for word
 nmap("<Leader>S", ":Grep ") -- custom, search for word
 nmap("<Leader>m", ":TodoQuickFix<CR>") -- todo-comments.nvim, show todo,fix,etc. comments
-nmap("<Leader>z", "za") -- custom, fold toggle
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
 -- <LocalLeader>cl, function() print(vim.inspect(client.server_capabilities)) end  (setup_lsp_mappings)
@@ -100,6 +99,11 @@ nmap("<LocalLeader>o", "o<Esc>") -- custom, insert line below
 nmap("<LocalLeader>O", "O<Esc>") -- custom, insert line above
 nmap("<LocalLeader>q", vim.diagnostic.setloclist) -- vim.diagnostic.* nvim-lspconfig
 -- <LocalLeader>rn, vim.lsp.buf.rename                                                       (setup_lsp_mappings)
+nmap("<LocalLeader>usg", function()
+	if vim.b.styleguide then
+		os.execute("open " .. vim.b.styleguide)
+	end
+end) -- custom, open style guide
 -- <LocalLeader>wa, vim.lsp.buf.add_workspace_folder                                         (setup_lsp_mappings)
 -- <LocalLeader>wr, vim.lsp.buf.remove_workspace_folder                                      (setup_lsp_mappings)
 -- <LocalLeader>wl, function() print(vim.inspect(vim.lsp.buf.list_workspace_folders())) end  (setup_lsp_mappings)
@@ -129,6 +133,11 @@ imap("<C-h>", "<C-o>h") -- custom, movement in insert mode
 imap("<C-j>", "<C-o>j") -- custom, movement in insert mode
 imap("<C-k>", "<C-o>k") -- custom, movement in insert mode
 imap("<C-l>", "<C-o>l") -- custom, movement in insert mode
+
+-- <M-l>, copilot accept suggestion -- (copilot.lua)
+-- <M-o>, copilot open pannel -- (copilot.lua)
+-- <M-]>, copilot next suggestion -- (copilot.lua)
+-- <M-[>, copilot prev suggestion -- (copilot.lua)
 
 imap("<LocalLeader>a", "<Esc>A") -- custom, jump to end of line
 imap("<LocalLeader>b", "<CR><CR><ESC>ki<TAB>") -- custom, open brakets across multiple lines
