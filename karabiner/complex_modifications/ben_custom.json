@@ -9,13 +9,17 @@
           "from": {
             "key_code": "3",
             "modifiers": {
-              "mandatory": ["shift"]
+              "mandatory": [
+                "shift"
+              ]
             }
           },
           "to": [
             {
               "key_code": "3",
-              "modifiers": ["option"]
+              "modifiers": [
+                "option"
+              ]
             }
           ]
         },
@@ -24,13 +28,17 @@
           "from": {
             "key_code": "3",
             "modifiers": {
-              "mandatory": ["option"]
+              "mandatory": [
+                "option"
+              ]
             }
           },
           "to": [
             {
               "key_code": "3",
-              "modifiers": ["shift"]
+              "modifiers": [
+                "shift"
+              ]
             }
           ]
         }
@@ -44,7 +52,9 @@
           "from": {
             "key_code": "caps_lock",
             "modifiers": {
-              "optional": ["any"]
+              "optional": [
+                "any"
+              ]
             }
           },
           "to": [
@@ -69,8 +79,15 @@
           "from": {
             "key_code": "h",
             "modifiers": {
-              "mandatory": ["control"],
-              "optional": ["caps_lock", "option", "command", "shift"]
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "option",
+                "command",
+                "shift"
+              ]
             }
           },
           "to": [
@@ -81,7 +98,10 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2",
+                "^org.alacritty"
+              ]
             }
           ]
         },
@@ -90,8 +110,15 @@
           "from": {
             "key_code": "j",
             "modifiers": {
-              "mandatory": ["control"],
-              "optional": ["caps_lock", "option", "command", "shift"]
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "option",
+                "command",
+                "shift"
+              ]
             }
           },
           "to": [
@@ -102,7 +129,10 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2",
+                "^org.alacritty"
+              ]
             }
           ]
         },
@@ -111,8 +141,15 @@
           "from": {
             "key_code": "k",
             "modifiers": {
-              "mandatory": ["control"],
-              "optional": ["caps_lock", "option", "command", "shift"]
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "option",
+                "command",
+                "shift"
+              ]
             }
           },
           "to": [
@@ -123,7 +160,10 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2",
+                "^org.alacritty"
+              ]
             }
           ]
         },
@@ -132,8 +172,15 @@
           "from": {
             "key_code": "l",
             "modifiers": {
-              "mandatory": ["control"],
-              "optional": ["caps_lock", "option", "command", "shift"]
+              "mandatory": [
+                "control"
+              ],
+              "optional": [
+                "caps_lock",
+                "option",
+                "command",
+                "shift"
+              ]
             }
           },
           "to": [
@@ -144,7 +191,10 @@
           "conditions": [
             {
               "type": "frontmost_application_unless",
-              "bundle_identifiers": ["^com.googlecode.iterm2", "^io.alacritty"]
+              "bundle_identifiers": [
+                "^com.googlecode.iterm2",
+                "^org.alacritty"
+              ]
             }
           ]
         }

@@ -6,6 +6,17 @@
       "manipulators": [
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "h",
             "modifiers": {
@@ -25,6 +36,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "j",
             "modifiers": {
@@ -44,6 +66,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "k",
             "modifiers": {
@@ -63,6 +96,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "l",
             "modifiers": {
@@ -87,6 +131,17 @@
       "manipulators": [
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "h",
             "modifiers": {
@@ -106,6 +161,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "j",
             "modifiers": {
@@ -125,6 +191,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "k",
             "modifiers": {
@@ -144,6 +221,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "l",
             "modifiers": {
@@ -168,6 +256,17 @@
       "manipulators": [
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "h",
             "modifiers": {
@@ -187,6 +286,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "j",
             "modifiers": {
@@ -206,6 +316,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "k",
             "modifiers": {
@@ -225,6 +346,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "l",
             "modifiers": {
@@ -249,6 +381,17 @@
       "manipulators": [
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "h",
             "modifiers": {
@@ -268,6 +411,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "j",
             "modifiers": {
@@ -287,6 +441,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "k",
             "modifiers": {
@@ -306,6 +471,17 @@
         },
         {
           "type": "basic",
+          "conditions": [
+            {
+              "type": "device_if",
+              "identifiers": [
+                {
+                  "vendor_id": 1452,
+                  "product_id": 611
+                }
+              ]
+            }
+          ],
           "from": {
             "key_code": "l",
             "modifiers": {
