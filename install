@@ -119,9 +119,11 @@ check_third_party_tools() {
     brew_install hub hub
     brew_install hugo hugo
     brew_install imapfilter imapfilter
+    brew_install jc jc
     brew_install jq jq
     brew_install lf lf
     brew_install lynx lynx
+    brew_install moreutils moreutils
     brew_install navi navi
     brew_install nvim nvim
     brew_install octave octave
