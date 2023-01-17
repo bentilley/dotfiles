@@ -47,6 +47,9 @@ alias gcof='git checkout $(git --no-pager branch --list | fzf)'
 alias grp='git rev-parse'
 alias grps='git rev-parse --short'
 
+# gcloud aliases
+alias gcurl='curl  -H "Authorization: bearer $(gcloud auth print-identity-token)"'
+
 # generate a import diagram for a directory
 alias impdiag="bash ~/.dotfiles/scripts/plantuml_diagram.sh"
 
