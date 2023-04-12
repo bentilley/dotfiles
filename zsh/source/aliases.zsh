@@ -46,6 +46,7 @@ alias gdo="git --no-pager diff --name-only"
 alias gcof='git checkout $(git --no-pager branch --list | fzf)'
 alias grp='git rev-parse'
 alias grps='git rev-parse --short'
+alias grbic='grbi origin/$(git branch --show-current)'
 
 # gcloud aliases
 alias gcurl='curl  -H "Authorization: bearer $(gcloud auth print-identity-token)"'
