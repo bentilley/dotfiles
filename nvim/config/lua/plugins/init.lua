@@ -149,6 +149,15 @@ function M.vim_plug()
 	-- html and css abbreviation expansion
 	Plug("mattn/emmet-vim")
 
+	-- plantuml syntax highlighting
+	Plug("aklt/plantuml-syntax")
+
+	-- open browser window
+	Plug("tyru/open-browser.vim")
+
+	-- preview plantuml file in browser
+	Plug("weirongxu/plantuml-previewer.vim")
+
 	-- Plug('vim-test/vim-test')
 
 	vim.call("plug#end")
