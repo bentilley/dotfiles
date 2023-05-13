@@ -1,5 +1,6 @@
 # zmodload zsh/zprof
 # Variables
+export SHELL="zsh"
 export EDITOR="nvim"
 export GIT_EDITOR="nvim"
 export PAGER="less"
@@ -63,7 +64,7 @@ export FZF_DEFAULT_COMMAND='rg --color=never --files-with-matches .'
 export DIRENV_WARN_TIMEOUT='10s'
 
 # macports
-export MP_EDITOR_VISUAL=/usr/local/bin/vim
+export MP_EDITOR_VISUAL="nvim"
 
 # pyenv
 export ZSH_PYENV_LAZY_VIRTUALENV=true
