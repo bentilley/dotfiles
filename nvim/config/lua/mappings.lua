@@ -55,6 +55,7 @@ nmap("<Leader>a", ":nohlsearch<CR>") -- custom, remove search high-lighting
 nmap("<Leader>cd", ':let @+=expand("%:p")') -- custom, copy file directory name to clipboard
 nmap("<Leader>cf", ':let @+=expand("%")') -- custom, copy file name to clipboard
 -- <Leader>cr..., coerc text case -- (text-case.nvim)
+nmap("<Leader>ds", ':Neogen<CR>') -- neogen, generate docstring
 nmap("<Leader>ev", ":vsplit $MYVIMRC<CR>") -- custom, edit vimrc
 nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") -- custom, edit vimrc
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim

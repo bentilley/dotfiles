@@ -149,6 +149,9 @@ function M.vim_plug()
 	-- html and css abbreviation expansion
 	Plug("mattn/emmet-vim")
 
+	-- docstring generation
+	Plug("danymat/neogen")
+
 	-- plantuml syntax highlighting
 	Plug("aklt/plantuml-syntax")
 
@@ -158,7 +161,8 @@ function M.vim_plug()
 	-- preview plantuml file in browser
 	Plug("weirongxu/plantuml-previewer.vim")
 
-	-- Plug('vim-test/vim-test')
+	-- Plug("jackMort/ChatGPT.nvim")
+	-- Plug("vim-test/vim-test")
 
 	vim.call("plug#end")
 end
