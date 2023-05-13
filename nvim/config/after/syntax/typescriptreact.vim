@@ -2,4 +2,4 @@
 
 " File for additional Typescriptreact syntax
 
-source ~/.vim/after/syntax/typescript.vim
+source ~/.config/nvim/after/syntax/typescript.vim
