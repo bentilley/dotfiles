@@ -30,11 +30,14 @@ alias lk="exa -lag -t=modified"
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
-# nvim aliasas
+# nvim aliases
 alias v="nvim"
 alias lvim='nvim -c "normal '"'"'0"'
 alias vlc="nvim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
 alias vtag='nvim $(git tmsu | xargs readlink -f)'
+
+# go aliases
+alias goprof="go tool pprof -http=:8080"
 
 # toggl aliases
 alias tgopen="firefox https://track.toggl.com"
