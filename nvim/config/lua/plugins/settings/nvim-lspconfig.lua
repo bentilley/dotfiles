@@ -55,7 +55,7 @@ require("lspconfig").jsonls.setup({ on_attach = on_attach, capabilities = capabi
 -- npm install -g vscode-langservers-extracted
 
 -- Lua
-require("lspconfig").sumneko_lua.setup({ on_attach = on_attach, capabilities = capabilities })
+require("lspconfig").lua_ls.setup({ on_attach = on_attach, capabilities = capabilities })
 -- brew install lua-language-server
 
 -- Python
@@ -63,7 +63,7 @@ require("lspconfig").pyright.setup({ on_attach = on_attach, capabilities = capab
 -- pip install pyright
 
 -- SQL
-require("lspconfig").sqls.setup({
+require("lspconfig").sqlls.setup({
 	on_attach = function(client, bufnr)
 		on_attach(client, bufnr)
 		-- separate plugin required to access language server functionality
