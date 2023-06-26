@@ -1,3 +1,4 @@
+-- Add the imapfilter directory to the lua path so that we can import from there.
 package.path = package.path .. ";" .. os.getenv("HOME") .. "/.dotfiles/imapfilter/.imapfilter/?.lua"
 
 ---------------
@@ -22,36 +23,64 @@ package.path = package.path .. ";" .. os.getenv("HOME") .. "/.dotfiles/imapfilte
 --  Accounts  --
 ----------------
 
-require 'utils'
+local pass = require("pass")
+local rules = require("rules")
 
-server = 'outlook.office365.com'
-user = 'Ben.Tilley@accesso.com'
-pass = getPassword(user)
-
--- Connects to "imap1.mail.server", as user "user1" with "secret1" as
--- password.
-accessoOutlook = IMAP {
-    server = server,
-    username = user,
-    password = pass,
+local accounts = {
+	tilleyben_at_hotmail_dot_com = {
+		account = Account({
+			server = "outlook.office365.com",
+			username = "tilleyben@hotmail.com",
+			password = pass.show("email/tilleyben@hotmail.com"),
+		}),
+		-- inbox = "Inbox",
+		rules = {
+			-- list_folders = rules.list_folders("Projects"),
+			move_cqf = rules.move_by_emails("Inbox", "Projects/Financial Mathematic", {
+				"info@cqf.com",
+				"cqfinstitute@fitchlearning.com",
+			}),
+			move_rollers_theatre_company = rules.move_by_emails("Inbox", "Projects/Casual Music", {
+				"rollers.theatrecompany@gmail.com",
+			}),
+			move_giffgaff = rules.move_by_emails("Inbox", "Admin/Phone", {
+				"no_reply@info3.giffgaff.com",
+				"no_reply@info4.giffgaff.com",
+			}),
+		},
+	},
+	targansaikhan_at_gmail_dot_com = {
+		account = Account({
+			server = "imap.gmail.com",
+			username = "targansaikhan@gmail.com",
+			password = pass.show("email/targansaikhan@gmail.com"),
+			ssl = "tls1",
+		}),
+		-- inbox = "INBOX",
+		rules = {},
+	},
 }
-    -- port = 993,
-    -- ssl = 'ssl3',
 
--- Another account which connects to the mail server using the SSLv3
--- protocol.
--- account2 = IMAP {
---     server = 'imap2.mail.server',
---     username = 'user2',
---     password = 'secret2',
---     ssl = 'ssl23',
--- }
+for account_name, account in pairs(accounts) do
+	print("Running rules for '" .. account_name .. "'")
+	for rule_name, rule in pairs(account.rules) do
+		print("Running rule '" .. rule_name .. "'")
+		local effect = rule(account.account)
+		if effect then
+			print(effect)
+		end
+	end
+end
 
 -- Get a list of the available mailboxes and folders
-mailboxes, folders = accessoOutlook:list_all()
+-- local mailboxes, folders = tilleyben_at_hotmail_dot_com:list_all()
 
--- for k,v in pairs(mailboxes) do
---   print(k, v)
+-- for k, v in pairs(mailboxes) do
+-- 	print(k, v)
+-- end
+
+-- for k, v in pairs(folders) do
+-- 	print(k, v)
 -- end
 
 ---- Get a list of the subscribed mailboxes and folders
@@ -63,27 +92,26 @@ mailboxes, folders = accessoOutlook:list_all()
 ---- Subscribe a mailbox
 --account1:subscribe_mailbox('Friends')
 
-
 -------------------
 ----  Mailboxes  --
 -------------------
 
 ----  github rules  --
 
-notificationTypes = {
-  'assign',
-  'author',
-  'comment',
-  'mention',
-  'push',
-  'review_requested',
-  'security_alert',
-  'state_change',
-  'your_activity'
-}
-for i, notificationType in ipairs(notificationTypes) do
-  moveGithubNotifications(accessoOutlook, notificationType, "github")
-end
+-- notificationTypes = {
+-- 	"assign",
+-- 	"author",
+-- 	"comment",
+-- 	"mention",
+-- 	"push",
+-- 	"review_requested",
+-- 	"security_alert",
+-- 	"state_change",
+-- 	"your_activity",
+-- }
+-- for i, notificationType in ipairs(notificationTypes) do
+-- 	moveGithubNotifications(accessoOutlook, notificationType, "github")
+-- end
 
 ---- Get the status of a mailbox
 --account1.INBOX:check_status()
@@ -169,7 +197,6 @@ end
 ---- Delete those messages.
 --newresults:delete_messages()
 
-
 ------------------
 ----  Extended  --
 ------------------
@@ -178,7 +205,6 @@ end
 ---- This file contains examples on how IMAPFilter can be extended using
 ---- the Lua programming language.
 ----
-
 
 ---- IMAPFilter can be detached from the controlling terminal and run in
 ---- the background as a system daemon.
@@ -195,7 +221,6 @@ end
 
 --become_daemon(600, forever)
 
-
 ---- The previous example uses polling in order to search specific messages and
 ---- process them.  Another more efficient alternative is using the IMAP IDLE
 ---- extension.  This is implemented by the enter_idle() method, which waits for
@@ -207,7 +232,6 @@ end
 --    results = myaccount.mymailbox:is_unread()
 --    results:move_messages(myaccount.myothermailbox)
 --end
-
 
 ---- IMAPFilter can take advantage of all those filtering utilities that
 ---- are available and use a wide range of heuristic tests, text analysis,
@@ -232,7 +256,6 @@ end
 
 --results:delete_messages()
 
-
 ---- One might want to run the bayesian filter only in those parts (attachments)
 ---- of the message that are of type text/plain and smaller than 1024 bytes.
 ---- This is possible using the fetch_structure() and fetch_part() functions:
@@ -256,7 +279,6 @@ end
 
 --results:delete_messages()
 
-
 ---- Messages can be appended to a mailbox.  One can fetch a message from a
 ---- mailbox, optionally process it, and then upload it to the same or different
 ---- mailbox, at the same or different mail servers.  In the following example a
@@ -273,7 +295,6 @@ end
 --              'My-Header: My-Content\r\n' .. '\r\n' .. body
 --    myaccount.myothermaibox:append_message(message)
 --end
-
 
 ---- Passwords could be extracted during execution time from an encrypted
 ---- file.
@@ -308,7 +329,6 @@ end
 --    username = 'user2',
 --    password = password2
 --}
-
 
 ---- An alternative way to authenticate to a server is by using a OAuth2 string,
 ---- if the server supports the XOAUTH2 authentication mechanism.
