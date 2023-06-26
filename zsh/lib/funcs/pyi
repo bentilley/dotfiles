@@ -1,0 +1,12 @@
+# Add an __init__.py to a directory.
+
+function pyi() {
+  if [[ ! -z "$*" ]]; then
+    touch "$*"/__init__.py
+  else
+    touch __init__.py
+  fi
+}
+
+pyi "$@"
+# vim:ft=zsh
