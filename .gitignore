@@ -26,4 +26,4 @@ vim/.vim/autoload/plug.vim*
 
 
 # Zsh
-zsh_secrets
+zsh/secrets

@@ -1,4 +1,5 @@
 # zmodload zsh/zprof
+
 # Variables
 export SHELL="zsh"
 export EDITOR="nvim"
@@ -119,33 +120,18 @@ for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
 done
 
 # source any secrets / api keys etc.
-[ -f ~/.dotfiles/zsh/zsh_secrets ] && source ~/.dotfiles/zsh/zsh_secrets
+[ -f ~/.dotfiles/zsh/secrets ] && source ~/.dotfiles/zsh/secrets
 
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
-zinit light davidparsson/zsh-pyenv-lazy
 zinit light mroth/evalcache
 zinit light lukechilds/zsh-nvm
-zinit light kadaan/zsh-goenv-lazy
-# zinit light MichaelAquilina/zsh-auto-notify
-# zinit light zdharma/fast-syntax-highlighting
 zinit snippet OMZP::git
-
-# setup key bindings for navi (set to Ctrl-G)
-_evalcache navi widget zsh
-
-# ZSH Auto-notify
-AUTO_NOTIFY_IGNORE+=("journalctl")
-
-# setup rbenv
-_evalcache rbenv init -
 
 # setup direnv - directory level variables
 _evalcache direnv hook zsh
 
 # setup starship prompt
 _evalcache starship init zsh
-# zprof
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# zprof

@@ -1,5 +1,5 @@
 # vim: set ft=zsh:
-#
+
 # Haskell
 export PATH="$PATH:$HOME/.local/bin"  # Haskell stack packages
 [ -f "${GHCUP_INSTALL_BASE_PREFIX:=$HOME}/.ghcup/env" ] && \
@@ -8,18 +8,14 @@ export PATH="$PATH:$HOME/.local/bin"  # Haskell stack packages
 # Rust
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Go
-export PATH="$HOME/go/bin:$PATH"
-
 # GNU tools
 export PATH="/usr/local/opt/gnu-sed/libexec/gnubin:$PATH"
 
-# $PATH setup
-export PATH="/usr/local/opt/ruby/bin:$PATH"  # ruby path (brew told me)
-export PATH="/usr/local/sbin:$PATH"  # some homebrew formulae put executables in local/sbin
-export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"  # mysql version 5.7
-export PATH="/usr/local/opt/python/libexec/bin:$PATH"  # for installing python better with homebrew
-export PATH="$PATH:/usr/local/opt/llvm/bin" # llvm tools
+# some homebrew formulae put executables in local/sbin
+export PATH="/usr/local/sbin:$PATH"
+
+# llvm tools
+export PATH="$PATH:/usr/local/opt/llvm/bin"
 
 # Android
 export ANDROID_HOME=$HOME/Library/Android/sdk
