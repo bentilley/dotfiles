@@ -125,7 +125,6 @@ done
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light mroth/evalcache
-zinit light lukechilds/zsh-nvm
 zinit snippet OMZP::git
 
 # setup direnv - directory level variables
