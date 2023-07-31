@@ -59,7 +59,13 @@ require("lspconfig").lua_ls.setup({ on_attach = on_attach, capabilities = capabi
 -- brew install lua-language-server
 
 -- Python
-require("lspconfig").pyright.setup({ on_attach = on_attach, capabilities = capabilities })
+require("lspconfig").pyright.setup({
+	on_attach = on_attach,
+	capabilities = vim.tbl_deep_extend("force", capabilities, {
+		-- don't request the additional diagnostic output
+		textDocument = { publishDiagnostics = { tagSupport = { valueSet = { 2 } } } },
+	}),
+})
 -- pip install pyright
 
 -- SQL

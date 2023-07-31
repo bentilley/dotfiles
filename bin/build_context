@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+    set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+    echo 'Usage: build_context [DOCKER_RUN_FLAGS]
+
+Run this to view the docker build context of the current directory.
+
+'
+    exit
+fi
+
+main() {
+  build_docker_image
+  run_docker_image "$@"
+}
+
+build_docker_image() {
+  docker image build --no-cache -t build-context -f - . <<EOF
+FROM busybox
+WORKDIR /build-context
+COPY . .
+CMD find .
+EOF
+}
+
+run_docker_image() {
+  if [[ $# -eq 0 ]]; then
+    docker container run --rm build-context
+  else
+    EXEC="${@: -1}"
+    docker container run --rm "${@:1:$#-1}" build-context "$EXEC"
+  fi
+
+}
+
+main "$@"

@@ -22,5 +22,3 @@ cat << EOF
          \/____/                  \|___|                           \/____/                  ~~                       ~~                       \/____/                  \/____/
 
 EOF
-
-echo "Welcome to your terminal! :)";

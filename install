@@ -71,9 +71,6 @@ symlinking_config_files() {
   dotfile_link "tmux/.tmux.conf" "$HOME/.tmux.conf"
   git_install "tmux-plugins/tpm" "$CONFIG_DIR/tmux/plugins/tpm" "tmux plugin manager"
 
-  # VIM
-  dotfile_link "vim/.vim" "$HOME/.vim"
-
   # WTFUTIL
   dotfile_link "wtfutil/config.yml" "$CONFIG_DIR/wtf/config.yml"
 
