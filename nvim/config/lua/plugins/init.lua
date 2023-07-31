@@ -140,6 +140,12 @@ function M.vim_plug()
 	-- add project configuration using .projections.json file
 	Plug("tpope/vim-projectionist")
 
+	-- barebones tmux support for vim
+	Plug("tpope/vim-tbone")
+
+	-- easy tmux interaction for simply running a command
+	Plug("preservim/vimux")
+
 	-- add virtual indent lines to see indentation more clearly
 	Plug("lukas-reineke/indent-blankline.nvim")
 
