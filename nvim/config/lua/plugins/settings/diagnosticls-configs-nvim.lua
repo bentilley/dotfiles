@@ -10,20 +10,28 @@ local fs = require("diagnosticls-configs.fs")
 
 -- local cpplint = require("diagnosticls-configs.linters.cpplint")
 -- brew install cpplint
+
 local eslint = require("diagnosticls-configs.linters.eslint")
 -- npm install eslint
+
 local flake8 = require("diagnosticls-configs.linters.flake8")
 -- pip install flake8
+
 local golangci_lint = require("diagnosticls-configs.linters.golangci_lint")
 -- brew install golangci-lint
+
 -- local lacheck = require("diagnosticls-configs.linters.lacheck")
 -- brew install lacheck
+
 local mypy = require("diagnosticls-configs.linters.mypy")
 -- pip install mypy
+
 local shellcheck = require("diagnosticls-configs.linters.shellcheck")
 -- brew install shellcheck
+
 local stylelint = require("diagnosticls-configs.linters.stylelint")
 -- npm install stylelint stylelint-config-standard
+
 local vint = require("diagnosticls-configs.linters.vint")
 -- brew install vint
 
