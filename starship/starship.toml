@@ -4,6 +4,8 @@
 
 add_newline = true  # default
 scan_timeout = 30  # default
+command_timeout = 1000
+
 # format = """
 # [┌───────────────────>](bold green)
 # [┌](bold green)$all
