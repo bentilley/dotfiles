@@ -55,9 +55,10 @@ nmap("<Leader>a", ":nohlsearch<CR>") -- custom, remove search high-lighting
 nmap("<Leader>cd", ':let @+=expand("%:p")') -- custom, copy file directory name to clipboard
 nmap("<Leader>cf", ':let @+=expand("%")') -- custom, copy file name to clipboard
 -- <Leader>cr..., coerc text case -- (text-case.nvim)
-nmap("<Leader>ds", ':Neogen<CR>') -- neogen, generate docstring
+nmap("<Leader>ds", ":Neogen<CR>") -- neogen, generate docstring
 nmap("<Leader>ev", ":vsplit $MYVIMRC<CR>") -- custom, edit vimrc
 nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") -- custom, edit vimrc
+nmap("<Leader>em", ":tabedit ~/.config/nvim/lua/mappings.lua<CR>") -- custom, edit key mappings file
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
 nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
@@ -70,9 +71,16 @@ nmap("<Leader>lf", ":Telescope find_files<CR>") -- telescope, search files
 nmap("<Leader>lg", ":Telescope live_grep<CR>") -- telescope, live search project
 nmap("<Leader>lm", ":Telescope marks<CR>") -- telescope, search project marks
 nmap("<Leader>ls", ":Telescope grep_string<CR>") -- telescope, grep project pattern
+nmap("<Leader>m", ":TodoQuickFix<CR>") -- todo-comments.nvim, show todo,fix,etc. comments
 nmap("<Leader>s", ":Lgrep ") -- custom, search for word
 nmap("<Leader>S", ":Grep ") -- custom, search for word
-nmap("<Leader>m", ":TodoQuickFix<CR>") -- todo-comments.nvim, show todo,fix,etc. comments
+nmap("<Leader>tc", ":VimuxCloseRunner<CR>")
+nmap("<Leader>tl", ":VimuxRunLastCommand<CR>")
+nmap("<Leader>to", ":VimuxOpenRunner<CR>")
+nmap("<Leader>tp", ":VimuxPromptCommand<CR>")
+nmap("<Leader>tr", ":VimuxRunCommand")
+nmap("<Leader>tx", ":VimuxInterruptRunner<CR>")
+nmap("<Leader>t<C-l>", ":VimuxClearTerminalScreen<CR>")
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
 -- <LocalLeader>cl, function() print(vim.inspect(client.server_capabilities)) end  (setup_lsp_mappings)
@@ -113,6 +121,7 @@ nmap("<LocalLeader>X", "<Plug>(sqls-execute-query-vertical)") -- sqls.nvim, sqls
 
 -- <C-k>, vim.lsp.buf.signature_help (setup_lsp_mappings)
 nmap("<C-w>D", ":tab split<CR>") -- custom, duplicate buffer in new tab
+nmap("<C-w>X", ":tabclose<CR>") -- custom, close the current tab
 
 nmap("[d", vim.diagnostic.goto_prev) -- vim.diagnostic.* nvim-lspconfig
 nmap("]d", vim.diagnostic.goto_next) -- vim.diagnostic.* nvim-lspconfig
