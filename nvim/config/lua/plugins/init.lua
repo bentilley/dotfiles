@@ -143,6 +143,9 @@ function M.vim_plug()
 	-- barebones tmux support for vim
 	Plug("tpope/vim-tbone")
 
+	-- async :make functionality
+	Plug("tpope/vim-dispatch")
+
 	-- easy tmux interaction for simply running a command
 	Plug("preservim/vimux")
 
