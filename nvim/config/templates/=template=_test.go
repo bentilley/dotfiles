@@ -1,4 +1,4 @@
-package %FILE%_test
+package %FILE%
 
 import "testing"
 
