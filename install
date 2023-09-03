@@ -129,6 +129,7 @@ check_third_party_tools() {
     brew_install plantuml plantuml
     brew_install rg ripgrep
     brew_install starship starship
+    brew_install stow stow
     brew_install shellcheck shellcheck
     brew_install shfmt shfmt
     brew_install tig tig
