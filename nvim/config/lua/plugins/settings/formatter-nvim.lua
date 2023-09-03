@@ -37,6 +37,9 @@ require("formatter").setup({
 		python = {
 			require("formatter.filetypes.python").black,
 		},
+		r = {
+			require("formatter.filetypes.r").styler,
+		},
 		scss = {
 			require("formatter.filetypes.css").prettier,
 		},

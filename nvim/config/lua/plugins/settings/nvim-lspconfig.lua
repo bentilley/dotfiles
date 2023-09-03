@@ -68,6 +68,10 @@ require("lspconfig").pyright.setup({
 })
 -- pip install pyright
 
+-- R
+require("lspconfig").r_language_server.setup({ on_attach = on_attach, capabilities = capabilities })
+-- install.packages("languageserver")
+
 -- SQL
 require("lspconfig").sqlls.setup({
 	on_attach = function(client, bufnr)
