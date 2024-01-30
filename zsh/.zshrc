@@ -53,9 +53,7 @@ if [[ -z $TMUX ]]; then
   # Personal bin
   export PATH="$HOME/.dotfiles/bin:$PATH"
 
-  if [[ "$(uname)" == "Darwin" ]] && [[ "$(whoami)" == "MrSquee" ]]; then
-    source ~/.dotfiles/zsh/path
-  fi
+  source "${HOME}/.local/share/zsh/path.zsh"
 fi
 
 # fzf
@@ -116,6 +114,9 @@ export KEYTIMEOUT=10
 
 # source additional files
 for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
+  source $additional_file
+done
+for additional_file in $HOME/.local/share/zsh/source/**/*.zsh; do
   source $additional_file
 done
 
