@@ -5,8 +5,7 @@
 
 -- constants
 
-local fn = vim.fn
-local data_dir = fn.stdpath("data") .. "/site"
+local data_dir = vim.fn.stdpath("data") .. "/site"
 local M = {}
 
 -- vim-plug
@@ -15,9 +14,9 @@ local M = {}
 -- install vim-plug if not already installed
 local function install_vim_plug()
 	local install_path = data_dir .. "/autoload/plug.vim"
-	if fn.empty(fn.glob(install_path)) > 0 then
+	if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 		vim.api.nvim_echo({ { "Installing vim-plug", "Type" } }, true, {})
-		fn.system({
+		local res = vim.fn.system({
 			"curl",
 			"--fail",
 			"--location",
@@ -26,12 +25,17 @@ local function install_vim_plug()
 			"--create-dirs",
 			"https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim",
 		})
+		vim.api.nvim_echo({ { res, "Type" } }, true, {})
+		vim.cmd.source(install_path)
+
+		return true
 	end
+	return false
 end
 
 -- packer.vim setup
 function M.vim_plug()
-	install_vim_plug()
+	local first_install = install_vim_plug()
 
 	-- from https://dev.to/vonheikemen/neovim-using-vim-plug-in-lua-3oom
 	local Plug = vim.fn["plug#"]
@@ -174,6 +178,10 @@ function M.vim_plug()
 	-- Plug("vim-test/vim-test")
 
 	vim.call("plug#end")
+
+	if first_install then
+		vim.cmd("PlugInstall")
+	end
 end
 
 -- packer.vim
@@ -182,9 +190,9 @@ end
 -- install packer.vim if not already installed
 local function install_packer()
 	local install_path = data_dir .. "/pack/packer/start/packer.nvim"
-	if fn.empty(fn.glob(install_path)) > 0 then
+	if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
 		vim.api.nvim_echo({ { "Installing packer.nvim", "Type" } }, true, {})
-		fn.system({
+		vim.fn.system({
 			"git",
 			"clone",
 			"--depth",
