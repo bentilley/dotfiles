@@ -65,12 +65,22 @@ export DIRENV_WARN_TIMEOUT='10s'
 # macports
 export MP_EDITOR_VISUAL="nvim"
 
+# jenv
+export JENV_ROOT=/home/develop/.jenv
+
+# nodenv
+export NODENV_ROOT=/home/develop/.nodenv
+
 # pyenv
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+export PYENV_ROOT=/home/develop/.pyenv
 
-# nvm
-export NVM_LAZY_LOAD=true
+# R
+export RENV_ROOT=/home/develop/.renv
+
+# rust
+source "$CARGO_HOME/env"
 
 # Alias for command substitution - easier than typing it
 function var-subs() {
