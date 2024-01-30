@@ -59,6 +59,7 @@ nmap("<Leader>ds", ":Neogen<CR>") -- neogen, generate docstring
 nmap("<Leader>ev", ":vsplit $MYVIMRC<CR>") -- custom, edit vimrc
 nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") -- custom, edit vimrc
 nmap("<Leader>em", ":tabedit ~/.config/nvim/lua/mappings.lua<CR>") -- custom, edit key mappings file
+nmap("<Leader>ep", ":tabedit ~/.config/nvim/lua/plugins/settings<CR>") -- custom, edit plugin settings
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
 nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
