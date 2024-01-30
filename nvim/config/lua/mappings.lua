@@ -73,6 +73,13 @@ nmap("<Leader>lg", ":Telescope live_grep<CR>") -- telescope, live search project
 nmap("<Leader>lm", ":Telescope marks<CR>") -- telescope, search project marks
 nmap("<Leader>ls", ":Telescope grep_string<CR>") -- telescope, grep project pattern
 nmap("<Leader>m", ":TodoQuickFix<CR>") -- todo-comments.nvim, show todo,fix,etc. comments
+nmap("<Leader>q", function()
+	for _, ui in pairs(vim.api.nvim_list_uis()) do
+		if ui.chan and not ui.stdout_tty then
+			vim.fn.chanclose(ui.chan)
+		end
+	end
+end) -- custom, close ui session without closing remote server
 nmap("<Leader>s", ":Lgrep ") -- custom, search for word
 nmap("<Leader>S", ":Grep ") -- custom, search for word
 nmap("<Leader>tc", ":VimuxCloseRunner<CR>")
