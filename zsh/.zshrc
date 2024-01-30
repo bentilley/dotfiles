@@ -27,26 +27,26 @@ setopt pushdminus
 # fpath
 fpath=(~/.dotfiles/zsh/completions $fpath)
 fpath=(~/.dotfiles/zsh/lib/funcs $fpath)
-autoload -Uz $fpath[1]/*(.:t)  # autoload func directory
+autoload -Uz $fpath[1]/*(.:t) # autoload func directory
 
 # set up zinit plugin manager (should be done before compinit)
 source ~/.config/zsh/.zinit/bin/zinit.zsh
 # See https://github.com/zdharma/zinit for details
 
 # autojump settings (should be done before compinit)
-[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
+[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 [ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-# case insensitive path-completion 
+# case insensitive path-completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # partial completion suggestions
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix 
 autoload -Uz compinit && compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots) # Include hidden files.
 
 # Set PATH
 if [[ -z $TMUX ]]; then
@@ -75,14 +75,14 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 export NVM_LAZY_LOAD=true
 
 # Alias for command substitution - easier than typing it
-function var-subs () {
+function var-subs() {
   LBUFFER="${LBUFFER}"'$()'
   zle backward-char
 }
 zle -N var-subs
 
 # FZF history search
-function fzf-history () {
+function fzf-history() {
   COMMAND="$(history 1 | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
   zle redisplay
   LBUFFER=${COMMAND}
@@ -90,7 +90,7 @@ function fzf-history () {
 zle -N fzf-history
 
 # FZF history search
-function fzf-history-uniq () {
+function fzf-history-uniq() {
   COMMAND="$(history -n 1 | sort | uniq | fzf --reverse --query=${LBUFFER})"
   zle redisplay
   LBUFFER=${COMMAND}
