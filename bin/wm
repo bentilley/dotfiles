@@ -18,6 +18,10 @@ fi
 
 # cd "$(dirname "$0")"
 
+shell_expand_file() {
+  echo -e "$(eval "echo -e \"$(<"$1")\"")"
+}
+
 main() {
   FILE="${1}"
   if [[ -z "${FILE}" ]]; then
