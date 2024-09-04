@@ -55,13 +55,13 @@
   program = /usr/local/bin/gpg
 
 [credential]
-	helper = cache
+  helper = cache
 
 [fetch]
-	writeCommitGraph = true
+  writeCommitGraph = true
 
 [rerere]
-	enabled = true
+  enabled = true
 
 [maintenance]
-	repo = /home/develop/projects/TrpFISRGScripts
+  repo = /home/develop/projects/TrpFISRGScripts
