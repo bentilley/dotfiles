@@ -4,16 +4,16 @@ set -o errexit
 set -o nounset
 set -o pipefail
 if [[ "${TRACE-0}" == "1" ]]; then
-    set -o xtrace
+  set -o xtrace
 fi
 
 if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
-    echo 'usage: wm [file]
+  echo 'usage: wm [file]
 
 Used to run wasteman curl config files.
 
 '
-    exit
+  exit
 fi
 
 # cd "$(dirname "$0")"
@@ -24,9 +24,10 @@ main() {
     echo "No file specified"
     exit 1
   fi
-  TMPFILE="$(mktemp)"
-  envsubst-go <"${FILE}" >"${TMPFILE}"
-  curl --silent --verbose --config "${TMPFILE}" | jq
+  shift
+
+  # curl --silent --verbose --config <(envsubst <"${FILE}") "$@" | jq
+  curl --silent --config <(envsubst <"${FILE}") "$@" | jq
 }
 
 main "$@"
