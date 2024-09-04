@@ -1,0 +1,10 @@
+# add a path to the start of PATH if it's not already in PATH!
+
+pathprepend() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="$1${PATH:+":$PATH"}"
+  fi
+}
+
+pathprepend "$@"
+# vim:ft=zsh

@@ -4,17 +4,26 @@ alias -g BG='&>/dev/null &'
 
 # quick confing access
 alias conf="lf \$HOME/.dotfiles"
-alias zconf="nvim \$ZDOTDIR/.zshrc"
+alias zconf="\$EDITOR \$ZDOTDIR/.zshrc"
 alias zres="exec zsh"
-alias zalias="nvim ~/.dotfiles/zsh/source/aliases.zsh"
-alias zfunc="nvim ~/.dotfiles/zsh/source/functions.zsh"
-alias zc="nvim ~/.dotfiles/zsh/source"
-alias vconf="nvim ~/.config/nvim/init.lua"
-alias tconf="nvim ~/.dotfiles/tmux/.tmux.conf"
-alias kconf="nvim ~/.config/karabiner/assets/complex_modifications"
-alias gconf="nvim ~/.dotfiles/git/gitconfig"
+alias zalias="\$EDITOR ~/.dotfiles/zsh/source/aliases.zsh"
+alias zfunc="\$EDITOR ~/.dotfiles/zsh/source/functions.zsh"
+alias zc="\$EDITOR ~/.dotfiles/zsh/source"
+alias vconf="\$EDITOR ~/.config/nvim/init.lua"
+alias tconf="\$EDITOR ~/.dotfiles/tmux/.tmux.conf"
+alias kconf="\$EDITOR ~/.config/karabiner/assets/complex_modifications"
+alias gconf="\$EDITOR ~/.dotfiles/git/gitconfig"
 alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \"(^#.*|^$|myali)\" | sort"
-alias mconf="nvim ~/.mutt/muttrc"
+alias mconf="\$EDITOR ~/.mutt/muttrc"
+
+# docker
+alias d=docker
+alias di="docker images"
+alias dp="docker ps -a"
+alias dsp="docker system prune"
+alias 'dsp!'="docker system prune --force"
+alias dtmp="docker run -it --rm"
+alias lzd="lazydocker"
 
 # utils
 alias wthr="curl wttr.in"
@@ -31,7 +40,7 @@ alias lk="exa -lag -t=modified"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # nvim aliases
-alias v="nvim"
+alias e="\$EDITOR"
 alias lvim='nvim -c "normal '"'"'0"'
 alias vlc="nvim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
 alias vtag='nvim $(git tmsu | xargs readlink -f)'
@@ -50,6 +59,7 @@ alias gcof='git checkout $(git --no-pager branch --list | fzf)'
 alias grp='git rev-parse'
 alias grps='git rev-parse --short'
 alias grbic='grbi origin/$(git branch --show-current)'
+alias gmt='git mergetool'
 
 # gcloud aliases
 alias gcurl='curl  -H "Authorization: bearer $(gcloud auth print-identity-token)"'
@@ -76,7 +86,7 @@ alias vd="deactivate"
 # TODO make this a function which search recursively up through directories for venv
 
 # tmux
-alias t="tmux"
+# alias t="tmux"
 alias tn='cd ~ && tmux new -s info'
 
 # Linux

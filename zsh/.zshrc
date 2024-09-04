@@ -30,12 +30,11 @@ fpath=(~/.dotfiles/zsh/lib/funcs $fpath)
 autoload -Uz $fpath[1]/*(.:t) # autoload func directory
 
 # set up zinit plugin manager (should be done before compinit)
-source ~/.config/zsh/.zinit/bin/zinit.zsh
+#source ~/.config/zsh/.zinit/bin/zinit.zsh
+declare -A ZINIT
+ZINIT[NO_ALIASES]=1 # don't set zi / zini aliases
+source ~/.local/share/zinit/zinit.git/zinit.zsh
 # See https://github.com/zdharma/zinit for details
-
-# autojump settings (should be done before compinit)
-[ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
-[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select
@@ -48,13 +47,8 @@ zstyle ':completion:*' expand prefix suffix 
 autoload -Uz compinit && compinit
 _comp_options+=(globdots) # Include hidden files.
 
-# Set PATH
-if [[ -z $TMUX ]]; then
-  # Personal bin
-  export PATH="$HOME/.dotfiles/bin:$PATH"
-
-  source "${HOME}/.local/share/zsh/path.zsh"
-fi
+# Personal bin
+pathprepend "$HOME/.dotfiles/bin"
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --color=never --files-with-matches .'
@@ -65,22 +59,9 @@ export DIRENV_WARN_TIMEOUT='10s'
 # macports
 export MP_EDITOR_VISUAL="nvim"
 
-# jenv
-export JENV_ROOT=/home/develop/.jenv
-
-# nodenv
-export NODENV_ROOT=/home/develop/.nodenv
-
 # pyenv
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-export PYENV_ROOT=/home/develop/.pyenv
-
-# R
-export RENV_ROOT=/home/develop/.renv
-
-# rust
-source "$CARGO_HOME/env"
 
 # Alias for command substitution - easier than typing it
 function var-subs() {
@@ -122,16 +103,23 @@ bindkey -M viins "^F" fzf-history
 bindkey -M viins "^T" fzf-history-uniq
 export KEYTIMEOUT=10
 
-# source additional files
-for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
+# source custom local machine path
+source "${HOME}/.local/share/zsh/path.zsh"
+
+# source additional files - source the machine specific files first as they
+# might set env variable options that are used in the other files.
+for additional_file in $HOME/.local/share/zsh/source/**/*.zsh; do
   source $additional_file
 done
-for additional_file in $HOME/.local/share/zsh/source/**/*.zsh; do
+for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
   source $additional_file
 done
 
 # source any secrets / api keys etc.
 [ -f ~/.dotfiles/zsh/secrets ] && source ~/.dotfiles/zsh/secrets
+
+# rust
+[ ! -z $CARGO_HOME ] && source "$CARGO_HOME/env"
 
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
@@ -143,5 +131,8 @@ _evalcache direnv hook zsh
 
 # setup starship prompt
 _evalcache starship init zsh
+
+# setup zoxide - directory jump
+_evalcache zoxide init zsh
 
 # zprof
