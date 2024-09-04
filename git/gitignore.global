@@ -2,9 +2,13 @@
 
 ### My Files ###
 __mine__/
+.mine
 
 ### Direnv ###
 .envrc
+
+### Wasteman ###
+.wm/
 
 ### Vim ###
 # Coc Settings Dir
