@@ -60,6 +60,8 @@ nmap("<Leader>ev", ":vsplit $MYVIMRC<CR>") -- custom, edit vimrc
 nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") -- custom, edit vimrc
 nmap("<Leader>em", ":tabedit ~/.config/nvim/lua/mappings.lua<CR>") -- custom, edit key mappings file
 nmap("<Leader>ep", ":tabedit ~/.config/nvim/lua/plugins/settings<CR>") -- custom, edit plugin settings
+nmap("<Leader>es", ":tabedit ~/.config/nvim/snippets<CR>") -- custom, edit snippets
+nmap("<Leader>et", ":tabedit ~/.config/nvim/templates<CR>") -- custom, edit templates
 nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
 nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
@@ -80,6 +82,9 @@ nmap("<Leader>q", function()
 		end
 	end
 end) -- custom, close ui session without closing remote server
+nmap("<Leader>rj", ":TSJJoin<CR>") -- treesj, join
+nmap("<Leader>rs", ":TSJSplit<CR>") -- treesj, split
+nmap("<Leader>rr", ":TSJToggle<CR>") -- treesj, toggle split / join
 nmap("<Leader>s", ":Lgrep ") -- custom, search for word
 nmap("<Leader>S", ":Grep ") -- custom, search for word
 nmap("<Leader>tc", ":VimuxCloseRunner<CR>")
@@ -214,7 +219,7 @@ function M.setup_lsp_mappings(client, bufnr)
 
 	nmap("<LocalLeader>rn", vim.lsp.buf.rename, bufopts)
 	nmap("<LocalLeader>ca", vim.lsp.buf.code_action, bufopts)
-	vmap("<LocalLeader>ca", vim.lsp.buf.range_code_action, bufopts)
+	vmap("<LocalLeader>ca", vim.lsp.buf.code_action, bufopts)
 	nmap("<LocalLeader>cl", function()
 		print(vim.inspect(client.server_capabilities))
 	end, bufopts)

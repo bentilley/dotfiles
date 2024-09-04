@@ -42,6 +42,7 @@ require("formatter").setup({
 		},
 		python = {
 			require("formatter.filetypes.python").black,
+			require("formatter.filetypes.python").isort,
 		},
 		r = {
 			require("formatter.filetypes.r").styler,

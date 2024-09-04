@@ -111,9 +111,6 @@ function M.vim_plug()
 	-- file formatting on save
 	Plug("mhartington/formatter.nvim")
 
-	-- add commenting actions
-	Plug("tpope/vim-commentary")
-
 	-- add todo comment functionality
 	Plug("folke/todo-comments.nvim")
 
@@ -124,7 +121,7 @@ function M.vim_plug()
 	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
 
 	-- search functionality
-	Plug("nvim-telescope/telescope.nvim", { tag = "0.1.0" })
+	Plug("nvim-telescope/telescope.nvim", { tag = "0.1.3" })
 
 	-- interact with git in neovim
 	Plug("tpope/vim-fugitive")
@@ -134,6 +131,9 @@ function M.vim_plug()
 
 	-- interact with github in nvim
 	Plug("pwntester/octo.nvim")
+
+	-- split / join lines based on tree sitter language syntax
+	Plug("Wansmer/treesj")
 
 	-- add bracket and other text surrounding commands
 	Plug("tpope/vim-surround")
@@ -173,6 +173,9 @@ function M.vim_plug()
 
 	-- preview plantuml file in browser
 	Plug("weirongxu/plantuml-previewer.vim")
+
+	-- interactive evaluation e.g. for LISP development
+	Plug("Olical/conjure")
 
 	-- Plug("jackMort/ChatGPT.nvim")
 	-- Plug("vim-test/vim-test")

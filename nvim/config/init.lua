@@ -4,6 +4,7 @@
 -- My NeoVim Setup
 
 require("colour")
+require("ftdetect")
 require("plugins").vim_plug()
 require("plugins.settings")
 require("statusline")
