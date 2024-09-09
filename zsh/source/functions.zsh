@@ -1,3 +1,14 @@
+function removelink() {
+  local p
+  for p in "$@"; do
+    if [ -L "$p" ]; then
+      cp --remove-destination "$(readlink "$p")" "$p"
+    else
+      echo "$p is not a symlink"
+    fi
+  done
+}
+
 # Functions for helping to use pytest
 
 function mypytest() {

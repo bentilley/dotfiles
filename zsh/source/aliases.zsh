@@ -2,6 +2,12 @@
 # global aliasses
 alias -g BG='&>/dev/null &'
 
+# The 26 golden aliases
+alias a="add"
+alias d=docker
+alias e="\$EDITOR"
+alias f="yazi"
+
 # quick confing access
 alias conf="lf \$HOME/.dotfiles"
 alias zconf="\$EDITOR \$ZDOTDIR/.zshrc"
@@ -17,7 +23,7 @@ alias myali="cat ~/.dotfiles/zsh/aliases.zsh | sed \"s/alias\ //g\" | egrep -v \
 alias mconf="\$EDITOR ~/.mutt/muttrc"
 
 # docker
-alias d=docker
+# alias d=docker
 alias di="docker images"
 alias dp="docker ps -a"
 alias dsp="docker system prune"
@@ -30,7 +36,7 @@ alias wthr="curl wttr.in"
 
 # Taskwarrior
 alias todo="task summary && task calendar && task next"
-alias a="add"
+# alias a="add"
 alias ta='task project:"$(git branch --show-current)" next'
 
 # Exa (colourful ls)
@@ -40,7 +46,6 @@ alias lk="exa -lag -t=modified"
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # nvim aliases
-alias e="\$EDITOR"
 alias lvim='nvim -c "normal '"'"'0"'
 alias vlc="nvim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
 alias vtag='nvim $(git tmsu | xargs readlink -f)'
