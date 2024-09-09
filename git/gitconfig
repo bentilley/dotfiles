@@ -15,6 +15,8 @@
   tmsutag = "!gtt() { tmsu tag $1 $(git branch --show-current) ;}; gtt"
   where = branch --show-current
   latest = describe --tags --abbrev=0
+  xclone = !git_clone_with_worktrees
+  begin = !git_branch_origin_master
 
 [user]
   email = tilleyben@hotmail.com

@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+
+set -o errexit
+# set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+  echo 'Usage: git_clone_with_worktrees URL
+
+Clone a git repository and create multiple worktrees for different work streams.
+
+'
+  exit
+fi
+
+main() {
+  if [ -z "$1" ]; then
+    echo "URL is required"
+    exit 1
+  fi
+
+  local url="$1"
+
+  local dir
+  if [ -n "$2" ]; then
+    dir="$2"
+  else
+    if [[ $url == *.git ]]; then
+      dir="$(basename "$url" .git)"
+    else
+      echo "Not sure about this URL: $url"
+      echo "Shouldn't it end with .git?"
+      echo "If not, then you need to update $0"
+      exit 1
+    fi
+  fi
+
+  mkdir -p "$dir"
+  mkdir -p "$dir/.stow"
+
+  local main_dir="$dir/main"
+  git clone "$url" "$main_dir"
+  cd "$main_dir"
+
+  # main for looking at pristine code,
+  # work for looking at my code,
+  # review for looking at someone else’s code,
+  # fuzz for my computer to look at my code,
+  # scratch for everything else!
+  for worktree in work review fuzz scratch; do
+    local worktree_dir="../$worktree"
+    echo "Creating worktree $worktree_dir"
+    git worktree add --detach "$worktree_dir" master
+  done
+
+  cd ..
+  cat <<EOF >.update_stow.sh
+#!/usr/bin/env bash
+
+cd "\$(dirname "\$0")"
+
+for dir in main work review fuzz scratch; do
+  stow -d .stow -t \$dir .
+done
+EOF
+  chmod +x .update_stow.sh
+}
+
+main "$@"
