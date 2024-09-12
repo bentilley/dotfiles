@@ -103,7 +103,7 @@ require("lspconfig").texlab.setup({ on_attach = on_attach, capabilities = capabi
 -- brew install texlab
 
 -- Typescript
-require("lspconfig").tsserver.setup({ on_attach = on_attach, capabilities = capabilities })
+require("lspconfig").ts_ls.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g typescript typescript-language-server
 
 -- Vim
