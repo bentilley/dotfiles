@@ -47,17 +47,45 @@ local accounts = {
 				"no_reply@info3.giffgaff.com",
 				"no_reply@info4.giffgaff.com",
 			}),
+			move_banks = rules.move_by_emails("Inbox", "Admin/Banking", {
+				"hello@email.monzo.com",
+				"hsbcuk@mail01.hsbc.co.uk",
+				"documents@email1.hsbc.co.uk",
+				"barclays@emails.barclays.co.uk",
+			}),
+			move_tfl = rules.move_by_emails("Inbox", "Day To Day/Travel", {
+				"cclondon@cclondon.com",
+			}),
+			move_subscription_receipts = rules.move_by_emails("Inbox", "Day To Day/Receipts", {
+				"noreply@github.com",
+			}),
+			move_shopping = rules.move_by_emails("Inbox", "Admin/Shopping", {
+				"email@info.ocado.com",
+				"customerservices@ocado.com",
+			}),
+			move_food = rules.move_by_emails("Inbox", "Admin/Food", {
+				"noreply@prepkitchen.co.uk",
+				"noreply@t.deliveroo.com",
+				"thekitchen@dominos.co.uk",
+			}),
 		},
 	},
 	targansaikhan_at_gmail_dot_com = {
 		account = Account({
 			server = "imap.gmail.com",
 			username = "targansaikhan@gmail.com",
-			password = pass.show("email/targansaikhan@gmail.com"),
+			password = pass.show("email/targansaikhan@gmail.com/imapfilter"),
 			ssl = "tls1",
 		}),
 		-- inbox = "INBOX",
-		rules = {},
+		rules = {
+			move_interactive_brokers = rules.move_by_emails("Inbox", "Admin/investing", {
+				"donotreply@interactivebrokers.com",
+			}),
+			move_receipts = rules.move_by_emails("Inbox", "Admin/shopping", {
+				"googleplay-noreply@google.com",
+			}),
+		},
 	},
 }
 
