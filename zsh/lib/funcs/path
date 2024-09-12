@@ -1,0 +1,8 @@
+# pretty print path
+
+path() {
+   echo "$PATH" | tr ':' '\n'
+}
+
+path "$@"
+# vim:ft=zsh

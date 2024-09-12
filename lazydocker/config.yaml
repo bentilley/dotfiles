@@ -1,0 +1,70 @@
+gui:
+  scrollHeight: 2
+  language: "auto" # one of 'auto' | 'en' | 'pl' | 'nl' | 'de' | 'tr'
+  theme:
+    activeBorderColor:
+      - green
+      - bold
+    inactiveBorderColor:
+      - white
+    selectedLineBgColor:
+      - blue
+    optionsTextColor:
+      - blue
+  returnImmediately: true
+  wrapMainPanel: true
+  sidePanelWidth: 0.333
+  showBottomLine: true
+  expandFocusedSidePanel: false
+  screenMode: "normal" # one of 'normal' | 'half' | 'fullscreen'
+  containerStatusHealthStyle: "long"
+
+logs:
+  timestamps: false
+  since: "60m" # set to '' to show all logs
+  tail: "" # set to 200 to show last 200 lines of logs
+
+# commandTemplates:
+#   dockerCompose: docker-compose
+#   restartService: '{{ .DockerCompose }} restart {{ .Service.Name }}'
+#   up:  '{{ .DockerCompose }} up -d'
+#   down: '{{ .DockerCompose }} down'
+#   downWithVolumes: '{{ .DockerCompose }} down --volumes'
+#   upService:  '{{ .DockerCompose }} up -d {{ .Service.Name }}'
+#   startService: '{{ .DockerCompose }} start {{ .Service.Name }}'
+#   stopService: '{{ .DockerCompose }} stop {{ .Service.Name }}'
+#   serviceLogs: '{{ .DockerCompose }} logs --since=60m --follow {{ .Service.Name }}'
+#   viewServiceLogs: '{{ .DockerCompose }} logs --follow {{ .Service.Name }}'
+#   rebuildService: '{{ .DockerCompose }} up -d --build {{ .Service.Name }}'
+#   recreateService: '{{ .DockerCompose }} up -d --force-recreate {{ .Service.Name }}'
+#   allLogs: '{{ .DockerCompose }} logs --tail=300 --follow'
+#   viewAlLogs: '{{ .DockerCompose }} logs'
+#   dockerComposeConfig: '{{ .DockerCompose }} config'
+#   checkDockerComposeConfig: '{{ .DockerCompose }} config --quiet'
+#   serviceTop: '{{ .DockerCompose }} top {{ .Service.Name }}'
+
+oS:
+  openCommand: open {{filename}}
+  openLinkCommand: open {{link}}
+
+# stats:
+#   graphs:
+#     - caption: CPU (%)
+#       statPath: DerivedStats.CPUPercentage
+#       color: blue
+#     - caption: Memory (%)
+#       statPath: DerivedStats.MemoryPercentage
+#       color: green
+
+customCommands:
+  images:
+    - name: sh
+      attach: true
+      command: "docker run -it --rm {{ .Image.Name }}:{{ .Image.Tag }} sh"
+      # command: "echo {{ .Image.Name }} | less"
+
+replacements:
+  imageNamePrefixes:
+    # docker-registry-snapshot.us-east-1.awstrp.net: <snap>
+    # docker-release-local.docker.awstrp.net: <release-local>
+    # # 'docker-registry-snapshot.us-east-1.awstrp.net': '<snap>'

@@ -1,0 +1,10 @@
+# add a path to the end of PATH if it's not already in PATH!
+
+pathappend() {
+  if [ -d "$1" ] && [[ ":$PATH:" != *":$1:"* ]]; then
+    PATH="${PATH:+"$PATH:"}$1"
+  fi
+}
+
+pathappend "$@"
+# vim:ft=zsh

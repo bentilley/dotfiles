@@ -27,36 +27,28 @@ setopt pushdminus
 # fpath
 fpath=(~/.dotfiles/zsh/completions $fpath)
 fpath=(~/.dotfiles/zsh/lib/funcs $fpath)
-autoload -Uz $fpath[1]/*(.:t)  # autoload func directory
+autoload -Uz $fpath[1]/*(.:t) # autoload func directory
 
 # set up zinit plugin manager (should be done before compinit)
-source ~/.config/zsh/.zinit/bin/zinit.zsh
+#source ~/.config/zsh/.zinit/bin/zinit.zsh
+declare -A ZINIT
+ZINIT[NO_ALIASES]=1 # don't set zi / zini aliases
+source ~/.local/share/zinit/zinit.git/zinit.zsh
 # See https://github.com/zdharma/zinit for details
-
-# autojump settings (should be done before compinit)
-[ -f /usr/local/etc/profile.d/autojump.sh  ] && . /usr/local/etc/profile.d/autojump.sh
-[ -f /usr/share/autojump/autojump.sh ] && . /usr/share/autojump/autojump.sh
 
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-# case insensitive path-completion 
+# case insensitive path-completion
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
 # partial completion suggestions
 zstyle ':completion:*' list-suffixes
 zstyle ':completion:*' expand prefix suffix 
 autoload -Uz compinit && compinit
-_comp_options+=(globdots)		# Include hidden files.
+_comp_options+=(globdots) # Include hidden files.
 
-# Set PATH
-if [[ -z $TMUX ]]; then
-  # Personal bin
-  export PATH="$HOME/.dotfiles/bin:$PATH"
-
-  if [[ "$(uname)" == "Darwin" ]] && [[ "$(whoami)" == "MrSquee" ]]; then
-    source ~/.dotfiles/zsh/path
-  fi
-fi
+# Personal bin
+pathprepend "$HOME/.dotfiles/bin"
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --color=never --files-with-matches .'
@@ -71,18 +63,15 @@ export MP_EDITOR_VISUAL="nvim"
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-# nvm
-export NVM_LAZY_LOAD=true
-
 # Alias for command substitution - easier than typing it
-function var-subs () {
+function var-subs() {
   LBUFFER="${LBUFFER}"'$()'
   zle backward-char
 }
 zle -N var-subs
 
 # FZF history search
-function fzf-history () {
+function fzf-history() {
   COMMAND="$(history 1 | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
   zle redisplay
   LBUFFER=${COMMAND}
@@ -90,7 +79,7 @@ function fzf-history () {
 zle -N fzf-history
 
 # FZF history search
-function fzf-history-uniq () {
+function fzf-history-uniq() {
   COMMAND="$(history -n 1 | sort | uniq | fzf --reverse --query=${LBUFFER})"
   zle redisplay
   LBUFFER=${COMMAND}
@@ -114,13 +103,23 @@ bindkey -M viins "^F" fzf-history
 bindkey -M viins "^T" fzf-history-uniq
 export KEYTIMEOUT=10
 
-# source additional files
+# source custom local machine path
+source "${HOME}/.local/share/zsh/path.zsh"
+
+# source additional files - source the machine specific files first as they
+# might set env variable options that are used in the other files.
+for additional_file in $HOME/.local/share/zsh/source/**/*.zsh; do
+  source $additional_file
+done
 for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
   source $additional_file
 done
 
 # source any secrets / api keys etc.
 [ -f ~/.dotfiles/zsh/secrets ] && source ~/.dotfiles/zsh/secrets
+
+# rust
+[ ! -z $CARGO_HOME ] && source "$CARGO_HOME/env"
 
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
@@ -132,5 +131,8 @@ _evalcache direnv hook zsh
 
 # setup starship prompt
 _evalcache starship init zsh
+
+# setup zoxide - directory jump
+_evalcache zoxide init zsh
 
 # zprof

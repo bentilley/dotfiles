@@ -1,10 +1,13 @@
 # Copyright (C) %YEAR% %USER% <%MAIL%>
 # Distributed under terms of the %LICENSE% license.
 
-# Usage:
-# make		# <effect>
+.DEFAULT_GOAL := help
+
+.PHONY: help
+help:  ## show this help
+	@printf "Usage:\n\tmake [target]\n\nTargets:\n"
+	@grep -h "##" $(MAKEFILE_LIST) | sed -n 's/^\([^:[:space:]]\+\):[^#]\+## \(.*\)/\t\1:\2/p' | column -t -s ':' -o ' - '
 
 .PHONY: all
-
 all:
 	%HERE%

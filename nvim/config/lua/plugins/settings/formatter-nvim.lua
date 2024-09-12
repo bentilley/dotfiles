@@ -10,6 +10,9 @@ require("formatter").setup({
 	logging = true,
 	log_level = vim.log.levels.WARN,
 	filetype = {
+		bash = {
+			require("formatter.filetypes.sh").shfmt,
+		},
 		c = {
 			require("formatter.filetypes.c").clangformat,
 		},
@@ -24,6 +27,9 @@ require("formatter").setup({
 			require("formatter.filetypes.go").gofumpt,
 			require("formatter.filetypes.go").golines,
 		},
+		java = {
+			require("formatter.filetypes.java").google_java_format,
+		},
 		javascript = {
 			require("formatter.filetypes.javascript").prettier,
 		},
@@ -36,6 +42,7 @@ require("formatter").setup({
 		},
 		python = {
 			require("formatter.filetypes.python").black,
+			require("formatter.filetypes.python").isort,
 		},
 		r = {
 			require("formatter.filetypes.r").styler,
@@ -45,6 +52,9 @@ require("formatter").setup({
 		},
 		scss = {
 			require("formatter.filetypes.css").prettier,
+		},
+		sh = {
+			require("formatter.filetypes.sh").shfmt,
 		},
 		sql = {
 			require("formatter.filetypes.sql").pgformat,
@@ -67,6 +77,9 @@ require("formatter").setup({
 		},
 		yaml = {
 			require("formatter.filetypes.yaml").prettier,
+		},
+		zsh = {
+			require("formatter.filetypes.sh").shfmt,
 		},
 		["*"] = {
 			require("formatter.filetypes.any").remove_trailing_whitespace,

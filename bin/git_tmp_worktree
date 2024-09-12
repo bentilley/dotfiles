@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+  echo 'Usage: git_tmp_worktree branch [name]
+
+Create a directory under /tmp with a git worktree of the specified branch.
+
+'
+  exit
+fi
+
+main() {
+  local branch="${1-}"
+  if [ -z "$branch" ]; then
+    echo "branch is required. e.g. 'git tmp master'" >&2
+    exit 1
+  fi
+
+  local name="${2-}"
+  if [ -z "$name" ]; then
+    name="$(git remote -v | sed -n '/(fetch)/s@[^/]\+/\([^.]\+\)\..*@\1@p')"
+  fi
+
+  local tmp_dir
+  tmp_dir="$(mktemp -u -t "git_tmp_worktree.${name}.XXXXXX")"
+
+  git worktree add "$tmp_dir" "$branch"
+  echo "$tmp_dir"
+}
+
+main "$@"

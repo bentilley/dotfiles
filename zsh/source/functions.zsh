@@ -1,3 +1,14 @@
+function removelink() {
+  local p
+  for p in "$@"; do
+    if [ -L "$p" ]; then
+      cp --remove-destination "$(readlink "$p")" "$p"
+    else
+      echo "$p is not a symlink"
+    fi
+  done
+}
+
 # Functions for helping to use pytest
 
 function mypytest() {
@@ -14,16 +25,16 @@ pywatch() {
 
 # Jest
 
-function jf() {
-  if [ ! -z $1 ]; then
-    FILE=$(find $1/* -type f | grep test | fzf)
-  else
-    FILE=$(fzf)
-  fi
-  if [ $? -eq 0 ]; then
-    npx jest $FILE --watch
-  fi
-}
+# function jf() {
+#   if [ ! -z $1 ]; then
+#     FILE=$(find $1/* -type f | grep test | fzf)
+#   else
+#     FILE=$(fzf)
+#   fi
+#   if [ $? -eq 0 ]; then
+#     npx jest $FILE --watch
+#   fi
+# }
 
 # Working with git
 
@@ -149,7 +160,7 @@ function next() {
   fi
 }
 
-function get_tasks() { 
+function get_tasks() {
   type="$1"
   case "$type" in
     gitlab)

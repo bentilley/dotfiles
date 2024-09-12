@@ -50,6 +50,10 @@ require("lspconfig").gopls.setup({ on_attach = on_attach, capabilities = capabil
 require("lspconfig").html.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g vscode-langservers-extracted
 
+-- Java
+require("lspconfig").jdtls.setup({ on_attach = on_attach, capabilities = capabilities })
+-- brew install jdtls
+
 -- JSON
 require("lspconfig").jsonls.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g vscode-langservers-extracted
