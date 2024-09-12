@@ -8,14 +8,14 @@ local s = ls.snippet
 -- local sn = ls.snippet_node
 -- local isn = ls.indent_snippet_node
 -- local t = ls.text_node
--- local i = ls.insert_node
+local i = ls.insert_node
 local f = ls.function_node
 -- local c = ls.choice_node
 -- local d = ls.dynamic_node
 -- local r = ls.restore_node
 -- local events = require("luasnip.util.events")
 -- local ai = require("luasnip.nodes.absolute_indexer")
--- local fmt = require("luasnip.extras.fmt").fmt
+local fmt = require("luasnip.extras.fmt").fmt
 -- local m = require("luasnip.extras").m
 -- local lambda = require("luasnip.extras").l
 -- local postfix = require("luasnip.extras.postfix").postfix
@@ -34,6 +34,18 @@ return {
 		f(function()
 			return os.date("%Y-%m-%d %H:%M:%S")
 		end, {}, {})
+	),
+	-- Expands to a todoozy comment
+	s(
+		{ trig = "_todo" },
+		fmt(
+			[[
+		TODO {info} ODOT
+		]],
+			{
+				info = i(1, "Add more information here"),
+			}
+		)
 	),
 },
 	{}

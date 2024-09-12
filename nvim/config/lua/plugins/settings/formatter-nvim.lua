@@ -40,11 +40,17 @@ require("formatter").setup({
 		r = {
 			require("formatter.filetypes.r").styler,
 		},
+		rust = {
+			require("formatter.filetypes.rust").rustfmt,
+		},
 		scss = {
 			require("formatter.filetypes.css").prettier,
 		},
 		sql = {
 			require("formatter.filetypes.sql").pgformat,
+		},
+		terraform = {
+			require("formatter.filetypes.terraform").terraformfmt,
 		},
 		tex = {
 			require("formatter.filetypes.tex").latexindent,

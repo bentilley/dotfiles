@@ -87,6 +87,8 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
+-- vim.treesitter.language.register('terraform', 'terraform-vars')
+
 -- You can add custom highlight captures with:
 -- require("nvim-treesitter.highlight").set_custom_captures({
 -- 	-- Highlight the @foo.bar capture group with the "Identifier" highlight group.

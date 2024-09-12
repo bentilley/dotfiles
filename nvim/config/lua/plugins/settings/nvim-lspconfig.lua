@@ -72,6 +72,10 @@ require("lspconfig").pyright.setup({
 require("lspconfig").r_language_server.setup({ on_attach = on_attach, capabilities = capabilities })
 -- install.packages("languageserver")
 
+-- Rust
+require("lspconfig").rust_analyzer.setup({ on_attach = on_attach, capabilities = capabilities })
+-- rustup component add rust-analyzer
+
 -- SQL
 require("lspconfig").sqlls.setup({
 	on_attach = function(client, bufnr)
@@ -83,6 +87,12 @@ require("lspconfig").sqlls.setup({
 	capabilities = capabilities,
 })
 -- go install github.com/lighttiger2505/sqls@latest
+
+-- Terraform
+require("lspconfig").terraformls.setup({ on_attach = on_attach, capabilities = capabilities })
+-- brew install hashicorp/tap/terraform-ls
+require("lspconfig").tflint.setup({ on_attach = on_attach, capabilities = capabilities })
+-- brew install tflint
 
 -- LaTeX
 require("lspconfig").texlab.setup({ on_attach = on_attach, capabilities = capabilities })
