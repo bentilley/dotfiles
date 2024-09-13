@@ -11,7 +11,7 @@ if exists('syntax_on')
   syntax reset
 endif
 
-let colors_name = 'squeedom'
+let colors_name = 'old'
 
 " -------- "
 " Squeedom "
@@ -339,4 +339,3 @@ else
 " }}}
 
 endif
-
