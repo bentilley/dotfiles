@@ -31,16 +31,13 @@ local DarkGrey = "#3d444d"
 local Blue = "#87d7ff"
 local Green = "#00d700"
 local Cyan = "#39e5e5"
-local Red = "#ff0000"
+local Red = "#ff5b56"
 local Magenta = "#af005f"
 local Yellow = "#ffd700"
 local White = "#dddddd"
 -- local White = "#cecfd0"
 
 -- Palette Extra
--- local Grey0 = "#151b23"
--- local Grey1 = "#212830"
--- local Grey2 = "#262c36"
 -- local Pink = "#ffafd7"
 local Pink = "#ff80ff"
 local LightYellow = "#ffff87"
@@ -114,7 +111,7 @@ hi('RedrawDebugNormal',    { reverse = true,                            cterm = 
 hi('RedrawDebugClear',     { bg = 'Yellow',                             ctermbg = 'Yellow' })
 hi('RedrawDebugComposed',  { bg = 'Green',                              ctermbg = 'Green' })
 hi('RedrawDebugRecompose', { bg = 'Red',                                ctermbg = 'Red' })
-hi('Error',                { fg = Red, bg = Grey0,                      ctermfg = 'White', ctermbg = 'Red' })
+hi('Error',                { fg = DarkRed, bg = Grey0,                  ctermfg = 'White', ctermbg = 'Red' })
 hi('Todo',                 { fg = Black, bg = LightYellow, bold = true, ctermfg = 'Black', ctermbg = 'Yellow' })
 
 hi('String',         { link = 'Constant' })
@@ -142,7 +139,7 @@ hi('Delimiter',      { link = 'Special' })
 hi('SpecialComment', { link = 'Special' })
 hi('Debug',          { link = 'Special' })
 
-hi('DiagnosticError',            { fg = Red,                            ctermfg = 1 })
+hi('DiagnosticError',            { fg = DarkRed,                            ctermfg = 1 })
 hi('DiagnosticWarn',             { fg = 'Orange',                       ctermfg = 3 })
 hi('DiagnosticInfo',             { fg = 'LightBlue',                    ctermfg = 4 })
 hi('DiagnosticHint',             { fg = 'LightGrey',                    ctermfg = 7 })
@@ -285,7 +282,7 @@ if vim.o.background == 'light' then
   hi('DiffAdd',      { bg = 'LightBlue',                           ctermbg = 'LightBlue' })
   hi('DiffChange',   { bg = 'LightMagenta',                        ctermbg = 'LightMagenta' })
   hi('DiffDelete',   { fg = 'Blue', bg = 'LightCyan', bold = true, ctermfg = 'Blue', ctermbg = 'LightCyan' })
-  hi('DiffText',     { bg = Red, bold = true,                      ctermbg = 'Red', cterm = { bold = true } })
+  hi('DiffText',     { bg = DarkRed, bold = true,                      ctermbg = 'Red', cterm = { bold = true } })
   hi('Directory',    { fg = 'Blue',                                ctermfg = 'DarkBlue' })
   hi('FoldColumn',   { fg = DarkGrey,                              ctermfg = 'DarkGrey' })
   hi('Folded',       { fg = 'DarkBlue', bg = 'LightGrey',          ctermfg = 'DarkBlue', ctermbg = 'Grey' })
@@ -300,14 +297,14 @@ if vim.o.background == 'light' then
   -- hi('SignColumn',   { fg = 'DarkBlue', bg = 'Grey',               ctermfg = 'DarkBlue', ctermbg = 'Grey' })
   vim.cmd.highlight({ 'clear', 'SignColumn' })
   hi('SpecialKey',   { fg = 'Blue',                                ctermfg = 'DarkBlue' })
-  hi('SpellBad',     { sp = 'Red', undercurl = true,               ctermbg = 'LightRed' })
+  hi('SpellBad',     { sp = DarkRed, undercurl = true,             ctermbg = 'LightRed' })
   hi('SpellCap',     { sp = 'Blue', undercurl = true,              ctermbg = 'LightBlue' })
   hi('SpellLocal',   { sp = 'DarkCyan', undercurl = true,          ctermbg = 'Cyan' })
   hi('SpellRare',    { sp = 'Magenta', undercurl = true,           ctermbg = 'LightMagenta' })
   hi('TabLine',      { fg = Grey, bg = Grey0,                      ctermfg = 'Grey', ctermbg = 'Black', cterm = { underline = true } })
   hi('Title',        { fg = 'Magenta', bold = true,                ctermfg = 'DarkMagenta' })
   hi('Visual',       { fg = 'Black', bg = 'LightGrey',             ctermfg = 'Black', ctermbg = 'Grey' })
-  hi('WarningMsg',   { fg = 'Red',                                 ctermfg = 'DarkRed' })
+  hi('WarningMsg',   { fg = LightYellow,                           ctermfg = 'DarkRed' })
   hi('Comment',      { fg = DarkBlue,                              ctermfg = 'DarkBlue' })
   hi('Constant',     { fg = DarkMagenta,                           ctermfg = 'DarkRed' })
   hi('Special',      { fg = White,                                 ctermfg = 'White' })
@@ -342,21 +339,21 @@ else
   hi('Search',         { fg = Black, bg = DarkYellow,               ctermfg = 'Black', ctermbg = 'Yellow' })
   hi('SignColumn',     { fg = Grey, bg = Grey0,                     ctermfg = 'Grey', ctermbg = 'Black' })
   hi('SpecialKey',     { fg = Cyan,                                 ctermfg = 'LightBlue' })
-  hi('SpellBad',       { sp = Red, undercurl = true,                ctermbg = 'Red' })
+  hi('SpellBad',       { sp = DarkRed, undercurl = true,            ctermbg = 'Red' })
   hi('SpellCap',       { sp = Blue, undercurl = true,               ctermbg = 'Blue' })
   hi('SpellLocal',     { sp = Cyan, undercurl = true,               ctermbg = 'Cyan' })
   hi('SpellRare',      { sp = 'Magenta', undercurl = true,          ctermbg = 'Magenta' })
   hi('TabLine',        { fg = Grey, bg = Grey0,                     ctermfg = 'Grey', ctermbg = 'Black', cterm = { underline = true } })
-  hi('Title',          { fg = Pink, bold = true,                    ctermfg = 'Magenta' })
+  hi('Title',          { fg = Red, bold = true,                     ctermfg = 'Magenta' })
   hi('Visual',         { fg = White, bg = Grey3,                    ctermfg = 'Black', ctermbg = 'Grey' })
-  hi('WarningMsg',     { fg = Red,                                  ctermfg = 'LightRed' })
+  hi('WarningMsg',     { fg = DarkRed,                              ctermfg = 'LightRed' })
   hi('Whitespace',     { fg = DarkGrey,                             ctermfg = 'DarkGrey' })
   hi('Comment',        { fg = DarkBlue,                             ctermfg = 'DarkBlue' })
   hi('Constant',       { fg = DarkMagenta,                          ctermfg = 'DarkMagenta' })
   hi('Special',        { fg = Grey,                                 ctermfg = 'White' })
   hi('Identifier',     { fg = Cyan,                                 ctermfg = 'Cyan', cterm = { bold = true } })
   hi('Statement',      { fg = Magenta,                              ctermfg = 'Magenta' })
-  hi('PreProc',        { fg = Pink,                                 ctermfg = 'LightBlue' })
+  hi('PreProc',        { fg = Red,                                  ctermfg = 'LightBlue' })
   hi('Type',           { fg = Yellow,                               ctermfg = 'Yellow' })
   hi('Underlined',     { fg = '#80a0ff', underline = true,          ctermfg = 'LightBlue', cterm = { underline = true } })
   hi('Ignore',         {                                            ctermfg = 'Black' })
