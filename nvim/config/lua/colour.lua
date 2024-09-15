@@ -8,6 +8,7 @@ local M = {}
 -- settings
 
 vim.cmd([[silent! colorscheme squeedom]])
+vim.cmd([[silent! syntax off]])
 
 -- functions
 
