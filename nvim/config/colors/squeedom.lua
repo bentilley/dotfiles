@@ -20,7 +20,7 @@ end
 -- Palette 16
 local Black = "#0d1117"
 local DarkBlue = "#5f5f87"
-local DarkGreen = "#00d700"
+local DarkGreen = "#00ac00"
 local DarkCyan = "#008080"
 local DarkRed = "#d70000"
 local DarkMagenta = "#875fd7"
@@ -173,6 +173,9 @@ hi('DiagnosticUnnecessary', { link = 'Comment' })
 hi('LspInlayHint',          { link = 'NonText' })
 hi('SnippetTabstop',        { link = 'Visual' })
 
+hi('Added',   { link = 'DiffAdd' })
+hi('Removed', { link = 'DiffDelete' })
+
 -- Text
 hi('@markup.raw',       { link = 'Comment' })
 hi('@markup.link',      { link = 'Identifier' })
@@ -320,9 +323,9 @@ else
   hi('CursorColumn',   { bg = 'Grey40',                             ctermbg = 'DarkGrey' })
   hi('CursorLine',     { bg = Red, underline = true,                cterm = { underline = true } })
   hi('CursorLineNr',   { fg = Black, bg = White, bold = true,       ctermfg = 'Black', ctermbg = 'White', cterm = { underline = true } })
-  hi('DiffAdd',        { fg = Green, bg = Grey2,                    ctermbg = 'Green' })
+  hi('DiffAdd',        { fg = DarkGreen,                            ctermbg = 'Green' })
   hi('DiffAddText',    { fg = Green, bg = Grey0, bold = true,       ctermbg = 'Green' })
-  hi('DiffDelete',     { fg = DarkRed, bg = Grey2,                  ctermfg = 'DarkRed', ctermbg = 'DarkGrey' })
+  hi('DiffDelete',     { fg = DarkRed,                              ctermfg = 'DarkRed', ctermbg = 'DarkGrey' })
   hi('DiffDeleteText', { fg = DarkRed, bold = true,                 ctermfg = 'Blue', ctermbg = 'DarkCyan' })
   hi('DiffText',       { fg = Yellow, bg = Grey0, bold = true,      ctermbg = 'Grey' })
   hi('DiffChange',     { bg = Grey2,                                ctermbg = 'Grey' })
