@@ -5,8 +5,11 @@ pathprepend "${GOENV_ROOT}/shims"
 
 # Lazy load goenv
 if type goenv &>/dev/null; then
+  # Use greadlink if available.
+  READLINK=$(command -v greadlink readlink | head -1)
+
   # Activate ZSH completion script.
-  source "$(dirname "$(readlink -f "$(which goenv)")")/../completions/goenv.zsh"
+  source "$(dirname "$("$READLINK" -f "$(which goenv)")")/../completions/goenv.zsh"
 
   # Setup goenv command.
   function goenv() {
