@@ -27,14 +27,17 @@ return {
 		{ trig = "argparse" },
 		fmt(
 			[[
+			import argparse
+
 			parser = argparse.ArgumentParser(
-				prog='{prog}',
-				description='{description}',
-				epilog='{epilog}'
+				prog="{prog}",
+				description="{description}",
+				epilog="{epilog}"
 			)
 
-			parser.add_argument('{argname}')    # positional argument
-			parser.add_argument('--{optname}')  # option that takes a value
+			# see: https://docs.python.org/3/library/argparse.html
+			parser.add_argument("{argname}")    # positional argument
+			parser.add_argument("--{optname}")  # option that takes a value
 
 			args = parser.parse_args()
 			]],
