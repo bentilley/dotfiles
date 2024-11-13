@@ -8,6 +8,21 @@ export PAGER="less"
 export LSCOLORS="ExfxcxdxCxegedabagacad"
 type firefox &>/dev/null && export BROWSER=firefox
 
+# less colours -- since man uses less as a pager, this gives us
+# coloured man pages
+export LESS_TERMCAP_mb=$'\E[01;10m'          # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;177m'    # begin bold
+export LESS_TERMCAP_me=$'\E[0m'              # end mode
+export LESS_TERMCAP_so=$'\E[38;5;0;48;5;11m' # begin standout-mode - info box
+export LESS_TERMCAP_se=$'\E[0m'              # end standout-mode
+export LESS_TERMCAP_us=$'\E[04;38;5;128m'    # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'              # end underline
+
+# Support ANSI color sequences, truncate lines (don't wrap), and use
+# smart case search (rather than case sensitive).
+# https://stackoverflow.com/a/26069/509706
+export LESS=-RSi
+
 # History configuration
 export HISTSIZE=50000
 export SAVEHIST=100000
