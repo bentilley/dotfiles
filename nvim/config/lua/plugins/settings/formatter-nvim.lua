@@ -40,6 +40,9 @@ require("formatter").setup({
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 		},
+		perl = {
+			require("formatter.filetypes.perl").perltidy,
+		},
 		python = {
 			require("formatter.filetypes.python").black,
 			require("formatter.filetypes.python").isort,
