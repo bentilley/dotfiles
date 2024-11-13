@@ -8,7 +8,6 @@ set main-options = -n 1000 # useful for large repos
 set horizontal-scroll = 33%
 set line-graphics = utf-8
 set commit-order = default
-
 set log-options = --show-signature
 set diff-options = --show-signature
 
@@ -25,6 +24,7 @@ set tree-view	= line-number:no,interval=5 mode author:full file-size date:defaul
 
 # }}}
 # Colors {{{
+
 color cursor black green
 color status white default
 color title-focus black magenta
@@ -38,54 +38,45 @@ color main-tag magenta default
 # color stat-untracked yellow default
 # color tree.header white default
 # color tree.directory cyan default
+
 # }}}
 # Bindings {{{
 
-# Custom {{{
-
-# copy the highlighted commit hash
-bind main Y !@sh -c "printf %(commit) | cb"
-
-# delete the file under the cursor
-bind status <Ctrl-d> !rm -i %(file)
-
-# bind main <Ctrl-c> !?git checkout %(commit)
-# bind main <Ctrl-p> !?git cherry-pick %(commit)
-
-# }}}
 # Generic {{{
 
+# resets
+bind generic <Hash> none
+bind generic $      none
+bind generic %      none
+bind generic A      none
+bind generic D      none
+bind generic I      none
+bind generic L      none
+bind generic S      none
+bind generic W      none
+bind generic X      none
+bind generic [      none
+bind generic ]      none
+bind generic ^      none
+bind generic b      none
+bind generic d      none
+bind generic f      none
+bind generic g      none
+bind generic i      none
+bind generic m      none
+bind generic p      none
+bind generic r      none
+bind generic s      none
+bind generic t      none
+bind generic v      none
+bind generic y      none
+bind generic ~      none
 
-# Vim-style keybindings for Tig
-#
-# To use these keybindings copy the file to your HOME directory and include
-# it from your ~/.tigrc file:
-#
-#	$ cp contrib/vim.tigrc ~/.tigrc.vim
-#	$ echo "source ~/.tigrc.vim" >> ~/.tigrc
-
-bind generic h scroll-left
-bind generic j move-down
-bind generic k move-up
-bind generic l scroll-right
-
-bind generic g  none
-bind generic gg move-first-line
-bind generic gj next
-bind generic gk previous
-bind generic gp parent
-bind generic gP back
-bind generic gn view-next
-
-bind generic G move-last-line
-
-bind generic <C-f> move-page-down
-bind generic <C-b> move-page-up
-
-bind generic v  none
+# view switching
 bind generic vm view-main
 bind generic vd view-diff
 bind generic vl view-log
+bind generic vL view-reflog
 bind generic vt view-tree
 bind generic vx view-blob
 bind generic vb view-blame
@@ -97,100 +88,96 @@ bind generic vg view-grep
 bind generic vp view-pager
 bind generic vh view-help
 
-bind generic o  none
-bind generic oo :toggle sort-order
-bind generic os :toggle sort-field
-bind generic on :toggle line-number
-bind generic od :toggle date
-bind generic oa :toggle author
-bind generic og :toggle line-graphics
-bind generic of :toggle file-name
-bind generic op :toggle ignore-space
-bind generic oi :toggle id
-bind generic ot :toggle commit-title-overflow
-bind generic oF :toggle file-filter
-bind generic or :toggle commit-title-refs
+# view manipulation
+bind generic <C-r> refresh
 
-bind generic @  none
-bind generic @j :/^@@
-bind generic @k :?^@@
-bind generic @- :toggle diff-context -1
-bind generic @+ :toggle diff-context +1
-
-bind status  u  none
-bind stage   u  none
-bind generic uu status-update
-bind generic ur status-revert
-bind generic um status-merge
-bind generic ul stage-update-line
-bind generic us stage-split-chunk
-
-bind generic c  none
-bind generic cc !git commit
-bind generic ca !?@git commit --amend --no-edit
-
-bind generic y none
-bind generic yy !@sh -c "printf %(commit) | cb"
-
-bind generic Q quit
-
-bind generic [ none
-bind generic ] none
+# cursor navigation
+bind generic j move-down
+bind generic k move-up
+bind generic <C-f> move-page-down
+bind generic <C-b> move-page-up
 bind generic [m move-prev-merge
 bind generic ]m move-next-merge
-bind generic [q find-prev
-bind generic ]q find-next
+bind generic gg move-first-line
+bind generic G  move-last-line
+
+# scrolling
+bind generic h scroll-left
+bind generic l scroll-right
+bind generic ^ scroll-first-col
+
+# view navigation
+bind generic [c :toggle diff-context -1
+bind generic ]c :toggle diff-context +1
+bind generic [C :toggle diff-context -5
+bind generic ]C :toggle diff-context +5
+
+# option toggling
+bind generic yF :toggle file-filter
+bind generic yG :toggle commit-title-graph
+bind generic yR :toggle rev-filter
+bind generic ya :toggle author
+bind generic yd :toggle date
+bind generic yf :toggle file-name
+bind generic yg :toggle line-graphics
+bind generic yi :toggle id
+bind generic yn :toggle line-number
+bind generic yo :toggle sort-order
+bind generic yp :toggle ignore-space
+bind generic yr :toggle commit-title-refs
+bind generic ys :toggle sort-field
+bind generic yt :toggle commit-title-overflow
+
+# external commands
+bind generic F !git fetch --all --prune --jobs=10
+bind generic P >git push
+bind generic c !git commit --verbose
+bind generic p ?git push
+bind generic X ?>git prune
+
+# utils
+bind generic yy !@sh -c "printf %(commit) | cb"
 
 # }}}
 # Main {{{
 
+# resets
+bind main F !>git fetch --all --prune --jobs=10
 
-bind main g none
-bind main gf !git fetch
-bind main gr !git revert %(commit)
-bind main gp !git cherry-pick %(commit)
-bind main gc !?git checkout %(commit)
+# cursor navigation
+bind main G move-last-line
 
-bind main b none
-bind main bn @?git branch %(prompt) %(commit)
-bind main bf @?git branch -f %(prompt) %(commit)
-
-bind main P >git push
+# git commands
 bind main ! !git revert %(commit)
-bind main A @git commit --amend --reuse-message=HEAD
-bind main C !git commit --verbose
+bind main A @git commit --amend --reuse-message=HEAD --no-edit
+bind main B @?git branch -f %(prompt) %(commit)
+bind main C !?git checkout %(commit)
 bind main H !?git reset --hard %(commit)
 bind main R !git rebase -i --autosquash %(commit)^
-bind main F @git commit --fixup %(commit)
-bind main E !<sh -c "vim -c 'Gedit %(commit)' $(ls | head -1)"
-bind main V !<sh -c "vim $(git show %(commit) --pretty=format: --name-only | xargs)"
-bind main Y !@csh -c "echo -n %(commit) | cb"
+bind main V !>sh -c "$EDITOR $(git show %(commit) --pretty=format: --name-only | xargs)" # edit all files changed by commit
+bind main a !?git commit --amend
+bind main b @?git branch %(prompt) %(commit)
+bind main f @git commit --fixup %(commit)
+bind main x !git cherry-pick %(commit)
+
+# old
+# bind diff A !git add %(file)              # Add current file
+# bind diff F !@sh -c "git show %(commit) --pretty=format: --name-only | xargs | xsel -ib"
+# bind diff P !git add -p %(file)           # Partially add current file
+# bind main E !<sh -c "$EDITOR -c 'Gedit %(commit)' $(ls | head -1)"
 
 # }}}
 # Diff {{{
 
-bind diff <Up> move-up
-bind diff <Down> move-down
-
-# Edit all files of commit
-bind diff A !git add %(file)              # Add current file
-# bind diff C !git commit -av               # Add and commit
-bind diff C !git commit --verbose         # commit
-bind diff P !git add -p %(file)           # Partially add current file
-bind diff F !@sh -c "git show %(commit) --pretty=format: --name-only | xargs | xsel -ib"
-bind diff E !<sh -c "vim -c 'Gedit %(commit)' $(ls | head -1)"
-bind diff V !<sh -c "vim $(git show %(commit) --pretty=format: --name-only | xargs)"
-# bind diff <Ctrl-c> !?git checkout %(commit) %(file)
-
+# resets
 bind diff [ none
 bind diff ] none
-bind diff [c :toggle diff-context -5
-bind diff ]c :toggle diff-context +5
 
 # }}}
 # Tree {{{
 
-bind tree V !vim %(file)
+# edit this file as is now
+bind tree E !>sh -c "$EDITOR %(file)"
 
 # }}}
 # Refs {{{
@@ -209,18 +196,31 @@ bind refs gc !@git checkout %(ref)
 # }}}
 # Status {{{
 
-bind status A !@git commit --amend
-bind status C !git commit --verbose
-bind status N !@git add -N %(file)
-bind status P ?git push
-bind status R !@git reset HEAD %(file)
+# external commands
+bind status D !>rm -i %(file)
+bind status i !@git add -N %(file) # Add file to index with no content
+bind status d !>git difftool %(file)
 
 # }}}
 # Stage {{{
 
-bind stage 1 stage-update-line # Stage a single line
-# bind stage C !@git commit # Commit staging changes
-bind stage C !git commit --verbose         # commit
+# resets
+bind stage \ none
+
+# view-specific bindings
+bind stage s stage-split-chunk
+
+# }}}
+# Stash {{{
+
+# resets
+bind stash A none
+bind stash P none
+
+# external commands
+bind stash a ?git stash apply %(stash)
+bind stash p ?git stash pop %(stash)
+bind stash s @?git stash --all
 
 # }}}
 
