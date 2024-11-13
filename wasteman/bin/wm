@@ -1,0 +1,93 @@
+#!/usr/bin/env bash
+
+usage() {
+  echo 'usage: wm [FILE] [CURL OPTIONS]
+
+Used to run wasteman curl config files.
+
+Parameters:
+  FILE          The curl config file to use.
+  CURL OPTIONS  Any additional curl options to pass.
+'
+}
+
+set -o errexit
+# set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+# Configuration
+WM_INSTALL_PATH="$HOME/.dotfiles/wasteman"
+
+# Argument parsing
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  -p | --print)
+    PRINT_FILE=YES
+    shift # past argument
+    ;;
+  -h | --help)
+    usage
+    exit 0
+    ;;
+  # --* | -*)
+  #   echo "Unknown option $1"
+  #   usage
+  #   exit 1
+  #   ;;
+  *)
+    POSITIONAL_ARGS+=("$1") # save positional arg
+    shift                   # past argument
+    ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+shell_expand_file() {
+  # Old logic was to use envsubst. This only supports bash variable expansion,
+  # however, and not shell expansion.
+  # envsubst <"$1"
+
+  local wm_lib
+  wm_lib="$WM_INSTALL_PATH/share/lib.sh"
+
+  local local_env
+  local_env=${WM_LOCAL_ENV:-./env.sh}
+
+  local local_config
+  local_config=${WM_CONFIG_FILE:-./lib.sh}
+
+  (
+    source "$wm_lib"
+    test -f "$local_env" && source "$local_env"
+    test -f "$local_config" && source "$local_config"
+
+    # New logic, see https://stackoverflow.com/a/17030953
+    eval "cat <<EOF
+$(<"$1")
+EOF"
+  )
+}
+
+main() {
+  FILE="${1}"
+  if [[ -z "${FILE}" ]]; then
+    echo "No file specified"
+    exit 1
+  fi
+  shift
+
+  if [[ -z "${PRINT_FILE-}" ]]; then
+    curl --silent --config <(shell_expand_file "${FILE}") "$@" | jq
+    return
+  else
+    shell_expand_file "${FILE}"
+  fi
+}
+
+main "$@"
