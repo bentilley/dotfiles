@@ -73,6 +73,9 @@ function M.vim_plug()
 	-- treesitter utils e.g. view highlight groups
 	Plug("nvim-treesitter/playground")
 
+	-- treesitter defined text objects e.g. inner.function etc.
+	Plug("nvim-treesitter/nvim-treesitter-textobjects")
+
 	-- show the lightbulb emoji in the gutter when a code action is available
 	Plug("kosayoda/nvim-lightbulb")
 
