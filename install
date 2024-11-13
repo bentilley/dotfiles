@@ -80,6 +80,9 @@ symlinking_config_files() {
   # WTFUTIL
   dotfile_link "wtfutil/config.yml" "$CONFIG_DIR/wtf/config.yml"
 
+  # YAZI
+  dotfile_link "yazi" "$CONFIG_DIR/yazi"
+
   # ZSH
   dotfile_link "zsh/.zshenv_wrapper" "$HOME/.zshenv"
   dotfile_link "zsh/.zshenv" "$CONFIG_DIR/zsh/.zshenv"
