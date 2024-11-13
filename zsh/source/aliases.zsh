@@ -4,9 +4,10 @@ alias -g BG='&>/dev/null &'
 
 # The 26 golden aliases
 alias a="add"
-alias d=docker
-alias e="\$EDITOR"
-alias f="yazi"
+alias d=docker     # docker
+alias e="\$EDITOR" # edit
+alias f="yazi"     # files
+alias j="z"        # jump
 
 # quick confing access
 alias conf="lf \$HOME/.dotfiles"
