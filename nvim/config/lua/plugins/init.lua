@@ -101,6 +101,9 @@ function M.vim_plug()
 	-- autocompletion source snippets
 	Plug("saadparwaiz1/cmp_luasnip")
 
+	-- additional operators
+	Plug("echasnovski/mini.operators")
+
 	-- Github Copilot - AI autocompletion
 	Plug("zbirenbaum/copilot.lua")
 
