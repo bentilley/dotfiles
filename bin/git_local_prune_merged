@@ -1,0 +1,79 @@
+#!/usr/bin/env bash
+
+usage() {
+  echo 'Usage: git_local_prune_merged [BRANCH]
+
+Delete any local branches that have been merged into [BRANCH] (HEAD by default)
+
+'
+}
+
+set -o errexit
+# set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+  usage
+  exit
+fi
+
+main() {
+  if [ $# -gt 1 ]; then
+    usage
+    exit 1
+  fi
+
+  local branch="$1"
+
+  if [ -z "$branch" ]; then
+    merged_branches="$(git --no-pager branch --merged)"
+  else
+    merged_branches="$(git --no-pager branch --merged "$branch")"
+  fi
+
+  to_delete=()
+
+  while read -r line; do
+    case "$line" in
+    "$branch") # don't delete the branch we're on
+      continue
+      ;;
+    master | main | develop | release) # don't delete the classics
+      continue
+      ;;
+    '+'* | '*'*) # currently checked out branches
+      continue
+      ;;
+    *)
+      to_delete+=("$line")
+      # git branch --delete "$line"
+      ;;
+    esac
+  done <<<"$merged_branches"
+
+  if [ ${#to_delete[@]} -eq 0 ]; then
+    echo "Nothing to do."
+    return
+  fi
+
+  echo "Branches to delete:"
+  for branch in "${to_delete[@]}"; do
+    echo "  $branch"
+  done
+
+  echo "Do you want to delete these branches? (y/n)"
+  read -r answer
+  if [ "$answer" != "y" ]; then
+    echo "Aborted."
+    return
+  fi
+
+  for branch in "${to_delete[@]}"; do
+    git branch --delete "$branch"
+  done
+}
+
+main "$@"

@@ -8,6 +8,7 @@ __mine__/
 .envrc
 
 ### Wasteman ###
+.wm
 .wm/
 
 ### Vim ###

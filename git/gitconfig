@@ -1,22 +1,24 @@
 [core]
   excludesFile = ~/.config/.gitignore
-  #pager = delta
 
 [alias]
   alias = "! git config --get-regexp ^alias\\. | sed -e s/^alias\\.// -e s/\\ /=/ | column -s '=' -t -l 2"
   bb = !git_better_branch
   bblame = blame -w -C -C -C
+  begin = !git_branch_origin_master
+  dft = difftool
+  dlog = -c diff.external=difft log -p --ext-diff
   ec = commit --allow-empty -m
   ignore = "!gi() { curl -sL https://www.toptal.com/developers/gitignore/api/$@ ;}; gi"
+  latest = describe --tags --abbrev=0
   root = rev-parse --show-toplevel
   staash = stash --all
   tmp = !git_tmp_worktree
   tmsu = "!gt() { tmsu files $(git branch --show-current) ;}; gt"
   tmsutag = "!gtt() { tmsu tag $1 $(git branch --show-current) ;}; gtt"
+  trim = !git_local_prune_merged
   where = branch --show-current
-  latest = describe --tags --abbrev=0
   xclone = !git_clone_with_worktrees
-  begin = !git_branch_origin_master
 
 [user]
   email = tilleyben@hotmail.com
@@ -29,17 +31,28 @@
   keepBackup = false
   prompt = false
 
-[delta]
-  syntax-theme = 1337
-  line-numbers = true
-  colorMoved = default
-
 [mergetool "nvim"]
-  cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
-  ; path = nvim
+  cmd = nvim -f -c "Gvdiffsplit!" "$MERGED"
 
-[interactive]
-  #diffFilter = delta --color-only
+; [delta]
+;   syntax-theme = 1337
+;   line-numbers = true
+;   colorMoved = default
+
+[diff]
+  tool = difftastic
+
+[difftool]
+  prompt = false
+
+[difftool "difftastic"]
+  cmd = difft "$LOCAL" "$REMOTE"
+
+[pager]
+  difftool = true
+
+; [interactive]
+;   #diffFilter = delta --color-only
 
 [commit]
   gpgsign = true
