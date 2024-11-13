@@ -57,15 +57,14 @@ function M.vim_plug()
 	-- neovim language server configs
 	Plug("neovim/nvim-lspconfig")
 
-	-- default configurations for diagnostic-languageserver (used with neovim/nvim-lspconfig)
-	-- possible alternative: https://github.com/mfussenegger/nvim-lint
-	Plug("creativenull/diagnosticls-configs-nvim")
-
 	-- add lsp information to the statusline
 	Plug("nvim-lua/lsp-status.nvim")
 
 	-- additional plugin for sqls language server
 	Plug("nanotee/sqls.nvim")
+
+	-- linter runner that integrates with nvim lsp
+	Plug("mfussenegger/nvim-lint")
 
 	-- neovim treesitter config
 	Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })

@@ -5,6 +5,7 @@
 
 local M = {}
 local formatter_nvim = require("plugins.settings.formatter-nvim")
+local lint = require("lint")
 
 -- constants
 
@@ -13,6 +14,16 @@ local autocmd = vim.api.nvim_create_autocmd
 local statusline = require("statusline")
 
 -- auto commands
+
+-- run linter async on save
+local linter = augroup("NvimLint", { clear = true })
+autocmd({ "BufEnter", "BufWritePost" }, {
+	group = linter,
+	pattern = "*",
+	callback = function()
+		lint.try_lint()
+	end,
+})
 
 -- auto-format the file on save
 local formatter = augroup("FormatterNvim", { clear = true })
