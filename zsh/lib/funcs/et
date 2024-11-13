@@ -1,12 +1,11 @@
-
 # "vim that", a way of opening the last `rg` search results in vim.
 
-function vt()  {
+function et() {
   LAST_BUFFER="$(fc -ln -1)"
 
   if [[ ! "$LAST_BUFFER" =~ '^rg' ]]; then
-    printf "'vimthat' can only be used after 'rg'. "
-    printf "Last command was '$LAST_BUFFER'.\n"
+    printf "'editthat' can only be used after 'rg'. "
+    printf "Last command was %s.\n" "$LAST_BUFFER"
     return 1
   fi
 
@@ -16,10 +15,10 @@ function vt()  {
   fi
 
   # get the thing after `rg` to start a search in vim when we load
-  SEARCH_TERM=$(echo $LAST_BUFFER | sed -E -e 's/^rg //' -e 's/(\w+).*/\1/g')
+  SEARCH_TERM=$(echo "$LAST_BUFFER" | sed -E -e 's/^rg //' -e 's/(\w+).*/\1/g')
 
-  $EDITOR $(eval $LAST_BUFFER) -c "/$SEARCH_TERM"
+  $EDITOR $(eval "$LAST_BUFFER") -c "/$SEARCH_TERM"
 }
 
-vt "$@"
+et "$@"
 # vim:ft=zsh
