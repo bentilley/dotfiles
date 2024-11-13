@@ -40,7 +40,7 @@ alias todo="task summary && task calendar && task next"
 alias ta='task project:"$(git branch --show-current)" next'
 
 # Exa (colourful ls)
-alias lk="exa -lag -t=modified"
+alias lk="eza -lag -t=modified"
 
 # applications chrome
 alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
