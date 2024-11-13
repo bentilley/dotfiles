@@ -136,6 +136,9 @@ done
 # rust
 [ ! -z $CARGO_HOME ] && source "$CARGO_HOME/env"
 
+# ocaml
+[[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" >/dev/null 2>&1
+
 # Plugins
 zinit light zsh-users/zsh-autosuggestions
 zinit light mroth/evalcache
