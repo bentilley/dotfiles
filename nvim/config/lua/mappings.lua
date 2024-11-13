@@ -96,6 +96,8 @@ nmap("<Leader>tp", ":VimuxPromptCommand<CR>")
 nmap("<Leader>tr", ":VimuxRunCommand")
 nmap("<Leader>tx", ":VimuxInterruptRunner<CR>")
 nmap("<Leader>t<C-l>", ":VimuxClearTerminalScreen<CR>")
+nmap("<Leader>wr", "<Plug>(datamuse-rhymes)") -- custom plugin, find rhyming words
+nmap("<Leader>ws", "<Plug>(datamuse-synonyms)") -- custom plugin, find synonyms
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
 -- <LocalLeader>cl, function() print(vim.inspect(client.server_capabilities)) end  (setup_lsp_mappings)

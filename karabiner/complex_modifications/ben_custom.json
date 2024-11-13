@@ -100,7 +100,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
-                "^org.alacritty"
+                "^org.alacritty",
+                "^com.citrix.receiver.icaviewer.mac"
               ]
             }
           ]
@@ -131,7 +132,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
-                "^org.alacritty"
+                "^org.alacritty",
+                "^com.citrix.receiver.icaviewer.mac"
               ]
             }
           ]
@@ -162,7 +164,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
-                "^org.alacritty"
+                "^org.alacritty",
+                "^com.citrix.receiver.icaviewer.mac"
               ]
             }
           ]
@@ -193,7 +196,8 @@
               "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
-                "^org.alacritty"
+                "^org.alacritty",
+                "^com.citrix.receiver.icaviewer.mac"
               ]
             }
           ]

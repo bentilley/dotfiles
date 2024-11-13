@@ -119,7 +119,7 @@ bindkey -M viins "^T" fzf-history-uniq
 export KEYTIMEOUT=10
 
 # source custom local machine path
-source "${HOME}/.local/share/zsh/path.zsh"
+[ -f "${HOME}/.local/share/zsh/path.zsh" ] && source "${HOME}/.local/share/zsh/path.zsh"
 
 # source additional files - source the machine specific files first as they
 # might set env variable options that are used in the other files.

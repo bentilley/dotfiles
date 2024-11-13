@@ -113,7 +113,8 @@ check_third_party_tools() {
     brew_install bat bat
     brew_install ctags universal-ctags
     brew_install delta git-delta
-    brew_install exa exa
+    brew_install difft difftastic
+    brew_install eza eza
     brew_install ffmpeg ffmpeg
     brew_install fswatch fswatch
     brew_install fzf fzf
@@ -144,9 +145,10 @@ check_third_party_tools() {
     brew_install tig tig
     brew_install tmux tmux
     brew_install urlview urlview
-    brew_install vim "vim --HEAD"
+    # brew_install vim "vim --HEAD"
     brew_install watchman watchman
     brew_install wtfutil wtfutil
+    brew_install zoxide zoxide
 
     brew tap homebrew/cask-fonts
     brew install --cask font-meslo-lg-nerd-font

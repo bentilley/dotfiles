@@ -6,7 +6,7 @@
 set from = "targansaikhan@gmail.com"
 set realname = "Ben Tilley"
 set imap_user = "targansaikhan@gmail.com"
-set imap_pass = "`pass show email/targansaikhan@gmail.com`"
+set imap_pass = "`pass show email/targansaikhan@gmail.com/mutt`"
 set folder = "imaps://imap.gmail.com:993"
 folder-hook $folder 'source ~/.mutt/accounts/account.com.gmail.targansaikhan'
 set hostname="gmail.com"
@@ -15,8 +15,8 @@ set ssl_force_tls = yes
 set ssl_starttls = yes
 set signature = "~/.mutt/signatures/signature.com.hotmail.tilleyben"
 set postponed = "+[Gmail]/Drafts"
-set record = "+[Gmail]/Sent Mail"
-set trash = "+[Gmail]/Trash"
+set record = "+[Gmail]/Sent"
+set trash = "+[Gmail]/Bin"
 # unmailboxes *
 mailboxes -label GmailInbox +INBOX
 
