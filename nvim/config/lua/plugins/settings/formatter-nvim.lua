@@ -40,6 +40,9 @@ require("formatter").setup({
 		lua = {
 			require("formatter.filetypes.lua").stylua,
 		},
+		ocaml = {
+			require("formatter.filetypes.ocaml").ocamlformat,
+		},
 		perl = {
 			require("formatter.filetypes.perl").perltidy,
 		},
