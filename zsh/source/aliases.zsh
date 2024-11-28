@@ -4,10 +4,12 @@ alias -g BG='&>/dev/null &'
 
 # The 26 golden aliases
 alias a="add"
-alias d=docker     # docker
-alias e="\$EDITOR" # edit
-alias f="yazi"     # files
-alias j="z"        # jump
+alias d=docker       # docker
+alias e="\$EDITOR"   # edit
+alias f="yazi"       # files
+alias g="git"        # git
+alias j="z"          # jump
+alias u="tig status" # update (worktree)
 
 # quick confing access
 alias conf="lf \$HOME/.dotfiles"
@@ -48,7 +50,7 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome"
 
 # nvim aliases
 alias lvim='nvim -c "normal '"'"'0"'
-alias vlc="nvim -p \`git diff-tree --name-only --no-commit-id -r HEAD\`"
+alias elc="\$EDITOR -p \$(git diff-tree --name-only --no-commit-id -r HEAD)"
 alias vtag='nvim $(git tmsu | xargs readlink -f)'
 
 # go aliases
@@ -66,6 +68,7 @@ alias grp='git rev-parse'
 alias grps='git rev-parse --short'
 alias grbic='grbi origin/$(git branch --show-current)'
 alias gmt='git mergetool'
+alias gbx='git xbranch'
 
 # gcloud aliases
 alias gcurl='curl  -H "Authorization: bearer $(gcloud auth print-identity-token)"'
