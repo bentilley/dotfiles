@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+
+usage() {
+  echo 'Usage: git_fixup_rebase COMMITISH
+
+Create a fixup commit for the given COMMITISH and immediately rebase it into the current branch.
+'
+}
+
+set -o errexit
+# set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+UNKNOWN_FLAGS=()
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  -h | --help)
+    usage
+    exit
+    ;;
+  --* | -*)
+    UNKNOWN_FLAGS+=("$1") # save positional arg
+    shift
+    ;;
+  *)
+    POSITIONAL_ARGS+=("$1") # save positional arg
+    shift                   # past argument
+    ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+main() {
+  if [ ${#POSITIONAL_ARGS[@]} -ne 1 ]; then
+    usage
+    exit 1
+  fi
+
+  local commitish="${POSITIONAL_ARGS[0]}"
+  shift
+
+  git commit --fixup "$commitish"
+
+  git rebase --autosquash --rebase-merges "${UNKNOWN_FLAGS[@]}" "${commitish}~1"
+  # You might want to run this with `--interactive` to give yourself some time
+  # to manually check what's happening.
+  # git rebase --autosquash --interactive --rebase-merges "$@" "${commitish}~1"
+  # You also might want to run this with `--autostash` to allow you to run it
+  # on a dirty worktree.
+  # git rebase --autosquash --autostash --rebase-merges "$@" "${commitish}~1"
+
+}
+
+main "$@"
