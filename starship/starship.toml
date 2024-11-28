@@ -2,8 +2,8 @@
 
 # Global Options
 
-add_newline = true  # default
-scan_timeout = 30  # default
+add_newline = true     # default
+scan_timeout = 30      # default
 command_timeout = 1000
 
 # format = """
@@ -66,13 +66,25 @@ $status\
 $character"""
 
 
+[username]
+style_root = "bold red"
+style_user = "bold yellow"
+format = "[$user]($style) "
+
+[hostname]
+format = "[$ssh_symbol$hostname]($style) "
+style = "bold dimmed green"
+
 [git_branch]
 # disabled = true
 format = "[$symbol$branch]($style) "
 # format = "[$symbol]($style)"
-truncation_length = 8
+truncation_length = 16
 symbol = ""
-style = "bold purple" 
+style = "bold purple"
+
+[package]
+format = "[$symbol$version]($style) "
 
 [nodejs]
 format = "[$symbol($version )]($style)"
@@ -86,7 +98,7 @@ style = "bold yellow"
 
 [cmd_duration]
 format = "[$duration]($style) "
-style = "bold blue" 
+style = "bold blue"
 show_notifications = false
 min_time_to_notify = 30_000
 
