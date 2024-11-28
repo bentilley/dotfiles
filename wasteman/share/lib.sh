@@ -48,7 +48,7 @@ input_select() {
   local list_func="$2"
 
   if [ -z "${!env_var_name}" ]; then
-    $list_func | fzf --prompt "Select $1: "
+    $list_func | fzf --sync --prompt "Select $1: "
   fi
   printf "%s" "${!env_var_name}"
 }

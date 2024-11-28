@@ -34,11 +34,6 @@ while [[ $# -gt 0 ]]; do
     usage
     exit 0
     ;;
-  # --* | -*)
-  #   echo "Unknown option $1"
-  #   usage
-  #   exit 1
-  #   ;;
   *)
     POSITIONAL_ARGS+=("$1") # save positional arg
     shift                   # past argument
@@ -49,23 +44,14 @@ done
 set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
 
 shell_expand_file() {
-  # Old logic was to use envsubst. This only supports bash variable expansion,
-  # however, and not shell expansion.
-  # envsubst <"$1"
-
-  local wm_lib
-  wm_lib="$WM_INSTALL_PATH/share/lib.sh"
-
-  local local_env
-  local_env=${WM_LOCAL_ENV:-./env.sh}
-
-  local local_config
-  local_config=${WM_CONFIG_FILE:-./lib.sh}
+  local local_lib
+  local_lib=${WM_LOCAL_LIB_FILE:-./lib.sh}
 
   (
-    source "$wm_lib"
-    test -f "$local_env" && source "$local_env"
-    test -f "$local_config" && source "$local_config"
+    source "$WM_INSTALL_PATH/share/lib.sh"
+    test -f "$local_lib" && source "$local_lib"
+
+    env | rg WM_ | sort >./.run
 
     # New logic, see https://stackoverflow.com/a/17030953
     eval "cat <<EOF
