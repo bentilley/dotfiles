@@ -9,6 +9,7 @@ local M = {}
 
 vim.cmd([[silent! colorscheme squeedom]])
 vim.cmd([[silent! syntax off]])
+vim.o.termguicolors = true
 
 -- functions
 
