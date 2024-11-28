@@ -4,7 +4,7 @@
 -- Squeedom Colour Scheme (Lua)
 
 vim.cmd.highlight("clear")
-vim.g.colors_name = "vim"
+vim.g.colors_name = "squeedom"
 
 local hi = function(name, val)
 	-- Force links
