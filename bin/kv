@@ -1,0 +1,170 @@
+#!/usr/bin/env bash
+
+DEFAULT_KV_FILE="$HOME/.local/share/kv/db.sqlite3"
+KV_DB=${KV_DB:-$DEFAULT_KV_FILE}
+
+usage() {
+  echo 'Usage: kv [command] [options]
+
+Micro key-value store command line tool.
+
+Commands:
+  get [key]                       Get the value of a key
+  set [key] [value] [-f|--force]  Set the value of a key
+  del [key]                       Delete a key
+  clear                           Delete all keys
+  ls [-t|--table]                 List all keys
+  namespaces                      List all namespaces
+'
+}
+
+set -o errexit
+set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+# cd "$(dirname "$0")"
+
+POSITIONAL_ARGS=()
+
+while [[ $# -gt 0 ]]; do
+  case $1 in
+  # -e | --extension)
+  #   EXTENSION="$2"
+  #   shift # past argument
+  #   shift # past value
+  #   ;;
+  -f | --force)
+    kv_force=1
+    shift # past argument
+    ;;
+  -h | --help)
+    usage
+    exit 0
+    ;;
+  -t | --table)
+    kv_table=1
+    shift # past argument
+    ;;
+  --* | -*)
+    echo "Unknown option $1"
+    exit 1
+    ;;
+  *)
+    POSITIONAL_ARGS+=("$1") # save positional arg
+    shift                   # past argument
+    ;;
+  esac
+done
+
+set -- "${POSITIONAL_ARGS[@]}" # restore positional parameters
+
+create_database() {
+  printf 'creating database...' >&2
+  local dir
+  dir=$(dirname "$KV_DB")
+  if [[ ! -d "$dir" ]]; then
+    mkdir -p "$dir"
+  fi
+  sqlite3 "$KV_DB" 'create table if not exists map (namespace text, key text, value text, primary key (namespace, key));'
+  printf 'done\n' >&2
+}
+
+main() {
+  local command="${1:-}"
+  if [[ -z "$command" ]]; then
+    usage
+    exit 1
+  fi
+  shift
+
+  if [[ ! -f "$KV_DB" ]]; then
+    create_database
+  fi
+
+  case "$command" in
+  get)
+    kv_get "$@"
+    ;;
+
+  set)
+    kv_set "$@"
+    ;;
+
+  del)
+    kv_delete "$@"
+    ;;
+
+  clear)
+    kv_clear "$@"
+    ;;
+
+  ls)
+    kv_ls "$@"
+    ;;
+
+  namespaces)
+    kv_namespaces "$@"
+    ;;
+
+  *)
+    printf "Unknown command '%s'\n\n" "$command"
+    usage
+    exit 1
+    ;;
+  esac
+}
+
+kv_get() {
+  local key="${1:-}"
+  if [[ -z "$key" ]]; then
+    printf 'Usage: kv get [key]\n' >&2
+    exit 1
+  fi
+  local namespace=${KV_NAMESPACE:-default}
+  sqlite3 "$KV_DB" "select value from map where namespace = '$namespace' and key = '$key';"
+}
+
+kv_set() {
+  local key="${1:-}"
+  local value="${2:-}"
+  if [[ -z "$key" || -z "$value" ]]; then
+    printf 'Usage: kv set [key] [value]\n' >&2
+    exit 1
+  fi
+  local namespace=${KV_NAMESPACE:-default}
+  if ((${kv_force:-0} == 1)); then
+    sqlite3 "$KV_DB" "insert or replace into map (namespace, key, value) values ('$namespace', '$key', '$value');"
+  else
+    sqlite3 "$KV_DB" "insert into map (namespace, key, value) values ('$namespace', '$key', '$value');"
+  fi
+}
+
+kv_delete() {
+  local key="${1:-}"
+  if [[ -z "$key" ]]; then
+    printf 'Usage: kv del [key]\n' >&2
+    exit 1
+  fi
+  local namespace=${KV_NAMESPACE:-default}
+  sqlite3 "$KV_DB" "delete from map where namespace = '$namespace' and key = '$key';"
+}
+
+kv_clear() {
+  local namespace=${KV_NAMESPACE:-default}
+  sqlite3 "$KV_DB" "delete from map where namespace = '$namespace';"
+}
+
+kv_ls() {
+  local namespace=${KV_NAMESPACE:-default}
+  sqlite3 "$KV_DB" "select key, value from map where namespace = '$namespace';" |
+    { if ((${kv_table:-0} == 1)); then column -t -s '|'; else cat -; fi; }
+}
+
+kv_namespaces() {
+  sqlite3 "$KV_DB" 'select distinct namespace from map;'
+}
+
+main "$@"
