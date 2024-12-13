@@ -96,6 +96,7 @@ nmap("<Leader>tp", ":VimuxPromptCommand<CR>")
 nmap("<Leader>tr", ":VimuxRunCommand")
 nmap("<Leader>tx", ":VimuxInterruptRunner<CR>")
 nmap("<Leader>t<C-l>", ":VimuxClearTerminalScreen<CR>")
+nmap("<Leader>v", "yygccp", { remap = true }) -- custom, (version) duplicate + comment line
 nmap("<Leader>wr", "<Plug>(datamuse-rhymes)") -- custom plugin, find rhyming words
 nmap("<Leader>ws", "<Plug>(datamuse-synonyms)") -- custom plugin, find synonyms
 
