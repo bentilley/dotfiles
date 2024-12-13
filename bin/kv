@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+SQLITE3=${SQLITE3:-sqlite3}
 DEFAULT_KV_FILE="$HOME/.local/share/kv/db.sqlite3"
 KV_DB=${KV_DB:-$DEFAULT_KV_FILE}
 
@@ -68,7 +69,7 @@ create_database() {
   if [[ ! -d "$dir" ]]; then
     mkdir -p "$dir"
   fi
-  sqlite3 "$KV_DB" 'create table if not exists map (namespace text, key text, value text, primary key (namespace, key));'
+  "$SQLITE3" "$KV_DB" 'create table if not exists map (namespace text, key text, value text, primary key (namespace, key));'
   printf 'done\n' >&2
 }
 
@@ -124,7 +125,7 @@ kv_get() {
     exit 1
   fi
   local namespace=${KV_NAMESPACE:-default}
-  sqlite3 "$KV_DB" "select value from map where namespace = '$namespace' and key = '$key';"
+  "$SQLITE3" "$KV_DB" "select value from map where namespace = '$namespace' and key = '$key';"
 }
 
 kv_set() {
@@ -136,9 +137,9 @@ kv_set() {
   fi
   local namespace=${KV_NAMESPACE:-default}
   if ((${kv_force:-0} == 1)); then
-    sqlite3 "$KV_DB" "insert or replace into map (namespace, key, value) values ('$namespace', '$key', '$value');"
+    "$SQLITE3" "$KV_DB" "insert or replace into map (namespace, key, value) values ('$namespace', '$key', '$value');"
   else
-    sqlite3 "$KV_DB" "insert into map (namespace, key, value) values ('$namespace', '$key', '$value');"
+    "$SQLITE3" "$KV_DB" "insert into map (namespace, key, value) values ('$namespace', '$key', '$value');"
   fi
 }
 
@@ -149,22 +150,22 @@ kv_delete() {
     exit 1
   fi
   local namespace=${KV_NAMESPACE:-default}
-  sqlite3 "$KV_DB" "delete from map where namespace = '$namespace' and key = '$key';"
+  "$SQLITE3" "$KV_DB" "delete from map where namespace = '$namespace' and key = '$key';"
 }
 
 kv_clear() {
   local namespace=${KV_NAMESPACE:-default}
-  sqlite3 "$KV_DB" "delete from map where namespace = '$namespace';"
+  "$SQLITE3" "$KV_DB" "delete from map where namespace = '$namespace';"
 }
 
 kv_ls() {
   local namespace=${KV_NAMESPACE:-default}
-  sqlite3 "$KV_DB" "select key, value from map where namespace = '$namespace';" |
-    { if ((${kv_table:-0} == 1)); then column -t -s '|'; else cat -; fi; }
+  "$SQLITE3" -separator ';;;' "$KV_DB" "select key, value from map where namespace = '$namespace';" |
+    { if ((${kv_table:-0} == 1)); then column -t -s ';;;'; else cat -; fi; }
 }
 
 kv_namespaces() {
-  sqlite3 "$KV_DB" 'select distinct namespace from map;'
+  "$SQLITE3" "$KV_DB" 'select distinct namespace from map;'
 }
 
 main "$@"
