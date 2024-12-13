@@ -34,14 +34,54 @@ autocmd("BufWritePost", {
 	callback = formatter_nvim.format_write_if_enabled,
 })
 
--- show the lightbuld icon in the gutter when a code action is available.
--- maybe can get rid of this in the future, but useful to learn what is available.
-local lightbulb = augroup("LightbulbNvim", { clear = true })
-autocmd({ "CursorHold", "CursorHoldI" }, {
-	group = lightbulb,
-	pattern = "*",
-	callback = require("nvim-lightbulb").update_lightbulb,
+-- change line number based on mode:
+local cmdline = vim.api.nvim_create_augroup("CmdlineLinenr", {})
+-- debounce cmdline enter events to make sure we dont have flickering for non
+-- user cmdline use e.g. mappings using : instead of <cmd>
+local cmdline_debounce_timer
+
+-- change to absolute line numbers for command mode
+autocmd("CmdlineEnter", {
+	group = cmdline,
+	callback = function()
+		cmdline_debounce_timer = vim.uv.new_timer()
+		cmdline_debounce_timer:start(
+			100,
+			0,
+			vim.schedule_wrap(function()
+				if vim.o.number then
+					vim.o.relativenumber = false
+					vim.api.nvim__redraw({ statuscolumn = true })
+				end
+			end)
+		)
+	end,
 })
+-- change back to relative line numbers for normal mode
+autocmd("CmdlineLeave", {
+	group = cmdline,
+	callback = function()
+		if cmdline_debounce_timer then
+			cmdline_debounce_timer:stop()
+			cmdline_debounce_timer = nil
+		end
+		if vim.o.number then
+			vim.o.relativenumber = true
+		end
+	end,
+})
+
+-- -- sane defaults for terminal mode
+-- autocmd("TermOpen", {
+-- 	callback = function(ev)
+-- 		vim.wo[0].number = false
+-- 		vim.wo[0].relativenumber = false
+-- 		vim.wo[0].statuscolumn = ""
+-- 		vim.wo[0].signcolumn = "no"
+-- 		-- immediately hand over control
+-- 		vim.cmd.startinsert()
+-- 	end,
+-- })
 
 -- This is run in the on_attach function for language servers. We use it to
 -- only set up the following autocommands after the language serfer attaches to

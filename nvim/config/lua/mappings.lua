@@ -59,7 +59,7 @@ nmap("<Leader>cf", ':let @+=expand("%")') -- custom, copy file name to clipboard
 -- <Leader>df, show surrounding function definitions -- (nvim-treesitter)
 nmap("<Leader>ds", ":Neogen<CR>") -- neogen, generate docstring
 nmap("<Leader>ev", ":vsplit $MYVIMRC<CR>") -- custom, edit vimrc
-nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.vim<CR>") -- custom, edit vimrc
+nmap("<Leader>ec", ":vsplit ~/.dotfiles/nvim/config/colors/squeedom.lua<CR>") -- custom, edit vimrc
 nmap("<Leader>em", ":tabedit ~/.config/nvim/lua/mappings.lua<CR>") -- custom, edit key mappings file
 nmap("<Leader>ep", ":tabedit ~/.config/nvim/lua/plugins/settings<CR>") -- custom, edit plugin settings
 nmap("<Leader>es", ":tabedit ~/.config/nvim/snippets<CR>") -- custom, edit snippets

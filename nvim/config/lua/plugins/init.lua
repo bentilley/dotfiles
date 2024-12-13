@@ -75,9 +75,6 @@ function M.vim_plug()
 	-- treesitter defined text objects e.g. inner.function etc.
 	Plug("nvim-treesitter/nvim-treesitter-textobjects")
 
-	-- show the lightbulb emoji in the gutter when a code action is available
-	Plug("kosayoda/nvim-lightbulb")
-
 	-- autocompletion
 	-- possible alternative: https://github.com/ms-jpq/coq_nvim
 	Plug("hrsh7th/nvim-cmp")
