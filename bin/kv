@@ -160,8 +160,8 @@ kv_clear() {
 
 kv_ls() {
   local namespace=${KV_NAMESPACE:-default}
-  "$SQLITE3" -separator ';;;' "$KV_DB" "select key, value from map where namespace = '$namespace';" |
-    { if ((${kv_table:-0} == 1)); then column -t -s ';;;'; else cat -; fi; }
+  "$SQLITE3" "$KV_DB" "select key, value from map where namespace = '$namespace';" |
+    { if ((${kv_table:-0} == 1)); then column -t -s '|'; else cat -; fi; }
 }
 
 kv_namespaces() {

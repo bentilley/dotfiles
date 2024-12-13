@@ -10,8 +10,8 @@ keys=$(
     fzf \
       --exact \
       --nth=1 \
-      --bind 'enter:become(echo {2})' \
-      --bind 'one:become(echo {2})' \
+      --bind 'enter:become(echo {2..})' \
+      --bind 'one:become(echo {2..})' \
       --prompt "namespace:$namespace > "
 )
 tmux send-keys "$keys"
