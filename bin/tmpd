@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+
+set -o errexit
+# set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+  echo 'Usage: tmpd [DIR]
+
+Create a temporary directory and cd into it. DIR defaults to ./tmpd.
+
+'
+  exit
+fi
+
+main() {
+  local dirname=${1:-./tmpd}
+  local dirpath
+  dirpath=$(realpath "$dirname")
+
+  local tmpd_src
+  tmpd_src="$(mktemp --tmpdir tmpd_src.XXXXXXXXXX)"
+
+  cat >"$tmpd_src" <<-EOF
+    trap 'rm -f $tmpd_src' EXIT
+    if [ -e "$dirpath" ]; then
+      echo "Error: $dirpath already exists."
+      exit 1
+    fi
+    mkdir -p "$dirpath"
+    trap 'rm -rf $dirpath' EXIT
+    cd "$dirpath"
+EOF
+
+  zshi "$tmpd_src" -i
+}
+
+main "$@"
