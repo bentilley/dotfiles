@@ -4,12 +4,14 @@ alias -g BG='&>/dev/null &'
 
 # The 26 golden aliases
 alias a="add"
-alias d=docker       # docker
-alias e="\$EDITOR"   # edit
-alias f="yazi"       # files
-alias g="git"        # git
-alias j="z"          # jump
-alias u="tig status" # update (worktree)
+alias d=docker        # docker
+alias e="\$EDITOR"    # edit
+alias f="yazi"        # files
+alias g="git"         # git
+alias j="__zoxide_z"  # jump
+alias s="tmux_attach" # session (tmux)
+alias u="tig status"  # update (worktree)
+alias v="tig"         # version (control) history
 
 # quick confing access
 alias conf="lf \$HOME/.dotfiles"
@@ -61,6 +63,7 @@ alias tgopen="firefox https://track.toggl.com"
 
 # git aliases
 alias gls="git --no-pager branch --list"
+alias glsa="git --no-pager branch --list --all"
 alias gdx="git ls-files --others --exclude-standard"
 alias gdo="git --no-pager diff --name-only"
 alias gcof='git checkout $(git --no-pager branch --list | fzf)'
@@ -103,3 +106,6 @@ if [[ "$(uname)" == "Linux" ]]; then
   alias pbcopy='xclip -selection clipboard -in'
   alias pbpaste='xclip -selection clipboard -out'
 fi
+
+# zoxide
+alias zi="__zoxide_zi"
