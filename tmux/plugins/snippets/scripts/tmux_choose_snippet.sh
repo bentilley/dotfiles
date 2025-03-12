@@ -14,4 +14,13 @@ keys=$(
       --bind 'one:become(echo {2..})' \
       --prompt "namespace:$namespace > "
 )
-tmux send-keys "$keys"
+
+args=()
+while [[ $keys =~ '<%>' ]]; do
+  e=${keys%%<%>*}
+  args+=("${e}")
+  keys=${keys#"${e}"<%>}
+done
+args+=("${keys}")
+
+tmux send-keys "${args[@]}"
