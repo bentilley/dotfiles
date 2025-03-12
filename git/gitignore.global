@@ -11,6 +11,14 @@ __mine__/
 .wm
 .wm/
 
+### R ###
+# Used by renv to store the R version of a directory.
+.R-version
+
+### Java ###
+# User by jenv to store the Java version of a directory.
+.java-version
+
 ### Vim ###
 # Coc Settings Dir
 .vim/coc-settings.json
