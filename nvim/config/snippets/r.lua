@@ -23,6 +23,7 @@ local t = ls.text_node
 return {
 	-- debugger
 	s({ trig = "srp" }, { t('source("~/.Rprofile")') }),
+	s({ trig = "db" }, { t("browser()") }),
 	s(
 		{ trig = "renv_disable" },
 		{ t('if (!as.logical(Sys.getenv("RENV_DISABLE", FALSE))) source("renv/activate.R")') }

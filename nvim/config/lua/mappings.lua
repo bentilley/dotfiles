@@ -68,7 +68,7 @@ nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
 nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
 nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
 nmap("<Leader>j", ":HopChar1AC<CR>") -- hop.nvim, smart document jumping
-nmap("<Leader>J", "HopChar1BC<CR>") -- hop.nvim, smart document jumping
+nmap("<Leader>J", ":HopChar1BC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>k", ":HopWordAC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>K", ":HopWordBC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>l", ":Telescope builtin<CR>") -- telescope, seach telescope operations
