@@ -50,9 +50,6 @@
 [fetch]
 	writeCommitGraph = true
 
-[gpg]
-	program = /usr/bin/gpg
-
 [http]
 	sslCAInfo = /etc/ssl/certs/ca-certificates.crt
 
@@ -90,6 +87,7 @@
 	enabled = true
 
 [tag]
+	gpgSign = true
 	sort = version:refname
 
 [user]
