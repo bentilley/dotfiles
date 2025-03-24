@@ -25,8 +25,8 @@ symlinking_config_files() {
   dotfile_link "dlv/config.yml" "$HOME/.dlv/config.yml"
 
   # GIT
-  dotfile_link "git/gitignore.global" "$CONFIG_DIR/.gitignore"
-  dotfile_link "git/gitconfig" "$HOME/.gitconfig"
+  dotfile_link "git/gitignore.global" "$CONFIG_DIR/git/ignore"
+  dotfile_link "git/gitconfig" "$CONFIG_DIR/git/config"
 
   # GLOW
   dotfile_link "glow/glow.yml" "$CONFIG_DIR/glow/glow.yml"
