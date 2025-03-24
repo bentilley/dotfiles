@@ -49,6 +49,11 @@ require("lspconfig").gopls.setup({ on_attach = on_attach, capabilities = capabil
 -- HTML
 require("lspconfig").html.setup({ on_attach = on_attach, capabilities = capabilities })
 -- npm install -g vscode-langservers-extracted
+require("lspconfig").emmet_language_server.setup({
+	on_attach = on_attach,
+	capabilities = capabilities,
+})
+-- npm install -g @olrtg/emmet-language-server
 
 -- Java
 require("lspconfig").jdtls.setup({ on_attach = on_attach, capabilities = capabilities })

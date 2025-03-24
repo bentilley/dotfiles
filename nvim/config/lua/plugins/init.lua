@@ -162,7 +162,7 @@ function M.vim_plug()
 	Plug("aperezdc/vim-template")
 
 	-- html and css abbreviation expansion
-	Plug("mattn/emmet-vim")
+	Plug("olrtg/nvim-emmet")
 
 	-- docstring generation
 	Plug("danymat/neogen")
