@@ -57,7 +57,7 @@
 	sslCAInfo = /etc/ssl/certs/ca-certificates.crt
 
 [init]
-	defaultBranch = master
+	defaultBranch = main
 
 [merge]
 	tool = nvim
