@@ -106,6 +106,9 @@ function M.vim_plug()
 	-- copilot cmp source
 	Plug("zbirenbaum/copilot-cmp")
 
+	-- LLM code completion, supports multiple APIs
+	Plug("olimorris/codecompanion.nvim")
+
 	-- fixes known issue with the CursorHold event in neovim
 	-- remove when this issue is resolved https://github.com/neovim/neovim/issues/12587
 	Plug("antoinemadec/FixCursorHold.nvim")
