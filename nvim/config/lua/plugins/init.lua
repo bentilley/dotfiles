@@ -123,7 +123,7 @@ function M.vim_plug()
 	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
 
 	-- search functionality
-	Plug("nvim-telescope/telescope.nvim", { tag = "0.1.3" })
+	Plug("nvim-telescope/telescope.nvim")
 
 	-- interact with git in neovim
 	Plug("tpope/vim-fugitive")
