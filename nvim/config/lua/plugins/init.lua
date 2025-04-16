@@ -106,6 +106,9 @@ function M.vim_plug()
 	-- copilot cmp source
 	Plug("zbirenbaum/copilot-cmp")
 
+	-- LLM code completion, supports multiple APIs
+	Plug("olimorris/codecompanion.nvim")
+
 	-- fixes known issue with the CursorHold event in neovim
 	-- remove when this issue is resolved https://github.com/neovim/neovim/issues/12587
 	Plug("antoinemadec/FixCursorHold.nvim")
@@ -123,7 +126,7 @@ function M.vim_plug()
 	Plug("junegunn/fzf", { ["do"] = vim.fn["fzf#install"] })
 
 	-- search functionality
-	Plug("nvim-telescope/telescope.nvim", { tag = "0.1.3" })
+	Plug("nvim-telescope/telescope.nvim")
 
 	-- interact with git in neovim
 	Plug("tpope/vim-fugitive")
@@ -162,7 +165,7 @@ function M.vim_plug()
 	Plug("aperezdc/vim-template")
 
 	-- html and css abbreviation expansion
-	Plug("mattn/emmet-vim")
+	Plug("olrtg/nvim-emmet")
 
 	-- docstring generation
 	Plug("danymat/neogen")

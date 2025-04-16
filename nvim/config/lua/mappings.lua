@@ -51,7 +51,6 @@ nmap("yof", formatter_nvim.toggle_formatter_disabled) -- custom, toggle auto for
 -- yogn, gs.toggle_numhl               (setup_gitsigns_mappings)
 -- yogw, gs.toggle_word_diff           (setup_gitsigns_mappings)
 
-nmap("<Leader>a", ":nohlsearch<CR>") -- custom, remove search high-lighting
 nmap("<Leader>cd", ':let @+=expand("%:p")') -- custom, copy file directory name to clipboard
 nmap("<Leader>cf", ':let @+=expand("%")') -- custom, copy file name to clipboard
 -- <Leader>cr..., coerc text case -- (text-case.nvim)
@@ -99,6 +98,7 @@ nmap("<Leader>t<C-l>", ":VimuxClearTerminalScreen<CR>")
 nmap("<Leader>v", "yygccp", { remap = true }) -- custom, (version) duplicate + comment line
 nmap("<Leader>wr", "<Plug>(datamuse-rhymes)") -- custom plugin, find rhyming words
 nmap("<Leader>ws", "<Plug>(datamuse-synonyms)") -- custom plugin, find synonyms
+nmap("<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
 
 -- <LocalLeader>ca, vim.lsp.buf.code_action                                          (setup_lsp_mappings)
 -- <LocalLeader>cl, function() print(vim.inspect(client.server_capabilities)) end  (setup_lsp_mappings)
@@ -179,6 +179,7 @@ imap("<LocalLeader>U", "<Esc> viwUea") -- custom, current word lower-case
 -- visual mode mappings
 
 -- ih, ":<C-U>Gitsigns select_hunk<CR>" (setup_gitsigns_mappings)
+vmap("<leader>xe", require("nvim-emmet").wrap_with_abbreviation)
 
 -- <LocalLeader>ca, vim.lsp.buf.range_code_action  (setup_lsp_mappings)
 -- <LocalLeader>f, vim.lsp.buf.range_formatting    (setup_lsp_mappings)

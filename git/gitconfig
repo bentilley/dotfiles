@@ -51,14 +51,8 @@
 [fetch]
 	writeCommitGraph = true
 
-[gpg]
-	program = /usr/bin/gpg
-
-[http]
-	sslCAInfo = /etc/ssl/certs/ca-certificates.crt
-
 [init]
-	defaultBranch = master
+	defaultBranch = main
 
 [merge]
 	tool = nvim
@@ -91,6 +85,7 @@
 	enabled = true
 
 [tag]
+	gpgSign = true
 	sort = version:refname
 
 [user]
