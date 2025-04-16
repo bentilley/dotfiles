@@ -130,7 +130,7 @@ bind generic yt :toggle commit-title-overflow
 
 # external commands
 bind generic F !git fetch --all --prune --jobs=10
-bind generic P ?git push --force-with-lease
+bind generic P ?>git push --force-with-lease
 bind generic c !git commit --verbose
 bind generic p >git push
 bind generic X ?>git prune
@@ -152,7 +152,7 @@ bind main ! !git revert %(commit)
 bind main A @git commit --amend --reuse-message=HEAD --no-edit
 bind main B @?git branch -f %(prompt) %(commit)
 bind main C !?git checkout %(commit)
-bind main F !git absorb --autosquash %(commit)
+bind main F !>git absorb --autosquash %(commit)
 bind main H !?git reset --hard %(commit)
 bind main R !git rebase -i --autosquash %(commit)^
 bind main V !>sh -c "$EDITOR $(git show %(commit) --pretty=format: --name-only | xargs)" # edit all files changed by commit
