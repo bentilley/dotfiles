@@ -4,6 +4,12 @@
 -- Neovim File Type Detection
 
 vim.filetype.add({
+	extension = {
+		plantuml = "plantuml",
+		pu = "plantuml",
+		puml = "plantuml",
+		uml = "plantuml",
+	},
 	filename = {
 		[".envrc"] = "sh",
 	},

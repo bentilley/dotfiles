@@ -173,12 +173,6 @@ function M.vim_plug()
 	-- plantuml syntax highlighting
 	Plug("aklt/plantuml-syntax")
 
-	-- open browser window
-	Plug("tyru/open-browser.vim")
-
-	-- preview plantuml file in browser
-	Plug("weirongxu/plantuml-previewer.vim")
-
 	-- interactive evaluation e.g. for LISP development
 	Plug("Olical/conjure")
 
