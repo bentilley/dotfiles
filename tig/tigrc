@@ -32,12 +32,24 @@ color title-focus black magenta
 # color date yellow default
 # color author red default bold
 color main-head red default bold
-color main-tag magenta default
+color main-tag magenta default bold
 # color stat-staged green default
 # color stat-unstaged red default
 # color stat-untracked yellow default
 # color tree.header white default
 # color tree.directory cyan default
+
+# Commit Graph
+color graph-commit black default bold
+
+color palette-0 red default
+color palette-1 magenta default bold
+color palette-2 cyan default
+color palette-3 yellow default
+color palette-4 green default
+color palette-5 blue default
+
+# source ~/.dotfiles/tig/theme-molokai.tigrc
 
 # }}}
 # Bindings {{{
