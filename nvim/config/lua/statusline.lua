@@ -27,8 +27,6 @@ function M.active()
 		" line: %l of %L, col: %c%V (%P)",
 		"%#StatusLine#",
 		"%=%#StatusLineLspAccent#",
-		"%{v:lua.require('plugins.settings.lsp-status').status()}",
-		-- "%.50(%{v:lua.require('plugins.settings.lsp-status').status()}%)",
 	})
 end
 

@@ -57,8 +57,8 @@ function M.vim_plug()
 	-- neovim language server configs
 	Plug("neovim/nvim-lspconfig")
 
-	-- add lsp information to the statusline
-	Plug("nvim-lua/lsp-status.nvim")
+	-- statusline configuration
+	Plug("nvim-lualine/lualine.nvim")
 
 	-- additional plugin for sqls language server
 	Plug("nanotee/sqls.nvim")
