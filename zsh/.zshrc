@@ -91,10 +91,10 @@ done
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" >/dev/null 2>&1
 
 # Plugins
-source /home/develop/code/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $HOME/.local/share/zsh/hooks/direnv.zsh
-source $HOME/.local/share/zsh/hooks/starship.zsh
-source $HOME/.local/share/zsh/hooks/zoxide.zsh
+source "$HOME/.local/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+source "$HOME/.local/share/zsh/hooks/direnv.zsh"
+source "$HOME/.local/share/zsh/hooks/starship.zsh"
+source "$HOME/.local/share/zsh/hooks/zoxide.zsh"
 
 # _evalcache direnv hook zsh          # setup direnv - directory level variables
 # _evalcache starship init zsh        # setup starship prompt
