@@ -21,8 +21,8 @@ main() {
   echo "Rebuilding ZSH hooks in ${ZSH_HOOKS_DIR}..."
 
   echo direnv
-  direnv hook zsh > "${ZSH_HOOKS_DIR}/direnv.sh"
-  zcompile "${ZSH_HOOKS_DIR}/direnv.sh"
+  direnv hook zsh > "${ZSH_HOOKS_DIR}/direnv.zsh"
+  zcompile "${ZSH_HOOKS_DIR}/direnv.zsh"
 
   echo starship
   starship init zsh > "${ZSH_HOOKS_DIR}/starship.zsh"
