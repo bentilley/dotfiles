@@ -47,8 +47,8 @@ require("formatter").setup({
 			require("formatter.filetypes.perl").perltidy,
 		},
 		python = {
-			require("formatter.filetypes.python").black,
-			require("formatter.filetypes.python").isort,
+			require("formatter.filetypes.python").ruff,
+			require("formatter.filetypes.python").iruff,
 		},
 		r = {
 			require("formatter.filetypes.r").styler,

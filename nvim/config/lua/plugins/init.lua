@@ -140,6 +140,9 @@ function M.vim_plug()
 	-- split / join lines based on tree sitter language syntax
 	Plug("Wansmer/treesj")
 
+	-- rainbow parentheses and other delimiters
+	Plug("HiPhish/rainbow-delimiters.nvim")
+
 	-- add bracket and other text surrounding commands
 	Plug("tpope/vim-surround")
 

@@ -51,6 +51,7 @@ nmap("yof", formatter_nvim.toggle_formatter_disabled) -- custom, toggle auto for
 -- yogn, gs.toggle_numhl               (setup_gitsigns_mappings)
 -- yogw, gs.toggle_word_diff           (setup_gitsigns_mappings)
 
+nmap("<Leader>ac", ":CodeCompanionChat<CR>") -- codecompanion, open chat
 nmap("<Leader>cd", ':let @+=expand("%:p")') -- custom, copy file directory name to clipboard
 nmap("<Leader>cf", ':let @+=expand("%")') -- custom, copy file name to clipboard
 -- <Leader>cr..., coerc text case -- (text-case.nvim)
@@ -83,6 +84,7 @@ nmap("<Leader>q", function()
 		end
 	end
 end) -- custom, close ui session without closing remote server
+nmap("<Leader>rd", require("rainbow-delimiters").toggle) --
 nmap("<Leader>rj", ":TSJJoin<CR>") -- treesj, join
 nmap("<Leader>rs", ":TSJSplit<CR>") -- treesj, split
 nmap("<Leader>rr", ":TSJToggle<CR>") -- treesj, toggle split / join
