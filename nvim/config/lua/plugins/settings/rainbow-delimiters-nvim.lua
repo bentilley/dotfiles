@@ -28,5 +28,6 @@ vim.g.rainbow_delimiters = {
 		"RainbowDelimiterViolet",
 		"RainbowDelimiterCyan",
 	},
+	-- whitelist = { "lisp" },
 	-- blacklist = { "c", "cpp" },
 }
