@@ -3,14 +3,35 @@
 -- Created: 2025-07-01
 -- lualine.nvim Plugin Settings
 
+-- theme
+
+local theme = {
+	normal = {
+		a = "Conceal",
+		b = "StatusLineNC",
+		c = "StatusLine",
+	},
+	inactive = {
+		a = "StatusLineNC",
+		b = "StatusLineNC",
+		c = "StatusLineNC",
+	},
+	-- insert = {},
+	-- visual = {},
+	-- replace = {},
+	-- command = {},
+}
+
 -- settings
 
 require("lualine").setup({
 	options = {
 		icons_enabled = true,
-		theme = "auto",
-		component_separators = { left = "", right = "" },
-		section_separators = { left = "", right = "" },
+		theme = theme,
+		-- component_separators = { left = "", right = "" },
+		component_separators = "",
+		-- section_separators = { left = "", right = "" },
+		section_separators = "",
 		disabled_filetypes = {
 			statusline = {},
 			winbar = {},
@@ -39,11 +60,11 @@ require("lualine").setup({
 		},
 	},
 	sections = {
-		lualine_a = { "mode" },
-		lualine_b = { "branch", "diff", "diagnostics" },
+		lualine_a = { "encoding", "fileformat" },
+		lualine_b = { "diff", "diagnostics" },
 		lualine_c = { "filename" },
-		lualine_x = { "encoding", "fileformat", "filetype" },
-		lualine_y = { "lsp_status", "progress" },
+		lualine_x = { "lsp_status", "filetype" },
+		lualine_y = { "filesize", "progress" },
 		lualine_z = { "location" },
 	},
 	inactive_sections = {
