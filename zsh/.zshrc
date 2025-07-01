@@ -44,13 +44,6 @@ fpath=(~/.dotfiles/zsh/completions $fpath)
 fpath=(~/.dotfiles/zsh/lib/funcs $fpath)
 autoload -Uz $fpath[1]/*(.:t) # autoload func directory
 
-# set up zinit plugin manager (should be done before compinit)
-#source ~/.config/zsh/.zinit/bin/zinit.zsh
-declare -A ZINIT
-ZINIT[NO_ALIASES]=1 # don't set zi / zini aliases
-source ~/.local/share/zinit/zinit.git/zinit.zsh
-# See https://github.com/zdharma/zinit for details
-
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select
 zmodload zsh/complist
@@ -67,6 +60,7 @@ pathprepend "$HOME/.dotfiles/bin"
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --color=never --files-with-matches .'
+command -v fzf >/dev/null && source <(fzf --zsh)
 
 # direnv
 export DIRENV_WARN_TIMEOUT='10s'
@@ -78,46 +72,6 @@ export MP_EDITOR_VISUAL="nvim"
 export ZSH_PYENV_LAZY_VIRTUALENV=true
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
-# Alias for command substitution - easier than typing it
-function var-subs() {
-  LBUFFER="${LBUFFER}"'$()'
-  zle backward-char
-}
-zle -N var-subs
-
-# FZF history search
-function fzf-history() {
-  COMMAND="$(history 1 | fzf --reverse --query=${LBUFFER} | sed -E -e 's/^\s*[0-9]+\s*//')"
-  zle redisplay
-  LBUFFER=${COMMAND}
-}
-zle -N fzf-history
-
-# FZF history search
-function fzf-history-uniq() {
-  COMMAND="$(history -n 1 | sort | uniq | fzf --reverse --query=${LBUFFER})"
-  zle redisplay
-  LBUFFER=${COMMAND}
-}
-zle -N fzf-history-uniq
-
-# Edit command line in vim widget
-autoload -z edit-command-line
-zle -N edit-command-line
-
-# key bindings
-bindkey -v
-bindkey -M vicmd "^V" edit-command-line
-bindkey -M viins "^K" history-beginning-search-backward
-bindkey -M viins "^J" history-beginning-search-forward
-bindkey -M viins "^A" beginning-of-line
-bindkey -M viins "^E" end-of-line
-bindkey -M viins "^O" var-subs
-bindkey -M viins "^R" history-incremental-search-backward
-bindkey -M viins "^F" fzf-history
-bindkey -M viins "^T" fzf-history-uniq
-export KEYTIMEOUT=10
-
 # source custom local machine path
 [ -f "${HOME}/.local/share/zsh/path.zsh" ] && source "${HOME}/.local/share/zsh/path.zsh"
 
@@ -127,11 +81,8 @@ for additional_file in $HOME/.local/share/zsh/source/**/*.zsh; do
   source $additional_file
 done
 for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
-  source $additional_file
+  source "$additional_file"
 done
-
-# source any secrets / api keys etc.
-[ -f ~/.dotfiles/zsh/secrets ] && source ~/.dotfiles/zsh/secrets
 
 # rust
 [ ! -z $CARGO_HOME ] && source "$CARGO_HOME/env"
@@ -140,17 +91,13 @@ done
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" >/dev/null 2>&1
 
 # Plugins
-zinit light zsh-users/zsh-autosuggestions
-zinit light mroth/evalcache
-zinit snippet OMZP::git
+source /home/develop/code/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.local/share/zsh/hooks/direnv.zsh
+source $HOME/.local/share/zsh/hooks/starship.zsh
+source $HOME/.local/share/zsh/hooks/zoxide.zsh
 
-# setup direnv - directory level variables
-_evalcache direnv hook zsh
-
-# setup starship prompt
-_evalcache starship init zsh
-
-# setup zoxide - directory jump
-_evalcache zoxide init zsh --no-cmd
+# _evalcache direnv hook zsh          # setup direnv - directory level variables
+# _evalcache starship init zsh        # setup starship prompt
+# _evalcache zoxide init zsh --no-cmd # setup zoxide - directory jump
 
 # zprof

@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+set -o errexit
+set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+    set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+    echo 'Usage: zsh_hooks_rebuild
+
+Re-export the cached hooks that are used in .zshrc to setup external tools.
+'
+    exit
+fi
+
+ZSH_HOOKS_DIR="${ZSH_HOOKS_DIR:-$HOME/.local/share/zsh/hooks}"
+
+main() {
+  echo "Rebuilding ZSH hooks in ${ZSH_HOOKS_DIR}..."
+
+  echo direnv
+  direnv hook zsh > "${ZSH_HOOKS_DIR}/direnv.sh"
+  zcompile "${ZSH_HOOKS_DIR}/direnv.sh"
+
+  echo starship
+  starship init zsh > "${ZSH_HOOKS_DIR}/starship.zsh"
+  zcompile "${ZSH_HOOKS_DIR}/starship.zsh"
+
+  echo zoxide
+  zoxide init zsh --no-cmd > "${ZSH_HOOKS_DIR}/zoxide.zsh"
+  zcompile "${ZSH_HOOKS_DIR}/zoxide.zsh"
+}
+
+main "$@"

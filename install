@@ -89,6 +89,7 @@ symlinking_config_files() {
   dotfile_link "zsh/.zshenv" "$CONFIG_DIR/zsh/.zshenv"
   dotfile_link "zsh/.zshrc" "$CONFIG_DIR/zsh/.zshrc"
   dotfile_link "zsh/.zprofile" "$CONFIG_DIR/zsh/.zprofile"
+  dotfile_link "zsh/zsh_hooks_rebuild" "$HOME/.local/bin/zsh_hooks_rebuild"
 
   # TODO set up symlinking for useful scripts to ~/.local/bin
 

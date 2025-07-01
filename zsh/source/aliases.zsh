@@ -3,15 +3,16 @@
 alias -g BG='&>/dev/null &'
 
 # The 26 golden aliases
-alias a="add"
-alias d=docker        # docker
-alias e="\$EDITOR"    # edit
-alias f="yazi"        # files
-alias g="git"         # git
-alias j="__zoxide_z"  # jump
-alias s="tmux_attach" # session (tmux)
-alias u="tig status"  # update (worktree)
-alias v="tig"         # version (control) history
+alias a="tmux_attach"      # attach (tmux)
+alias d=docker             # docker
+alias e="\$EDITOR"         # edit
+alias f="yazi"             # files
+alias g="git"              # git
+alias j="__zoxide_z"       # jump
+alias s="tmux_get_session" # session (tmux)
+alias t="taskwarrior-tui"  # tasks
+alias u="tig status"       # update (worktree)
+alias v="tig"              # version (control) history
 
 # quick confing access
 alias conf="lf \$HOME/.dotfiles"
