@@ -6,9 +6,11 @@ set hidden
 
 # mappings
 
-map b !git blame "$f"
-map t toggle
-map D delete
 map <c-e> $$EDITOR ~/.config/lf/lfrc
 map <c-s> source ~/.config/lf/lfrc
+
+map D delete
 map Y $echo $f | pbcopy
+map b !git blame "$f"
+map o $echo $f
+map t toggle
