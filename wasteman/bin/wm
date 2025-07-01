@@ -51,7 +51,7 @@ shell_expand_file() {
     source "$WM_INSTALL_PATH/share/lib.sh"
     test -f "$local_lib" && source "$local_lib"
 
-    env | rg WM_ | sort >./.run
+    env | rg WM_ | sort >./.run || true
 
     # New logic, see https://stackoverflow.com/a/17030953
     eval "cat <<EOF
