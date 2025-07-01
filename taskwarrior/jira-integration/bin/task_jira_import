@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+if [[ "${TRACE-0}" == "1" ]]; then
+  set -o xtrace
+fi
+
+if [[ "${1-}" =~ ^-*h(elp)?$ ]]; then
+  echo 'Usage: task_jira_import
+
+Syncs Jira issues with Taskwarrior.
+
+Any new Jira issues in the list will be imported into Taskwarrior as tasks, and
+any tasks in Taskwarrior that no longer have Jira issues in the list will be
+deleted.'
+  exit
+fi
+
+cd "$(dirname "$0")"
+
+jira_issues() {
+  jira issue list \
+    --assignee benjamin.tilley@troweprice.com \
+    --status '~Closed' \
+    --type '~Epic' \
+    --plain \
+    --no-headers \
+    --columns KEY,TYPE,STATUS,PRIORITY,SUMMARY
+}
+
+main() {
+  JIRA_API_TOKEN="$(pass show jira)"
+  export JIRA_API_TOKEN
+
+  declare -A priorities_map=(
+    ["High"]="H"
+    ["Medium"]="M"
+    ["Low"]="L"
+  )
+
+  local open_jiras=''
+
+  while read -r line; do
+    eval "$(awk -v FS="\t" '{
+      print "local jira_id=\"" $1 "\"";
+      print "\nlocal jira_type=\"" $2 "\"";
+      print "\nlocal jira_status=\"" $3 "\"";
+      print "\nlocal jira_priority=\"" $4 "\"";
+      print "\nlocal jira_summary=\"" $5 "\"";
+    }' <<<"$line")"
+
+    open_jiras="${open_jiras:+$open_jiras$'\n'}${jira_id} "
+
+    if [[ "$(task jira:"$jira_id" count 2>/dev/null)" -eq 0 ]]; then
+      tw_priority="${priorities_map[$jira_priority]:-L}"
+      task add "\"${jira_summary}\"" \
+        priority:"${tw_priority}" \
+        jira:"\"${jira_id}\"" \
+        jirastatus:"\"${jira_status}\""
+    fi
+  done < <(jira_issues | sed 's/\t\+/\t/g')
+
+  task status:pending export | jq '.[].jira' -r | while read -r task; do
+    if [[ -n "$task" ]]; then
+      if ! echo "$open_jiras" | grep -q "$task"; then
+        echo "Deleting ${task}"
+        task rc.confirmation=off "jira:${task}" delete
+      fi
+    fi
+  done
+}
+
+main "$@"

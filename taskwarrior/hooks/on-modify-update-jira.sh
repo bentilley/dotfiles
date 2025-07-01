@@ -1,0 +1,1 @@
+../jira-integration/hooks/on-modify-update-jira.sh

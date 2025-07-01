@@ -68,7 +68,8 @@ symlinking_config_files() {
   dotfile_link "starship/starship.toml" "$CONFIG_DIR/starship.toml"
 
   # TASKWARRIOR
-  dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
+  dotfile_link "taskwarrior/.taskrc" "$CONFIG_DIR/task/taskrc"
+  dotfile_link "taskwarrior/hooks" "$HOME/.task/hooks"
 
   # TIG
   dotfile_link "tig/tigrc" "$HOME/.tigrc"
