@@ -3,8 +3,6 @@
 -- Created: 2022-07-09
 -- nvim-lspconfig Plugin Settings
 
-local lsp_status = require("plugins.settings.lsp-status")
-
 -- perform nvim-cmp setup before nvim-lspconfig setup
 require("plugins.settings.nvim-cmp")
 
@@ -15,10 +13,7 @@ local setup_lsp_autocommands = require("autocommands").setup_lsp_autocommands
 
 -- setup
 
-lsp_status.register_progress()
-
 local function on_attach(client, bufnr)
-	lsp_status.on_attach(client)
 	setup_lsp_mappings(client, bufnr)
 	setup_lsp_autocommands(client, bufnr)
 end
@@ -26,7 +21,6 @@ end
 -- Setup lspconfig.
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require("cmp_nvim_lsp").default_capabilities(capabilities)
-capabilities = vim.tbl_extend("keep", capabilities or {}, lsp_status.capabilities)
 
 -- language server configs
 

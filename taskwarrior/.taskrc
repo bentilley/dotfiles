@@ -15,20 +15,45 @@ data.location=~/.task
 
 # Color theme
 # include ~/.dotfiles/taskwarrior/mrsquee.theme
-include /usr/local/Cellar/task/2.5.3_1/share/doc/task/rc/dark-violets-256.theme
+include /home/linuxbrew/.linuxbrew/Cellar/task/3.4.1/share/doc/task/rc/dark-violets-256.theme
 
-# Waiting status for tickets that are not being worked on yet
-uda.waiting.type=string
-uda.waiting.label=Waiting
-uda.waiting.values=yes,no
+# news
+news.version=3.4.1
 
-# Short description
-uda.short_desc.type=string
-uda.short_desc.label=short
+# priority
+color.uda.priority.H=color255
+color.uda.priority.M=color250
+color.uda.priority.L=color245
 
-# aliases
-alias.glab=exec glab_issue_to_task
-alias.glabmr=exec glab_mr_to_task
+uda.priority.label=Priority
+uda.priority.type=string
+uda.priority.values=H,M,L,
+
+urgency.uda.priority.H.coefficient=6.0
+urgency.uda.priority.M.coefficient=3.9
+urgency.uda.priority.L.coefficient=1.8
+
+# jira
+uda.jira.type=string
+uda.jira.label=JIRA
+
+uda.jirastatus.type=string
+uda.jirastatus.label=JIRA Status
+uda.jirastatus.values=Backlog,Blocked,Closed,In Progress,In Review,On  Hold,Planning,Review Pending
+
+# # Waiting status for tickets that are not being worked on yet
+# uda.waiting.type=string
+# uda.waiting.label=Waiting
+# uda.waiting.values=yes,no
+
+# # Short description
+# uda.short_desc.type=string
+# uda.short_desc.label=short
+
+# # aliases
+alias.jira=execute task_jira_import
+# alias.glab=exec glab_issue_to_task
+# alias.glabmr=exec glab_mr_to_task
 
 # review definitions
 uda.reviewed.type=date

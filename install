@@ -25,8 +25,8 @@ symlinking_config_files() {
   dotfile_link "dlv/config.yml" "$HOME/.dlv/config.yml"
 
   # GIT
-  dotfile_link "git/gitignore.global" "$CONFIG_DIR/.gitignore"
-  dotfile_link "git/gitconfig" "$HOME/.gitconfig"
+  dotfile_link "git/gitignore.global" "$CONFIG_DIR/git/ignore"
+  dotfile_link "git/gitconfig" "$CONFIG_DIR/git/config"
 
   # GLOW
   dotfile_link "glow/glow.yml" "$CONFIG_DIR/glow/glow.yml"
@@ -68,7 +68,8 @@ symlinking_config_files() {
   dotfile_link "starship/starship.toml" "$CONFIG_DIR/starship.toml"
 
   # TASKWARRIOR
-  dotfile_link "taskwarrior/.taskrc" "$HOME/.taskrc"
+  dotfile_link "taskwarrior/.taskrc" "$CONFIG_DIR/task/taskrc"
+  dotfile_link "taskwarrior/hooks" "$HOME/.task/hooks"
 
   # TIG
   dotfile_link "tig/tigrc" "$HOME/.tigrc"
@@ -88,6 +89,7 @@ symlinking_config_files() {
   dotfile_link "zsh/.zshenv" "$CONFIG_DIR/zsh/.zshenv"
   dotfile_link "zsh/.zshrc" "$CONFIG_DIR/zsh/.zshrc"
   dotfile_link "zsh/.zprofile" "$CONFIG_DIR/zsh/.zprofile"
+  dotfile_link "zsh/zsh_hooks_rebuild" "$HOME/.local/bin/zsh_hooks_rebuild"
 
   # TODO set up symlinking for useful scripts to ~/.local/bin
 

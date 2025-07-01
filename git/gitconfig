@@ -5,6 +5,7 @@
 	bblame = blame -w -C -C -C
 	begin = !git_branch_origin_master
 	dft = difftool
+	d = -c diff.external=difft diff
 	dlog = -c diff.external=difft log -p --ext-diff
 	ec = commit --allow-empty -m
 	fa = fetch --all --prune --prune-tags --jobs=10

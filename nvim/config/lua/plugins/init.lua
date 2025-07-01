@@ -57,8 +57,8 @@ function M.vim_plug()
 	-- neovim language server configs
 	Plug("neovim/nvim-lspconfig")
 
-	-- add lsp information to the statusline
-	Plug("nvim-lua/lsp-status.nvim")
+	-- statusline configuration
+	Plug("nvim-lualine/lualine.nvim")
 
 	-- additional plugin for sqls language server
 	Plug("nanotee/sqls.nvim")
@@ -175,12 +175,6 @@ function M.vim_plug()
 
 	-- plantuml syntax highlighting
 	Plug("aklt/plantuml-syntax")
-
-	-- open browser window
-	Plug("tyru/open-browser.vim")
-
-	-- preview plantuml file in browser
-	Plug("weirongxu/plantuml-previewer.vim")
 
 	-- interactive evaluation e.g. for LISP development
 	Plug("Olical/conjure")
