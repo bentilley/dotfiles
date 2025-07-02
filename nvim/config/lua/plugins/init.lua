@@ -179,7 +179,6 @@ function M.vim_plug()
 	-- interactive evaluation e.g. for LISP development
 	Plug("Olical/conjure")
 
-	-- Plug("jackMort/ChatGPT.nvim")
 	-- Plug("vim-test/vim-test")
 
 	vim.call("plug#end")
