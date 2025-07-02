@@ -24,6 +24,9 @@ jira_select_issue_type() {
 }
 
 main() {
+  JIRA_API_TOKEN="$(pass show jira)"
+  export JIRA_API_TOKEN
+
   # Read the new task from stdin
   read -r new_task
 

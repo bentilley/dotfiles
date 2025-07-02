@@ -8,6 +8,9 @@ if [[ "${TRACE-0}" == "1" ]]; then
 fi
 
 main() {
+  JIRA_API_TOKEN="$(pass show jira)"
+  export JIRA_API_TOKEN
+
   # Read the original task and modified task from stdin
   read -r original_task
   read -r modified_task

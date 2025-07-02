@@ -53,12 +53,19 @@ main() {
 
     open_jiras="${open_jiras:+$open_jiras$'\n'}${jira_id} "
 
+    tw_priority="${priorities_map[$jira_priority]:-L}"
     if [[ "$(task jira:"$jira_id" count 2>/dev/null)" -eq 0 ]]; then
-      tw_priority="${priorities_map[$jira_priority]:-L}"
       task add "\"${jira_summary}\"" \
         priority:"${tw_priority}" \
         jira:"\"${jira_id}\"" \
         jirastatus:"\"${jira_status}\""
+    else
+      task 2>&1 rc.hooks=off "jira:${jira_id}" modify \
+        jirastatus:"\"${jira_status}\"" \
+        priority:"${tw_priority}" \
+        description:"\"${jira_summary}\"" | sed '
+          /Modified [01] tasks*./d
+          /Configuration override rc.hooks=off/d'
     fi
   done < <(jira_issues | sed 's/\t\+/\t/g')
 
