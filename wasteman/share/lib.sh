@@ -1,5 +1,22 @@
 # shellcheck shell=bash
 
+# Export a value to the environment, unless it's already set.
+#
+# This is useful for things that you only want to set one time but need to use
+# multiple places during a request, e.g. the environment.
+add_to_context() {
+  if [[ "$#" -ne 2 ]]; then
+    echo "add_to_context, usuage: add_to_context <variable_name> <value>, e.g. add_to_context env get_environment"
+    exit 1
+  fi
+
+  local env_var_name="WM_${1^^}"
+  if [ -z "${!env_var_name}" ]; then
+    export "$env_var_name"="$2"
+  fi
+  echo "$2"
+}
+
 # Get the value from an environment variable, or ask the user for input.
 #
 # This means that the request can be configured using environment variables,
