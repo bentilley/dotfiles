@@ -5,20 +5,22 @@
 
 require("codecompanion").setup({
 	adapters = {
-		gemini = function()
-			return require("codecompanion.adapters").extend("gemini", {
-				env = {
-					api_key = function()
-						return os.getenv("GEMINI_API_KEY")
-					end,
-				},
-				schema = {
-					model = {
-						default = "gemini-2.5-pro-exp-03-25",
+		http = {
+			gemini = function()
+				return require("codecompanion.adapters").extend("gemini", {
+					env = {
+						api_key = function()
+							return os.getenv("GEMINI_API_KEY")
+						end,
 					},
-				},
-			})
-		end,
+					schema = {
+						model = {
+							default = "gemini-2.5-pro-exp-03-25",
+						},
+					},
+				})
+			end,
+		},
 	},
 	strategies = {
 		chat = {
