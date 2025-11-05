@@ -86,7 +86,7 @@ autocmd("CmdlineLeave", {
 -- This is run in the on_attach function for language servers. We use it to
 -- only set up the following autocommands after the language serfer attaches to
 -- the current buffer.
-function M.setup_lsp_autocommands(client, bufnr)
+local function setup_lsp_autocommands(client, bufnr)
 	if client.server_capabilities.documentHighlightProvider then
 		local lspauto = augroup("LspAutoGroup", { clear = true })
 		autocmd({ "CursorHold", "CursorHoldI" }, {
@@ -101,6 +101,17 @@ function M.setup_lsp_autocommands(client, bufnr)
 		})
 	end
 end
+
+autocmd("LspAttach", {
+	group = vim.api.nvim_create_augroup("LspAttachGroup", {}),
+	callback = function(args)
+		local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+		local bufnr = args.buf
+
+		require("mappings").setup_lsp_mappings(client, bufnr)
+		setup_lsp_autocommands(client, bufnr)
+	end,
+})
 
 -- switch the statusline format for the active window
 local statuslinegroup = augroup("StatusLineGroup", { clear = true })
