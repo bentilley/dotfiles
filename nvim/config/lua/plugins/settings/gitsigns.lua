@@ -65,7 +65,7 @@ require("gitsigns").setup({
 	},
 
 	-- format of the blame to show
-	current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
+	-- current_line_blame_formatter = "<author>, <author_time:%R> - <summary>",
 	current_line_blame_formatter = "<author>, <author_time:%Y-%m-%d> - <summary>",
 
 	sign_priority = 6,

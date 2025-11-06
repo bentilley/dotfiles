@@ -5,8 +5,8 @@
 
 require(... .. ".FixCursorHold-nvim")
 require(... .. ".codecompanion")
+require(... .. ".conform-nvim")
 require(... .. ".copilot-lua")
-require(... .. ".formatter-nvim")
 require(... .. ".gitsigns")
 require(... .. ".hop-nvim")
 require(... .. ".indent-blankline")

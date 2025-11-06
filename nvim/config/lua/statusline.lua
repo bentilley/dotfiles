@@ -7,7 +7,7 @@ local M = {}
 
 -- show if formatting is disabled
 function M.is_formatting()
-	if not vim.b.formatter_nvim_disabled then
+	if not vim.b.formatting_disabled then
 		return "[f]"
 	else
 		return ""

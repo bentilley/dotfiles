@@ -4,7 +4,7 @@
 -- Neovim Auto-commands & Auto-groups
 
 local M = {}
-local formatter_nvim = require("plugins.settings.formatter-nvim")
+local conform_nvim = require("plugins.settings.conform-nvim")
 local lint = require("lint")
 
 -- constants
@@ -26,12 +26,10 @@ autocmd({ "BufEnter", "BufWritePost" }, {
 })
 
 -- auto-format the file on save
-local formatter = augroup("FormatterNvim", { clear = true })
 autocmd("BufWritePost", {
-	group = formatter,
+	group = augroup("Format", { clear = true }),
 	pattern = "*",
-	-- command = "FormatWrite",
-	callback = formatter_nvim.format_write_if_enabled,
+	callback = conform_nvim.format_if_enabled,
 })
 
 -- change line number based on mode:

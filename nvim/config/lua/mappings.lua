@@ -4,7 +4,7 @@
 -- Neovim Mappings
 
 local M = {}
-local formatter_nvim = require("plugins.settings.formatter-nvim")
+local conform_nvim = require("plugins.settings.conform-nvim")
 local todo_comments = require("plugins.settings.todo-comments-nvim")
 
 -- constants
@@ -44,7 +44,7 @@ g.maplocalleader = ";" -- NOTE: plugin clever-f re-maps original ';' usage to mu
 
 -- normal mode mappings
 
-nmap("yof", formatter_nvim.toggle_formatter_disabled) -- custom, toggle auto formatting
+nmap("yof", conform_nvim.toggle_formatting) -- custom, toggle auto formatting
 -- yogb, gs.toggle_current_line_blame  (setup_gitsigns_mappings)
 -- yogd, gs.toggle_deleted             (setup_gitsigns_mappings)
 -- yogl, gs.toggle_linehl              (setup_gitsigns_mappings)
@@ -64,8 +64,7 @@ nmap("<Leader>em", ":tabedit ~/.config/nvim/lua/mappings.lua<CR>") -- custom, ed
 nmap("<Leader>ep", ":tabedit ~/.config/nvim/lua/plugins/settings<CR>") -- custom, edit plugin settings
 nmap("<Leader>es", ":tabedit ~/.config/nvim/snippets<CR>") -- custom, edit snippets
 nmap("<Leader>et", ":tabedit ~/.config/nvim/templates<CR>") -- custom, edit templates
-nmap("<Leader>f", ":Format<CR>") -- formatter.nvim
-nmap("<Leader>F", ":FormatWrite<CR>") -- formatter.nvim
+nmap("<Leader>f", "<Plug>(conform-nvim-format)") -- conform.nvim, format buffer
 nmap("<Leader>hl", ":TSCaptureUnderCursor<CR>") -- nvim-treesitter/playground
 nmap("<Leader>j", ":HopChar1AC<CR>") -- hop.nvim, smart document jumping
 nmap("<Leader>J", ":HopChar1BC<CR>") -- hop.nvim, smart document jumping

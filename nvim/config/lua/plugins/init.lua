@@ -114,7 +114,7 @@ function M.vim_plug()
 	Plug("antoinemadec/FixCursorHold.nvim")
 
 	-- file formatting on save
-	Plug("mhartington/formatter.nvim")
+	Plug("stevearc/conform.nvim")
 
 	-- add todo comment functionality
 	Plug("folke/todo-comments.nvim")
@@ -177,7 +177,7 @@ function M.vim_plug()
 	Plug("aklt/plantuml-syntax")
 
 	-- interactive evaluation e.g. for LISP development
-	Plug("Olical/conjure")
+	-- Plug("Olical/conjure")
 
 	-- Plug("vim-test/vim-test")
 
