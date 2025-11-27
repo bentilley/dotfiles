@@ -10,6 +10,7 @@ alias f="yazi"             # files
 alias g="git"              # git
 alias j="__zoxide_z"       # jump
 alias m="mutt"             # mail
+alias p="bat --number"     # pager
 alias s="tmux_get_session" # session (tmux)
 alias t="taskwarrior-tui"  # tasks
 alias u="tig status"       # update (worktree)

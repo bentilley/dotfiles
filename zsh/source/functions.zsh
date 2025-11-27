@@ -9,6 +9,10 @@ function removelink() {
   done
 }
 
+function bell() {
+  printf '\a'
+}
+
 # Functions for helping to use pytest
 
 function mypytest() {
