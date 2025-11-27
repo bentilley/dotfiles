@@ -44,6 +44,7 @@ vim.lsp.enable({
 	"jdtls", -- brew install jdtls
 	"jsonls", -- npm install -g vscode-langservers-extracted
 	"lua_ls", -- brew install lua-language-server
+	"pylsp", -- pip install python-lsp-server pylsp-rope
 	"pyright", -- pip install pyright
 	"r_language_server", -- install.packages("languageserver")
 	"rust_analyzer", -- rustup component add rust-analyzer
