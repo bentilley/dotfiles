@@ -41,6 +41,7 @@ $perl\
 $php\
 $purescript\
 $python\
+$rlang\
 $ruby\
 $rust\
 $swift\
@@ -55,7 +56,6 @@ $gcloud\
 $openstack\
 $env_var\
 $crystal\
-$custom\
 $line_break\
 $cmd_duration\
 $lua\
@@ -63,8 +63,8 @@ $jobs\
 $battery\
 $time\
 $status\
-$character"""
-
+$character
+"""
 
 [username]
 style_root = "bold red"
@@ -79,12 +79,13 @@ style = "bold dimmed green"
 # disabled = true
 format = "[$symbol$branch]($style) "
 # format = "[$symbol]($style)"
-truncation_length = 16
+truncation_length = 32
 symbol = ""
 style = "bold purple"
 
 [package]
 format = "[$symbol$version]($style) "
+style = "bold 208"
 
 [nodejs]
 format = "[$symbol($version )]($style)"
@@ -96,11 +97,25 @@ pyenv_version_name = false
 symbol = "🐍"
 style = "bold yellow"
 
+[rlang]
+format = '[$symbol($version )]($style)'
+disabled = true
+
 [cmd_duration]
 format = "[$duration]($style) "
 style = "bold blue"
 show_notifications = false
 min_time_to_notify = 30_000
 
+[aws]
+format = '[($profile )(\($region\) )(\[$duration\] )]($style)'
+
 [gcloud]
 format = '[$project\($region\) - $account]($style) '
+
+[custom.bell]
+command = 'print "\a"'
+# command = "echo hello"
+description = "Include a bell character in the prompt to trigger tmux alerts"
+disabled = false
+when = true
