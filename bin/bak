@@ -1,0 +1,49 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+usage() {
+  echo 'Usage: bak [file]
+
+Create or restore .bak backup files.
+
+  bak file.txt      - moves file.txt to file.txt.bak
+  bak file.txt.bak  - moves file.txt.bak to file.txt
+'
+}
+
+main() {
+  if [[ "${1-}" =~ ^-*h(elp)?$ ]] || [[ $# -eq 0 ]]; then
+    usage
+    exit 0
+  fi
+
+  local file="$1"
+  
+  if [[ ! -e "$file" ]]; then
+    echo "Error: $file does not exist" >&2
+    exit 1
+  fi
+
+  if [[ "$file" == *.bak ]]; then
+    local original="${file%.bak}"
+    if [[ -e "$original" ]]; then
+      echo "Error: $original already exists" >&2
+      exit 1
+    fi
+    mv "$file" "$original"
+    echo "Restored: $file -> $original"
+  else
+    local backup="$file.bak"
+    if [[ -e "$backup" ]]; then
+      echo "Error: $backup already exists" >&2
+      exit 1
+    fi
+    mv "$file" "$backup"
+    echo "Backed up: $file -> $backup"
+  fi
+}
+
+main "$@"

@@ -1,0 +1,80 @@
+#!/bin/bash
+
+usage() {
+  cat <<EOF
+  Usage: tmux_capture_pane_diff [session:]window.pane [--cache-clear]
+
+  Capture tmux pane content and show only new lines since last capture. Useful
+  for coding agents to incrementally read a tmux pane.
+
+  Examples:
+    tmux_capture_pane_diff 0.1                    # window 0, pane 1 in current session
+    tmux_capture_pane_diff analytics-service:0.1  # specific session
+    tmux_capture_pane_diff --cache-clear          # clear all cached states
+EOF
+}
+
+set -e
+
+# Configuration
+CACHE_DIR="${TMUX_DIFF_CACHE_DIR:-$HOME/.cache/tmux/tmux_capture_pane_diff}"
+
+PANE_TARGET=""
+CACHE_CLEAR=false
+
+for arg in "$@"; do
+  case $arg in
+  -h | --help)
+    usage
+    exit 0
+    ;;
+  --cache-clear)
+    CACHE_CLEAR=true
+    ;;
+  *)
+    PANE_TARGET="$arg"
+    ;;
+  esac
+done
+
+if [ "$CACHE_CLEAR" = true ]; then
+  if [ -d "$CACHE_DIR" ]; then
+    rm -rf "${CACHE_DIR:?}"/*
+  fi
+  exit 0
+fi
+
+if [ -z "$PANE_TARGET" ]; then
+  usage
+  exit 1
+fi
+
+mkdir -p "$CACHE_DIR"
+
+if [[ "$PANE_TARGET" != *":"* ]]; then
+  CURRENT_SESSION=$(tmux display-message -p '#{session_name}')
+  FULL_TARGET="${CURRENT_SESSION}:${PANE_TARGET}"
+else
+  FULL_TARGET="$PANE_TARGET"
+fi
+
+SAFE_NAME=$(echo "$FULL_TARGET" | sed 's/[^a-zA-Z0-9._-]/_/g')
+STATE_FILE="$CACHE_DIR/pane_${SAFE_NAME}_state"
+CURRENT_FILE="$CACHE_DIR/pane_${SAFE_NAME}_current"
+
+if ! tmux capture-pane -t "$FULL_TARGET" -p >"$CURRENT_FILE" 2>/dev/null; then
+  echo "Error: Could not capture pane '$FULL_TARGET'"
+  exit 1
+fi
+
+if [ -f "$STATE_FILE" ]; then
+  # Show only new lines (lines that appear in current but not in previous)
+  diff "$STATE_FILE" "$CURRENT_FILE" | grep "^>" | sed 's/^> //' || true
+else
+  # First time - show all content
+  cat "$CURRENT_FILE"
+fi
+
+# Update state for next run
+cp "$CURRENT_FILE" "$STATE_FILE"
+rm "$CURRENT_FILE"
