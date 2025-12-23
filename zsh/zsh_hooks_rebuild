@@ -20,6 +20,8 @@ ZSH_HOOKS_DIR="${ZSH_HOOKS_DIR:-$HOME/.local/share/zsh/hooks}"
 main() {
   echo "Rebuilding ZSH hooks in ${ZSH_HOOKS_DIR}..."
 
+  mkdir -p "${ZSH_HOOKS_DIR}"
+
   echo direnv
   direnv hook zsh > "${ZSH_HOOKS_DIR}/direnv.zsh"
   zcompile "${ZSH_HOOKS_DIR}/direnv.zsh"

@@ -77,7 +77,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 # source additional files - source the machine specific files first as they
 # might set env variable options that are used in the other files.
-for additional_file in $HOME/.local/share/zsh/source/**/*.zsh; do
+for additional_file in $HOME/.local/share/zsh/source/**/*.zsh(N); do
   source $additional_file
 done
 for additional_file in $HOME/.dotfiles/zsh/source/**/*.zsh; do
