@@ -67,10 +67,10 @@ function M.vim_plug()
 	Plug("mfussenegger/nvim-lint")
 
 	-- neovim treesitter config
-	Plug("nvim-treesitter/nvim-treesitter", { ["do"] = ":TSUpdate" })
+	Plug("nvim-treesitter/nvim-treesitter", { branch = "master", ["do"] = ":TSUpdate" })
 
 	-- treesitter utils e.g. view highlight groups
-	Plug("nvim-treesitter/playground")
+	Plug("nvim-treesitter/playground", { branch = "master" })
 
 	-- treesitter defined text objects e.g. inner.function etc.
 	Plug("nvim-treesitter/nvim-treesitter-textobjects")
