@@ -96,8 +96,4 @@ source "$HOME/.local/share/zsh/hooks/direnv.zsh"
 source "$HOME/.local/share/zsh/hooks/starship.zsh"
 source "$HOME/.local/share/zsh/hooks/zoxide.zsh"
 
-# _evalcache direnv hook zsh          # setup direnv - directory level variables
-# _evalcache starship init zsh        # setup starship prompt
-# _evalcache zoxide init zsh --no-cmd # setup zoxide - directory jump
-
 # zprof
